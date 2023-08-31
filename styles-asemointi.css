@@ -1,0 +1,127 @@
+:root {
+  --hue: 126;
+  --sat: 100%;
+  --gap: 10px;
+  font-family: Arial, sans-serif;
+  color: hsl(var(--hue), var(--sat), 10%);
+}
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: url('img/leaves.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+#sailio {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  max-width: 1000px;
+}
+#navi1,
+#navi2,
+#sisalto {
+  padding: 1rem;
+  height: max-content;
+  background-color: hsl(var(--hue), var(--sat), 90%);
+  box-shadow: 0 var(--gap) var(--gap) calc(var(--gap) * 0.2)
+    hsl(var(--hue), var(--sat), 10%);
+}
+#navi1,
+#navi2 {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  border: hsl(var(--hue), var(--sat), 60%) solid 4px;
+  border-top-width: 8px;
+  gap: var(--gap);
+}
+#navi1 ul,
+#navi2 ul {
+  flex: 1 1 calc(60% - var(--gap) * 3);
+}
+#navi1 h2,
+#navi2 h2 {
+  text-align: center;
+  flex: 1 1 calc(40% - var(--gap) * 3);
+  padding: 0.1em;
+}
+#navi1 ul,
+#navi2 ul {
+  list-style: square;
+  margin: 0;
+  padding: 0.8rem 0.8rem 0.8rem 2rem;
+  background-color: white;
+}
+#navi1 a,
+#navi2 a,
+#navi1 ::marker,
+#navi2 ::marker {
+  color: hsl(var(--hue), var(--sat), 30%);
+}
+#navi1 a,
+#navi2 a {
+  text-decoration: none;
+  padding-top: 0.1em;
+  display: inline-block;
+}
+#navi1 a:hover,
+#navi2 a:hover,
+#navi1 a:focus,
+#navi2 a:focus {
+  text-decoration: underline;
+}
+#sisalto {
+  border: hsl(var(--hue), var(--sat), 60%) solid 8px;
+}
+.copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 0.4;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  transition-property: opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.copy:hover,
+.copy:focus {
+  opacity: 0.9;
+}
+@media (min-width: 576px) {
+  #sailio {
+    flex-flow: row nowrap;
+  }
+  #navi2 {
+    order: 3;
+  }
+  #navi1,
+  #navi2 {
+    max-width: 150px;
+    display: flex;
+    padding: 0;
+    gap: 0;
+  }
+  #navi1 ul,
+  #navi2 ul {
+    margin: 0;
+  }
+  #navi1 h2,
+  #navi2 h2 {
+    margin-bottom: 0.1em;
+    text-align: left;
+    background-color: hsl(var(--hue), var(--sat), 30%);
+    color: white;
+    margin: 0;
+  }
+  #navi1 h2:first-of-type,
+  #navi2 h2:first-of-type,
+  h1 {
+    margin-top: 0;
+  }
+}
