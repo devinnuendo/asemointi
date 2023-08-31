@@ -1,0 +1,51 @@
+:root {
+  --hue: 213;
+  --sat: 100%;
+  --gap: 10px;
+  --font-size-normal: 20px;
+  --font-size-small: 16px;
+  font-size: var(--font-size-normal);
+}
+* {
+  box-sizing: border-box;
+}
+*:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  justify-content: space-between;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+main {
+  padding: var(--gap);
+}
+main > * {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: var(--gap);
+  background-color: hsl(var(--hue), var(--sat), 90%);
+  color: hsl(var(--hue), var(--sat), 20%);
+}
+h2 {
+  text-align: center;
+  margin: calc(var(--gap) * 2) 0;
+}
+a {
+  color: hsl(var(--hue), var(--sat), 40%);
+}
+footer {
+  text-align: center;
+  background-color: hsl(var(--hue), var(--sat), 10%);
+  color: hsl(var(--hue), var(--sat), 100%);
+  padding: var(--gap);
+}

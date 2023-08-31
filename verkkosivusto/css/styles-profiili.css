@@ -1,0 +1,92 @@
+:root {
+  color: hsl(var(--hue), var(--sat), 20%);
+}
+
+p {
+  line-height: 1.6;
+}
+
+ul {
+  list-style: square;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid hsl(var(--hue), var(--sat), 60%);
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+img.right {
+  max-width: 100px;
+  height: auto;
+  float: right;
+  margin: 0 0 0 1em;
+}
+
+form {
+  margin-top: 20px;
+}
+
+fieldset {
+  border: 1px solid hsl(var(--hue), var(--sat), 60%);
+  padding: 10px;
+  margin: 20px 0;
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+label label {
+  display: inline-block;
+  font-weight: normal;
+}
+
+input[type='text'],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid hsl(var(--hue), var(--sat), 60%);
+  font-size: var(--font-size-normal);
+}
+
+input[type='radio'] {
+  margin-right: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid hsl(var(--hue), var(--sat), 60%);
+  font-size: var(--font-size-normal);
+  color: hsl(var(--hue), var(--sat), 30%);
+}
+
+input[type='submit'] {
+  background-color: hsl(var(--hue), var(--sat), 20%);
+  color: hsl(var(--hue), var(--sat), 100%);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: hsl(var(--hue), var(--sat), 40%);
+}

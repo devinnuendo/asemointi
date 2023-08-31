@@ -1,0 +1,70 @@
+:root {
+  --font-size-normal: 20px;
+  --font-size-small: 16px;
+  --gap: 0.4rem;
+  --font-family: Arial, sans-serif;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+}
+
+form {
+  max-width: 600px;
+  margin: 1em auto 2em;
+}
+fieldset {
+  padding: 1em 1em 0.8em;
+  margin-bottom: 1.8em;
+  border-radius: 0.3em;
+}
+fieldset.osastot {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+legend {
+  font-size: var(--font-size-normal);
+  font-weight: bold;
+}
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input,
+textarea {
+  width: calc(100% - calc(var(--gap) * 2));
+}
+input,
+select,
+textarea {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+}
+input:last-of-type,
+select:last-of-type,
+textarea:last-of-type {
+  margin-bottom: 0;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  display: inline-block;
+  width: auto;
+}
+input[type='checkbox'] {
+  margin-right: 0.3em;
+}
+select {
+  width: 100%;
+}
+textarea {
+  resize: vertical;
+}
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,41 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+
+.sailio {
+  border: 1px solid hsl(var(--hue), var(--sat), 90%);
+  border-radius: calc(var(--gap) / 2);
+  padding: var(--gap);
+  text-align: center;
+  flex-basis: calc(50% - calc(3 * var(--gap)));
+  flex-grow: 1;
+  box-shadow: 0 calc(var(--gap) / 2) var(--gap) calc(var(--gap) / -8)
+    hsl(var(--hue), var(--sat), 90%);
+}
+
+.sailio img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  border-radius: calc(var(--gap) / 2);
+}
+
+.kuvaus {
+  margin-top: var(--gap);
+  font-style: italic;
+  color: hsl(var(--hue), var(--sat), 10%);
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    flex-wrap: nowrap;
+  }
+
+  .sailio {
+    flex-basis: calc(25% - calc(3 * var(--gap)));
+  }
+}

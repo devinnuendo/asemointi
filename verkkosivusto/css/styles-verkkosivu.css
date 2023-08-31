@@ -1,0 +1,40 @@
+figure {
+  display: inline-block;
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+ul {
+  list-style-type: square;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+@media (min-width: 576px) {
+  figure {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+  img {
+    max-width: clamp(100px, 50vw, 500px);
+  }
+}
