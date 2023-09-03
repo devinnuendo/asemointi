@@ -151,16 +151,22 @@ section > * {
   font-size: 70%;
   color: currentcolor;
 }
-
-section.tuotteet {
+section.tuotteet p {
+  text-align: center;
+}
+section.tuotteet nav {
   --size: 100px;
+  display: flex;
+  flex-flow: row wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
   gap: calc(var(--gap) * 2) var(--gap);
   justify-content: space-around;
 }
-section.tuotteet > * {
+section.tuotteet nav > * {
   flex: 0 0 var(--size);
 }
-section.tuotteet figure {
+section.tuotteet nav figure {
   margin: 0;
   text-align: center;
   border: solid 1px hsl(var(--hue), var(--sat), 80%);
@@ -174,18 +180,18 @@ section.tuotteet figure {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
-section.tuotteet figure:hover,
-section.tuotteet figure:focus {
+section.tuotteet nav figure:hover,
+section.tuotteet nav figure:focus {
   transform: scale(1.05);
 }
-section.tuotteet img {
+section.tuotteet nav img {
   padding-top: calc(var(--gap) * 2);
   width: 40%;
 }
-section.tuotteet figcaption {
+section.tuotteet nav figcaption {
   margin-top: 0.2rem;
 }
-section.tuotteet figcaption a {
+section.tuotteet nav figcaption a {
   display: block;
   text-decoration: none;
   width: 80px;
@@ -194,8 +200,8 @@ section.tuotteet figcaption a {
   color: hsl(var(--hue), var(--sat), 30%);
   font-style: italic;
 }
-section.tuotteet figcaption a:hover,
-section.tuotteet figcaption a:focus {
+section.tuotteet nav figcaption a:hover,
+section.tuotteet nav figcaption a:focus {
   text-decoration: underline;
 }
 section .full {
@@ -543,7 +549,7 @@ footer > small {
     height: 100%;
     max-height: 100%;
   }
-  section.tuotteet img {
+  section.tuotteet nav img {
     padding-top: calc(var(--gap) * 1.5);
   }
   footer address {
@@ -560,14 +566,14 @@ footer > small {
 }
 
 @media (min-width: 768px) {
-  section.tuotteet {
+  section.tuotteet nav {
     --size: 150px;
   }
-  section.tuotteet img {
+  section.tuotteet nav img {
     padding-top: calc(var(--gap) * 3);
     width: 50%;
   }
-  section.tuotteet figcaption a {
+  section.tuotteet nav figcaption a {
     width: auto;
   }
   section.kauppa ul {
@@ -588,7 +594,7 @@ footer > small {
   :root {
     --responsive_scale: 0.9;
   }
-  section.tuotteet {
+  section.tuotteet nav {
     --size: 192px;
   }
 }
