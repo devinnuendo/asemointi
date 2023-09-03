@@ -324,17 +324,15 @@
     left: calc(var(--gap) * -2);
     top: calc(1em + var(--gap) * 3);
   }
-  #submenu-toggle ~ label {
-    background-color: hsl(var(--hue), var(--sat), 40%);
+  #submenu-toggle ~ label,
+  .tuotteetmenu #submenu-toggle:hover ~ label {
+    background-color: transparent;
     font-size: 0.8em;
     margin: 0.15rem 0 -0.15rem;
   }
   #submenu-toggle ~ label {
     border-radius: 3px;
   }
-  /* #submenu-toggle:hover ~ label {
-    outline: 2px solid hsl(var(--hue), var(--sat), 55%);
-  } */
   #submenu-toggle ~ ul a {
     text-align: left;
     padding-left: calc(var(--gap) * 3);
