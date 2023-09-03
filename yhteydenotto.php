@@ -47,7 +47,7 @@ include "sivuosat/header.php"; ?>
             <textarea id="viesti" name="viesti" rows="4" cols="50" required></textarea>
             <fieldset>
                 <legend><label for="uutiskirje">Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</label></legend>
-                <input type="radio" id="kylla" name="uutiskirje" value="kylla">
+                <input type="radio" id="kylla" name="uutiskirje" value="kylla" checked>
                 <label for="kylla">Kyllä</label>
                 <input type="radio" id="ei" name="uutiskirje" value="ei">
                 <label for="ei">Ei</label>
