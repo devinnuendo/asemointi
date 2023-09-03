@@ -6,7 +6,7 @@ $img1920 = 'img/flower-3231083_1920.jpg';
 include "sivuosat/header.php"; ?>
 
 <main class="yhteydenotto">
-    <section>
+    <section class="lista-wrap">
         <div>
             <label for="yhteydenottolista">Voit ottaa meihin yhteyttä</label>
             <ul id="yhteydenottolista">

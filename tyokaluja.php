@@ -4,7 +4,7 @@ include "sivuosat/header.php"; ?>
 
 <main>
     <?php include "sivuosat/inner-nav.php"; ?>
-    <section>
+    <section class="kauppa">
         <p>Tuotteita tulossa!</p>
     </section>
 </main>

@@ -134,21 +134,23 @@ section {
 section > * {
   flex: 1 0 100%;
 }
-ul {
+.lista-wrap ul {
   padding-left: calc(var(--gap) * 2);
 }
-main li {
+.lista-wrap li {
   line-height: 1.3;
   margin: var(--gap) 0 0 0;
 }
-li::marker {
+.lista-wrap li::marker {
   content: '❊ ';
 }
-ul ul {
+.lista-wrap ul ul {
   padding-left: calc(var(--gap) * 2 + 1em);
 }
-ul ul li::marker {
-  font-size: 80%;
+.lista-wrap ul ul li::marker {
+  content: '🙖 ';
+  font-size: 70%;
+  color: currentcolor;
 }
 
 section.tuotteet {
