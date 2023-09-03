@@ -9,7 +9,7 @@
   background: linear-gradient(
     0deg,
     hsl(var(--hue), var(--sat), 40%) 0%,
-    hsl(var(--hue), var(--sat), 50%) 100%
+    hsl(var(--hue), var(--sat), 50%) 80%
   );
   color: hsl(var(--hue), var(--sat), 96%);
   box-shadow: 0 0.2rem 0.2rem 0.1rem hsl(var(--hue), var(--sat), 40%);
@@ -98,7 +98,7 @@
   text-align: center;
   margin: 0;
   padding: var(--gap);
-  background-color: hsl(var(--hue), var(--sat), 35%);
+  background-color: hsl(var(--hue), var(--sat), 40%);
   color: hsl(var(--hue), var(--sat), 96%);
   border-bottom: thin dotted hsl(var(--hue), var(--sat), 50%);
   transition-property: background-color, box-shadow;
@@ -108,7 +108,7 @@
 .mainmenu ul a:hover,
 .mainmenu ul a:focus,
 .mainmenu ul a:focus-visible {
-  background-color: hsl(var(--hue), var(--sat), 40%);
+  background-color: hsl(var(--hue), var(--sat), 45%);
 }
 
 #menu-toggle ~ label {
@@ -150,7 +150,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: hsl(var(--hue), var(--sat), 30%);
+  background-color: hsl(var(--hue), var(--sat), 35%);
   color: hsl(var(--hue), var(--sat), 96%);
 }
 .tuotteetmenu i {
@@ -165,12 +165,12 @@
   z-index: 3;
 }
 .mainmenu .submenu a {
-  background-color: hsl(var(--hue), var(--sat), 30%);
+  background-color: hsl(var(--hue), var(--sat), 35%);
 }
 .submenu ul a:hover,
 .submenu ul a:focus,
 .submenu ul a:focus-visible {
-  background-color: hsl(var(--hue), var(--sat), 36%);
+  background-color: hsl(var(--hue), var(--sat), 42%);
 }
 .tuotteetmenu .close {
   display: none;
@@ -194,7 +194,7 @@
   transition-timing-function: ease-in-out;
 }
 .tuotteetmenu #submenu-toggle:hover ~ label {
-  background-color: hsl(var(--hue), var(--sat), 40%);
+  background-color: hsl(var(--hue), var(--sat), 45%);
 }
 #submenu-toggle:checked ~ .close {
   display: flex;
