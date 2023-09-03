@@ -1,0 +1,341 @@
+.mainmenu {
+  position: relative;
+  font-size: var(--font-size-small);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(var(--hue), var(--sat), 40%);
+  color: hsl(var(--hue), var(--sat), 96%);
+  box-shadow: 0 0.2rem 0.2rem 0.1rem hsl(var(--hue), var(--sat), 40%);
+}
+.mainmenu .logo,
+.mainmenu .icon {
+  padding: calc(var(--gap) + 0.2rem) calc(var(--gap) * 2) calc(var(--gap) - 0.2rem)
+    var(--gap);
+}
+.mainmenu .logo {
+  flex: 0 1 max-content;
+  color: white;
+}
+.mainmenu .logo img {
+  filter: invert(100%);
+}
+.mainmenu .logotext {
+  display: none;
+  padding-right: var(--gap);
+  text-decoration: none;
+  color: hsl(var(--hue), var(--sat), 96%);
+  letter-spacing: 0.04em;
+  flex: 0 0 max-content;
+  text-align: left;
+  font-style: italic;
+  font-family: 'Ephesis', cursive;
+  font-size: 2rem;
+  margin-bottom: -0.4em;
+}
+.mainmenu .icon {
+  font-size: 1rem;
+  background-color: hsl(var(--hue), var(--sat), 40%);
+  color: hsl(var(--hue), var(--sat), 96%);
+  border: 0;
+  cursor: pointer;
+  flex: 1 0 max-content;
+  text-align: right;
+}
+.mainmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 0 1 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  z-index: 2;
+}
+.mainmenu > ul {
+  position: absolute;
+  left: 0;
+  top: calc(48px + var(--gap) * 2); /* brand logo height plus padding */
+  width: calc(100vw - var(--scrollbar-width));
+}
+.mainmenu > ul > li {
+  position: relative;
+}
+.submenu .tuotteetmenu {
+  position: relative;
+}
+.mainmenu .close {
+  display: none;
+}
+
+#menu-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: calc(3em + 1rem);
+  appearance: none;
+  color: white;
+  margin: 4px 0 0 0;
+}
+
+#menu-toggle:checked ~ .close {
+  display: inline-block;
+}
+
+#menu-toggle:checked ~ .open {
+  display: none;
+}
+
+.mainmenu ul a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  padding: var(--gap);
+  background-color: hsl(var(--hue), var(--sat), 35%);
+  color: hsl(var(--hue), var(--sat), 96%);
+  border-bottom: thin dotted hsl(var(--hue), var(--sat), 50%);
+  transition-property: background-color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.mainmenu ul a:hover,
+.mainmenu ul a:focus,
+.mainmenu ul a:focus-visible {
+  background-color: hsl(var(--hue), var(--sat), 40%);
+}
+
+#menu-toggle ~ label {
+  z-index: 3;
+  margin: 0 4px 0 0;
+  background-color: transparent;
+  outline: 2px solid transparent;
+  transition-property: background-color, outline-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+#menu-toggle:checked ~ .close {
+  display: inline-block;
+}
+
+#menu-toggle:checked ~ .open {
+  display: none;
+}
+#menu-toggle ~ ul {
+  display: none;
+}
+#menu-toggle:checked ~ ul {
+  display: flex;
+}
+
+.tuotteetmenu label,
+.tuotteetmenu i {
+  display: inline-block;
+}
+.tuotteetmenu input {
+  position: absolute;
+}
+.tuotteetmenu label {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--hue), var(--sat), 30%);
+  color: hsl(var(--hue), var(--sat), 96%);
+}
+.tuotteetmenu i {
+  padding: var(--gap) 1em;
+}
+.submenu {
+  position: absolute;
+  top: calc(1em + var(--gap) * 2);
+  left: 0;
+  width: calc(100vw - var(--scrollbar-width));
+  flex-flow: column nowrap;
+  z-index: 3;
+}
+.mainmenu .submenu a {
+  background-color: hsl(var(--hue), var(--sat), 30%);
+}
+.submenu ul a:hover,
+.submenu ul a:focus,
+.submenu ul a:focus-visible {
+  background-color: hsl(var(--hue), var(--sat), 36%);
+}
+.tuotteetmenu .close {
+  display: none;
+}
+#submenu-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3em;
+  height: 100%;
+  z-index: 3;
+  appearance: none;
+  color: white;
+  margin: 0;
+  cursor: pointer;
+}
+#submenu-toggle ~ label {
+  outline: 2px solid transparent;
+  transition-property: background-color, outline-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.tuotteetmenu #submenu-toggle:hover ~ label {
+  background-color: hsl(var(--hue), var(--sat), 40%);
+}
+#submenu-toggle:checked ~ .close {
+  display: flex;
+}
+
+#submenu-toggle:checked ~ .open {
+  display: none;
+}
+#submenu-toggle ~ .submenu {
+  display: none;
+}
+#submenu-toggle:checked ~ .submenu {
+  display: flex;
+}
+/* TUOTESIVUJEN VALIKKO */
+.secondary {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.secondary ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+}
+.secondary li {
+  position: relative;
+}
+.secondary a {
+  display: inline-block;
+  text-decoration: none;
+  padding: calc(var(--gap) * 3) var(--gap);
+}
+.secondary a:hover {
+  text-decoration: underline;
+}
+.secondary li.active a {
+  color: hsl(var(--hue), var(--sat), 10%);
+}
+
+@media (min-width: 380px) {
+  .mainmenu {
+    justify-content: flex-start;
+  }
+  .mainmenu .logotext {
+    display: block;
+    line-height: 1;
+  }
+  .mainmenu .logotext::first-letter {
+    letter-spacing: -0.07em;
+  }
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .mainmenu {
+    --margin-right: 2.3rem;
+  }
+  #menu-toggle,
+  .icon {
+    display: none;
+  }
+  #menu-toggle ~ ul {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    justify-content: space-evenly;
+    width: auto;
+    max-width: 900px;
+    margin: 0.5rem 0 -0.5rem;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #menu-toggle ~ ul a {
+    background-color: transparent;
+    border: 0;
+    box-shadow: inset 0 -0.4rem 0.1rem -0.5rem hsl(var(--hue), var(--sat), 50%);
+    position: relative;
+  }
+  #menu-toggle ~ ul a::after,
+  #submenu-toggle ~ label::after {
+    --height: 0.2rem;
+    content: '';
+    position: absolute;
+    bottom: calc(var(--height) * -0.5);
+    left: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: hsla(var(--hue), var(--sat), 50%, 0);
+    box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 0);
+    z-index: 2;
+    transition-property: background-color, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+  }
+  #submenu-toggle ~ label::after {
+    bottom: calc(var(--height) * -1);
+  }
+  #menu-toggle ~ ul a:hover::after,
+  #submenu-toggle:hover ~ label::after {
+    background-color: hsla(var(--hue), var(--sat), 50%, 1);
+    box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 1);
+  }
+  #menu-toggle ~ ul .tuotteetmenu a {
+    margin-right: var(--margin-right);
+  }
+  #menu-toggle ~ ul .tuotteetmenu > a {
+    margin: 0;
+    padding-right: var(--margin-right);
+  }
+  #submenu-toggle {
+    width: var(--margin-right);
+  }
+  .submenu {
+    width: calc(100% + 3rem + calc(var(--gap) * 2));
+    left: calc(var(--gap) * -2);
+    top: calc(1em + var(--gap) * 3);
+  }
+  #submenu-toggle ~ label {
+    background-color: hsl(var(--hue), var(--sat), 40%);
+    font-size: 0.8em;
+    margin: 0.15rem 0 -0.15rem;
+  }
+  #submenu-toggle ~ label {
+    border-radius: 3px;
+  }
+  /* #submenu-toggle:hover ~ label {
+    outline: 2px solid hsl(var(--hue), var(--sat), 55%);
+  } */
+  #submenu-toggle ~ ul a {
+    text-align: left;
+    padding-left: calc(var(--gap) * 3);
+    background-color: hsl(var(--hue), var(--sat), 40%);
+  }
+}
+
+@media (min-width: 1400px) {
+}

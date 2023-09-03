@@ -1,0 +1,552 @@
+:root {
+  box-sizing: border-box;
+  font-family: 'PT Sans', Arial, sans-serif;
+  font-size: calc(var(--font-size-normal) * var(--responsive_scale));
+  line-height: 1.2;
+  color: hsl(var(--hue), var(--sat), 10%);
+  font-style: italic;
+  --max-width: 1000px;
+  --hue: 325;
+  --sat: 80%;
+  --font-size-normal: 20px;
+  --gap: 0.5rem;
+  --typography_ratio: 1.16;
+  --responsive_scale: 0.75;
+  --title-XS: calc(1.4rem * var(--responsive_scale));
+  --title-S: calc(calc(var(--typography_ratio) * var(--responsive_scale)) * 1.4rem);
+  --title-M: calc(
+    calc(var(--typography_ratio) * var(--typography_ratio) * 1.4rem) *
+      var(--responsive_scale)
+  );
+  --title-L: calc(
+    calc(
+        calc(var(--typography_ratio) * var(--typography_ratio)) * var(--typography_ratio) *
+          1.4rem
+      ) * var(--responsive_scale)
+  );
+  --title-XL: calc(
+    calc(
+        calc(
+            calc(var(--typography_ratio) * var(--typography_ratio)) *
+              var(--typography_ratio)
+          ) * var(--typography_ratio) * 1.4rem
+      ) * var(--responsive_scale)
+  );
+  --title-XXL: calc(
+    calc(
+        calc(
+            calc(
+                calc(var(--typography_ratio) * var(--typography_ratio)) *
+                  var(--typography_ratio)
+              ) * var(--typography_ratio)
+          ) * var(--typography_ratio) * 1.4rem
+      ) * var(--responsive_scale)
+  );
+  --title-XXXL: calc(
+    calc(
+        calc(
+            calc(
+                calc(var(--typography_ratio) * var(--typography_ratio)) *
+                  var(--typography_ratio)
+              ) * var(--typography_ratio) * var(--typography_ratio)
+          ) * var(--typography_ratio) * 1.4rem
+      ) * var(--responsive_scale)
+  );
+  --title-XXXXL: calc(
+    calc(
+        calc(
+            calc(
+                calc(var(--typography_ratio) * var(--typography_ratio)) *
+                  var(--typography_ratio)
+              ) * var(--typography_ratio) * var(--typography_ratio)
+          ) * var(--typography_ratio) * 1.6rem
+      ) * var(--responsive_scale)
+  );
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+*:focus-visible,
+section.kauppa li:focus-within {
+  outline: dashed 2px currentcolor;
+  outline-offset: -1px;
+}
+header {
+  position: relative;
+  min-height: 200px;
+}
+
+header img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 50vh;
+}
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  flex: 1 0 100%;
+  padding: var(--gap) var(--gap) 3rem var(--gap);
+}
+section,
+footer > * {
+  padding: var(--gap);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+header h1.site-heading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 2em;
+  padding-left: var(--gap);
+  margin: 0;
+  text-shadow: -1px -1px white;
+  background: hsla(var(--hue), var(--sat), 98%, 0.4);
+  background: linear-gradient(
+    0deg,
+    hsla(var(--hue), var(--sat), 98%, 1) 0%,
+    hsla(var(--hue), var(--sat), 98%, 0) 100%
+  );
+  width: calc(100vw - var(--scrollbar-width));
+  line-height: 0.8;
+}
+header h1.site-heading span {
+  display: block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+section {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: calc(var(--gap) * 4);
+}
+section > * {
+  flex: 1 0 100%;
+}
+section.tuotteet {
+  --size: 100px;
+  gap: calc(var(--gap) * 2) var(--gap);
+  justify-content: space-around;
+}
+section.tuotteet > * {
+  flex: 0 0 var(--size);
+}
+section.tuotteet figure {
+  margin: 0;
+  text-align: center;
+  border: solid 1px hsl(var(--hue), var(--sat), 80%);
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  box-shadow: 0.1rem 0.2rem 1rem 0 hsl(var(--hue), var(--sat), 80%),
+    0.1rem 0.2rem 0.1rem 0 hsl(var(--hue), var(--sat), 80%);
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+section.tuotteet figure:hover,
+section.tuotteet figure:focus {
+  transform: scale(1.05);
+}
+section.tuotteet img {
+  padding-top: calc(var(--gap) * 2);
+  width: 40%;
+}
+section.tuotteet figcaption {
+  margin-top: 0.2rem;
+}
+section.tuotteet figcaption a {
+  display: block;
+  text-decoration: none;
+  width: 80px;
+  margin: 0 auto;
+  line-height: 1;
+  color: hsl(var(--hue), var(--sat), 30%);
+  font-style: italic;
+}
+section.tuotteet figcaption a:hover,
+section.tuotteet figcaption a:focus {
+  text-decoration: underline;
+}
+section .full {
+  flex: 1 0 100%;
+}
+section.kauppa {
+  --size: 160px;
+}
+section.kauppa ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: calc(var(--gap) * 3) 4%;
+  margin: 0;
+  padding: 0;
+}
+section.kauppa li {
+  flex: 0 0 100%;
+  box-shadow: 0 0.2rem 1rem 0 hsla(0, 0%, 0%, 0.3);
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+section.kauppa figure {
+  margin: 0;
+}
+section.kauppa img {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 0.3rem 0.4rem -0.2rem hsla(0, 0%, 0%, 0.3);
+}
+section.kauppa a {
+  text-decoration: none;
+  color: hsl(var(--hue), var(--sat), 10%);
+}
+section.kauppa a:hover,
+section.kauppa a:focus {
+  color: hsl(var(--hue), var(--sat), 45%);
+}
+section.kauppa li:hover {
+  transform: scale(1.05);
+}
+
+section.kauppa a figcaption {
+  padding: var(--gap) calc(var(--gap) * 2) calc(var(--gap) * 2) calc(var(--gap) * 2);
+}
+section.kauppa em,
+section.kauppa strong {
+  display: block;
+}
+section.kauppa em {
+  font-size: 110%;
+}
+section.kauppa li small {
+  margin: 0.4em 0;
+}
+section.kauppa li strong {
+  margin-top: 0.4em;
+}
+address {
+  display: inline-block;
+}
+.etusivu h2 {
+  margin-bottom: 0;
+}
+article {
+  /* border: 0.3rem solid hsl(var(--hue), var(--sat), 90%);
+  border-width: 0.05rem 0.3rem 0.3rem 0.1rem; */
+  box-shadow: 0 0 0.1rem 0.06rem hsl(var(--hue), var(--sat), 90%),
+    0.2rem 0.3rem 1rem 0 hsl(var(--hue), var(--sat), 90%),
+    0.2rem 0.3rem 0.1rem 0 hsl(var(--hue), var(--sat), 90%);
+  flex: 1 0 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: var(--gap);
+  padding: calc(var(--gap) * 2);
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+article small {
+  font-style: italic;
+  opacity: 0.8;
+}
+article h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  text-transform: none;
+}
+article figure {
+  flex: 0 1 100%;
+  max-width: 100%;
+
+  margin-block-start: 0;
+  margin-block-end: var(--gap);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+article figure img {
+  max-height: 10rem;
+  width: 100%;
+  object-position: center;
+  border-radius: var(--gap);
+  object-fit: cover;
+}
+article > div {
+  flex: 1 0 60%;
+}
+/*linkit*/
+a {
+  color: hsl(var(--hue), var(--sat), 45%);
+}
+a.wrap {
+  color: hsl(var(--hue), var(--sat), 10%);
+  text-decoration: none;
+}
+a.wrap:hover article,
+a.wrap:focus article {
+  transform: scale(1.04);
+}
+.scr {
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  line-height: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
+}
+.displaynone {
+  display: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: break-word;
+  font-weight: 100;
+  margin: 0 0 0.8em;
+  font-style: italic;
+  color: hsl(var(--hue), var(--sat), 35%);
+  letter-spacing: -0.05em;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-style: italic;
+}
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+h1:not(:first-child),
+h2:not(:first-child),
+h3:not(:first-child),
+h4:not(:first-child),
+h5:not(:first-child),
+h6:not(:first-child) {
+  margin: 1em 0 0.8em;
+}
+h1::first-letter {
+  letter-spacing: -0.07em;
+}
+h1 {
+  font-size: clamp(23px, 14vw, var(--title-XXXXL));
+  font-family: 'Ephesis', cursive;
+  letter-spacing: 0.03em;
+}
+h2 {
+  font-size: var(--title-XXL);
+}
+h3 {
+  font-size: var(--title-XL);
+}
+h4 {
+  font-size: var(--title-L);
+}
+h5 {
+  font-size: var(--title-M);
+}
+h6 {
+  font-size: var(--title-S);
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid hsla(var(--hue), var(--sat), 80%, 0.8);
+  border-width: 1px 0.1rem 0.2rem 1px;
+  border-radius: 0.3rem;
+  box-shadow: 0.2rem 0.4rem 1rem -0.4rem hsla(var(--hue), var(--sat), 80%, 0.8);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid hsl(var(--hue), var(--sat), 80%);
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+select {
+  height: 40px; /* Match the height of other input fields */
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type='radio'] {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+input[type='submit'] {
+  background-color: hsl(var(--hue), var(--sat), 40%);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: hsl(var(--hue), var(--sat), 40%);
+}
+fieldset {
+  border: solid 1px hsl(var(--hue), var(--sat), 80%);
+  border-radius: 0.3rem;
+  margin-bottom: 1em;
+}
+fieldset label {
+  display: inline-block;
+}
+footer {
+  background-color: hsl(var(--hue), var(--sat), 92%);
+  font-style: italic;
+  position: relative;
+}
+footer::before {
+  --height: 0.4rem;
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--height));
+  left: 0;
+  right: 0;
+  height: var(--height);
+  background: hsla(var(--hue), var(--sat), 92%, 0.4);
+  background: linear-gradient(
+    0deg,
+    hsla(var(--hue), var(--sat), 92%, 1) 0%,
+    hsla(var(--hue), var(--sat), 92%, 0) 100%
+  );
+  width: calc(100vw - var(--scrollbar-width));
+}
+footer > address {
+  display: flex;
+}
+footer section {
+  gap: var(--gap);
+}
+footer > small {
+  display: block;
+  text-align: center;
+  background-color: hsl(var(--hue), var(--sat), 89%);
+}
+
+@media (min-width: 380px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    word-break: normal;
+  }
+  section.kauppa li {
+    flex: 0 0 48%;
+  }
+}
+@media (min-width: 576px) {
+  :root {
+    --responsive_scale: 0.8;
+  }
+  article {
+    flex-flow: row nowrap;
+  }
+  article figure {
+    flex: 0 1 30%;
+    max-width: 30%;
+
+    margin-block-start: var(--gap);
+    margin-block-end: var(--gap);
+    margin-inline-start: var(--gap);
+    margin-inline-end: calc(var(--gap) * 4);
+  }
+  article figure img {
+    height: 100%;
+    max-height: 100%;
+  }
+  section.tuotteet img {
+    padding-top: calc(var(--gap) * 1.5);
+  }
+}
+
+@media (min-width: 768px) {
+  section.tuotteet {
+    --size: 150px;
+  }
+  section.tuotteet img {
+    padding-top: calc(var(--gap) * 3);
+    width: 50%;
+  }
+  section.tuotteet figcaption a {
+    width: auto;
+  }
+  section.kauppa ul {
+    gap: calc(var(--gap) * 3) 2%;
+  }
+  section.kauppa li {
+    flex: 0 0 23.5%;
+  }
+  section.kauppa img {
+    height: 10rem;
+  }
+  section.kauppa em {
+    font-size: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --responsive_scale: 0.9;
+  }
+  section.tuotteet {
+    --size: 192px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --responsive_scale: 1;
+  }
+}
+
+@media (min-width: 1400px) {
+}
