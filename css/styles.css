@@ -126,6 +126,7 @@ header h1.site-heading span {
 section {
   margin-top: 3rem;
   width: 100%;
+  max-width: var(--max-width);
   display: flex;
   flex-flow: row wrap;
   gap: calc(var(--gap) * 4);
@@ -209,6 +210,7 @@ section .full {
 }
 section.kauppa {
   --size: 160px;
+  max-width: var(--max-width);
 }
 section.kauppa ul {
   list-style: none;
