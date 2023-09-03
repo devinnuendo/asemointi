@@ -314,13 +314,13 @@
   }
   #menu-toggle ~ ul .tuotteetmenu > a {
     margin: 0;
-    padding-right: var(--margin-right);
+    padding-right: calc(var(--margin-right) + var(--gap));
   }
   #submenu-toggle {
     width: var(--margin-right);
   }
   .submenu {
-    width: calc(100% + 3rem + calc(var(--gap) * 2));
+    width: calc(100% + 3rem + var(--gap));
     left: calc(var(--gap) * -2);
     top: calc(1em + var(--gap) * 3);
   }
