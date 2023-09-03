@@ -99,7 +99,6 @@ main {
 section,
 footer > * {
   padding: var(--gap);
-  max-width: var(--max-width);
   margin: 0 auto;
 }
 header h1.site-heading {
@@ -466,10 +465,12 @@ fieldset {
 fieldset label {
   display: inline-block;
 }
+
 footer {
   background-color: hsl(var(--hue), var(--sat), 92%);
   font-style: italic;
   position: relative;
+  padding-top: 3rem;
 }
 footer::before {
   --height: 0.4rem;
@@ -487,12 +488,13 @@ footer::before {
   );
   width: calc(100vw - var(--scrollbar-width));
 }
-footer > address {
-  display: flex;
-  flex-flow: row wrap;
+footer address {
+  display: block;
+  margin: 0 auto;
+  max-width: max-content;
 }
-footer section {
-  gap: var(--gap);
+footer address > div {
+  margin-bottom: 3rem;
 }
 footer > small {
   display: flex;
@@ -543,6 +545,17 @@ footer > small {
   }
   section.tuotteet img {
     padding-top: calc(var(--gap) * 1.5);
+  }
+  footer address {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: var(--gap) 4%;
+  }
+  footer address > div {
+    flex: 0 1 48%;
   }
 }
 
