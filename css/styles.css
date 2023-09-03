@@ -134,6 +134,23 @@ section {
 section > * {
   flex: 1 0 100%;
 }
+ul {
+  padding-left: var(--gap);
+}
+main li {
+  line-height: 1.3;
+  margin: var(--gap) 0 0 0;
+}
+li::marker {
+  content: '❊ ';
+}
+ul ul {
+  padding-left: calc(var(--gap) + 1em);
+}
+ul ul li::marker {
+  font-size: 80%;
+}
+
 section.tuotteet {
   --size: 100px;
   gap: calc(var(--gap) * 2) var(--gap);
@@ -240,6 +257,7 @@ section.kauppa li small {
 section.kauppa li strong {
   margin-top: 0.4em;
 }
+
 address {
   display: inline-block;
 }
@@ -463,12 +481,16 @@ footer::before {
 }
 footer > address {
   display: flex;
+  flex-flow: row wrap;
 }
 footer section {
   gap: var(--gap);
 }
 footer > small {
-  display: block;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: var(--gap);
   text-align: center;
   background-color: hsl(var(--hue), var(--sat), 89%);
 }
@@ -481,6 +503,7 @@ footer > small {
   h5,
   h6 {
     word-break: normal;
+    text-wrap: balance;
   }
   section.kauppa li {
     flex: 0 0 48%;

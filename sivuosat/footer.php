@@ -30,7 +30,13 @@
             </div>
         </section>
     </address>
-    <small> <a href="mailto:asiakaspalvelu@puutarhaliikeneilikka.fi">asiakaspalvelu@puutarhaliikeneilikka.fi</a> | &copy;<?php echo date("Y"); ?> Jenniina Laine | Kuvat Pixabay ja Flaticon</small>
+    <small>
+        <a href="mailto:asiakaspalvelu@puutarhaliikeneilikka.fi">asiakaspalvelu@puutarhaliikeneilikka.fi</a>
+        <span class="sep">|</span>
+        <span>&copy;<?php echo date("Y"); ?> Jenniina Laine</span>
+        <span class="sep">|</span>
+        <span>Kuvat Pixabay ja Flaticon</span>
+    </small>
 
 </footer>
 </body>

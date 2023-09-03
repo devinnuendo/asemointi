@@ -5,7 +5,7 @@ $img1280 = 'img/flower-3231083_1280.jpg';
 $img1920 = 'img/flower-3231083_1920.jpg';
 include "sivuosat/header.php"; ?>
 
-<main>
+<main class="yhteydenotto">
     <section>
         <div>
             <label for="yhteydenottolista">Voit ottaa meihin yhteyttä</label>
