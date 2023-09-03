@@ -5,7 +5,12 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  background-color: hsl(var(--hue), var(--sat), 40%);
+  background: hsl(var(--hue), var(--sat), 40%);
+  background: linear-gradient(
+    0deg,
+    hsl(var(--hue), var(--sat), 40%) 0%,
+    hsl(var(--hue), var(--sat), 50%) 100%
+  );
   color: hsl(var(--hue), var(--sat), 96%);
   box-shadow: 0 0.2rem 0.2rem 0.1rem hsl(var(--hue), var(--sat), 40%);
 }
