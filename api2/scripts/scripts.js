@@ -7,13 +7,13 @@ window.addEventListener('resize', function () {
   body.style.setProperty('--scrollbar-width', `${getScrollbarWidth()}px`)
 })
 
-const select1 = document.querySelector('#currency1')
-const select2 = document.querySelector('#currency2')
+const select1 = document.querySelector('#currency')
 const result = document.querySelector('#result')
+const amount = document.querySelector('#amount')
 
 const setup = () => {
-  const base = '&from=AED&to=AED&amount=1'
-  fetch(`fetch.php?base=${base}`, {
+  // const base = `&from=AED&to=AED&amount=1`
+  fetch(`fetch.php?path=EUR`, {
     method: 'GET',
   })
     .then((r) => r.json())
@@ -23,35 +23,34 @@ const setup = () => {
         const option1 = document.createElement('option')
         option1.innerText = key
         select1.append(option1)
-        const option2 = document.createElement('option')
-        option2.innerText = key
-        select2.append(option2)
       })
+
+      select1.value = 'AED'
       const value = Object.fromEntries(
-        Object.entries(r.rates).filter(([item]) => item.includes(select2.value))
+        Object.entries(r.rates).filter(([item]) => item.includes(select1.value))
       )
-      result.innerText = `1 ${select1.value} is ${Object.values(value)} ${select2.value}`
+      result.innerText = `${amount.value} EUR is ${Object.values(value)} ${select1.value}`
     })
     .catch((error) => console.log(error.message))
 }
 
-document.querySelector('form').addEventListener('submit', (e) => {
+document.querySelector('#currency').addEventListener('change', (e) => {
   e.preventDefault()
-  const data = Object.fromEntries(new FormData(e.target).entries())
-  const from = data.currency1
-  const to = data.currency2
-  const amount = data.amount
-  base = `&from=${from}&to=${to}&amount=${amount}`
+  const to = select1.value
+  const amount1 = amount.value
+  // const base = `&from=${from}&to=${to}&amount=${amount1}`
 
-  fetch(`fetch.php?base=${base}`, {
+  fetch(`fetch.php`, {
     method: 'GET',
   })
     .then((r) => r.json())
     .then((r) => {
+      console.log(r)
+
       const value = Object.fromEntries(
         Object.entries(r.rates).filter(([item]) => item.includes(to))
       )
-      result.innerText = `${amount} ${from} is ${Object.values(value) * amount} ${to}`
+      result.innerText = `${amount1} EUR is ${Object.values(value) * amount1} ${to}`
     })
     .catch((error) => console.log(error.message))
 })
