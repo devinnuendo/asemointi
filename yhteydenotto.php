@@ -28,34 +28,68 @@ include "sivuosat/header.php"; ?>
             </ul>
         </div>
 
-        <form action="tallenna_tiedot.php" method="POST">
-            <label for="nimi">Nimi:</label>
-            <input type="text" id="nimi" name="nimi" required>
+        <div class="container mt-5">
+            <form method="POST" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="nimi" class="form-label">Nimi:</label>
+                    <input type="text" id="nimi" name="nimi" class="form-control" required>
+                    <div class="invalid-feedback">Anna nimesi</div>
+                </div>
 
-            <label for="sahkoposti">Sähköposti:</label>
-            <input type="email" id="sahkoposti" name="sahkoposti" required>
+                <div class="mb-3">
+                    <label for="sahkoposti" class="form-label">Sähköposti:</label>
+                    <input type="email" id="sahkoposti" name="sahkoposti" class="form-control" required>
+                    <div class="invalid-feedback">Anna validi sähköpostiosoite</div>
+                </div>
 
-            <label for="aihe">Aihe:</label>
-            <select id="aihe" name="aihe" required>
-                <option value="kysymys">Kysymys tuotteista</option>
-                <option value="tilaus">Tilaus</option>
-                <option value="yhteydenotto">Yhteydenottopyyntö</option>
-                <option value="muu">Muu</option>
-            </select>
+                <div class="mb-3">
+                    <label for="aihe" class="form-label">Aihe:</label>
+                    <select id="aihe" name="aihe" class="form-select" required>
+                        <option value="kysymys">Kysymys tuotteista</option>
+                        <option value="tilaus">Tilaus</option>
+                        <option value="yhteydenotto">Yhteydenottopyyntö</option>
+                        <option value="muu">Muu</option>
+                    </select>
+                    <div class="invalid-feedback">Valitse aihe</div>
+                </div>
 
-            <label for="viesti">Viesti:</label>
-            <textarea id="viesti" name="viesti" rows="4" cols="50" required></textarea>
-            <fieldset>
-                <legend><label for="uutiskirje">Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</label></legend>
-                <input type="radio" id="kylla" name="uutiskirje" value="kylla" checked>
-                <label for="kylla">Kyllä</label>
-                <input type="radio" id="ei" name="uutiskirje" value="ei">
-                <label for="ei">Ei</label>
+                <div class="mb-3">
+                    <label for="viesti" class="form-label">Viesti:</label>
+                    <textarea id="viesti" name="viesti" rows="4" cols="50" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Kirjoita viesti.</div>
+                </div>
 
-            </fieldset>
+                <fieldset class="mb-3">
+                    <legend>Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</legend>
+                    <div class="form-check">
+                        <input type="radio" id="kylla" name="uutiskirje" value="kylla" class="form-check-input" checked>
+                        <label for="kylla" class="form-check-label">Kyllä</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="ei" name="uutiskirje" value="ei" class="form-check-input">
+                        <label for="ei" class="form-check-label">Ei</label>
+                    </div>
+                </fieldset>
 
-            <input type="submit" value="Lähetä">
-        </form>
+                <button type="submit" class="btn btn-primary">Lähetä</button>
+            </form>
+        </div>
+
+        <script>
+            (function() {
+                'use strict';
+                var forms = document.querySelectorAll('.needs-validation');
+                Array.from(forms).forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            })();
+        </script>
 
     </section>
 </main>
