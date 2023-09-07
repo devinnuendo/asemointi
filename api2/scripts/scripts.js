@@ -13,7 +13,7 @@ const amount = document.querySelector('#amount')
 
 const setup = () => {
   // const base = `&from=AED&to=AED&amount=1`
-  fetch(`fetch.php?path=EUR`, {
+  fetch(`fetch.php`, {
     method: 'GET',
   })
     .then((r) => r.json())
