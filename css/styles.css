@@ -419,6 +419,9 @@ form {
 form * {
   line-height: 1;
 }
+legend {
+  font-size: 100%;
+}
 label {
   display: block;
   margin-bottom: 8px;
