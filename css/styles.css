@@ -460,6 +460,10 @@ input[type='radio'] {
   display: inline-block;
 }
 
+input[type='radio'] + label {
+  padding: 0.1em 0 0.2em;
+}
+
 input[type='submit'] {
   background-color: hsl(var(--hue), var(--sat), 40%);
   color: #fff;
