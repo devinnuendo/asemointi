@@ -71,7 +71,7 @@ include "sivuosat/header.php"; ?>
                     </div>
                 </fieldset>
 
-                <input type="submit" value="Lähetä">
+                <input type="submit" value="Lähetä" />
             </form>
         </div>
 
