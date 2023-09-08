@@ -1,53 +1,134 @@
-<?php
-$title = 'Puutarhaliike Neilikka';
-include "sivuosat/header.php"; ?>
+<!DOCTYPE html>
+<html lang="fi">
 
-<main class="etusivu">
-    <section>
-        Tervetuloa Puutarhaliike Neilikan kotisivuille! Meiltä löydät sekä sisä- että ulkokasvit ja kaiken tarvitsemasi kasvien hoitoon.
-    </section>
-    <section>
-        <h2>Uutisia</h2>
-        <a href="#" class="wrap">
-            <article>
-                <figure>
-                    <img src="img/rose-4191686_640.jpg" alt="ruusuja" />
-                    <figcaption class="scr"></figcaption>
-                </figure>
-                <div>
-                    <h3><em>Hyvää uutta vuotta!</em></h3>
-                    <small>2.1.2016</small>
-                    <p>Uuden vuoden kunniaksi myymälöissämme upeita tarjouksia.</p>
-                </div>
-            </article>
-        </a>
-        <a href="#" class="wrap">
-            <article>
-                <figure>
-                    <img src="img/flower-1829711_640.png" alt="joulukukkia" />
-                    <figcaption class="scr"></figcaption>
-                </figure>
-                <div>
-                    <h3><em>Joulukukat edullisesti meiltä</em></h3>
-                    <small>14.12.2015</small>
-                    <p>Myymälöissämme myös kattava ja edullinen valikoima joulukuusia.</p>
-                </div>
-            </article>
-        </a>
-        <a href="#" class="wrap">
-            <article>
-                <figure>
-                    <img src="img/woman-4792038_640.jpg" alt="nainen kukkien kanssa" />
-                    <figcaption class="scr"></figcaption>
-                </figure>
-                <div>
-                    <h3><em>Nyt on hyvä aika aloittaa puutarhan valmistelu talven lepokautta varten</em></h3>
-                    <small>1.9.2015</small>
-                    <p>Meiltä löydät kaikki työkalut ja tarvikkeet.</p>
-                </div>
-            </article>
-        </a>
-    </section>
-</main>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="https://jenniina.fi/wp-content/uploads/2022/09/favicon.ico" />
+    <title>Web-ohjelmointikoulutus - Omnia</title>
+    <style>
+        :root {
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            --size: 1rem;
+        }
 
-<?php include "sivuosat/footer.php"; ?>
+        * {
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: midnightblue;
+            color: silver;
+        }
+
+        h1,
+        main {
+            max-width: 800px;
+            margin: 0 auto 1em;
+            padding: 1rem;
+        }
+
+        header,
+        h1 {
+            width: 100%;
+        }
+
+        main {
+            box-shadow: 0.05rem 0.1rem 0 0.05rem slateblue,
+                1.6rem 2rem 0.3rem 0 hsla(0, 0%, 100%, 0.1);
+            background-color: hsla(0, 0%, 0%, 0.1);
+            margin: 0 calc(var(--size) * 1.7) 0 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 1rem;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 0.4em;
+        }
+
+        ol,
+        ul {
+            padding-left: 1rem;
+        }
+
+        ol {
+            margin-top: 0;
+        }
+
+
+        a {
+            color: dodgerblue;
+        }
+
+        a:visited {
+            color: mediumslateblue;
+        }
+
+        li::marker {
+            color: darkgray;
+        }
+
+        @media(min-width:440px) {
+            :root {
+                font-size: 20px;
+            }
+
+            ol,
+            ul {
+                padding-left: 2rem;
+            }
+        }
+
+        @media(min-width:700px) {
+            header {
+                padding: 0 calc(var(--size) * 1.7) 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1> Web-&shy;ohjelmointi&shy;koulutuksen tehtäviä</h1>
+    </header>
+    <main>
+        <section>
+            <a href="https://github.com/devinnuendo/asemointi/tree/main">Github</a>
+        </section>
+        <section>
+            <label for="deployattu">Deployments</label>
+            <ol id="deployattu">
+                <li>
+                    <a href="asemointi/asemointi.html">Asemointi</a>
+                </li>
+                <li>
+                    <a href="verkkosivusto">Verkkosivusto</a>
+                </li>
+                <li>
+                    <a href="neilikka">Puutarhaliike Neilikka</a>
+                </li>
+                <li>
+                    <a href="api">Currency converter free version</a>
+                </li>
+                <li>
+                    <a href="https://jenniina.fi/web/currency/">Currency converter with hidden api key</a>
+                    <ul>
+                        <li>
+                            Huom. ei toimi azurewebsites-pohjalla, koska gitignorattu scrt.php ei siirry githubiin ja sitä kautta Azureen. Siksi oman domainin piirissä.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </main>
