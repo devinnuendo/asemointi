@@ -119,10 +119,10 @@
                     <a href="neilikka">Puutarhaliike Neilikka</a>
                 </li>
                 <li>
-                    <a href="api">Currency converter free version</a>
+                    <a href="api">API: Currency converter free version</a>
                 </li>
                 <li>
-                    <a href="https://jenniina.fi/web/currency/">Currency converter with hidden api key</a>
+                    <a href="https://jenniina.fi/web/currency/">API2: Currency converter with hidden api key</a>
                     <ul>
                         <li>
                             Huom. ei toimi azurewebsites-pohjalla, koska gitignorattu scrt.php ei siirry githubiin ja sitä kautta Azureen. Siksi oman domainin piirissä.
