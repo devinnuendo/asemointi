@@ -2,8 +2,8 @@
   --hue: 213;
   --sat: 100%;
   --gap: 10px;
-  --font-size-normal: 20px;
-  --font-size-small: 16px;
+  --font-size-normal: 16px;
+  --font-size-small: 13px;
   font-size: var(--font-size-normal);
 }
 * {
@@ -32,9 +32,11 @@ main > * {
 h1 {
   text-align: center;
   margin: 0;
-  padding: var(--gap);
+  padding: var(--gap) var(--gap) calc(var(--gap) * 2) var(--gap);
   background-color: hsl(var(--hue), var(--sat), 90%);
   color: hsl(var(--hue), var(--sat), 20%);
+  box-shadow: inset 0 -1rem 1rem -0.6rem hsl(var(--hue), var(--sat), 100%),
+    inset 0 1rem 1.3rem -1.4rem hsl(var(--hue), var(--sat), 30%);
 }
 h2 {
   text-align: center;
@@ -48,4 +50,10 @@ footer {
   background-color: hsl(var(--hue), var(--sat), 10%);
   color: hsl(var(--hue), var(--sat), 100%);
   padding: var(--gap);
+}
+@media (min-width: 576px) {
+  :root {
+    --font-size-normal: 20px;
+    --font-size-small: 16px;
+  }
 }

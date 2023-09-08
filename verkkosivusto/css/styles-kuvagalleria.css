@@ -1,5 +1,6 @@
 .gallery {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   gap: var(--gap);
   flex-wrap: wrap;
@@ -10,7 +11,7 @@
   border-radius: calc(var(--gap) / 2);
   padding: var(--gap);
   text-align: center;
-  flex-basis: calc(50% - calc(3 * var(--gap)));
+  flex-basis: 100%;
   flex-grow: 1;
   box-shadow: 0 calc(var(--gap) / 2) var(--gap) calc(var(--gap) / -8)
     hsl(var(--hue), var(--sat), 90%);
@@ -29,7 +30,14 @@
   font-style: italic;
   color: hsl(var(--hue), var(--sat), 10%);
 }
-
+@media (min-width: 400px) {
+  .gallery {
+    flex-flow: row wrap;
+  }
+  .sailio {
+    flex-basis: calc(50% - calc(2 * var(--gap)));
+  }
+}
 @media (min-width: 600px) {
   .gallery {
     flex-wrap: nowrap;

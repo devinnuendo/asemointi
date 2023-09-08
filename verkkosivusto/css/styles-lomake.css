@@ -3,7 +3,6 @@ form {
   margin: 1em auto 2em;
 }
 fieldset {
-  padding: 1em 1em 0.8em;
   margin-bottom: 1.8em;
   border-radius: 0.3em;
 }
@@ -13,7 +12,7 @@ fieldset.osastot {
   justify-content: space-between;
 }
 legend {
-  font-size: var(--font-size-normal);
+  font-size: 120%;
   font-weight: bold;
 }
 label {

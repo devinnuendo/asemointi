@@ -11,6 +11,8 @@
             font-size: 16px;
             font-family: Arial, Helvetica, sans-serif;
             --size: 1rem;
+            --hue: 240;
+            --sat: 64%;
         }
 
         * {
@@ -24,8 +26,8 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: midnightblue;
-            color: silver;
+            background-color: hsl(var(--hue), var(--sat), 13%);
+            color: white;
         }
 
         h1,
@@ -42,10 +44,11 @@
 
         main {
             box-shadow: 0.05rem 0.1rem 0 0.05rem slateblue,
-                1.6rem 2rem 0.3rem 0 hsla(0, 0%, 100%, 0.1);
-            background-color: hsla(0, 0%, 0%, 0.1);
+                1.6rem 2rem 0.5rem 0 hsla(0, 0%, 100%, 0.1);
+            background-color: hsla(var(--hue), var(--sat), 80%, 0.2);
             margin: 0 calc(var(--size) * 1.7) 0 0;
             padding: 0;
+            border-radius: 6px;
         }
 
         section {
@@ -68,11 +71,18 @@
 
 
         a {
-            color: dodgerblue;
+            color: lightblue;
+            text-decoration: none;
         }
 
         a:visited {
-            color: mediumslateblue;
+            color: thistle;
+        }
+
+        a:hover,
+        a:focus {
+            color: skyblue;
+            text-decoration: underline;
         }
 
         li::marker {

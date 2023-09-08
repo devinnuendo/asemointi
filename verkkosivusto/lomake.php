@@ -8,13 +8,13 @@ $css = 'css/styles-lomake.css';
 <main>
   <section>
     <div class="container mt-5">
-      <h2 class="mb-4">Yhteystiedot</h2>
-      <form action="#" method="POST">
+      <form method="POST" class="needs-validation" novalidate>
         <fieldset>
           <legend>Yhteystiedot</legend>
           <div class="mb-3">
             <label for="nimi" class="form-label">Nimi</label>
             <input type="text" name="nimi" id="nimi" class="form-control" placeholder="Nimi" required />
+            <div class="invalid-feedback"><i class="fa fa-times" aria-hidden="true"></i> Kirjoita nimi</div>
           </div>
 
           <div class="mb-3">
@@ -35,16 +35,19 @@ $css = 'css/styles-lomake.css';
           <div class="mb-3">
             <label for="puhelinnumero" class="form-label">Puhelinnumero</label>
             <input type="tel" name="puhelinnumero" id="puhelinnumero" class="form-control" placeholder="Puhelinnumero" pattern="^[\d]{7,15}$" required />
+            <div class="invalid-feedback"><i class="fa fa-times" aria-hidden="true"></i> Kirjoita puhelinnumero</div>
           </div>
 
           <div class="mb-3">
             <label for="sahkopostiosoite" class="form-label">Sähköpostiosoite</label>
             <input type="email" name="sahkopostiosoite" id="sahkopostiosoite" class="form-control" placeholder="Sähköpostiosoite" minlength="12" required />
+            <div class="invalid-feedback"><i class="fa fa-times" aria-hidden="true"></i> Kirjoita sähköpostiosoite</div>
           </div>
 
           <div class="mb-3">
             <label for="salasana" class="form-label">Salasana</label>
             <input type="password" name="salasana" id="salasana" class="form-control" placeholder="Salasana" required />
+            <div class="invalid-feedback"><i class="fa fa-times" aria-hidden="true"></i> Kirjoita salasana</div>
           </div>
         </fieldset>
 
@@ -111,6 +114,7 @@ $css = 'css/styles-lomake.css';
           <div class="form-check">
             <input type="checkbox" name="toimitusehdot" id="ok" value="ok" class="form-check-input" required />
             <label class="form-check-label" for="ok">Hyväksyn toimitusehdot</label>
+            <div class="invalid-feedback"><i class="fa fa-times" aria-hidden="true"></i> Hyväksy toimitusehdot</div>
           </div>
         </fieldset>
 
@@ -120,4 +124,21 @@ $css = 'css/styles-lomake.css';
 
   </section>
 </main>
+
+<script>
+  (function() {
+    'use strict';
+    var forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+
 <?php include "footer.php"; ?>
