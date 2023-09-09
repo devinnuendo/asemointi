@@ -18,7 +18,12 @@
   padding: 0 1rem 0 1rem;
 }
 .posts header {
-  background-color: hsl(var(--hue), var(--sat), 85%);
+  background: hsl(var(--hue), var(--sat), 85%);
+  background: linear-gradient(
+    0deg,
+    hsl(var(--hue), var(--sat), 75%) 0%,
+    hsl(var(--hue), var(--sat), 90%) 100%
+  );
 }
 .posts h2 {
   display: flex;
