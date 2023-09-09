@@ -54,7 +54,7 @@ for ($i = $start; $i <= $end; $i++) {
     $data[] = array(
         "id" => $i,
         "title" => "$randomTitle",
-        "content" => "<p>$randomContent</p>"
+        "content" => "$randomContent"
     );
 }
 
