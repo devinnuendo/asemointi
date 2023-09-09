@@ -25,6 +25,9 @@
   gap: 0.4em;
   text-align: left;
   padding-top: 0.6rem;
+  padding-bottom: 0.2em;
+  font-size: 1.3rem;
+  line-height: 1.1;
 }
 .posts p {
   padding-top: 0.6rem;
