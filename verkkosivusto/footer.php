@@ -1,5 +1,5 @@
 <footer>
-    <span>&copy;2023</span>
+    <small>&copy;2023 <a href="https://jenniina.fi">Jenniina</a> </small>
 </footer>
 </body>
 
