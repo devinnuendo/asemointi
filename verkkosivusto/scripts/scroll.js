@@ -30,7 +30,7 @@ const add_post = (contents) => {
   const section = document.createElement('section')
   const spanId = document.createElement('span')
   const spanH2 = document.createElement('span')
-  spanId.innerText = `#${contents.id}`
+  spanId.innerText = `${contents.id}.`
   spanH2.innerText = contents.title
   title.append(spanId)
   title.append(spanH2)
