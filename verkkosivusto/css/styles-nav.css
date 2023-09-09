@@ -65,7 +65,7 @@ nav.main-nav.open ul li:not(:first-child):not(:nth-child(2)) {
 }
 nav.main-nav.open li:not(:first-child):not(:nth-child(2)) {
   display: block;
-  background-color: hsl(var(--hue), var(--sat), 20%);
+  background-color: hsl(var(--hue), var(--sat), 25%);
 }
 nav.main-nav li a {
   display: block;
@@ -74,13 +74,13 @@ nav.main-nav li a {
 }
 
 nav.main-nav li.active a {
-  background-color: hsl(var(--hue), var(--sat), 10%);
+  background-color: hsl(var(--hue), var(--sat), 15%);
 }
 nav.main-nav li:not(.icon) a:hover,
 nav.main-nav li:not(.icon) a:focus,
 nav.main-nav li:not(.icon) a:focus-visible {
   outline: none;
-  background-color: hsl(var(--hue), var(--sat), 15%);
+  background-color: hsl(var(--hue), var(--sat), 20%);
 }
 @media (min-width: 180px) {
   nav.main-nav ul {
