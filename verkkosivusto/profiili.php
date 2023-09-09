@@ -9,7 +9,7 @@ $css = 'styles-profiili.css';
   <section>
     <h2>Perustiedot</h2>
     <p>
-      <b>Nimi:</b> Teemu Tietoteknikko<br />
+      <b>Nimi:</b> Esko Esimerkki<br />
       <b>Sukupuoli:</b> Mies<br />
       <b>Syntymävuosi:</b> 1980<br />
       <b>Asuinpaikka:</b> Espoo
