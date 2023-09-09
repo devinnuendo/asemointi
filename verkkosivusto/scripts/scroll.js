@@ -27,11 +27,16 @@ const add_post = (contents) => {
   const post = document.createElement('article')
   const header = document.createElement('header')
   const title = document.createElement('h2')
-  const p = document.createElement('p')
-  title.innerText = contents.title
-  p.innerText = contents.content
+  const section = document.createElement('section')
+  const spanId = document.createElement('span')
+  const spanH2 = document.createElement('span')
+  spanId.innerText = `#${contents.id}`
+  spanH2.innerText = contents.title
+  title.append(spanId)
+  title.append(spanH2)
+  section.innerHTML = contents.content
   header.append(title)
   post.append(header)
-  post.append(p)
+  post.append(section)
   document.querySelector('#posts').append(post)
 }

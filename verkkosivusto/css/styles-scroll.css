@@ -19,6 +19,9 @@
   background-color: hsl(var(--hue), var(--sat), 85%);
 }
 .posts h2 {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.4em;
   text-align: left;
   padding-top: 0.6rem;
 }
