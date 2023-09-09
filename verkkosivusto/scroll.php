@@ -7,4 +7,4 @@ include "head.php";
 <main>
     <section id="posts" class="posts"></section>
 </main>
-<?php include "footer.html"; ?>
+<?php include "footer.php"; ?>
