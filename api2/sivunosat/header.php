@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="One of the tasks made for the course Web-ohjelmointikoulutus in Omnia">
     <link rel="icon" type="image/x-icon" href="https://jenniina.fi/wp-content/uploads/2022/09/favicon.ico" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
