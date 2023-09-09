@@ -52,9 +52,15 @@ footer {
   left: 0;
   right: 0;
   text-align: center;
-  background-color: hsl(var(--hue), var(--sat), 10%);
+  background: hsl(var(--hue), var(--sat), 10%);
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--hue), var(--sat), 100%) 0%,
+    hsl(var(--hue), var(--sat), 30%) 20%,
+    hsl(var(--hue), var(--sat), 10%) 100%
+  );
   color: hsl(var(--hue), var(--sat), 100%);
-  padding: calc(var(--gap) / 3) var(--gap);
+  padding: calc(var(--gap) / 2) var(--gap) calc(var(--gap) / 3);
 }
 
 @media (min-width: 576px) {
