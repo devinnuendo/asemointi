@@ -9,7 +9,7 @@ nav.main-nav ul {
   padding: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 nav.main-nav li {
@@ -34,6 +34,7 @@ nav.main-nav li:last-child a {
   padding-right: calc(var(--gap) * 2);
   padding-left: calc(var(--gap) * 2);
   height: 68px;
+  font-size: 1.6rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -67,12 +68,19 @@ nav.main-nav li a {
   padding: var(--gap);
 }
 
-nav.main-nav li.active a,
+nav.main-nav li.active a {
+  background-color: hsl(var(--hue), var(--sat), 10%);
+}
 nav.main-nav li:not(.icon) a:hover,
 nav.main-nav li:not(.icon) a:focus,
 nav.main-nav li:not(.icon) a:focus-visible {
   outline: none;
-  background-color: hsl(var(--hue), var(--sat), 10%);
+  background-color: hsl(var(--hue), var(--sat), 15%);
+}
+@media (min-width: 180px) {
+  nav.main-nav ul {
+    justify-content: space-between;
+  }
 }
 @media (min-width: 576px) {
   nav.main-nav ul {
@@ -101,11 +109,17 @@ nav.main-nav li:not(.icon) a:focus-visible {
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
   }
+  nav.main-nav li:not(:first-child) a {
+    padding: 0;
+  }
   nav.main-nav li:not(:first-child) a span {
-    padding: calc(var(--gap) * 0.5) 2% calc(var(--gap) * 0.5) 2%;
+    display: inline-block;
+    padding: calc(var(--gap) * 0.5) 2vw calc(var(--gap) * 0.5) 2vw;
     border-radius: 0;
   }
-  nav.main-nav li.active a,
+  nav.main-nav li.active a {
+    background-color: hsl(var(--hue), var(--sat), 20%);
+  }
   nav.main-nav li:not(.icon) a:hover,
   nav.main-nav li:not(.icon) a:focus,
   nav.main-nav li:not(.icon) a:focus-visible {
