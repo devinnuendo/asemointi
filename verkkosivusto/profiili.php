@@ -8,12 +8,12 @@ $css = 'styles-profiili.css';
 <main>
   <section>
     <h2>Perustiedot</h2>
-    <p>
-      <b>Nimi:</b> Esko Esimerkki<br />
-      <b>Sukupuoli:</b> Mies<br />
-      <b>Syntymävuosi:</b> 1980<br />
-      <b>Asuinpaikka:</b> Espoo
-    </p>
+    <ul>
+      <li><b>Nimi:</b> Esko Esimerkki</li>
+      <li><b>Sukupuoli:</b> Mies</li>
+      <li><b>Syntymävuosi:</b> 1980</li>
+      <li><b>Asuinpaikka:</b> Espoo</li>
+    </ul>
     <h2>Harrastukset</h2>
     <ul>
       <li>Videopelit</li>
@@ -24,15 +24,15 @@ $css = 'styles-profiili.css';
     <h2>Tilastotietoa</h2>
     <table>
       <tr>
-        <td>Osallistunut tapahtumiin</td>
+        <th>Osallistunut tapahtumiin</th>
         <td>10</td>
       </tr>
       <tr>
-        <td>Osallistunut projekteihin</td>
+        <th>Osallistunut projekteihin</th>
         <td>25</td>
       </tr>
       <tr>
-        <td>Toiminut ohjaajana</td>
+        <th>Toiminut ohjaajana</th>
         <td>7</td>
       </tr>
     </table>
@@ -56,19 +56,19 @@ $css = 'styles-profiili.css';
     <form>
       <fieldset>
         <legend>Yhteydenotto</legend>
-        <label>Nimi:<br />
+        <label>Nimi:
           <input type="text" name="nimi" /></label>
-        <label>Sukupuoli: <br />
+        <label>Sukupuoli:
           <label><input type="radio" name="sukupuoli" value="mies" /> Mies</label>
           <label><input type="radio" name="sukupuoli" value="nainen" /> Nainen</label>
           <label><input type="radio" name="sukupuoli" value="en-haluasanoa" /> En halua
             sanoa</label></label>
-        <label>Yhteydenoton syy: <br />
+        <label>Yhteydenoton syy:
           <select name="syy">
             <option>Avunpyyntö</option>
             <option>Muu</option>
           </select></label>
-        <label>Viesti: <br /><textarea name="viesti"></textarea></label>
+        <label>Viesti: <textarea name="viesti"></textarea></label>
         <input type="submit" value="Lähetä" />
       </fieldset>
     </form>
