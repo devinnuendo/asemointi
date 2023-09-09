@@ -1,6 +1,6 @@
 <?php
 $title = 'Kuvagalleria';
-$css = 'css/styles-kuvagalleria.css';
+$css = 'styles-kuvagalleria.css';
 ?>
 
 <?php include "head.php"; ?>

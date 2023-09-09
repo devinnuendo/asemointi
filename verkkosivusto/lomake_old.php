@@ -1,6 +1,6 @@
 <?php
 $title = 'Nettikauppaan rekisteröityminen';
-$css = 'css/styles-lomake.css';
+$css = 'styles-lomake.css';
 ?>
 
 <?php include "head.php"; ?>

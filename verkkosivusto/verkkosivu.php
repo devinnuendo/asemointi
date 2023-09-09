@@ -1,6 +1,6 @@
 <?php
 $title = 'Eurooppalainen siili';
-$css = 'css/styles-verkkosivu.css';
+$css = 'styles-verkkosivu.css';
 ?>
 
 <?php include "head.php"; ?>

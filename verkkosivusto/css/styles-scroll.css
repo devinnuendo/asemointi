@@ -1,0 +1,28 @@
+.posts {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.2rem 2%;
+}
+.posts article {
+  padding: 0;
+  margin: 0;
+  background-color: hsl(var(--hue), var(--sat), 90%);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.posts p,
+.posts h2 {
+  margin: 0;
+  padding: 0 1rem 0 1rem;
+}
+.posts header {
+  background-color: hsl(var(--hue), var(--sat), 85%);
+}
+.posts h2 {
+  text-align: left;
+  padding-top: 0.6rem;
+}
+.posts p {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}

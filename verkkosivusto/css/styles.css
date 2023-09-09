@@ -51,6 +51,7 @@ footer {
   color: hsl(var(--hue), var(--sat), 100%);
   padding: var(--gap);
 }
+
 @media (min-width: 576px) {
   :root {
     --font-size-normal: 20px;

@@ -1,6 +1,6 @@
 <?php
 $title = 'Profiili';
-$css = 'css/styles-profiili.css';
+$css = 'styles-profiili.css';
 ?>
 
 <?php include "head.php"; ?>

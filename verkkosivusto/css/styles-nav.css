@@ -102,8 +102,7 @@ nav.main-nav li:not(.icon) a:focus-visible {
     transition-timing-function: ease-in-out;
   }
   nav.main-nav li:not(:first-child) a span {
-    padding: calc(var(--gap) * 0.5) calc(var(--gap) * 1.8) calc(var(--gap) * 0.5)
-      var(--gap);
+    padding: calc(var(--gap) * 0.5) 2% calc(var(--gap) * 0.5) 2%;
     border-radius: 0;
   }
   nav.main-nav li.active a,
