@@ -9,6 +9,7 @@
   background-color: hsl(var(--hue), var(--sat), 90%);
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0.2rem 0.2rem 0.6rem -0.4rem hsl(var(--hue), var(--sat), 10%);
 }
 .posts p,
 .posts h2 {
