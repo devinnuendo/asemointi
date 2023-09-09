@@ -51,9 +51,9 @@ footer {
   background: hsl(var(--hue), var(--sat), 10%);
   background: linear-gradient(
     to bottom,
-    hsl(var(--hue), var(--sat), 100%) 0%,
-    hsl(var(--hue), var(--sat), 30%) 20%,
-    hsl(var(--hue), var(--sat), 10%) 100%
+    hsla(var(--hue), var(--sat), 30%, 0) 0%,
+    hsla(var(--hue), var(--sat), 30%, 1) 20%,
+    hsla(var(--hue), var(--sat), 10%, 1) 100%
   );
   color: hsl(var(--hue), var(--sat), 100%);
   padding: calc(var(--gap) / 2) var(--gap) calc(var(--gap) / 3);
