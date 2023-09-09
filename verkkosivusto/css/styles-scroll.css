@@ -27,7 +27,7 @@
 .posts h2 {
   display: flex;
   flex-flow: row nowrap;
-  gap: 0.4em;
+  gap: 0.2em;
   text-align: left;
   padding-top: 0.6rem;
   padding-bottom: 0.2em;
