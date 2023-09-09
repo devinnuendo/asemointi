@@ -1,6 +1,11 @@
 nav.main-nav {
   position: relative;
-  background-color: hsl(var(--hue), var(--sat), 30%);
+  background: hsl(var(--hue), var(--sat), 30%);
+  background: linear-gradient(
+    0deg,
+    hsl(var(--hue), var(--sat), 35%) 0%,
+    hsl(var(--hue), var(--sat), 25%) 100%
+  );
   font-size: var(--font-size-small);
 }
 nav.main-nav ul {
