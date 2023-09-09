@@ -49,7 +49,7 @@ footer {
   text-align: center;
   background-color: hsl(var(--hue), var(--sat), 10%);
   color: hsl(var(--hue), var(--sat), 100%);
-  padding: var(--gap);
+  padding: calc(var(--gap) / 3) var(--gap);
 }
 
 @media (min-width: 576px) {
