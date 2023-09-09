@@ -32,9 +32,9 @@ const add_post = (contents) => {
   const spanH2 = document.createElement('span')
   spanId.innerText = `${contents.id}.`
   spanH2.innerText = contents.title
+  p.innerText = contents.content
   title.append(spanId)
   title.append(spanH2)
-  p.innerText = contents.content
   header.append(title)
   post.append(header)
   post.append(p)
