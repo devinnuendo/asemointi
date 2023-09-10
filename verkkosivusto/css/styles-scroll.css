@@ -11,8 +11,11 @@
   overflow: hidden;
   box-shadow: 0.06rem 0.1rem 0.4rem -0.2rem hsl(var(--hue), var(--sat), 10%);
 }
-.posts p,
 .posts h2 {
+  margin-bottom: 0;
+}
+.posts p,
+.posts article h2 {
   margin: 0;
   padding: 0 1rem 0 1rem;
 }
@@ -24,7 +27,7 @@
     hsl(var(--hue), var(--sat), 90%) 100%
   );
 }
-.posts h2 {
+.posts article h2 {
   display: flex;
   flex-flow: row nowrap;
   gap: 0.2em;

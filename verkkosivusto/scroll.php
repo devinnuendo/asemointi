@@ -15,6 +15,8 @@ include "head.php";
             <li><a href="https://github.com/devinnuendo/asemointi/blob/main/verkkosivusto/css/styles-scroll.css">styles-scroll.css</a></li>
         </ul>
     </section>
-    <section id="posts" class="posts"></section>
+    <section id="posts" class="posts">
+        <h2>Artikkelit</h2>
+    </section>
 </main>
 <?php include "footer.php"; ?>
