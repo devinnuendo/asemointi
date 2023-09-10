@@ -1,7 +1,7 @@
 <footer>
 
     <small>
-        <span>&copy;<?php echo date("Y"); ?> Jenniina Laine</span>
+        <span><a href="https://neilikka.azurewebsites.net/index.php">&copy;2023 Jenniina Laine</a></span>
         <span class="sep" aria-hidden="true">|</span>
         <a href="https://fixer.io/">Rates By Fixer API</a>
     </small>
