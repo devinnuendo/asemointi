@@ -1,7 +1,7 @@
 :root {
   --hue: 126;
   --sat: 100%;
-  --gap: 10px;
+  --gap: 4px;
   font-family: Arial, sans-serif;
   color: hsl(var(--hue), var(--sat), 10%);
 }
@@ -12,6 +12,7 @@ body {
   background: url('img/leaves.jpg');
   background-attachment: fixed;
   background-size: cover;
+  padding-top: 2rem;
 }
 #sailio {
   display: flex;
@@ -38,10 +39,6 @@ body {
   border-top-width: 8px;
   gap: var(--gap);
 }
-#navi1 ul,
-#navi2 ul {
-  flex: 1 1 calc(60% - var(--gap) * 3);
-}
 #navi1 h2,
 #navi2 h2 {
   text-align: center;
@@ -50,6 +47,7 @@ body {
 }
 #navi1 ul,
 #navi2 ul {
+  flex: 1 1 calc(60% - var(--gap) * 3);
   list-style: square;
   margin: 0;
   padding: 0.8rem 0.8rem 0.8rem 2rem;
@@ -81,7 +79,7 @@ body {
   top: 0;
   left: 0;
   background-color: white;
-  opacity: 0.4;
+  opacity: 0.5;
   display: inline-block;
   padding: 0.5rem 1rem;
   margin: 0;
@@ -89,11 +87,21 @@ body {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
+.copy a {
+  text-decoration: none;
+}
+.copy a:hover,
+.copy a:focus {
+  text-decoration: underline;
+}
 .copy:hover,
-.copy:focus {
+.copy:focus-within {
   opacity: 0.9;
 }
 @media (min-width: 576px) {
+  :root {
+    --gap: 10px;
+  }
   #sailio {
     flex-flow: row nowrap;
   }
