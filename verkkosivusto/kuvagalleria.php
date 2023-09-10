@@ -1,11 +1,12 @@
 <?php
 $title = 'Kuvagalleria';
+$slug = str_replace(' ', '-', strtolower($title));
 $css = 'styles-kuvagalleria.css';
 ?>
 
 <?php include "head.php"; ?>
 
-<main>
+<main class="<?php echo $slug ?>">
   <section>
     <h2>Galleria 1</h2>
     <div class="gallery">

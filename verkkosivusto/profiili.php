@@ -1,11 +1,12 @@
 <?php
 $title = 'Profiili';
+$slug = str_replace(' ', '-', strtolower($title));
 $css = 'styles-profiili.css';
 ?>
 
 <?php include "head.php"; ?>
 
-<main>
+<main class="<?php echo $slug ?>">
   <section>
     <h2>Perustiedot</h2>
     <ul>

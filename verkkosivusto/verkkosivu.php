@@ -1,11 +1,12 @@
 <?php
 $title = 'Eurooppalainen siili';
+$slug = str_replace(' ', '-', strtolower($title));
 $css = 'styles-verkkosivu.css';
 ?>
 
 <?php include "head.php"; ?>
 
-<main>
+<main class="<?php echo $slug ?>">
   <section>
     <h2>Yleistä tietoa</h2>
     <figure>

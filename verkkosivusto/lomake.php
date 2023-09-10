@@ -1,11 +1,12 @@
 <?php
 $title = 'Nettikauppaan rekisteröityminen';
+$slug = str_replace(' ', '-', strtolower($title));
 $css = 'styles-lomake.css';
 ?>
 
 <?php include "head.php"; ?>
 
-<main>
+<main class="<?php echo $slug ?>">
   <section>
     <div class="container mt-5">
       <form method="POST" class="needs-validation" novalidate>
