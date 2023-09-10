@@ -9,10 +9,10 @@
                 <i class="fa fa-times"></i>
             </a>
         </li>
-        <li class="<?= ($active == 'index') ? 'active' : ''; ?>"><a href="index.php"><span>Galleria</span></a></li>
+        <li class="<?= ($active == 'index') ? 'active' : ''; ?>"><a href="index.php"><span>Vieritys</span></a></li>
+        <li class="<?= ($active == 'kuvagalleria') ? 'active' : ''; ?>"><a href="kuvagalleria.php"><span>Galleria</span></a></li>
         <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>"><a href="profiili.php"><span>Profiili</span></a></li>
         <li class="<?= ($active == 'verkkosivu') ? 'active' : ''; ?>"><a href="verkkosivu.php"><span>Siili</span></a></li>
         <li class="<?= ($active == 'lomake') ? 'active' : ''; ?>"><a href="lomake.php"><span>Rekisteröidy</span></a></li>
-        <li class="<?= ($active == 'scroll') ? 'active' : ''; ?>"><a href="scroll.php"><span>Vieritys</span></a></li>
     </ul>
 </nav>
