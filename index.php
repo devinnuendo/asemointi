@@ -90,6 +90,10 @@
             color: darkgray;
         }
 
+        abbr {
+            text-decoration: none;
+        }
+
         @media(min-width:440px) {
             :root {
                 font-size: 20px;
@@ -118,7 +122,7 @@
             <a href="https://github.com/devinnuendo/asemointi/tree/main">Github</a>
         </section>
         <section>
-            <label for="deployattu">Deployments</label>
+            <label for="deployattu">Löydettävissä:</label>
             <ol id="deployattu">
                 <li>
                     <a href="asemointi/asemointi.html">Asemointi</a>
@@ -133,7 +137,7 @@
                     <a href="api">API: Currency converter free version</a>
                 </li>
                 <li>
-                    <a href="https://jenniina.fi/web/currency/">API2: Currency converter with hidden api key</a>
+                    <a href="https://jenniina.fi/web/currency/">API2: Currency converter with hidden api key <abbr title="External link">&#129125;</abbr></a>
                     <ul>
                         <li>
                             Huom. ei toimi azurewebsites-pohjalla, koska gitignorattu scrt.php ei siirry githubiin ja sitä kautta Azureen. Siksi oman domainin piirissä.
