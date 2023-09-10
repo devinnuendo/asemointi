@@ -87,7 +87,7 @@
         }
 
         li::marker {
-            color: darkgray;
+            color: silver;
         }
 
         abbr {
