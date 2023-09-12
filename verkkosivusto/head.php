@@ -1,3 +1,5 @@
+<?php error_reporting(E_ALL);
+ini_set('display_errors', '1'); ?>
 <!DOCTYPE html>
 <html lang="fi">
 
@@ -14,6 +16,11 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <?php if (isset($css)) echo "<link rel='stylesheet' href='css/$css'>"; ?>
   <?php if (isset($script)) echo "<script src='scripts/$script'></script>"; ?>
+  <?php
+  if (function_exists('tulostaTyylit')) {
+    tulostaTyylit();
+  };
+  ?>
   <title><?= $title ?? 'Sivusto'; ?></title>
 </head>
 
