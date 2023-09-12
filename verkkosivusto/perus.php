@@ -30,11 +30,12 @@ $css = 'styles-perusphp.css';
             $java = "Java";
             $perl = "Perl";
             $jscript = "Javascript";
+            $lang = [$php, $java, $perl, $jscript];
 
-            echo "<li>$php</li>";
-            echo "<li>$java</li>";
-            echo "<li>$perl</li>";
-            echo "<li>$jscript</li>";
+            foreach ($lang as $kieli) {
+                echo "<li>$kieli</li>";
+            }
+
             echo "</ul>";
             ?>
 
