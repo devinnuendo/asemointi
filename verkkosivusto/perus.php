@@ -202,6 +202,7 @@ $css = 'styles-perusphp.css';
             ?>
         </section>
     </section>
+
     <section>
         <h2><a href="https://moodle.omnia.fi/mod/page/view.php?id=564057">Tehtäviä: Funktiot</a></h2>
 
@@ -213,8 +214,8 @@ $css = 'styles-perusphp.css';
             function tulostaTyylit()
             {
                 echo '<style>';
-                echo '.valkoinen {background-color: white; width: 30px; height: 30px;}';
-                echo '.musta {background-color: black; width: 30px; height: 30px;}';
+                echo '.valkoinen {background-color: white; width: 40px; height: 40px;}';
+                echo '.musta {background-color: black; width: 40px; height: 40px;}';
                 echo '</style>';
             }
             echo "<pre>Lisää head-osioon: 
