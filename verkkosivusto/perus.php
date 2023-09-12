@@ -142,7 +142,7 @@ $css = 'styles-perusphp.css';
             <?php
             $kertotaulu = 10;
 
-            for ($i = 1; $i <= 12; $i++) {
+            for ($i = 1; $i <= $kertotaulu; $i++) {
                 $tulos = $i * $kertotaulu;
                 echo "<p>$i * $kertotaulu = $tulos</p>";
             }
