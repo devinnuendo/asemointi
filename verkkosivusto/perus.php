@@ -21,10 +21,9 @@ $css = 'styles-perusphp.css';
         </section>
         <section>
             <header>
-                <h3>Tehtävä 2</h3>
+                <h3>Tehtävä 2: Ohjelmointikielet</h3>
             </header>
             <?php
-            echo "<h4>Ohjelmointikielet</h4>";
             echo "<ul>";
 
             $php = "PHP";
