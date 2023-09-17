@@ -144,6 +144,14 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="https://jenniina.fi/web/tietokanta/">Tietokanta Sakila<abbr title="External link">&#129125;</abbr></a>
+                    <ul>
+                        <li>
+                            Huom. ei myöskään toimi azurewebsites-pohjalla, koska gitignorattu pins.php ei siirry githubiin ja sitä kautta Azureen. Siten myös oman domainin piirissä.
+                        </li>
+                    </ul>
+                </li>
             </ol>
         </section>
     </main>
