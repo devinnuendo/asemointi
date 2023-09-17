@@ -1,0 +1,81 @@
+.for-movie-list {
+  margin-bottom: 2rem;
+  display: block;
+}
+
+ul.movie-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.movie-list li {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.2rem;
+}
+ul.movie-list li > span {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-weight: bold;
+  gap: 0.5rem;
+}
+ul.movie-list span span {
+  display: inline-block;
+  font-weight: normal;
+  flex: 0 1 auto;
+}
+ul.movie-list .title {
+  font-weight: bold;
+}
+ul.movie-list .year {
+  flex: 1 0 auto;
+}
+ul.movie-list span b,
+ul.movie-list span i {
+  display: inline-block;
+}
+ul.movie-list span b {
+  background-color: gray;
+  color: white;
+  padding: 0.1em 0.4em;
+  border-radius: 0.2rem;
+}
+
+ul.movie-list span i,
+small + small {
+  flex: 1 0 0;
+  font-weight: normal;
+}
+ul.movie-list span small:first-of-type span {
+  font-weight: bold;
+}
+form.lisaa-elokuva > div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+  justify-content: stretch;
+}
+form.lisaa-elokuva > div > * {
+  flex: 1 0 0;
+}
+form.lisaa-elokuva .full {
+  width: 100%;
+}
+
+form.lisaa-elokuva textarea,
+select[multiple] {
+  min-height: 5rem;
+}
+@media (min-width: 576px) {
+  form.lisaa-elokuva > div {
+    flex-flow: row wrap;
+  }
+  form.lisaa-elokuva label {
+    text-align: right;
+  }
+}
