@@ -123,35 +123,37 @@
         </section>
         <section>
             <label for="deployattu">Löydettävissä:</label>
-            <ol id="deployattu">
-                <li>
-                    <a href="asemointi/asemointi.html">Asemointi</a>
-                </li>
-                <li>
-                    <a href="verkkosivusto">Verkkosivusto</a>
-                </li>
-                <li>
-                    <a href="neilikka">Puutarhaliike Neilikka</a>
-                </li>
-                <li>
-                    <a href="api">API: ilmainen versio</a>
-                </li>
-                <li>
-                    <a href="https://jenniina.fi/web/currency/">API2: piilotettu API avain <abbr title="External link">&#129125;</abbr></a>
-                    <ul>
-                        <li>
-                            Huom. ei toimi azurewebsites-pohjalla, koska gitignorattu scrt.php ei siirry githubiin ja sitä kautta Azureen. Siksi oman domainin piirissä.
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="https://jenniina.fi/web/tietokanta/">Tietokanta Sakila<abbr title="External link">&#129125;</abbr></a>
-                    <ul>
-                        <li>
-                            Huom. ei myöskään toimi azurewebsites-pohjalla, koska gitignorattu pins.php ei siirry githubiin ja sitä kautta Azureen. Siten myös oman domainin piirissä.
-                        </li>
-                    </ul>
-                </li>
-            </ol>
+            <nav>
+                <ol id="deployattu">
+                    <li>
+                        <a href="asemointi/asemointi.html">Asemointi</a>
+                    </li>
+                    <li>
+                        <a href="verkkosivusto">Verkkosivusto</a>
+                    </li>
+                    <li>
+                        <a href="neilikka">Puutarhaliike Neilikka</a>
+                    </li>
+                    <li>
+                        <a href="api">API: ilmainen versio</a>
+                    </li>
+                    <li>
+                        <a href="https://jenniina.fi/web/currency/">API2: piilotettu API avain <abbr title="External link">&#129125;</abbr></a>
+                        <ul>
+                            <li>
+                                Huom. ei toimi azurewebsites-pohjalla, koska gitignorattu scrt.php ei siirry githubiin ja sitä kautta Azureen. Siksi oman domainin piirissä.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://jenniina.fi/web/tietokanta/">Tietokanta Sakila<abbr title="External link">&#129125;</abbr></a>
+                        <ul>
+                            <li>
+                                Huom. ei myöskään toimi azurewebsites-pohjalla, koska gitignorattu pins.php ei siirry githubiin ja sitä kautta Azureen. Siten myös oman domainin piirissä.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </nav>
         </section>
     </main>
