@@ -147,6 +147,23 @@ button {
   border: none;
   cursor: pointer;
 }
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 1.5em;
+  font-size: 0.7em;
+  padding: 1px 5px;
+  color: white;
+  background: hsl(var(--hue), var(--sat), 40%);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  z-index: 999;
+  text-align: left;
+}
+.tooltip:hover::before {
+  opacity: 1;
+}
 .scr {
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);

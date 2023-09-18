@@ -1,6 +1,7 @@
 .for-movie-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: block;
+  text-align: center;
 }
 
 ul.movie-list {
@@ -71,6 +72,37 @@ form.lisaa-elokuva textarea,
 select[multiple] {
   min-height: 5rem;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.pagination a {
+  position: relative;
+  text-decoration: none;
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.pagination a.page-left {
+  transform-origin: right;
+}
+.pagination a.page-right {
+  transform-origin: left;
+}
+.pagination a:hover {
+  transform: scale(1.4);
+}
+.pagination a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.pagination a.tooltip::before {
+  transform: scale(0.7);
+}
+
 @media (min-width: 576px) {
   form.lisaa-elokuva > div {
     flex-flow: row wrap;
