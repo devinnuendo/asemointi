@@ -19,8 +19,8 @@ include 'elokuva-poista.php';
                         <option>Valitse kategoria</option>
                         <?php
                         $query_genres = "SELECT name FROM category";
-                        $results_genres = $yhteys->query($query_genres);
-                        while ($rivi = $results_genres->fetch_assoc()) {
+                        $tulokset_genres = $yhteys->query($query_genres);
+                        while ($rivi = $tulokset_genres->fetch_assoc()) {
                             $categoryName = $rivi["name"];
                             echo "
                             <option value=$categoryName>
@@ -39,7 +39,6 @@ include 'elokuva-poista.php';
 
         <div>
             <?php
-
             function addListItem($row)
             {
                 $specialFeatures = $row['special_features'];
@@ -75,68 +74,12 @@ include 'elokuva-poista.php';
                     <form method='post' id='poistoform-<?= $idTitle ?>'><input name='poistettava' hidden value='<?= $row["title"] ?>' /><button type='submit' name='poista' onclick="return confirmSubmission('<?= $row['title'] ?>')">Poista</button></form>
                 </li>
 
-            <?php
-            }
-
-            function pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last)
-            {
-            ?>
-                <nav aria-label="pagination" class="pagination">
-
-                    <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters; ?>&page=1" aria-label="first" data-tooltip="1">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                    <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters . '&page=' . $prev; ?>" aria-label="previous" data-tooltip="<?= $prev ?>">
-                        <span aria-hidden="true">&#8592;</span>
-                    </a>
-                    <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $next; ?>" aria-label="next" data-tooltip="<?= $next ?>">
-                        <span aria-hidden="true">&#8594;</span>
-                    </a>
-                    <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $last; ?>" aria-label="last" data-tooltip="<?= $last ?>">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-
-                </nav>
                 <?php
             }
 
             if (isset($_GET['button'])) {
-
-                $QUERY_STRING = $_SERVER['QUERY_STRING'];
-                $pageosa = strpos($QUERY_STRING, "&page=");
-                if ($pageosa !== false) {
-                    $search_parameters = substr($QUERY_STRING, 0, $pageosa);
-                } else
-                    $search_parameters = $QUERY_STRING;
-
-                $row_count = 20;
-                $right_disabled = "";
-                $left_disabled = "";
-                $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                $title_movie = $_GET['title'];
-                $title_movie = $yhteys->real_escape_string(strip_tags($title_movie));
-                $offset = ($page - 1) * $row_count;
-                $prev = ($page - 1) ?: 1;
-                $next = $page + 1;
-                $query = "SELECT COUNT(*) AS rivit FROM film WHERE title LIKE '%$title_movie%'";
-                $results_initial = $yhteys->query($query);
-                $rows = $results_initial->fetch_assoc();
-                $rows = $rows['rivit'];
-
-                $last = ceil($rows / $row_count);
-                $last = $last ?: 1;
-                if ($page >= $last) {
-                    $page = $last;
-                    // $offset = ($page - 1) * $row_count;
-                    $right_disabled = "disabled";
-                }
-                if ($page == 1) {
-                    $left_disabled = "disabled";
-                }
-
-
-
                 if (isset($_GET['genre']) and $_GET['genre'] != 'Valitse kategoria') {
+                    $title_movie = $_GET['title'];
                     $genre = $_GET['genre'];
                     $title_movie = $yhteys->real_escape_string(strip_tags($title_movie));
 
@@ -153,29 +96,27 @@ include 'elokuva-poista.php';
                     JOIN language l ON f.language_id = l.language_id
                     LEFT JOIN language o ON f.original_language_id = o.language_id
                     WHERE c.name = '$genre' AND f.title LIKE '%$title_movie%'
-                    GROUP BY f.film_id, f.title, l.name, o.name
-                    LIMIT $offset, $row_count;";
+                    GROUP BY f.film_id, f.title, l.name, o.name;";
 
-                    $results = $yhteys->query($query_main);
+                    $tulokset = $yhteys->query($query_main);
 
-                    if ($results === false) {
+                    if ($tulokset === false) {
                         die("Query error: " . $yhteys->error);
                     }
 
-                    if ($results->num_rows > 0) {
+                    if ($tulokset->num_rows > 0) {
                 ?>
-                        <p class="for-movie-list">Tuloksia <?= $rows ?> kpl, kategoria <?= $genre ?>, <?= $offset ?: 1 ?>&thinsp;&ndash;&thinsp;<?= $row_count + $offset > $rows ? $rows : $row_count + $offset  ?> </p>
-                        <?php pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+                        <p class="for-movie-list">Tuloksia <?= $tulokset->num_rows ?> kpl, kategoria <?= $genre ?></p>
                         <ul id="movie-list" class="movie-list">
                         <?php
-                        while ($rivi = $results->fetch_assoc()) {
+                        while ($rivi = $tulokset->fetch_assoc()) {
                             addListItem($rivi);
                         }
-                        pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last);
                     } else {
                         echo "<li>Ei tuloksia</li>";
                     }
                 } else {
+                    $title_movie = $_GET['title'];
                     $title_movie = $yhteys->real_escape_string(strip_tags($title_movie));
 
                     $query_main = "SELECT f.*,
@@ -191,25 +132,21 @@ include 'elokuva-poista.php';
                     JOIN language l ON f.language_id = l.language_id
                     LEFT JOIN language o ON f.original_language_id = o.language_id
                     WHERE f.title LIKE '%$title_movie%'
-                    GROUP BY f.film_id, f.title, l.name, o.name
-                    LIMIT $offset, $row_count;";
+                    GROUP BY f.film_id, f.title, l.name, o.name;";
 
-                    $results = $yhteys->query($query_main);
+                    $tulokset = $yhteys->query($query_main);
 
-                    if ($results === false) {
+                    if ($tulokset === false) {
                         die("Query error: " . $yhteys->error);
                     }
-
                         ?>
-                        <p class="for-movie-list">Tuloksia <?= $rows ?> kpl, <?= $offset ?: 1 ?>&thinsp;&ndash;&thinsp;<?= $row_count + $offset > $rows ? $rows : $row_count + $offset ?></p>
-                        <?php pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+                        <p class="for-movie-list">Tuloksia <?= $tulokset->num_rows ?> kpl</p>
                         <ul id="movie-list" class="movie-list">
                     <?php
-                    if ($results->num_rows > 0) {
-                        while ($rivi = $results->fetch_assoc()) {
+                    if ($tulokset->num_rows > 0) {
+                        while ($rivi = $tulokset->fetch_assoc()) {
                             addListItem($rivi);
                         }
-                        pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last);
                     } else {
                         echo "<li>Ei tuloksia</li>";
                     }
