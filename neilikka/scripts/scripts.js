@@ -9,11 +9,14 @@ document.querySelector('#menu-toggle').addEventListener('click', function () {
     : (x.attributes['aria-expanded'].value = 'true')
 })
 
-document.querySelector('#submenu-toggle').addEventListener('click', function () {
-  const x = document.querySelector('#submenu-toggle')
-  x.attributes['aria-expanded'].value === 'true'
-    ? (x.attributes['aria-expanded'].value = 'false')
-    : (x.attributes['aria-expanded'].value = 'true')
+document.querySelectorAll('.submenu-toggle').forEach((s) => {
+  s.addEventListener('click', function () {
+    document.querySelectorAll('.submenu-toggle').forEach((x) => {
+      x.attributes['aria-expanded'].value === 'true'
+        ? (x.attributes['aria-expanded'].value = 'false')
+        : (x.attributes['aria-expanded'].value = 'true')
+    })
+  })
 })
 
 const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth
@@ -23,24 +26,28 @@ getScrollbarWidth()
 const body = document.querySelector('body')
 body.style.setProperty('--scrollbar-width', `${getScrollbarWidth()}px`)
 
-window.addEventListener('resize', function (event) {
+window.addEventListener('resize', function () {
   body.style.setProperty(
     '--scrollbar-width',
     `${getScrollbarWidth() ? getScrollbarWidth() : 0}px`
   )
-  /* close menu on resize */
+  /* close menus on resize */
   document.getElementById('menu-toggle').checked = false
-  document.getElementById('submenu-toggle').checked = false
+  document.querySelectorAll('.submenu-toggle').forEach((x) => (x.checked = false))
   document.querySelector('#menu-toggle').attributes['aria-expanded'].value = 'false'
-  document.querySelector('#submenu-toggle').attributes['aria-expanded'].value = 'false'
+  document.querySelectorAll('.submenu-toggle').forEach((x) => {
+    x.attributes['aria-expanded'].value = 'false'
+  })
 })
 
 window.addEventListener('click', function (e) {
-  /* close menu on outside menu click */
+  /* close menus on outside menu click */
   if (!document.getElementById('mainmenu').contains(e.target)) {
     document.getElementById('menu-toggle').checked = false
-    document.getElementById('submenu-toggle').checked = false
+    document.querySelectorAll('.submenu-toggle').forEach((x) => (x.checked = false))
     document.querySelector('#menu-toggle').attributes['aria-expanded'].value = 'false'
-    document.querySelector('#submenu-toggle').attributes['aria-expanded'].value = 'false'
+    document.querySelectorAll('.submenu-toggle').forEach((x) => {
+      x.attributes['aria-expanded'].value = 'false'
+    })
   }
 })

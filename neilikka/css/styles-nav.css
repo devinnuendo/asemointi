@@ -66,7 +66,7 @@
 .mainmenu > ul > li {
   position: relative;
 }
-.submenu .tuotteetmenu {
+.submenu .li-submenu {
   position: relative;
 }
 .mainmenu .close {
@@ -94,6 +94,7 @@
 
 .mainmenu ul a {
   display: block;
+  position: relative;
   text-decoration: none;
   text-align: center;
   margin: 0;
@@ -104,6 +105,9 @@
   transition-property: background-color, box-shadow;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+}
+.mainmenu ul .active a {
+  background-color: hsl(var(--hue), var(--sat), 35%);
 }
 .mainmenu ul a:hover,
 .mainmenu ul a:focus,
@@ -134,14 +138,14 @@
   display: flex;
 }
 
-.tuotteetmenu label,
-.tuotteetmenu i {
+.li-submenu label,
+.li-submenu i {
   display: inline-block;
 }
-.tuotteetmenu input {
+.li-submenu input {
   position: absolute;
 }
-.tuotteetmenu label {
+.li-submenu label {
   position: absolute;
   right: 0;
   bottom: -0.3rem;
@@ -154,7 +158,7 @@
   background-color: hsl(var(--hue), var(--sat), 35%);
   color: hsl(var(--hue), var(--sat), 96%);
 }
-.tuotteetmenu i {
+.li-submenu i {
   padding: var(--gap) 1em;
 }
 .submenu {
@@ -173,11 +177,11 @@
 .submenu ul a:focus-visible {
   background-color: hsl(var(--hue), var(--sat), 42%);
 }
-.tuotteetmenu .close {
+.li-submenu .close {
   font-size: var(--font-size-small);
   display: none;
 }
-#submenu-toggle {
+.submenu-toggle {
   position: absolute;
   top: 0;
   right: 0;
@@ -189,26 +193,26 @@
   margin: 0;
   cursor: pointer;
 }
-#submenu-toggle ~ label {
+.submenu-toggle ~ label {
   outline: 2px solid transparent;
   transition-property: background-color, outline-color;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
-.tuotteetmenu #submenu-toggle:hover ~ label {
+.li-submenu .submenu-toggle:hover ~ label {
   background-color: hsl(var(--hue), var(--sat), 45%);
 }
-#submenu-toggle:checked ~ .close {
+.submenu-toggle:checked ~ .close {
   display: flex;
 }
 
-#submenu-toggle:checked ~ .open {
+.submenu-toggle:checked ~ .open {
   display: none;
 }
-#submenu-toggle ~ .submenu {
+.submenu-toggle ~ .submenu {
   display: none;
 }
-#submenu-toggle:checked ~ .submenu {
+.submenu-toggle:checked ~ .submenu {
   display: flex;
 }
 /* TUOTESIVUJEN VALIKKO */
@@ -281,14 +285,14 @@
     top: 0;
     left: 0;
   }
-  #menu-toggle ~ ul a {
+  #menu-toggle ~ ul > li > a {
     background-color: transparent;
     border: 0;
     box-shadow: inset 0 -0.4rem 0.1rem -0.5rem hsl(var(--hue), var(--sat), 50%);
     position: relative;
   }
   #menu-toggle ~ ul a::after,
-  #submenu-toggle ~ label::after {
+  .submenu-toggle ~ label::after {
     --height: 0.2rem;
     content: '';
     position: absolute;
@@ -303,22 +307,23 @@
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
   }
-  #submenu-toggle ~ label::after {
+  .submenu-toggle ~ label::after {
     bottom: calc(var(--height) * -1);
   }
   #menu-toggle ~ ul a:hover::after,
-  #submenu-toggle:hover ~ label::after {
+  .submenu-toggle:hover ~ label::after,
+  #menu-toggle ~ ul .active a::after {
     background-color: hsla(var(--hue), var(--sat), 50%, 1);
     box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 1);
   }
-  #menu-toggle ~ ul .tuotteetmenu a {
+  #menu-toggle ~ ul .li-submenu .submenu {
     margin-right: var(--margin-right);
   }
-  #menu-toggle ~ ul .tuotteetmenu > a {
+  #menu-toggle ~ ul .li-submenu > a {
     margin: 0;
     padding-right: calc(var(--margin-right) + var(--gap));
   }
-  #submenu-toggle {
+  .submenu-toggle {
     width: var(--margin-right);
   }
   .submenu {
@@ -326,21 +331,21 @@
     left: calc(var(--gap) * -2);
     top: calc(1em + var(--gap) * 3);
   }
-  #submenu-toggle ~ label,
-  .tuotteetmenu #submenu-toggle:hover ~ label {
+  .submenu-toggle ~ label,
+  .li-submenu .submenu-toggle:hover ~ label {
     background-color: transparent;
     font-size: 0.8em;
     margin: 0.15rem 0 -0.15rem;
   }
-  #submenu-toggle ~ label {
+  .submenu-toggle ~ label {
     border-radius: 3px;
   }
-  #submenu-toggle ~ ul a {
+  .submenu-toggle ~ ul a {
     text-align: left;
     padding-left: calc(var(--gap) * 3);
     background-color: hsl(var(--hue), var(--sat), 40%);
   }
-  .tuotteetmenu label {
+  .li-submenu label {
     bottom: 0.2rem;
     height: calc(100% - 0.2rem);
   }
