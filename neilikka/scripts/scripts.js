@@ -1,7 +1,7 @@
-const menutoggle = () => {
-  var x = document.querySelector('#main-nav')
-  x.className = x.className === '' ? 'open' : ''
-}
+// const menutoggle = () => {
+//   var x = document.querySelector('#main-nav')
+//   x.className = x.className === '' ? 'open' : ''
+// }
 document.querySelector('#menu-toggle').addEventListener('click', function () {
   const x = document.querySelector('#menu-toggle')
   x.attributes['aria-expanded'].value === 'true'
