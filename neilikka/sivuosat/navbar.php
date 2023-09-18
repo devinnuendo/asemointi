@@ -5,22 +5,22 @@
     </a>
     <a href="https://www.flaticon.com/free-icons/flower" class="displaynone">Flower icons created by Freepik - Flaticon</a>
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
     <label for="menu-toggle" class="icon open"><i class="fa fa-bars" aria-hidden="true"></i><span class="scr">open menu</span></label>
     <label for="menu-toggle" class="icon close"><i class="fa fa-times" aria-hidden="true"></i><span class="scr">close menu</span></label>
 
-    <ul>
+    <ul id="mainmenu-ul">
         <li class="<?= ($active == 'index') ? 'active' : ''; ?>">
             <a href="index.php"><span>Etusivu</span></a>
         </li>
         <li class="tuotteetmenu <?= ($active == 'tuotteet') ? 'active' : ''; ?>">
             <a href="tuotteet.php">Tuotteet</a>
-            <input type="checkbox" id="submenu-toggle" />
+            <input type="checkbox" id="submenu-toggle" aria-expanded="false" aria-controls="submenu" />
             <label for="submenu-toggle" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
                 <span class="scr">open submenu</span>
             </label>
             <label for="submenu-toggle" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
-            <ul class="submenu">
+            <ul class="submenu" id="submenu">
                 <li class="<?= ($active == 'sisakasvit') ? 'active' : ''; ?>">
                     <a href="sisakasvit.php"><span>Sisäkasvit</span></a>
                 </li>

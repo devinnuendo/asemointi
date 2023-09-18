@@ -1,6 +1,8 @@
 :root {
   box-sizing: border-box;
   font-family: 'PT Sans', Arial, sans-serif;
+  --font-size-normal: 20px;
+  --font-size-small: 16px;
   font-size: calc(var(--font-size-normal) * var(--responsive_scale));
   line-height: 1.2;
   color: hsl(var(--hue), var(--sat), 10%);
