@@ -24,13 +24,13 @@
         <?php include "navbar.php"; ?>
         <picture>
             <source media="(max-width: 640px)" srcset=<?php
-                                                        if (isset($img640)) echo $img640;
+                                                        if (isset($img640)) echo 'img/' . $img640;
                                                         else echo "img/carnation-1325012_640.jpg"; ?> />
-            <source media="(min-width: 641px)" srcset=<?php if (isset($img1280)) echo $img1280;
+            <source media="(min-width: 641px)" srcset=<?php if (isset($img1280)) echo 'img/' . $img1280;
                                                         else echo "img/carnation-1325012_1280.jpg"; ?> />
-            <source media="(min-width: 1920px)" srcset=<?php if (isset($img1920)) echo $img1920;
+            <source media="(min-width: 1920px)" srcset=<?php if (isset($img1920)) echo 'img/' . $img1920;
                                                         else echo "img/carnation-1325012_1920.jpg" ?> />
-            <img src=<?php if (isset($img1920)) echo $img1920;
+            <img src=<?php if (isset($img1920)) echo 'img/' . $img1920;
                         else echo "carnation-1325012_1920.jpg" ?> alt="Kukkia" />
         </picture>
         <h1 class="site-heading"><span><?= $title ?? 'Puutarhaliike Neilikka'; ?></span></h1>

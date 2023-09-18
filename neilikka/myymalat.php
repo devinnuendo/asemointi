@@ -1,8 +1,8 @@
 <?php
 $title = 'Myymälät';
-$img640 = 'img/market-1178251_640.jpg';
-$img1280 = 'img/market-1178251_1280.jpg';
-$img1920 = 'img/market-1178251_1920.jpg';
+$img640 = 'market-1178251_640.jpg';
+$img1280 = 'market-1178251_1280.jpg';
+$img1920 = 'market-1178251_1920.jpg';
 include "sivuosat/header.php"; ?>
 
 <main>
