@@ -5,7 +5,7 @@ $title = 'Otsikko';
 // $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php"; ?>
 
-<main class="etusivu">
+<main>
     <section>
 
     </section>
