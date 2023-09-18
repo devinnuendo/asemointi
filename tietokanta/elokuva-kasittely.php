@@ -19,8 +19,8 @@ include 'db-sakila.php';
             }
             $yhteys->set_charset("utf8");
 
-            if ($yhteys->real_escape_string(strtoupper($_POST['authorization'])) !== $sakila_authorization) {
-                die("Tunnukset puuttuvat, ota yhteys ylläpitoon: info@jenniina.fi");
+            if ($yhteys->real_escape_string($_POST['authorization']) !== $sakila_authorization) {
+                die("Väärä salasana, ota yhteys ylläpitoon: info@jenniina.fi");
             } else {
 
                 // Elokuvan tiedot lomakkeesta
