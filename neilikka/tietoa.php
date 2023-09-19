@@ -1,8 +1,8 @@
 <?php
 $title = 'Tietoa meistä';
-$img640 = 'img/flower-shop-4013863_640.jpg';
-$img1280 = 'img/flower-shop-4013863_1280.jpg';
-$img1920 = 'img/flower-shop-4013863_1920.jpg';
+$img640 = 'flower-shop-4013863_640.jpg';
+$img1280 = 'flower-shop-4013863_1280.jpg';
+$img1920 = 'flower-shop-4013863_1920.jpg';
 include "sivuosat/header.php"; ?>
 
 <main>

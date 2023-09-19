@@ -5,22 +5,22 @@
     </a>
     <a href="https://www.flaticon.com/free-icons/flower" class="displaynone">Flower icons created by Freepik - Flaticon</a>
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
     <label for="menu-toggle" class="icon open"><i class="fa fa-bars" aria-hidden="true"></i><span class="scr">open menu</span></label>
     <label for="menu-toggle" class="icon close"><i class="fa fa-times" aria-hidden="true"></i><span class="scr">close menu</span></label>
 
-    <ul>
+    <ul id="mainmenu-ul">
         <li class="<?= ($active == 'index') ? 'active' : ''; ?>">
             <a href="index.php"><span>Etusivu</span></a>
         </li>
-        <li class="tuotteetmenu <?= ($active == 'tuotteet') ? 'active' : ''; ?>">
+        <li class="li-submenu <?= ($active == 'tuotteet') ? 'active' : ''; ?>">
             <a href="tuotteet.php">Tuotteet</a>
-            <input type="checkbox" id="submenu-toggle" />
+            <input type="checkbox" id="submenu-toggle" class="submenu-toggle" aria-expanded="false" aria-controls="submenu" />
             <label for="submenu-toggle" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
                 <span class="scr">open submenu</span>
             </label>
             <label for="submenu-toggle" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
-            <ul class="submenu">
+            <ul class="submenu" id="submenu">
                 <li class="<?= ($active == 'sisakasvit') ? 'active' : ''; ?>">
                     <a href="sisakasvit.php"><span>Sisäkasvit</span></a>
                 </li>
@@ -36,14 +36,28 @@
             </ul>
         </li>
 
-        <li class="<?= ($active == 'myymalat') ? 'active' : ''; ?>">
-            <a href="myymalat.php"><span>Myymälät</span></a>
-        </li>
-        <li class="<?= ($active == 'tietoa') ? 'active' : ''; ?>">
+        <li class="li-submenu <?= ($active == 'tietoa') ? 'active' : ''; ?>">
             <a href="tietoa.php"><span>Tietoa meistä</span></a>
+            <input type="checkbox" id="submenu-toggle2" class="submenu-toggle" aria-expanded="false" aria-controls="submenu2" />
+            <label for="submenu-toggle2" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
+                <span class="scr">open submenu</span>
+            </label>
+            <label for="submenu-toggle2" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
+            <ul class="submenu" id="submenu2">
+                <li class="<?= ($active == 'myymalat') ? 'active' : ''; ?>">
+                    <a href="myymalat.php"><span>Myymälät</span></a>
+                </li>
+            </ul>
         </li>
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
             <a href="yhteydenotto.php"><span>Ota yhteyttä</span></a>
         </li>
+        <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+            <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+        </li>
+        <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+            <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+        </li>
+
     </ul>
 </nav>

@@ -1,6 +1,8 @@
 <script>
     function confirmSubmission(movie) {
-        if (window.confirm(`Are you sure you want to delete "${movie}"?`)) return true;
+        let authorization = prompt(`Please enter the password to delete the movie "${movie}"`, "");
+
+        if (authorization === '<?= $sakila_authorization ?>') return true;
         else return false;
     }
 </script>

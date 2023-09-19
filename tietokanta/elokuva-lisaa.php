@@ -154,6 +154,10 @@ include 'db-sakila.php';
                 <label for="actors">Näyttelijät (pilkulla eroteltuina):</label>
                 <textarea id="actors" name="actors" required></textarea>
             </div>
+            <div>
+                <label for="authorization">Salasana: </label>
+                <input type="text" id="authorization" name="authorization" required>
+            </div>
 
             <button type="submit">Lisää elokuva</button>
         </form>

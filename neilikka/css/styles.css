@@ -1,6 +1,8 @@
 :root {
   box-sizing: border-box;
   font-family: 'PT Sans', Arial, sans-serif;
+  --font-size-normal: 20px;
+  --font-size-small: 16px;
   font-size: calc(var(--font-size-normal) * var(--responsive_scale));
   line-height: 1.2;
   color: hsl(var(--hue), var(--sat), 10%);
@@ -421,15 +423,20 @@ form * {
 }
 legend {
   font-size: 100%;
+  width: auto;
 }
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
 }
+label.inline-block {
+  display: inline-block;
+}
 
 input[type='text'],
 input[type='email'],
+input[type='password'],
 select,
 textarea {
   width: 100%;
@@ -461,10 +468,12 @@ input[type='radio'] {
 }
 
 input[type='radio'] + label {
-  padding: 0.1em 0 0.2em;
+  padding: 0.1em 0.8em 0.2em 0;
 }
 
 input[type='submit'] {
+  display: block;
+  margin: 1em 0 0;
   background-color: hsl(var(--hue), var(--sat), 40%);
   color: #fff;
   border: none;
@@ -484,6 +493,7 @@ fieldset {
   border: solid 1px hsl(var(--hue), var(--sat), 80%);
   border-radius: 0.3rem;
   padding: 1em;
+  margin: 0.8em 0;
 }
 fieldset label {
   display: inline-block;
