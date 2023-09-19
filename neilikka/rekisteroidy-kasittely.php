@@ -20,13 +20,15 @@ include "db/db-azure.php";
 
 
             // Tiedot lomakkeesta
-            $first_name = $yhteys->real_escape_string($_POST['first_name']);
-            $last_name = $yhteys->real_escape_string($_POST['last_name']);
-            $email = $yhteys->real_escape_string($_POST['email']);
-            $password = $yhteys->real_escape_string($_POST['password']);
+            $first_name = $yhteys->real_escape_string(strip_tags($_POST['first_name']));
+            $first_name = ucwords($first_name, " ");
+            $last_name = $yhteys->real_escape_string(strip_tags($_POST['last_name']));
+            $last_name = ucwords($last_name, " ");
+            $email = $yhteys->real_escape_string(strip_tags($_POST['email']));
+            $password = $_POST['password'];
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $newsletter = $yhteys->real_escape_string($_POST['newsletter']) === "Kylla" ? 1 : 0;
-            // $terms = $yhteys->real_escape_string($_POST['terms']);
+            $newsletter = $yhteys->real_escape_string(strip_tags($_POST['newsletter'])) === "Kylla" ? 1 : 0;
+            // $terms = $yhteys->real_escape_string(strip_tags($_POST['terms']));
 
             $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 
             WHERE TRIM(email) = TRIM('$email')";
