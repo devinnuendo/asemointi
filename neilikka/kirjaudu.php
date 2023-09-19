@@ -13,7 +13,7 @@ include "sivuosat/header.php"; ?>
             <label for="email">Sähköpostiosoite</label>
             <input type="email" name="email" id="email" placeholder="Sähköpostiosoite" autocomplete="email" required />
 
-            <label for="password">Haluamasi salasana</label>
+            <label for="password">Salasana</label>
             <input type="password" name="password" id="password" placeholder="Salasana" autocomplete="current-password" required minlength="10" />
 
             <input type="submit" value="Lähetä">
