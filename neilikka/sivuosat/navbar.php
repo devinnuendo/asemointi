@@ -52,12 +52,23 @@
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
             <a href="yhteydenotto.php"><span>Ota yhteyttä</span></a>
         </li>
-        <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-            <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+        <li class="li-submenu <?= ($active == 'rekisteroidy' || $active == 'kirjaudu') ? 'active' : ''; ?>">
+            <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
+            <label for="submenu-toggle3" class="full">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="scr">open submenu</span>
+                <span class="scr">close submenu</span>
+            </label>
+            <ul class="submenu" id="submenu3">
+                <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+                    <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+                </li>
+                <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+                    <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+                </li>
+            </ul>
         </li>
-        <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-            <a href="kirjaudu.php"><span>Kirjaudu</span></a>
-        </li>
+
 
     </ul>
 </nav>

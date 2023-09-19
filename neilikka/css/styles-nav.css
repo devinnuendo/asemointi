@@ -177,6 +177,7 @@
 .submenu ul a:focus-visible {
   background-color: hsl(var(--hue), var(--sat), 42%);
 }
+
 .li-submenu .close {
   font-size: var(--font-size-small);
   display: none;
@@ -215,7 +216,25 @@
 .submenu-toggle:checked ~ .submenu {
   display: flex;
 }
-/* TUOTESIVUJEN VALIKKO */
+.li-submenu label.full {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  background-color: hsl(var(--hue), var(--sat), 42%);
+  color: hsl(var(--hue), var(--sat), 96%);
+  font-size: var(--font-size-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition-property: background-color, outline-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+/* TUOTESIVUJEN ALAVALIKKO */
 .secondary {
   width: 100%;
   max-width: var(--max-width);
@@ -323,6 +342,14 @@
     margin: 0;
     padding-right: calc(var(--margin-right) + var(--gap));
   }
+  .li-submenu label.full,
+  .li-submenu input:hover ~ label.full {
+    background-color: transparent;
+  }
+  .mainmenu .li-submenu label.full + ul a span {
+    display: inline-block;
+    padding-right: calc(2 * var(--gap));
+  }
   .submenu-toggle {
     width: var(--margin-right);
   }
@@ -331,8 +358,13 @@
     left: calc(var(--gap) * -2);
     top: calc(1em + var(--gap) * 3);
   }
+  #menu-toggle ~ ul .li-submenu #submenu3 {
+    left: calc(var(--gap) * -2 - var(--margin-right));
+    width: auto;
+    margin-right: calc(-1 * var(--margin-right));
+  }
   .submenu-toggle ~ label,
-  .li-submenu .submenu-toggle:hover ~ label {
+  .li-submenu .submenu-toggle:hover ~ label:not(.full) {
     background-color: transparent;
     font-size: 0.8em;
     margin: 0.15rem 0 -0.15rem;
