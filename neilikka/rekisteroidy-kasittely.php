@@ -43,8 +43,8 @@ include "db/db-azure.php";
                     <p><a href='kirjaudu.php'>Kirjaudu sisään</a></p>";
                 } else {
                     // Lisää asiakas taulukkoon 'neil_user'
-                    $lisayskysely = "INSERT INTO neil_user (first_name, last_name, email, password, newsletter)
-                        VALUES ('$first_name', '$last_name', '$email', '$password', '$newsletter')";
+                    $lisayskysely = "INSERT INTO neil_user (first_name, last_name, email, password, newsletter, registration, updated)
+                        VALUES ('$first_name', '$last_name', '$email', '$password', $newsletter, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 
                     if ($yhteys->query($lisayskysely) === TRUE) {
                         $customer_id = $yhteys->insert_id;
