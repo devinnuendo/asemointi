@@ -34,10 +34,12 @@ include "db/db-azure.php";
 
                 if ($verify) {
                     echo "<p>Kirjautuminen onnistui!</p>
-                    <p><a href='index.php'>Etusivulle</a></p>";
+                    <p><a href='index.php'>Etusivulle</a></p>
+                    ";
                 } else {
-                    echo "<p>Kirjautuminen epäonnistui</p>
-                    <p><a href='javascript:history.go(-1)'>Takaisin</a></p>";
+                    echo "<p>Kirjautuminen epäonnistui! Väärä tunnus tai salasana!</p>
+                    <p><a href='javascript:history.go(-1)'>Takaisin</a></p>
+                    ";
                 }
             } else {
                 echo "Virhe kirjautumisessa: $yhteys->error";
