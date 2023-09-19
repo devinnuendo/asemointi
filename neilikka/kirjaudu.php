@@ -15,7 +15,11 @@ include "sivuosat/header.php"; ?>
 
             <label for="password">Salasana</label>
             <input type="password" name="password" id="password" placeholder="Salasana" autocomplete="current-password" required minlength="10" />
-
+            <?php
+            if (isset($_GET['message'])) {
+                $message = urldecode($_GET['message']);
+                echo "<p class='error'>$message</p>";
+            } ?>
             <input type="submit" value="Lähetä">
         </form>
     </section>

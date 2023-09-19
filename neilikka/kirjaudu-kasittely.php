@@ -37,9 +37,7 @@ include "db/db-azure.php";
                     <p><a href='index.php'>Etusivulle</a></p>
                     ";
                 } else {
-                    echo "<p>Kirjautuminen epäonnistui! Väärä tunnus tai salasana!</p>
-                    <p><a href='javascript:history.go(-1)'>Takaisin</a></p>
-                    ";
+                    header('Location: kirjaudu.php?message=' . urlencode("Väärä tunnus tai salasana"));
                 }
             } else {
                 echo "Virhe kirjautumisessa: $yhteys->error";
