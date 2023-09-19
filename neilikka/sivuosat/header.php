@@ -18,7 +18,8 @@ ini_set('display_errors', '1');
     <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <script defer src="scripts/scripts.js"></script>
-    <?php if (isset($css)) echo "<link rel='stylesheet' href='../css/$css'>"; ?>
+    <?php if (isset($script)) echo "<script src='scripts/$script'></script>"; ?>
+    <?php if (isset($css)) echo "<link rel='stylesheet' href='css/$css'>"; ?>
     <title><?= $title ?? 'Puutarhaliike Neilikka'; ?></title>
 </head>
 
