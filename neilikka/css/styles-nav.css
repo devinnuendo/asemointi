@@ -219,6 +219,7 @@ div.li-submenu .submenu {
 }
 .li-submenu label.full {
   width: 100%;
+  height: 100%;
   position: relative;
   background-color: transparent;
   color: hsl(var(--hue), var(--sat), 96%);
@@ -245,6 +246,9 @@ div.li-submenu .submenu-toggle:hover ~ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.li-submenu label.full ~ ul a {
+  background-color: hsl(var(--hue), var(--sat), 40%);
 }
 /* TUOTESIVUJEN ALAVALIKKO */
 .secondary {
@@ -361,7 +365,7 @@ div.li-submenu .submenu-toggle:hover ~ label {
   .li-submenu label.full,
   .li-submenu input:hover ~ label.full {
     background-color: transparent;
-    margin: 0.5rem var(--gap) -0.5rem 0;
+    margin: 0.7rem var(--gap) -0.7rem 0;
   }
   .mainmenu .li-submenu label.full + ul a span {
     display: inline-block;
@@ -375,6 +379,12 @@ div.li-submenu .submenu-toggle:hover ~ label {
     left: calc(var(--gap) * -2);
     top: calc(1em + var(--gap) * 3);
   }
+  #submenu-toggle3 ~ ul {
+    width: auto;
+    flex: 0 1 max-content;
+    right: 0;
+    left: initial;
+  }
   #menu-toggle ~ ul .li-submenu #submenu3 {
     left: calc(var(--gap) * -2 - var(--margin-right));
     width: auto;
@@ -383,7 +393,6 @@ div.li-submenu .submenu-toggle:hover ~ label {
   .submenu-toggle ~ label,
   .li-submenu .submenu-toggle:hover ~ label {
     background-color: transparent;
-    font-size: 0.8em;
     margin: 0.15rem 0 -0.15rem;
   }
   .submenu-toggle ~ label {
