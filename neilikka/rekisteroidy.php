@@ -64,6 +64,11 @@ include "db/db-azure.php";
             <label for="email">Sähköpostiosoite</label>
             <input type="email" name="email" id="email" placeholder="Sähköpostiosoite" autocomplete="email" minlength="5" required />
             <div class="error"></div>
+            <?php
+            if (isset($_GET['message'])) {
+                $message = urldecode($_GET['message']);
+                echo "<div class='error' aria-role='alert'>$message</div>";
+            } ?>
 
             <label for="password">Haluamasi salasana</label>
             <input type="password" name="password" id="password" placeholder="Salasana" autocomplete="new-password" minlength="10" required />

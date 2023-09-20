@@ -23,22 +23,30 @@ include "db/db-azure.php";
             // Capture form data
             $name = $yhteys->real_escape_string(strip_tags(trim($_POST['nimi'])));
             $email = $yhteys->real_escape_string(strip_tags(trim($_POST['sahkoposti'])));
+            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
             $phone = $yhteys->real_escape_string(strip_tags(trim($_POST['phone']))) ?? null;
             $subject = $yhteys->real_escape_string(strip_tags(trim($_POST['aihe'])));
             $message = $yhteys->real_escape_string(strip_tags(trim($_POST['viesti'])));
             $newsletter = $yhteys->real_escape_string($_POST['uutiskirje']) === "Kylla" ? 1 : 0;
 
-            $insertQuery = "INSERT INTO neil_contact (name, email, phone, subject, message, newsletter)
+            // Validate e-mail
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                header('Location: yhteydenotto.php?message=' . urlencode("$email ei ole kelvollinen sähköpostiosoite."));
+            } else {
+
+                $insertQuery = "INSERT INTO neil_contact (name, email, phone, subject, message, newsletter)
                 VALUES ('$name', '$email', '$phone', '$subject', '$message', '$newsletter')";
 
-            if ($yhteys->query($insertQuery) === TRUE) {
-                echo "<p>Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.</p>";
-            } else {
-                echo "Virhe yhteydenoton tallentamisessa: " . $yhteys->error;
-            }
+                if ($yhteys->query($insertQuery) === TRUE) {
+                    echo "<p>Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.</p>";
+                } else {
+                    echo "Virhe yhteydenoton tallentamisessa: " . $yhteys->error;
+                }
 
-            $yhteys->close();
+                $yhteys->close();
+            }
         }
+
         ?>
 
     </section>
