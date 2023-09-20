@@ -10,8 +10,7 @@
         <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
         <label for="submenu-toggle3" class="full">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <span class="scr">open submenu</span>
-            <span class="scr">close submenu</span>
+            <span class="scr">toggle submenu</span>
         </label>
         <ul class="submenu" id="submenu3">
             <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
