@@ -121,7 +121,7 @@ include 'db-sakila.php';
                     $specialFeatures = str_replace("'", "", $specialFeatures);
                     $specialFeatures = explode(",", $specialFeatures);
                     echo "<select id='special_features' name='special_features[]' multiple>";
-                    echo "<option value='' disabled>Valitse ominaisuus</option>";
+                    echo "<option value=''>Valitse ominaisuus</option>";
                     foreach ($specialFeatures as $feature) {
                         echo "<option value='$feature'>$feature</option>";
                     }
@@ -135,7 +135,7 @@ include 'db-sakila.php';
             <div>
                 <label for="genre">Kategoria:</label>
                 <select name="genre[]" id="genre" multiple>
-                    <option value="" disabled>Valitse kategoria</option>
+                    <option value="">Valitse kategoria</option>
                     <?php
                     $query_genres = "SELECT name FROM category";
                     $tulokset_genres = $yhteys->query($query_genres);
