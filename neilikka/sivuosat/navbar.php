@@ -16,21 +16,20 @@
             <span class="scr">open submenu</span>
         </label>
         <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
-        <ul class="submenu" id="submenu">
-            <ul class="submenu" id="submenu3">
-                <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-                    <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
-                </li>
-                <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-                    <a href="kirjaudu.php"><span>Kirjaudu</span></a>
-                </li>
-                <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
-                    <a href="toimitus.php"><span>Toimitusosoite</span></a>
-                </li>
-                <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
-                    <a href="laskutus.php"><span>Laskutusosoite</span></a>
-                </li>
-            </ul>
+        <ul class="submenu" id="submenu3">
+            <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+                <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+            </li>
+            <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+                <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+            </li>
+            <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
+                <a href="toimitus.php"><span>Toimitusosoite</span></a>
+            </li>
+            <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
+                <a href="laskutus.php"><span>Laskutusosoite</span></a>
+            </li>
+        </ul>
     </div>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
