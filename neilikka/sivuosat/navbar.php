@@ -52,7 +52,7 @@
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
             <a href="yhteydenotto.php"><span>Ota yhteyttä</span></a>
         </li>
-        <li class="li-submenu <?= ($active == 'rekisteroidy' || $active == 'kirjaudu') ? 'active' : ''; ?>">
+        <li class="li-submenu <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
             <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
             <label for="submenu-toggle3" class="full">
                 <i class="fa fa-user" aria-hidden="true"></i>
