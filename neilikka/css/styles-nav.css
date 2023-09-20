@@ -117,7 +117,7 @@
 
 #menu-toggle ~ label {
   z-index: 3;
-  margin: 0 4px 0 0;
+  margin: 0 4rem 0 0;
   background-color: transparent;
   outline: 2px solid transparent;
   transition-property: background-color, outline-color;

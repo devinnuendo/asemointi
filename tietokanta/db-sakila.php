@@ -4,7 +4,12 @@ $pins = "./pins.php";
 if (file_exists($pins)) {
     include_once($pins);
 } else {
-    die("Tunnukset puuttuvat, ota yhteys ylläpitoon: info@jenniina.fi");
+    $sakila_palvelin = getenv('SAKILA_PALVELIN');
+    $sakila_kayttaja = getenv('SAKILA_KAYTTAJA');
+    $sakila_salasana = getenv('SAKILA_SALASANA');
+    $sakila_tietokanta = getenv('SAKILA_TIETOKANTA');
+
+    $sakila_authorization = getenv('SAKILA_AUTHORIZATION');
 }
 
 $yhteys = new mysqli($sakila_palvelin, $sakila_kayttaja, $sakila_salasana, $sakila_tietokanta);
