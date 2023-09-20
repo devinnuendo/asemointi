@@ -63,6 +63,30 @@ document.addEventListener('DOMContentLoaded', () => {
       puuttuu: 'Laskutusosoitteen kaupunki puuttuu',
       lyhyt: 'Laskutusosoitteen kaupunki on liian lyhyt',
     },
+    payment_method: {
+      puuttuu: 'Valitse maksutapa',
+    },
+    card_number: {
+      puuttuu: 'Kortin numero puuttuu',
+      lyhyt: 'Kortin numero on liian lyhyt',
+      oikein: 'Anna kortin numero oikeassa muodossa',
+    },
+    expiration_date: {
+      puuttuu: 'Kortin voimassaoloaika puuttuu',
+      oikein: 'Anna voimassaoloaika oikeassa muodossa: KK/VV',
+    },
+    nimi: {
+      puuttuu: 'Nimi puuttuu',
+      lyhyt: 'Nimi on liian lyhyt',
+    },
+    aihe: {
+      puuttuu: 'Aihe puuttuu',
+      lyhyt: 'Aihe on liian lyhyt',
+    },
+    viesti: {
+      puuttuu: 'Viesti puuttuu',
+      lyhyt: 'Viesti on liian lyhyt',
+    },
     terms: {
       puuttuu: 'Hyväksy käyttösäännöt',
     },
@@ -71,50 +95,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const error = (field, property) => {
     return errors[field][property]
   }
+  const eventList = ['blur', 'change']
+  const input = document.querySelectorAll('input, select, textarea')
+  input.forEach((x) => {
+    for (ev of eventList) {
+      x.addEventListener(ev, (e) => {
+        const isValid = e.target.checkValidity()
+        // Ks. css-tiedosto styles-lomake.css .invalid -asetukset
+        !isValid
+          ? e.target.classList.add('invalid')
+          : e.target.classList.remove('invalid')
+        !isValid
+          ? e.target.setAttribute('aria-invalid', !isValid)
+          : e.target.removeAttribute('aria-invalid')
 
-  const input = document.querySelectorAll('input')
-  input.forEach((x) =>
-    x.addEventListener('blur', (e) => {
-      const isValid = e.target.checkValidity()
-      // Ks. css-tiedosto styles-lomake.css luokka .invalid -asetukset
-      !isValid ? e.target.classList.add('invalid') : e.target.classList.remove('invalid')
-      !isValid
-        ? e.target.setAttribute('aria-invalid', !isValid)
-        : e.target.removeAttribute('aria-invalid')
-
-      if (e.target.validity.tooShort) {
-        e.target.nextElementSibling.innerText = error(e.target.id, 'lyhyt')
-      } else if (e.target.validity.valueMissing) {
-        if (e.target.id === 'terms')
-          e.target.nextElementSibling.nextElementSibling.innerText = error(
-            e.target.id,
-            'puuttuu'
-          )
-        else e.target.nextElementSibling.innerText = error(e.target.id, 'puuttuu')
-      } else if (e.target.validity.tooLong) {
-        e.target.nextElementSibling.innerText = error(e.target.id, 'pitka')
-      } else if (e.target.validity.typeMismatch || e.target.validity.patternMismatch) {
-        e.target.nextElementSibling.innerText = error(e.target.id, 'oikein')
-      }
-    })
-  )
-
-  // Vielä erikseen terms-kentälle validointitarkistus, jottei tarvitse odottaa blurria poistamaan virheviesti näkyvistä.
-  document.querySelector('#terms').addEventListener('click', (e) => {
-    const isValid = e.target.checkValidity()
-    !isValid ? e.target.classList.add('invalid') : e.target.classList.remove('invalid')
-    !isValid
-      ? e.target.setAttribute('aria-invalid', !isValid)
-      : e.target.removeAttribute('aria-invalid')
-
-    if (e.target.validity.valueMissing) {
-      e.target.nextElementSibling.nextElementSibling.innerText = error(
-        e.target.id,
-        'puuttuu'
-      )
+        if (e.target.validity.tooShort) {
+          e.target.nextElementSibling.innerText = error(e.target.id, 'lyhyt')
+        } else if (e.target.validity.valueMissing) {
+          if (e.target.id === 'terms')
+            e.target.nextElementSibling.nextElementSibling.innerText = error(
+              e.target.id,
+              'puuttuu'
+            )
+          else e.target.nextElementSibling.innerText = error(e.target.id, 'puuttuu')
+        } else if (e.target.validity.tooLong) {
+          e.target.nextElementSibling.innerText = error(e.target.id, 'pitka')
+        } else if (e.target.validity.typeMismatch || e.target.validity.patternMismatch) {
+          e.target.nextElementSibling.innerText = error(e.target.id, 'oikein')
+        }
+      })
     }
   })
 
+  //   // Vielä erikseen terms-kentälle validointitarkistus, jottei tarvitse odottaa blurria poistamaan virheviesti näkyvistä.
+  //   const terms = document.getElementById('terms')
+  //   if (terms) {
+  //     terms.addEventListener('click', (e) => {
+  //       const isValid = e.target.checkValidity()
+  //       !isValid ? e.target.classList.add('invalid') : e.target.classList.remove('invalid')
+  //       !isValid
+  //         ? e.target.setAttribute('aria-invalid', !isValid)
+  //         : e.target.removeAttribute('aria-invalid')
+
+  //       if (e.target.validity.valueMissing) {
+  //         e.target.nextElementSibling.nextElementSibling.innerText = error(
+  //           e.target.id,
+  //           'puuttuu'
+  //         )
+  //       }
+  //     })
+  //   }
   function checkPasswords() {
     var password1 = document.getElementById('password').value
     var password2 = document.getElementById('password2').value
@@ -130,5 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return true // Allow form submission
   }
 
-  document.getElementById('registration-form').onsubmit = checkPasswords
+  const registrationForm = document.getElementById('registration-form')
+  if (registrationForm) registrationForm.onsubmit = checkPasswords
 })

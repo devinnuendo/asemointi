@@ -40,14 +40,14 @@ include "db/db-azure.php";
 
             <label for="payment_method">Maksutapa</label>
             <select name="payment_method" id="payment_method" required>
-                <option value="" disabled selected>Valitse maksutapa</option>
+                <option value="">Valitse maksutapa</option>
                 <option value="credit_card">Luottokortti</option>
                 <option value="paypal">PayPal</option>
             </select>
             <div class="error"></div>
 
             <label for="card_number">Kortin numero</label>
-            <input type="text" name="card_number" id="card_number" placeholder="Kortin numero" autocomplete="cc-number" required />
+            <input type="text" name="card_number" id="card_number" placeholder="Kortin numero" autocomplete="cc-number" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
             <div class="error"></div>
 
             <label for="expiration_date">Kortin voimassaoloaika (KK/VV)</label>
