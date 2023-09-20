@@ -37,11 +37,11 @@ include "db/db-azure.php";
             <label for="phone">Puhelinnumero</label>
             <input type="tel" name="phone" id="phone" placeholder="Puhelinnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
             <div class="error"></div>
-
-            <input type="checkbox" name="terms" id="terms" value="ok" required />
-            <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
-            <div class="error"></div>
-
+            <div>
+                <input type="checkbox" name="terms" id="terms" value="ok" required />
+                <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
+                <div class="error"></div>
+            </div>
             <input type="submit" value="Tallenna toimitusosoite">
         </form>
 

@@ -31,16 +31,20 @@ include "sivuosat/header.php"; ?>
         </div>
 
         <form action="yhteydenotto-kasittely.php" method="POST">
-            <label for="nimi">Nimi:</label>
-            <input type="text" id="nimi" name="nimi" required>
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" required>
             <div class="error"></div>
 
             <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="sahkoposti" required>
+            <input type="email" id="email" name="sahkoposti" autocomplete="email" minlength="5" required>
             <div class="error"></div>
 
-            <label for="aihe">Aihe:</label>
-            <select id="aihe" name="aihe" required>
+            <label for="phone">Puhelinnumero <small>(valinnainen)</small></label>
+            <input type="tel" name="phone" id="phone" placeholder="Puhelinnnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" />
+            <div class="error"></div>
+
+            <label for="subject">Aihe:</label>
+            <select id="subject" name="aihe" required>
                 <option value="">Valitse aihe</option>
                 <option value="kysymys">Kysymys tuotteista</option>
                 <option value="tilaus">Tilaus</option>
@@ -49,15 +53,15 @@ include "sivuosat/header.php"; ?>
             </select>
             <div class="error"></div>
 
-            <label for="viesti">Viesti:</label>
-            <textarea id="viesti" name="viesti" rows="4" cols="50" required></textarea>
+            <label for="message">Viesti:</label>
+            <textarea id="message" name="viesti" rows="4" cols="50" minlength="10" maxlength="255" required></textarea>
             <div class="error"></div>
 
             <fieldset>
-                <legend><label for="uutiskirje">Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</label></legend>
-                <input type="radio" id="kylla" name="uutiskirje" value="kylla" checked>
+                <legend>Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</legend>
+                <input type="radio" id="kylla" name="uutiskirje" value="Kylla" checked>
                 <label for="kylla">Kyllä</label>
-                <input type="radio" id="ei" name="uutiskirje" value="ei">
+                <input type="radio" id="ei" name="uutiskirje" value="Ei">
                 <label for="ei">Ei</label>
 
             </fieldset>

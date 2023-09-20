@@ -82,9 +82,11 @@ include "db/db-azure.php";
                 <label for="newsletter_no">Ei</label>
             </fieldset>
 
-            <input type="checkbox" name="terms" id="terms" value="ok" required />
-            <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
-            <div class="error"></div>
+            <div>
+                <input type="checkbox" name="terms" id="terms" value="ok" required />
+                <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
+                <div class="error"></div>
+            </div>
 
             <input type="submit" value="Lähetä">
         </form>

@@ -75,15 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
       puuttuu: 'Kortin voimassaoloaika puuttuu',
       oikein: 'Anna voimassaoloaika oikeassa muodossa: KK/VV',
     },
-    nimi: {
+    name: {
       puuttuu: 'Nimi puuttuu',
       lyhyt: 'Nimi on liian lyhyt',
     },
-    aihe: {
+    subject: {
       puuttuu: 'Aihe puuttuu',
       lyhyt: 'Aihe on liian lyhyt',
     },
-    viesti: {
+    message: {
       puuttuu: 'Viesti puuttuu',
       lyhyt: 'Viesti on liian lyhyt',
     },
@@ -112,11 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.validity.tooShort) {
           e.target.nextElementSibling.innerText = error(e.target.id, 'lyhyt')
         } else if (e.target.validity.valueMissing) {
-          if (e.target.id === 'terms')
-            e.target.nextElementSibling.nextElementSibling.innerText = error(
+          if (e.target.type === 'checkbox')
+            e.target.parentElement.querySelector('.error').innerText = error(
               e.target.id,
               'puuttuu'
             )
+          // e.target.nextElementSibling.nextElementSibling.innerText = error(
+          //   e.target.id,
+          //   'puuttuu'
+          // )
           else e.target.nextElementSibling.innerText = error(e.target.id, 'puuttuu')
         } else if (e.target.validity.tooLong) {
           e.target.nextElementSibling.innerText = error(e.target.id, 'pitka')

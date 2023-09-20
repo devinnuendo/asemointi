@@ -220,7 +220,7 @@
   width: 100%;
   position: relative;
   bottom: 0;
-  background-color: hsl(var(--hue), var(--sat), 42%);
+  background-color: hsl(var(--hue), var(--sat), 40%);
   color: hsl(var(--hue), var(--sat), 96%);
   font-size: var(--font-size-normal);
   display: flex;

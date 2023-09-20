@@ -29,7 +29,7 @@ include "db/db-azure.php";
             $email = $yhteys->real_escape_string(strip_tags(trim($_POST['email'])));
             $password = $_POST['password'];
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $newsletter = $yhteys->real_escape_string(strip_tags(trim($_POST['newsletter']))) === "Kylla" ? 1 : 0;
+            $newsletter = $yhteys->real_escape_string($_POST['newsletter']) === "Kylla" ? 1 : 0;
             // $terms = $yhteys->real_escape_string(strip_tags(trim($_POST['terms'])));
 
             $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 

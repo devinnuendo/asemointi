@@ -54,9 +54,11 @@ include "db/db-azure.php";
             <input type="text" name="expiration_date" id="expiration_date" placeholder="KK/VV" autocomplete="cc-exp" pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$" required />
             <div class="error"></div>
 
-            <input type="checkbox" name="terms" id="terms" value="ok" required />
-            <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
-            <div class="error"></div>
+            <div>
+                <input type="checkbox" name="terms" id="terms" value="ok" required />
+                <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
+                <div class="error"></div>
+            </div>
 
             <input type="submit" value="Tallenna laskutusosoite">
         </form>
