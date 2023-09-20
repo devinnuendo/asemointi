@@ -9,7 +9,7 @@ ini_set('display_errors', '1');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="One of the tasks made for the course Web-ohjelmointikoulutus in Omnia">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <?php if (isset($bootstrap)) echo $bootstrap; ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
     <link rel="stylesheet" type="text/css" href="css/styles-nav.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
@@ -18,7 +18,8 @@ ini_set('display_errors', '1');
     <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <script defer src="scripts/scripts.js"></script>
-    <?php if (isset($css)) echo "<link rel='stylesheet' href='../css/$css'>"; ?>
+    <?php if (isset($script)) echo "<script src='scripts/$script'></script>"; ?>
+    <?php if (isset($css)) echo "<link rel='stylesheet' href='css/$css'>"; ?>
     <title><?= $title ?? 'Puutarhaliike Neilikka'; ?></title>
 </head>
 

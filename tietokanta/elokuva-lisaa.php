@@ -135,7 +135,7 @@ include 'db-sakila.php';
             <div>
                 <label for="genre">Kategoria:</label>
                 <select name="genre[]" id="genre" multiple>
-                    <option>Valitse kategoria</option>
+                    <option value="">Valitse kategoria</option>
                     <?php
                     $query_genres = "SELECT name FROM category";
                     $tulokset_genres = $yhteys->query($query_genres);
