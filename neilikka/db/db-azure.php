@@ -4,7 +4,10 @@ $pins = "db/pins.php";
 if (file_exists($pins)) {
     include_once($pins);
 } else {
-    die("Tunnukset puuttuvat, ota yhteys ylläpitoon: info@jenniina.fi");
+    $azure_palvelin = getenv('AZURE_PALVELIN');
+    $azure_kayttaja = getenv('AZURE_KAYTTAJA');
+    $azure_salasana = getenv('AZURE_SALASANA');
+    $azure_tietokanta = getenv('AZURE_TIETOKANTA');
 }
 
 $yhteys = new mysqli($azure_palvelin, $azure_kayttaja, $azure_salasana, $azure_tietokanta);
