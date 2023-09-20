@@ -5,6 +5,30 @@
     </a>
     <a href="https://www.flaticon.com/free-icons/flower" class="displaynone">Flower icons created by Freepik - Flaticon</a>
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>
+
+    <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+        <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
+        <label for="submenu-toggle3" class="full">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="scr">open submenu</span>
+            <span class="scr">close submenu</span>
+        </label>
+        <ul class="submenu" id="submenu3">
+            <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+                <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+            </li>
+            <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+                <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+            </li>
+            <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
+                <a href="toimitus.php"><span>Toimitusosoite</span></a>
+            </li>
+            <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
+                <a href="laskutus.php"><span>Laskutusosoite</span></a>
+            </li>
+        </ul>
+    </div>
+
     <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
     <label for="menu-toggle" class="icon open"><i class="fa fa-bars" aria-hidden="true"></i><span class="scr">open menu</span></label>
     <label for="menu-toggle" class="icon close"><i class="fa fa-times" aria-hidden="true"></i><span class="scr">close menu</span></label>
@@ -52,7 +76,7 @@
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
             <a href="yhteydenotto.php"><span>Ota yhteyttä</span></a>
         </li>
-        <li class="li-submenu <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+        <!-- <li class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
             <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
             <label for="submenu-toggle3" class="full">
                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -73,7 +97,7 @@
                     <a href="laskutus.php"><span>Laskutusosoite</span></a>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
 
     </ul>
