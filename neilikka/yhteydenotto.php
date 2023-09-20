@@ -30,7 +30,7 @@ include "sivuosat/header.php"; ?>
             </ul>
         </div>
 
-        <form action="yhteydenotto-kasittely.php" method="POST">
+        <form action="yhteydenotto-kasittely.php" id="form-yhteydenotto" method="POST">
             <label for="name">Nimi:</label>
             <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" required>
             <div class="error"></div>
