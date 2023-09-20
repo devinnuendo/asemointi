@@ -1,4 +1,5 @@
 .mainmenu {
+  --margin-right: 2.5rem;
   position: relative;
   font-size: var(--font-size-small);
   display: flex;
@@ -45,7 +46,7 @@
   color: hsl(var(--hue), var(--sat), 96%);
   border: 0;
   cursor: pointer;
-  flex: 1 0 4rem;
+  flex: 0 0 2rem;
   text-align: right;
 }
 .mainmenu ul {
@@ -57,11 +58,16 @@
   flex-flow: column nowrap;
   z-index: 2;
 }
-.mainmenu > ul,
+.mainmenu > ul {
+  position: absolute;
+  left: 0;
+  top: calc(48px + var(--gap) * 3 + 2rem);
+  width: calc(100vw - var(--scrollbar-width));
+}
 div.li-submenu .submenu {
   position: absolute;
   left: 0;
-  top: calc(48px + var(--gap) * 2); /* brand logo height plus padding */
+  top: calc(2rem + var(--gap));
   width: calc(100vw - var(--scrollbar-width));
 }
 .mainmenu > ul > li {
@@ -211,6 +217,11 @@ div.li-submenu .submenu {
 .submenu-toggle:checked ~ .open {
   display: none;
 }
+.user.li-submenu .full ~ .open,
+.user.li-submenu .full ~ .close {
+  height: 2rem;
+  background-color: transparent;
+}
 .submenu-toggle ~ .submenu {
   display: none;
 }
@@ -228,6 +239,7 @@ div.li-submenu .submenu {
   align-items: center;
   justify-content: center;
   padding: 0;
+  margin: 0 var(--margin-right) 0 0;
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -242,10 +254,18 @@ div.li-submenu .submenu-toggle:hover ~ label {
   opacity: 1;
 }
 .li-submenu.user {
+  position: relative;
   order: 3;
   display: flex;
+  flex: 1 0 calc(100vw - var(--scrollbar-width));
   justify-content: center;
   align-items: center;
+}
+.li-submenu.user > a,
+.li-submenu.user > label {
+  flex: 0 0 max-content;
+  position: relative;
+  margin-right: 0;
 }
 .li-submenu .full ~ ul a {
   background-color: hsl(var(--hue), var(--sat), 40%);
@@ -282,6 +302,25 @@ div.li-submenu .submenu-toggle:hover ~ label {
   .mainmenu {
     flex-flow: row wrap;
     justify-content: space-between;
+  }
+  .mainmenu .icon {
+    flex: 1 0 4rem;
+  }
+  /* #menu-toggle ~ label {
+    margin: 0 var(--margin-right) 0 0;
+  } */
+  .li-submenu.user {
+    flex: 0 1 max-content;
+  }
+  .mainmenu > ul {
+    top: calc(48px + var(--gap) * 2);
+  }
+  #submenu-toggle3 ~ ul {
+    width: auto;
+    right: 0;
+    left: initial;
+    top: calc(2rem + var(--gap) * 2);
+    width: calc(100vw - var(--scrollbar-width));
   }
 }
 
@@ -416,8 +455,9 @@ div.li-submenu .submenu-toggle:hover ~ label {
   }
   .user.li-submenu .full ~ .open,
   .user.li-submenu .full ~ .close {
-    bottom: 0.55rem;
+    bottom: -0.05rem;
     height: 2rem;
+    position: absolute;
   }
 }
 
