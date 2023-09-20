@@ -30,7 +30,7 @@ include "sivuosat/header.php"; ?>
             </ul>
         </div>
 
-        <form action="yhteydenotto-kasittely.php" method="POST">
+        <form action="yhteydenotto-kasittely.php" id="form-yhteydenotto" method="POST">
             <label for="name">Nimi:</label>
             <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" required>
             <div class="error"></div>
@@ -38,6 +38,11 @@ include "sivuosat/header.php"; ?>
             <label for="email">Sähköposti:</label>
             <input type="email" id="email" name="sahkoposti" autocomplete="email" minlength="5" required>
             <div class="error"></div>
+            <?php
+            if (isset($_GET['message'])) {
+                $message = urldecode($_GET['message']);
+                echo "<div class='error' aria-role='alert'>$message</div>";
+            } ?>
 
             <label for="phone">Puhelinnumero <small>(valinnainen)</small></label>
             <input type="tel" name="phone" id="phone" placeholder="Puhelinnnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" />

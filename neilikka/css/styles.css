@@ -430,6 +430,9 @@ label {
   margin-bottom: 8px;
   font-weight: bold;
 }
+label.normal {
+  font-weight: normal;
+}
 label.inline-block {
   display: inline-block;
 }
