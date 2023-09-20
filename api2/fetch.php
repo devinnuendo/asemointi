@@ -1,5 +1,5 @@
 <?php
-define('directAccess', TRUE);
+define('DIRECT_ACCESS', TRUE);
 $scrt = "db/pins.php";
 if (file_exists($scrt)) {
     include_once($scrt);
