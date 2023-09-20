@@ -66,6 +66,12 @@
                 <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
                     <a href="kirjaudu.php"><span>Kirjaudu</span></a>
                 </li>
+                <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
+                    <a href="toimitus.php"><span>Toimitusosoite</span></a>
+                </li>
+                <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
+                    <a href="laskutus.php"><span>Laskutusosoite</span></a>
+                </li>
             </ul>
         </li>
 
