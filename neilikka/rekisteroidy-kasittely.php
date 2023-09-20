@@ -20,15 +20,17 @@ include "db/db-azure.php";
 
 
             // Tiedot lomakkeesta
-            $first_name = $yhteys->real_escape_string(strip_tags($_POST['first_name']));
+            $first_name = $yhteys->real_escape_string(strip_tags(trim($_POST['first_name'])));
             $first_name = ucwords($first_name, " ");
-            $last_name = $yhteys->real_escape_string(strip_tags($_POST['last_name']));
+            $last_name = $yhteys->real_escape_string(strip_tags(trim($_POST['last_name'])));
             $last_name = ucwords($last_name, " ");
-            $email = $yhteys->real_escape_string(strip_tags($_POST['email']));
+            $phone = $yhteys->real_escape_string(strip_tags(trim($_POST['phone'])));
+            $phone = preg_replace('/\s+/u', '', $phone); // remove spaces
+            $email = $yhteys->real_escape_string(strip_tags(trim($_POST['email'])));
             $password = $_POST['password'];
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $newsletter = $yhteys->real_escape_string(strip_tags($_POST['newsletter'])) === "Kylla" ? 1 : 0;
-            // $terms = $yhteys->real_escape_string(strip_tags($_POST['terms']));
+            $newsletter = $yhteys->real_escape_string(strip_tags(trim($_POST['newsletter']))) === "Kylla" ? 1 : 0;
+            // $terms = $yhteys->real_escape_string(strip_tags(trim($_POST['terms'])));
 
             $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 
             WHERE TRIM(email) = TRIM('$email')";
@@ -45,8 +47,8 @@ include "db/db-azure.php";
                     <p><a href='kirjaudu.php'>Kirjaudu sisään</a></p>";
                 } else {
                     // Lisää asiakas taulukkoon 'neil_user'
-                    $lisayskysely = "INSERT INTO neil_user (first_name, last_name, email, password, newsletter, registration, updated)
-                        VALUES ('$first_name', '$last_name', '$email', '$password', $newsletter, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+                    $lisayskysely = "INSERT INTO neil_user (first_name, last_name, phone, email, password, newsletter, registration, updated)
+                        VALUES ('$first_name', '$last_name', '$phone', '$email', '$password', $newsletter, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 
                     if ($yhteys->query($lisayskysely) === TRUE) {
                         $customer_id = $yhteys->insert_id;

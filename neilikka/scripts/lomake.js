@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
       lyhyt: 'Sukunimi on liian lyhyt',
       oikein: 'Anna sukunimi oikeassa muodossa',
     },
+    phone: {
+      puuttuu: 'Puhelinnumero puuttuu',
+      lyhyt: 'Puhelinnumero on liian lyhyt',
+      pitka: 'Puhelinnumero on liian pitkä',
+      oikein: 'Anna puhelinnumero oikeassa muodossa ilman erikoismerkkejä',
+    },
     email: {
       puuttuu: 'Sähköpostiosoite puuttuu',
       oikein: 'Anna sähköpostiosoite oikeassa muodossa',
@@ -22,6 +28,40 @@ document.addEventListener('DOMContentLoaded', () => {
       puuttuu: 'Salasana puuttuu',
       lyhyt: 'Salasana on liian lyhyt',
       tasmaa: 'Salasanat eivät täsmää',
+    },
+    recipient_name: {
+      puuttuu: 'Vastaanottajan nimi puuttuu',
+      lyhyt: 'Vastaanottajan nimi on liian lyhyt',
+      oikein: 'Anna vastaanottajan nimi oikeassa muodossa',
+    },
+    street_address: {
+      puuttuu: 'Katuosoite puuttuu',
+      lyhyt: 'Katuosoite on liian lyhyt',
+    },
+    postal_code: {
+      puuttuu: 'Postinumero puuttuu',
+      lyhyt: 'Postinumero on liian lyhyt',
+    },
+    city: {
+      puuttuu: 'Kaupunki puuttuu',
+      lyhyt: 'Kaupunki on liian lyhyt',
+    },
+    billing_name: {
+      puuttuu: 'Laskutuksen saaja puuttuu',
+      lyhyt: 'Laskutuksen saaja on liian lyhyt',
+      oikein: 'Anna laskutuksen saaja oikeassa muodossa',
+    },
+    billing_street_address: {
+      puuttuu: 'Laskutusosoite puuttuu',
+      lyhyt: 'Laskutusosoite on liian lyhyt',
+    },
+    billing_postal_code: {
+      puuttuu: 'Laskutusosoitteen postinumero puuttuu',
+      lyhyt: 'Laskutusosoitteen postinumero on liian lyhyt',
+    },
+    billing_city: {
+      puuttuu: 'Laskutusosoitteen kaupunki puuttuu',
+      lyhyt: 'Laskutusosoitteen kaupunki on liian lyhyt',
     },
     terms: {
       puuttuu: 'Hyväksy käyttösäännöt',
@@ -51,7 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'puuttuu'
           )
         else e.target.nextElementSibling.innerText = error(e.target.id, 'puuttuu')
-      } else if (e.target.validity.typeMismatch) {
+      } else if (e.target.validity.tooLong) {
+        e.target.nextElementSibling.innerText = error(e.target.id, 'pitka')
+      } else if (e.target.validity.typeMismatch || e.target.validity.patternMismatch) {
         e.target.nextElementSibling.innerText = error(e.target.id, 'oikein')
       }
     })

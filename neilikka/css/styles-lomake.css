@@ -16,6 +16,7 @@ input[type='text'].invalid,
 input[type='email'].invalid,
 input[type='password'].invalid,
 input[type='number'].invalid,
+input[type='tel'].invalid,
 textarea.invalid {
   border-color: red;
   border-style: dashed;

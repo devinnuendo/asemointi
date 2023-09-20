@@ -57,6 +57,10 @@ include "db/db-azure.php";
             <input type="text" name="last_name" id="last_name" placeholder="Sukunimi" autocomplete="family-name" minlength="2" required />
             <div class="error"></div>
 
+            <label for="phone">Puhelinnumero</label>
+            <input type="tel" name="phone" id="phone" placeholder="Puhelinnnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
+            <div class="error"></div>
+
             <label for="email">Sähköpostiosoite</label>
             <input type="email" name="email" id="email" placeholder="Sähköpostiosoite" autocomplete="email" minlength="5" required />
             <div class="error"></div>
