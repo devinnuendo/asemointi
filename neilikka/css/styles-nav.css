@@ -4,7 +4,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background: hsl(var(--hue), var(--sat), 40%);
   background: linear-gradient(
     0deg,
@@ -45,7 +45,7 @@
   color: hsl(var(--hue), var(--sat), 96%);
   border: 0;
   cursor: pointer;
-  flex: 1 0 max-content;
+  flex: 1 0 4rem;
   text-align: right;
 }
 .mainmenu ul {
@@ -57,7 +57,8 @@
   flex-flow: column nowrap;
   z-index: 2;
 }
-.mainmenu > ul {
+.mainmenu > ul,
+div.li-submenu .submenu {
   position: absolute;
   left: 0;
   top: calc(48px + var(--gap) * 2); /* brand logo height plus padding */
@@ -76,7 +77,7 @@
 #menu-toggle {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 4rem;
   width: 4rem;
   height: calc(3em + 1rem);
   appearance: none;
@@ -117,7 +118,7 @@
 
 #menu-toggle ~ label {
   z-index: 3;
-  margin: 0 4rem 0 0;
+  margin: 0;
   background-color: transparent;
   outline: 2px solid transparent;
   transition-property: background-color, outline-color;
@@ -204,7 +205,7 @@
   background-color: hsl(var(--hue), var(--sat), 45%);
 }
 .submenu-toggle:checked ~ .close {
-  display: flex;
+  display: block;
 }
 
 .submenu-toggle:checked ~ .open {
@@ -219,8 +220,7 @@
 .li-submenu label.full {
   width: 100%;
   position: relative;
-  bottom: 0;
-  background-color: hsl(var(--hue), var(--sat), 40%);
+  background-color: transparent;
   color: hsl(var(--hue), var(--sat), 96%);
   font-size: var(--font-size-normal);
   display: flex;
@@ -230,9 +230,21 @@
   border: 0;
   outline: 0;
   cursor: pointer;
-  transition-property: background-color, outline-color;
+  opacity: 0.8;
+  transition-property: opacity, background-color, outline-color;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+}
+div.li-submenu .submenu-toggle:hover ~ label {
+  background-color: transparent;
+  font-size: var(--font-size-normal);
+  opacity: 1;
+}
+.li-submenu.user {
+  order: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* TUOTESIVUJEN ALAVALIKKO */
 .secondary {
@@ -264,6 +276,13 @@
 
 @media (min-width: 380px) {
   .mainmenu {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 576px) {
+  .mainmenu {
     justify-content: flex-start;
   }
   .mainmenu .logotext {
@@ -273,9 +292,6 @@
   .mainmenu .logotext::first-letter {
     letter-spacing: -0.07em;
   }
-}
-
-@media (min-width: 576px) {
 }
 
 @media (min-width: 768px) {
@@ -345,6 +361,7 @@
   .li-submenu label.full,
   .li-submenu input:hover ~ label.full {
     background-color: transparent;
+    margin: 0.5rem var(--gap) -0.5rem 0;
   }
   .mainmenu .li-submenu label.full + ul a span {
     display: inline-block;
@@ -364,7 +381,7 @@
     margin-right: calc(-1 * var(--margin-right));
   }
   .submenu-toggle ~ label,
-  .li-submenu .submenu-toggle:hover ~ label:not(.full) {
+  .li-submenu .submenu-toggle:hover ~ label {
     background-color: transparent;
     font-size: 0.8em;
     margin: 0.15rem 0 -0.15rem;

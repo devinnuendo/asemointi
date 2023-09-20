@@ -19,6 +19,16 @@ document.querySelectorAll('.submenu-toggle').forEach((s) => {
   })
 })
 
+// close main menu when user menu is opened
+document.querySelector('.user .submenu-toggle').addEventListener('click', function () {
+  document.getElementById('menu-toggle').checked = false
+})
+
+// close user menu when main menu is opened
+document.querySelector('#menu-toggle').addEventListener('click', function () {
+  document.querySelector('.user .submenu-toggle').checked = false
+})
+
 const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth
 
 getScrollbarWidth()
