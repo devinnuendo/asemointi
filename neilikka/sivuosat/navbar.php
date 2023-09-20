@@ -7,25 +7,30 @@
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>
 
     <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
-        <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
-        <label for="submenu-toggle3" class="full">
+        <a href="profiili.php" class="full">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <span class="scr">toggle submenu</span>
+            <span class="scr">Profiili</span>
+        </a>
+        <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
+        <label for="submenu-toggle3" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
+            <span class="scr">open submenu</span>
         </label>
-        <ul class="submenu" id="submenu3">
-            <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-                <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
-            </li>
-            <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-                <a href="kirjaudu.php"><span>Kirjaudu</span></a>
-            </li>
-            <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
-                <a href="toimitus.php"><span>Toimitusosoite</span></a>
-            </li>
-            <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
-                <a href="laskutus.php"><span>Laskutusosoite</span></a>
-            </li>
-        </ul>
+        <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
+        <ul class="submenu" id="submenu">
+            <ul class="submenu" id="submenu3">
+                <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+                    <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+                </li>
+                <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+                    <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+                </li>
+                <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
+                    <a href="toimitus.php"><span>Toimitusosoite</span></a>
+                </li>
+                <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
+                    <a href="laskutus.php"><span>Laskutusosoite</span></a>
+                </li>
+            </ul>
     </div>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
