@@ -72,7 +72,7 @@ include "email/brevo.php";
                             $email_recipient_name = "$first_name $last_name";
                             $email_recipient_email = $email;
                             $email_title = "Tervetuloa Neilikkaan, $first_name!";
-                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista vielä sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
+                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
 
                             $sendSmtpEmail = new \Brevo\Client\Model\SendSmtpEmail([
                                 'subject' => $email_title,
@@ -90,7 +90,7 @@ include "email/brevo.php";
 
                             echo "<p>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</p>
                         <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\". </p>
-                        <p>Klikkaa vielä sähköpostiisi lähetettyä linkkiä vahvistaaksesi sähköpostisi.</p>
+                        <p>Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi.</p>
                         ";
                         } else {
                             echo "Virhe rekisteröitymisessä: $yhteys->error";
