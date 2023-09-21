@@ -1,9 +1,7 @@
 <?php
 define('PINS_ACCESS', TRUE);
 $pins = "../db/pins.php";
-if (file_exists($pins)) {
-    include_once($pins);
-} else {
+if (!file_exists($pins)) {
     $brevo_api_key = getenv('BREVO_API_KEY');
 }
 require_once(__DIR__ . '/../../vendor/autoload.php');
