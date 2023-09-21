@@ -10,7 +10,7 @@ $verification = $email_already_verified = $activation_error = "";
 $token = $_GET['token'] ?? "";
 if ($token) {
     $token = $yhteys->real_escape_string(trim(strip_tags($token)));
-    $query = "SELECT s.customer_id, s.verified, s.updated FROM neil_signup_tokens s
+    $query = "SELECT s.customer_id, s.verified, s.created FROM neil_signup_tokens s
              LEFT JOIN neil_user u ON u.customer_id = s.customer_id WHERE s.token = '$token'";
     $result = $yhteys->query($query);
     if ($result->num_rows) {
@@ -22,14 +22,14 @@ if ($token) {
                 $verification =
                     '
                   Sähköpostiosoitteesi on vahvistettu. Tervetuloa ostoksille! 
-                   <a href="kirjaudu.php">Kirjaudu sisään</a>
+                   <p><a href="kirjaudu.php">Kirjaudu sisään</a>
                    ';
             }
         } else {
             $email_already_verified =
                 '
                Sähköpostiosoitteesi on jo vahvistettu. Tervetuloa ostoksille!
-               <a href="kirjaudu.php">Kirjaudu sisään</a>
+               <p><a href="kirjaudu.php">Kirjaudu sisään</a></p>
                ';
         }
         $query = "DELETE FROM neil_signup_tokens WHERE token = '$token'";
@@ -39,7 +39,7 @@ if ($token) {
         $activation_error =
             '
           Tapahtui virhe; sähköpostiosoitteesi saattaa olla jo vahvistettu. 
-          <a href="kirjaudu.php">Kirjaudu sisään</a>';
+          <p><a href="kirjaudu.php">Kirjaudu sisään</a></p>';
     }
 }
 ?>
