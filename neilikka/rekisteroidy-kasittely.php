@@ -60,13 +60,20 @@ include "email/brevo.php";
                         if ($yhteys->query($lisayskysely) === TRUE) {
                             $customer_id = $yhteys->insert_id;
 
+                            $id = $yhteys->insert_id;
+                            $token = md5(rand() . time());
+                            $query = "INSERT INTO signup_tokens (customer_id, token) VALUES ($id,'$token')";
+                            $result = $yhteys->query($query);
+                            $lisattiin_token = $yhteys->affected_rows;
+
                             // Lähetä uudelle käyttäjälle sähköposti
                             $email_sender_name = "Puutarhaliike Neilikka";
                             $email_sender_email = "jenniina@jenniina.fi";
                             $email_recipient_name = "$first_name $last_name";
                             $email_recipient_email = $email;
                             $email_title = "Tervetuloa Neilikkaan, $first_name!";
-                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Tervetuloa ostoksille!<br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
+                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br>";
+                            $msg .= "<a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
 
                             $sendSmtpEmail = new \Brevo\Client\Model\SendSmtpEmail([
                                 'subject' => $email_title,

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       puuttuu: 'Puhelinnumero puuttuu',
       lyhyt: 'Puhelinnumero on liian lyhyt',
       pitka: 'Puhelinnumero on liian pitkä',
-      oikein: 'Anna puhelinnumero oikeassa muodossa ilman erikoismerkkejä',
+      oikein: 'Anna puhelinnumero ilman erikoismerkkejä',
     },
     email: {
       puuttuu: 'Sähköpostiosoite puuttuu',
@@ -95,8 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const error = (field, property) => {
     return errors[field][property]
   }
+
   const eventList = ['blur', 'change']
+
   const input = document.querySelectorAll('input, select, textarea')
+
   input.forEach((x) => {
     for (ev of eventList) {
       x.addEventListener(ev, (e) => {
@@ -117,10 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
               e.target.id,
               'puuttuu'
             )
-          // e.target.nextElementSibling.nextElementSibling.innerText = error(
-          //   e.target.id,
-          //   'puuttuu'
-          // )
           else e.target.nextElementSibling.innerText = error(e.target.id, 'puuttuu')
         } else if (e.target.validity.tooLong) {
           e.target.nextElementSibling.innerText = error(e.target.id, 'pitka')
@@ -131,24 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  //   // Vielä erikseen terms-kentälle validointitarkistus, jottei tarvitse odottaa blurria poistamaan virheviesti näkyvistä.
-  //   const terms = document.getElementById('terms')
-  //   if (terms) {
-  //     terms.addEventListener('click', (e) => {
-  //       const isValid = e.target.checkValidity()
-  //       !isValid ? e.target.classList.add('invalid') : e.target.classList.remove('invalid')
-  //       !isValid
-  //         ? e.target.setAttribute('aria-invalid', !isValid)
-  //         : e.target.removeAttribute('aria-invalid')
-
-  //       if (e.target.validity.valueMissing) {
-  //         e.target.nextElementSibling.nextElementSibling.innerText = error(
-  //           e.target.id,
-  //           'puuttuu'
-  //         )
-  //       }
-  //     })
-  //   }
   function checkPasswords() {
     var password1 = document.getElementById('password').value
     var password2 = document.getElementById('password2').value
