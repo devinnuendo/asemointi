@@ -32,7 +32,7 @@ if ($token) {
                <a href="kirjaudu.php">Kirjaudu sisään</a>
                ';
         }
-        $query = "DELETE FROM signup_tokens WHERE token = '$token'";
+        $query = "DELETE FROM neil_signup_tokens WHERE token = '$token'";
         $result = $yhteys->query($query);
         $poistettiin = $yhteys->affected_rows;
     } else {
