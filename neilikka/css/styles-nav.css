@@ -257,7 +257,6 @@ div.li-submenu .submenu-toggle:hover ~ label {
 }
 .li-submenu.user {
   position: relative;
-  order: 3;
   display: flex;
   flex: 1 0 calc(100vw - var(--scrollbar-width));
   justify-content: center;
