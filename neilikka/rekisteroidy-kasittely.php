@@ -89,8 +89,9 @@ include "email/brevo.php";
                             }
 
                             echo "<p>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</p>
-                        <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".</p>
-                        <p><a href='kirjaudu.php'>Kirjaudu sisään</a></p>";
+                        <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\". </p>
+                        <p>Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi.</p>
+                        ";
                         } else {
                             echo "Virhe rekisteröitymisessä: $yhteys->error";
                         }
