@@ -22,14 +22,14 @@ if ($token) {
                 $verification =
                     '
                   Sähköpostiosoitteesi on vahvistettu. Tervetuloa ostoksille! 
-                   <a href="kirjaudu.php">Kirjaudu sisään</a>
+                   <p><a href="kirjaudu.php">Kirjaudu sisään</a>
                    ';
             }
         } else {
             $email_already_verified =
                 '
                Sähköpostiosoitteesi on jo vahvistettu. Tervetuloa ostoksille!
-               <a href="kirjaudu.php">Kirjaudu sisään</a>
+               <p><a href="kirjaudu.php">Kirjaudu sisään</a></p>
                ';
         }
         $query = "DELETE FROM neil_signup_tokens WHERE token = '$token'";
@@ -39,7 +39,7 @@ if ($token) {
         $activation_error =
             '
           Tapahtui virhe; sähköpostiosoitteesi saattaa olla jo vahvistettu. 
-          <a href="kirjaudu.php">Kirjaudu sisään</a>';
+          <p><a href="kirjaudu.php">Kirjaudu sisään</a></p>';
     }
 }
 ?>
