@@ -66,14 +66,14 @@ include "email/brevo.php";
                             $email_recipient_name = "$first_name $last_name";
                             $email_recipient_email = $email;
                             $email_title = "Tervetuloa Neilikkaan, $first_name!";
-                            $email_body = "Hei $first_name $last_name,\n\nKiitos rekisteröitymisestä Neilikan verkkokauppaan!\n\nKäyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".\n\nTervetuloa ostoksille!\n\nYstävällisin terveisin,\nNeilikan henkilökunta";
+                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Tervetuloa ostoksille!<br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
 
                             $sendSmtpEmail = new \Brevo\Client\Model\SendSmtpEmail([
                                 'subject' => $email_title,
                                 'sender' => ['name' => $email_sender_name, 'email' => $email_sender_email],
                                 'replyTo' => ['name' => $email_sender_name, 'email' => $email_sender_email],
                                 'to' => [['name' => $email_recipient_name, 'email' => $email_recipient_email]],
-                                'htmlContent' => "<html><body><h1>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</h1><p>$email_body</p></body></html>"
+                                'htmlContent' => "<html><body><h1>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</h1>$email_body</body></html>"
                             ]);
 
                             try {
