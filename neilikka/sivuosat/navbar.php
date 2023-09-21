@@ -88,6 +88,9 @@
         </label>
         <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
         <ul class="submenu" id="submenu3">
+            <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
+                <a href="profiili.php"><span>Profiili</span></a>
+            </li>
             <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
                 <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
             </li>

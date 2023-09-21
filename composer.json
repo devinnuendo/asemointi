@@ -1,5 +1,5 @@
 {
     "require": {
-        "getbrevo/brevo-php": "1.x.x"
+        "getbrevo/brevo-php": "1.0.2"
     }
 }
