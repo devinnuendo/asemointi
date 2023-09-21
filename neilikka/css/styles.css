@@ -136,6 +136,9 @@ section {
 section > * {
   flex: 1 0 100%;
 }
+section > p {
+  margin: 0;
+}
 .lista-wrap ul {
   padding-left: calc(var(--gap) * 2);
 }
