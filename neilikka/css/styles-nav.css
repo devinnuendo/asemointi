@@ -244,7 +244,6 @@ div.li-submenu .submenu {
   padding: 0;
   margin: 0 var(--margin-right) 0 0;
   border: 0;
-  outline: 0;
   cursor: pointer;
   opacity: 0.8;
   transition-property: opacity, background-color, outline-color;
@@ -258,7 +257,6 @@ div.li-submenu .submenu-toggle:hover ~ label {
 }
 .li-submenu.user {
   position: relative;
-  order: 3;
   display: flex;
   flex: 1 0 calc(100vw - var(--scrollbar-width));
   justify-content: center;
