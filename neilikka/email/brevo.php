@@ -1,5 +1,4 @@
 <?php
-define('PINS_ACCESS', TRUE);
 $pins = "../db/pins.php";
 if (!file_exists($pins)) {
     $brevo_api_key = getenv('BREVO_API_KEY');
