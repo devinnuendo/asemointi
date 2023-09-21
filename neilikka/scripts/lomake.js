@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       puuttuu: 'Puhelinnumero puuttuu',
       lyhyt: 'Puhelinnumero on liian lyhyt',
       pitka: 'Puhelinnumero on liian pitkä',
-      oikein: 'Anna puhelinnumero oikeassa muodossa ilman erikoismerkkejä',
+      oikein: 'Anna puhelinnumero ilman erikoismerkkejä',
     },
     email: {
       puuttuu: 'Sähköpostiosoite puuttuu',
