@@ -83,7 +83,7 @@ div.li-submenu .submenu {
 #menu-toggle {
   position: absolute;
   top: 0;
-  right: 4rem;
+  right: 0;
   width: 4rem;
   height: calc(3em + 1rem);
   appearance: none;
@@ -201,6 +201,9 @@ div.li-submenu .submenu {
   margin: 0;
   cursor: pointer;
 }
+#submenu-toggle3 {
+  width: calc(50%);
+}
 .submenu-toggle ~ label {
   outline: 2px solid transparent;
   transition-property: background-color, outline-color;
@@ -314,6 +317,9 @@ div.li-submenu .submenu-toggle:hover ~ label {
   }
   .mainmenu > ul {
     top: calc(48px + var(--gap) * 2);
+  }
+  #menu-toggle {
+    right: 6.5rem;
   }
   #submenu-toggle3 ~ ul {
     width: auto;
