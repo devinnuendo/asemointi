@@ -1,6 +1,6 @@
 <?php
 define('PINS_ACCESS', TRUE);
-$pins = "./pins.php";
+$pins = "pins.php";
 if (file_exists($pins)) {
     include_once($pins);
 } else {

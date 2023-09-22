@@ -5,7 +5,7 @@ $title = 'Rekisteröidy';
 // $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php";
 include "db/db-azure.php";
-include "email/brevo.php";
+include "../config/posti.php";
 ?>
 
 <main class="rekisteroidy">
@@ -67,40 +67,37 @@ include "email/brevo.php";
                             $lisattiin_token = $yhteys->affected_rows;
 
                             // Lähetä uudelle käyttäjälle sähköposti
-                            $email_sender_name = "Puutarhaliike Neilikka";
-                            $email_sender_email = "jenniina@jenniina.fi";
-                            $email_recipient_name = "$first_name $last_name";
-                            $email_recipient_email = $email;
-                            $email_title = "Tervetuloa Neilikkaan, $first_name!";
-                            $email_body = "<p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p>";
 
-                            $sendSmtpEmail = new \Brevo\Client\Model\SendSmtpEmail([
-                                'subject' => $email_title,
-                                'sender' => ['name' => $email_sender_name, 'email' => $email_sender_email],
-                                'replyTo' => ['name' => $email_sender_name, 'email' => $email_sender_email],
-                                'to' => [['name' => $email_recipient_name, 'email' => $email_recipient_email]],
-                                'htmlContent' => "<html><body><h1>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</h1>$email_body</body></html>"
-                            ]);
+                            if ($lisattiin_token) {
 
-                            try {
-                                $apiInstance->sendTransacEmail($sendSmtpEmail);
-                            } catch (Exception $e) {
-                                echo 'Exception when calling TransactionalEmailsApi->sendTransacEmail: ', $e->getMessage(), PHP_EOL;
+                                $email_sender_name = "Puutarhaliike Neilikka";
+                                $email_sender_email = "jenniina@jenniina.fi";
+                                $email_recipient_name = "$first_name $last_name";
+                                $email_recipient_email = $email;
+                                $email_title = "Tervetuloa Neilikkaan, $first_name!";
+                                $email_body = "<html><body><h1>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</h1><p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p></body></html>";
+
+                                try {
+                                    $lahetetty = posti($email_recipient_name, $email_recipient_email, $email_sender_name, $email_sender_email,  $email_title, $email_body);
+
+                                    if ($lahetetty) {
+                                        echo "<p>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</p>
+                                <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\". </p>
+                                <p>Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi.</p>
+                                ";
+                                    } else {
+                                        echo "Virhe rekisteröitymisessä: $yhteys->error";
+                                    }
+
+                                    $yhteys->close();
+                                } catch (Exception $e) {
+                                    echo 'Virhe lähetyksessä: ', $e->getMessage(), PHP_EOL;
+                                }
                             }
-
-                            echo "<p>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</p>
-                        <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\". </p>
-                        <p>Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi.</p>
-                        ";
                         } else {
                             echo "Virhe rekisteröitymisessä: $yhteys->error";
                         }
-
-                        $yhteys->close();
                     }
-                } else {
-                    // Error during duplicate check
-                    $errorMessage = "Error checking for duplicates: " . $yhteys->error;
                 }
             }
         };
