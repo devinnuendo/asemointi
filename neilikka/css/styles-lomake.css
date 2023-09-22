@@ -31,3 +31,29 @@ input[type='checkbox'].invalid + label + .error {
 .password-match.block {
   display: block;
 }
+body.fi .language.fi,
+body.en .language.en {
+  display: none;
+}
+body.fi .language.en label,
+body.en .language.fi label,
+body.fi .language.en button[type='submit'],
+body.en .language.fi button[type='submit'] {
+  display: inline-block;
+  background-color: transparent;
+
+  margin: 0;
+  color: hsl(var(--hue), var(--sat), 10%);
+  font-style: italic;
+  font-weight: bold;
+}
+
+body.fi .language.en button[type='submit'],
+body.en .language.fi button[type='submit'] {
+  border: 1px solid hsl(var(--hue), var(--sat), 80%);
+}
+body.fi .language.en button[type='submit']:hover,
+body.en .language.fi button[type='submit']:hover {
+  border: 1px solid hsl(var(--hue), var(--sat), 60%);
+  background-color: hsl(var(--hue), var(--sat), 93%);
+}

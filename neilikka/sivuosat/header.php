@@ -1,6 +1,23 @@
 <?php error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include "../config/debugger.php";
+include "../config/language.php";
+
+session_start();
+
+$userLanguage = $_SESSION["user_language"] ?? "fi";
+
+if ($userLanguage === "en") {
+    $translationFile = file_get_contents("../config/translations/translations_en.json");
+} elseif ($userLanguage === "fi") {
+    $translationFile = file_get_contents("../config/translations/translations_fi.json");
+} else {
+    $translationFile = file_get_contents("../config/translations/translations_fi.json");
+}
+
+// Parse the JSON translation file into a PHP associative array
+$tra = json_decode($translationFile, true);
+
 ?>
 <!DOCTYPE html>
 <html lang="fi">
@@ -24,7 +41,7 @@ include "../config/debugger.php";
     <title><?= $title ?? 'Puutarhaliike Neilikka'; ?></title>
 </head>
 
-<body>
+<body class="<?= $userLanguage ?>">
     <header>
         <?php include "navbar.php"; ?>
         <picture>

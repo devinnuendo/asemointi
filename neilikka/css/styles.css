@@ -421,6 +421,13 @@ form {
   border-radius: 0.3rem;
   box-shadow: 0.2rem 0.4rem 1rem -0.4rem hsla(var(--hue), var(--sat), 80%, 0.8);
 }
+form.reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
 form * {
   line-height: 1;
 }
@@ -478,7 +485,8 @@ input[type='radio'] + label {
   padding: 0.1em 0.8em 0.2em 0;
 }
 
-input[type='submit'] {
+input[type='submit'],
+button[type='submit'] {
   display: block;
   margin: 1em 0 0;
   background-color: hsl(var(--hue), var(--sat), 40%);

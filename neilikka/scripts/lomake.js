@@ -1,99 +1,231 @@
 document.addEventListener('DOMContentLoaded', () => {
   const errors = {
     first_name: {
-      puuttuu: 'Etunimi puuttuu',
-      lyhyt: 'Etunimi on liian lyhyt',
-      oikein: 'Anna etunimi oikeassa muodossa',
+      fi: {
+        puuttuu: 'Etunimi puuttuu',
+        lyhyt: 'Etunimi on liian lyhyt',
+        oikein: 'Anna etunimi oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'First name missing',
+        lyhyt: 'First name too short',
+        oikein: 'Give first name in correct form',
+      },
     },
     last_name: {
-      puuttuu: 'Sukunimi puuttuu',
-      lyhyt: 'Sukunimi on liian lyhyt',
-      oikein: 'Anna sukunimi oikeassa muodossa',
+      fi: {
+        puuttuu: 'Sukunimi puuttuu',
+        lyhyt: 'Sukunimi on liian lyhyt',
+        oikein: 'Anna sukunimi oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'Last name missing',
+        lyhyt: 'Last name too short',
+        oikein: 'Give last name in correct form',
+      },
     },
     phone: {
-      puuttuu: 'Puhelinnumero puuttuu',
-      lyhyt: 'Puhelinnumero on liian lyhyt',
-      pitka: 'Puhelinnumero on liian pitkä',
-      oikein: 'Anna puhelinnumero ilman erikoismerkkejä',
+      fi: {
+        puuttuu: 'Puhelinnumero puuttuu',
+        lyhyt: 'Puhelinnumero on liian lyhyt',
+        pitka: 'Puhelinnumero on liian pitkä',
+        oikein: 'Anna puhelinnumero ilman erikoismerkkejä',
+      },
+      en: {
+        puuttuu: 'Phone number missing',
+        lyhyt: 'Phone number too short',
+        pitka: 'Phone number too long',
+        oikein: 'Provide a phone number without special characters',
+      },
     },
     email: {
-      puuttuu: 'Sähköpostiosoite puuttuu',
-      oikein: 'Anna sähköpostiosoite oikeassa muodossa',
+      fi: {
+        puuttuu: 'Sähköpostiosoite puuttuu',
+        oikein: 'Anna sähköpostiosoite oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'Email address missing',
+        oikein: 'Provide a valid email address',
+      },
     },
     password: {
-      puuttuu: 'Salasana puuttuu',
-      lyhyt: 'Salasana on liian lyhyt',
+      fi: {
+        puuttuu: 'Salasana puuttuu',
+        lyhyt: 'Salasana on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Password missing',
+        lyhyt: 'Password too short',
+      },
     },
     password2: {
-      puuttuu: 'Salasana puuttuu',
-      lyhyt: 'Salasana on liian lyhyt',
-      tasmaa: 'Salasanat eivät täsmää',
+      fi: {
+        puuttuu: 'Salasana puuttuu',
+        lyhyt: 'Salasana on liian lyhyt',
+        tasmaa: 'Salasanat eivät täsmää',
+      },
+      en: {
+        puuttuu: 'Password missing',
+        lyhyt: 'Password too short',
+        tasmaa: 'Passwords do not match',
+      },
     },
     recipient_name: {
-      puuttuu: 'Vastaanottajan nimi puuttuu',
-      lyhyt: 'Vastaanottajan nimi on liian lyhyt',
-      oikein: 'Anna vastaanottajan nimi oikeassa muodossa',
+      fi: {
+        puuttuu: 'Vastaanottajan nimi puuttuu',
+        lyhyt: 'Vastaanottajan nimi on liian lyhyt',
+        oikein: 'Anna vastaanottajan nimi oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'Recipient name missing',
+        lyhyt: 'Recipient name too short',
+        oikein: 'Provide recipient name in correct form',
+      },
     },
     street_address: {
-      puuttuu: 'Katuosoite puuttuu',
-      lyhyt: 'Katuosoite on liian lyhyt',
+      fi: {
+        puuttuu: 'Katuosoite puuttuu',
+        lyhyt: 'Katuosoite on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Street address missing',
+        lyhyt: 'Street address too short',
+      },
     },
     postal_code: {
-      puuttuu: 'Postinumero puuttuu',
-      lyhyt: 'Postinumero on liian lyhyt',
+      fi: {
+        puuttuu: 'Postinumero puuttuu',
+        lyhyt: 'Postinumero on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Postal code missing',
+        lyhyt: 'Postal code too short',
+      },
     },
     city: {
-      puuttuu: 'Kaupunki puuttuu',
-      lyhyt: 'Kaupunki on liian lyhyt',
+      fi: {
+        puuttuu: 'Kaupunki puuttuu',
+        lyhyt: 'Kaupunki on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'City missing',
+        lyhyt: 'City too short',
+      },
     },
     billing_name: {
-      puuttuu: 'Laskutuksen saaja puuttuu',
-      lyhyt: 'Laskutuksen saaja on liian lyhyt',
-      oikein: 'Anna laskutuksen saaja oikeassa muodossa',
+      fi: {
+        puuttuu: 'Laskutuksen saaja puuttuu',
+        lyhyt: 'Laskutuksen saaja on liian lyhyt',
+        oikein: 'Anna laskutuksen saaja oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'Billing recipient name missing',
+        lyhyt: 'Billing recipient name too short',
+        oikein: 'Provide billing recipient name in correct form',
+      },
     },
     billing_street_address: {
-      puuttuu: 'Laskutusosoite puuttuu',
-      lyhyt: 'Laskutusosoite on liian lyhyt',
+      fi: {
+        puuttuu: 'Laskutusosoite puuttuu',
+        lyhyt: 'Laskutusosoite on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Billing street address missing',
+        lyhyt: 'Billing street address too short',
+      },
     },
     billing_postal_code: {
-      puuttuu: 'Laskutusosoitteen postinumero puuttuu',
-      lyhyt: 'Laskutusosoitteen postinumero on liian lyhyt',
+      fi: {
+        puuttuu: 'Laskutusosoitteen postinumero puuttuu',
+        lyhyt: 'Laskutusosoitteen postinumero on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Billing postal code missing',
+        lyhyt: 'Billing postal code too short',
+      },
     },
     billing_city: {
-      puuttuu: 'Laskutusosoitteen kaupunki puuttuu',
-      lyhyt: 'Laskutusosoitteen kaupunki on liian lyhyt',
+      fi: {
+        puuttuu: 'Laskutusosoitteen kaupunki puuttuu',
+        lyhyt: 'Laskutusosoitteen kaupunki on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Billing city missing',
+        lyhyt: 'Billing city too short',
+      },
     },
     payment_method: {
-      puuttuu: 'Valitse maksutapa',
+      fi: {
+        puuttuu: 'Valitse maksutapa',
+      },
+      en: {
+        puuttuu: 'Select a payment method',
+      },
     },
     card_number: {
-      puuttuu: 'Kortin numero puuttuu',
-      lyhyt: 'Kortin numero on liian lyhyt',
-      oikein: 'Anna kortin numero oikeassa muodossa',
+      fi: {
+        puuttuu: 'Kortin numero puuttuu',
+        lyhyt: 'Kortin numero on liian lyhyt',
+        oikein: 'Anna kortin numero oikeassa muodossa',
+      },
+      en: {
+        puuttuu: 'Card number missing',
+        lyhyt: 'Card number too short',
+        oikein: 'Provide card number in correct form',
+      },
     },
     expiration_date: {
-      puuttuu: 'Kortin voimassaoloaika puuttuu',
-      oikein: 'Anna voimassaoloaika oikeassa muodossa: KK/VV',
+      fi: {
+        puuttuu: 'Kortin voimassaoloaika puuttuu',
+        oikein: 'Anna voimassaoloaika oikeassa muodossa: KK/VV',
+      },
+      en: {
+        puuttuu: 'Expiration date missing',
+        oikein: 'Provide expiration date in correct form: MM/YY',
+      },
     },
     name: {
-      puuttuu: 'Nimi puuttuu',
-      lyhyt: 'Nimi on liian lyhyt',
+      fi: {
+        puuttuu: 'Nimi puuttuu',
+        lyhyt: 'Nimi on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Name missing',
+        lyhyt: 'Name too short',
+      },
     },
     subject: {
-      puuttuu: 'Aihe puuttuu',
-      lyhyt: 'Aihe on liian lyhyt',
+      fi: {
+        puuttuu: 'Aihe puuttuu',
+        lyhyt: 'Aihe on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Subject missing',
+        lyhyt: 'Subject too short',
+      },
     },
     message: {
-      puuttuu: 'Viesti puuttuu',
-      lyhyt: 'Viesti on liian lyhyt',
+      fi: {
+        puuttuu: 'Viesti puuttuu',
+        lyhyt: 'Viesti on liian lyhyt',
+      },
+      en: {
+        puuttuu: 'Message missing',
+        lyhyt: 'Message too short',
+      },
     },
     terms: {
-      puuttuu: 'Hyväksy käyttösäännöt',
+      fi: {
+        puuttuu: 'Hyväksy käyttösäännöt',
+      },
+      en: {
+        puuttuu: 'Accept the terms and conditions',
+      },
     },
   }
 
-  const error = (field, property) => {
-    return errors[field][property]
+  const error = (field, property, language = 'fi') => {
+    return errors[field][language][property]
   }
 
   const eventList = ['blur', 'change']
