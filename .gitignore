@@ -3,3 +3,8 @@ TEMP.json
 pins.php
 auto.php
 db-autokanta.php
+vendor
+composer.json
+composer.lock
+brevo.php
+rekisteroidy-kasittely-OLD.php
