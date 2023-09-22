@@ -31,7 +31,7 @@ include "db/db-azure.php";
             <div class="error"></div>
 
             <label for="country">Maa</label>
-            <input type="text" name="country" id="country" value="Finland" readonly />
+            <input type="text" name="country" id="country" value="Finland" />
             <div class="error"></div>
 
             <label for="phone">Puhelinnumero</label>
