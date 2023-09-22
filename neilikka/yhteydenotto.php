@@ -5,7 +5,11 @@ $script = 'lomake.js';
 $img640 = 'flower-3231083_640.jpg';
 $img1280 = 'flower-3231083_1280.jpg';
 $img1920 = 'flower-3231083_1920.jpg';
-include "sivuosat/header.php"; ?>
+include "sivuosat/header.php";
+
+
+
+?>
 
 <main class="yhteydenotto">
     <section class="lista-wrap">
@@ -30,13 +34,15 @@ include "sivuosat/header.php"; ?>
             </ul>
         </div>
 
+        <?php include "sivuosat/form_language.php" ?>
+
         <form action="yhteydenotto-kasittely.php" id="form-yhteydenotto" method="POST">
-            <label for="name">Nimi:</label>
-            <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" required>
+            <label for="name"><?= $tra['name']; ?></label>
+            <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" placeholder="<?= $tra['name']; ?>" required>
             <div class="error"></div>
 
-            <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="sahkoposti" autocomplete="email" minlength="5" required>
+            <label for="email"><?= $tra['email']; ?></label>
+            <input type="email" id="email" name="sahkoposti" autocomplete="email" minlength="5" placeholder="<?= $tra['email']; ?>" required>
             <div class="error"></div>
             <?php
             if (isset($_GET['message'])) {
@@ -44,34 +50,34 @@ include "sivuosat/header.php"; ?>
                 echo "<div class='error' aria-role='alert'>$message</div>";
             } ?>
 
-            <label for="phone">Puhelinnumero <small>(valinnainen)</small></label>
-            <input type="tel" name="phone" id="phone" placeholder="Puhelinnnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" />
+            <label for="phone"><?= $tra['phone']; ?> <small>(<?= $tra['optional']; ?>)</small></label>
+            <input type="tel" name="phone" id="phone" placeholder="<?= $tra['phone']; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" />
             <div class="error"></div>
 
-            <label for="subject">Aihe:</label>
+            <label for="subject"><?= $tra['message_subject']; ?></label>
             <select id="subject" name="aihe" required>
-                <option value="">Valitse aihe</option>
-                <option value="kysymys">Kysymys tuotteista</option>
-                <option value="tilaus">Tilaus</option>
-                <option value="yhteydenotto">Yhteydenottopyyntö</option>
-                <option value="muu">Muu</option>
+                <option value=""><?= $tra['subject_choose']; ?></option>
+                <option value="kysymys"><?= $tra['subject_question']; ?></option>
+                <option value="tilaus"><?= $tra['subject_order']; ?></option>
+                <option value="yhteydenotto"><?= $tra['subject_contact']; ?></option>
+                <option value="muu"><?= $tra['subject_other']; ?></option>
             </select>
             <div class="error"></div>
 
-            <label for="message">Viesti:</label>
-            <textarea id="message" name="viesti" rows="4" cols="50" minlength="10" maxlength="255" required></textarea>
+            <label for="message"><?= $tra['message']; ?></label>
+            <textarea id="message" name="viesti" rows="4" cols="50" minlength="10" placeholder="<?= $tra['message']; ?>" maxlength="255" required></textarea>
             <div class="error"></div>
 
             <fieldset>
-                <legend>Haluan tilata Puutarhaliike Neilikan uutiskirjeen:</legend>
+                <legend><?= $tra['newsletter_order']; ?></legend>
                 <input type="radio" id="kylla" name="uutiskirje" value="Kylla" checked>
-                <label for="kylla">Kyllä</label>
+                <label for="kylla"><?= $tra['yes']; ?></label>
                 <input type="radio" id="ei" name="uutiskirje" value="Ei">
-                <label for="ei">Ei</label>
+                <label for="ei"><?= $tra['no']; ?></label>
 
             </fieldset>
 
-            <input type="submit" value="Lähetä">
+            <button type="submit"><?= $tra['submit']; ?></button>
         </form>
 
     </section>

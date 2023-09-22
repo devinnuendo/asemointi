@@ -47,22 +47,24 @@ include "db/db-azure.php";
 <main class="rekisteroidy">
     <section>
 
+        <?php include "sivuosat/form_language.php" ?>
+
         <form method="post" action="rekisteroidy-kasittely.php" id="registration-form">
-            <legend class="scr">Rekisteröidy</legend>
-            <label for="first_name">Etunimi</label>
-            <input type="text" name="first_name" id="first_name" placeholder="Etunimi" autocomplete="given-name" minlength="2" required />
+            <legend class="scr"><?= $tra['register']; ?></legend>
+            <label for="first_name"><?= $tra['first_name']; ?></label>
+            <input type="text" name="first_name" id="first_name" placeholder="<?= $tra['first_name']; ?>" autocomplete="given-name" minlength="2" required />
             <div class="error"></div>
 
-            <label for="last_name">Sukunimi</label>
-            <input type="text" name="last_name" id="last_name" placeholder="Sukunimi" autocomplete="family-name" minlength="2" required />
+            <label for="last_name"><?= $tra['last_name']; ?></label>
+            <input type="text" name="last_name" id="last_name" placeholder="<?= $tra['last_name']; ?>" autocomplete="family-name" minlength="2" required />
             <div class="error"></div>
 
-            <label for="phone">Puhelinnumero</label>
-            <input type="tel" name="phone" id="phone" placeholder="Puhelinnnumero" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
+            <label for="phone"><?= $tra['phone']; ?></label>
+            <input type="tel" name="phone" id="phone" placeholder="<?= $tra['phone']; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
             <div class="error"></div>
 
-            <label for="email">Sähköpostiosoite</label>
-            <input type="email" name="email" id="email" placeholder="Sähköpostiosoite" autocomplete="email" minlength="5" required />
+            <label for="email"><?= $tra['email']; ?></label>
+            <input type="email" name="email" id="email" placeholder="<?= $tra['email']; ?>" autocomplete="email" minlength="5" required />
             <div class="error"></div>
             <?php
             if (isset($_GET['message'])) {
@@ -70,26 +72,26 @@ include "db/db-azure.php";
                 echo "<div class='error' aria-role='alert'>$message</div>";
             } ?>
 
-            <label for="password">Haluamasi salasana</label>
-            <input type="password" name="password" id="password" placeholder="Salasana" autocomplete="new-password" minlength="10" required />
+            <label for="password"><?= $tra['wanted_password']; ?></label>
+            <input type="password" name="password" id="password" placeholder="<?= $tra['wanted_password']; ?>" autocomplete="new-password" minlength="10" required />
             <div class="error"></div>
 
-            <label for="password2">Anna salasana uudelleen</label>
-            <input type="password" name="password2" id="password2" placeholder="Salasana uudelleen" autocomplete="new-password" minlength="10" required />
+            <label for="password2"><?= $tra['password_again']; ?></label>
+            <input type="password" name="password2" id="password2" placeholder="<?= $tra['password_again']; ?>" autocomplete="new-password" minlength="10" required />
             <div class="error"></div>
             <div class="error password-match" aria-role="alert"></div>
 
             <fieldset>
-                <legend>Haluan tilata uutiskirjeen</legend>
+                <legend><?= $tra['newsletter_order']; ?></legend>
                 <input type="radio" name="newsletter" id="newsletter_yes" value="Kylla" checked />
-                <label for="newsletter_yes">Kyllä</label>
+                <label for="newsletter_yes"><?= $tra['yes']; ?></label>
                 <input type="radio" name="newsletter" id="newsletter_no" value="Ei" />
-                <label for="newsletter_no">Ei</label>
+                <label for="newsletter_no"><?= $tra['no']; ?></label>
             </fieldset>
 
             <div>
                 <input type="checkbox" name="terms" id="terms" value="ok" required />
-                <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
+                <label for="terms" class="inline-block"><?= $tra['terms']; ?></label>
                 <div class="error"></div>
             </div>
 
