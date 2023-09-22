@@ -23,7 +23,7 @@ include "sivuosat/header.php"; ?>
                 $message = urldecode($_GET['message']);
                 echo "<div class='error' aria-role='alert'>$message</div>";
             } ?>
-            <input type="submit" value="Lähetä">
+            <button type="submit">Lähetä</button>
         </form>
     </section>
 </main>
