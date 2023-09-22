@@ -311,9 +311,6 @@ div.li-submenu .submenu-toggle:hover ~ label {
   .mainmenu .icon {
     flex: 1 0 4rem;
   }
-  /* #menu-toggle ~ label {
-    margin: 0 var(--margin-right) 0 0;
-  } */
   #menu-toggle {
     width: 4rem;
   }
