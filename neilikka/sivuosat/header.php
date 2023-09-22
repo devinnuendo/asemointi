@@ -7,16 +7,26 @@ session_start();
 
 $userLanguage = $_SESSION["user_language"] ?? "fi";
 
+if (isset($_POST["toggle_language"])) {
+    $switchToLanguage = $_POST["toggle_language"];
+    $_SESSION["user_language"] = $switchToLanguage; // Switch language
+    $userLanguage = $switchToLanguage;
+}
+
 if ($userLanguage === "en") {
     $translationFile = file_get_contents("../config/translations/translations_en.json");
 } elseif ($userLanguage === "fi") {
     $translationFile = file_get_contents("../config/translations/translations_fi.json");
+} elseif ($userLanguage === "sv") {
+    $translationFile = file_get_contents("../config/translations/translations_sv.json");
 } else {
     $translationFile = file_get_contents("../config/translations/translations_fi.json");
 }
 
 // Parse the JSON translation file into a PHP associative array
 $tra = json_decode($translationFile, true);
+
+
 
 ?>
 <!DOCTYPE html>

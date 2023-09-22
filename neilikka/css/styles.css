@@ -423,10 +423,12 @@ form {
 }
 form.reset {
   margin: 0;
-  padding: 0;
   border: none;
   box-shadow: none;
   background-color: transparent;
+}
+form.reset legend {
+  padding-bottom: 1rem;
 }
 form * {
   line-height: 1;

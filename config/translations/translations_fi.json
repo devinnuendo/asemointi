@@ -39,7 +39,5 @@
     "login": "Kirjaudu sisään",
     "logout": "Kirjaudu ulos",
     "language": "Kieli",
-    "language_change": "Change language",
-    "finnish": "Suomi",
-    "english": "English"
+    "language_change": "Vaihda kieltä"
 }
