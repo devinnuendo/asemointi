@@ -43,9 +43,8 @@ body.fi button[type='submit'].fi,
 body.en button[type='submit'].en,
 body.sv button[type='submit'].sv {
   pointer-events: none;
-  background-color: hsl(var(--hue), var(--sat), 40%);
-  color: hsl(var(--hue), var(--sat), 100%);
+  outline: 1px solid hsl(var(--hue), var(--sat), 80%);
 }
 button[type='submit'].language:hover {
-  background-color: hsl(var(--hue), var(--sat), 80%);
+  outline: 1px solid hsl(var(--hue), var(--sat), 80%);
 }
