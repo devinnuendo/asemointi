@@ -31,7 +31,7 @@ include "db/db-azure.php";
             <div class="error"></div>
 
             <label for="billing_country">Maa</label>
-            <input type="text" name="billing_country" id="billing_country" value="Finland" readonly />
+            <input type="text" name="billing_country" id="billing_country" value="Finland" />
             <div class="error"></div>
 
             <label for="phone">Puhelinnumero</label>
@@ -60,7 +60,7 @@ include "db/db-azure.php";
                 <div class="error"></div>
             </div>
 
-            <input type="submit" value="Tallenna laskutusosoite">
+            <button type="submit"> Lähetä </button>
         </form>
 
 </main>

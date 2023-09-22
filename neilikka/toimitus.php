@@ -42,7 +42,7 @@ include "db/db-azure.php";
                 <label for="terms" class="inline-block">Olen lukenut ja hyväksyn sivuston käyttösäännöt</label>
                 <div class="error"></div>
             </div>
-            <input type="submit" value="Tallenna toimitusosoite">
+            <button type="submit">Tallenna</button>
         </form>
 
 </main>
