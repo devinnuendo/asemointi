@@ -15,6 +15,7 @@ include "../config/posti.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($yhteys->connect_error) {
+                debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
                 die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
@@ -95,6 +96,7 @@ include "../config/posti.php";
                                 }
                             }
                         } else {
+                            debugger("Virhe rekisteröitymisessä: " . $yhteys->error);
                             echo "Virhe rekisteröitymisessä: $yhteys->error";
                         }
                     }

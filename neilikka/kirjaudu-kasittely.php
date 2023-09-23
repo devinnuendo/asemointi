@@ -14,6 +14,7 @@ include "db/db-azure.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($yhteys->connect_error) {
+                debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
                 die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
