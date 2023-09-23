@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Myymälät';
 $img640 = 'market-1178251_640.jpg';
 $img1280 = 'market-1178251_1280.jpg';

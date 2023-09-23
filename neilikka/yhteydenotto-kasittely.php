@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Yhteydenotto';
 $script = 'lomake.js';
 $css = 'styles-lomake.css';

@@ -1,5 +1,6 @@
 <?php
-$title = 'Rekisteröidy';
+include "sivuosat/top.php";
+$title = $tra['register'][$lang];
 $script = 'lomake.js';
 $css = 'styles-lomake.css';
 // $img640 = 'flower-3231083_640.jpg';
@@ -50,21 +51,21 @@ include "db/db-azure.php";
         <?php include "sivuosat/form_language.php" ?>
 
         <form method="post" action="rekisteroidy-kasittely.php" id="registration-form">
-            <legend class="scr"><?= $tra['register']; ?></legend>
-            <label for="first_name"><?= $tra['first_name']; ?></label>
-            <input type="text" name="first_name" id="first_name" placeholder="<?= $tra['first_name']; ?>" autocomplete="given-name" minlength="2" required />
+            <legend class="scr"><?= $tra['register'][$lang]; ?></legend>
+            <label for="first_name"><?= $tra['first_name'][$lang]; ?></label>
+            <input type="text" name="first_name" id="first_name" placeholder="<?= $tra['first_name'][$lang]; ?>" autocomplete="given-name" minlength="2" required />
             <div class="error"></div>
 
-            <label for="last_name"><?= $tra['last_name']; ?></label>
-            <input type="text" name="last_name" id="last_name" placeholder="<?= $tra['last_name']; ?>" autocomplete="family-name" minlength="2" required />
+            <label for="last_name"><?= $tra['last_name'][$lang]; ?></label>
+            <input type="text" name="last_name" id="last_name" placeholder="<?= $tra['last_name'][$lang]; ?>" autocomplete="family-name" minlength="2" required />
             <div class="error"></div>
 
-            <label for="phone"><?= $tra['phone']; ?></label>
-            <input type="tel" name="phone" id="phone" placeholder="<?= $tra['phone']; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
+            <label for="phone"><?= $tra['phone'][$lang]; ?></label>
+            <input type="tel" name="phone" id="phone" placeholder="<?= $tra['phone'][$lang]; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
             <div class="error"></div>
 
-            <label for="email"><?= $tra['email']; ?></label>
-            <input type="email" name="email" id="email" placeholder="<?= $tra['email']; ?>" autocomplete="email" minlength="5" required />
+            <label for="email"><?= $tra['email'][$lang]; ?></label>
+            <input type="email" name="email" id="email" placeholder="<?= $tra['email'][$lang]; ?>" autocomplete="email" minlength="5" required />
             <div class="error"></div>
             <?php
             if (isset($_GET['message'])) {
@@ -72,26 +73,26 @@ include "db/db-azure.php";
                 echo "<div class='error' aria-role='alert'>$message</div>";
             } ?>
 
-            <label for="password"><?= $tra['wanted_password']; ?></label>
-            <input type="password" name="password" id="password" placeholder="<?= $tra['wanted_password']; ?>" autocomplete="new-password" minlength="10" required />
+            <label for="password"><?= $tra['password_wanted'][$lang]; ?></label>
+            <input type="password" name="password" id="password" placeholder="<?= $tra['password_wanted'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
             <div class="error"></div>
 
-            <label for="password2"><?= $tra['password_again']; ?></label>
-            <input type="password" name="password2" id="password2" placeholder="<?= $tra['password_again']; ?>" autocomplete="new-password" minlength="10" required />
+            <label for="password2"><?= $tra['password_again'][$lang]; ?></label>
+            <input type="password" name="password2" id="password2" placeholder="<?= $tra['password_again'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
             <div class="error"></div>
             <div class="error password-match" aria-role="alert"></div>
 
             <fieldset>
-                <legend><?= $tra['newsletter_order']; ?></legend>
+                <legend><?= $tra['newsletter_order'][$lang]; ?></legend>
                 <input type="radio" name="newsletter" id="newsletter_yes" value="Kylla" checked />
-                <label for="newsletter_yes"><?= $tra['yes']; ?></label>
+                <label for="newsletter_yes"><?= $tra['yes'][$lang]; ?></label>
                 <input type="radio" name="newsletter" id="newsletter_no" value="Ei" />
-                <label for="newsletter_no"><?= $tra['no']; ?></label>
+                <label for="newsletter_no"><?= $tra['no'][$lang]; ?></label>
             </fieldset>
 
             <div>
                 <input type="checkbox" name="terms" id="terms" value="ok" required />
-                <label for="terms" class="inline-block"><?= $tra['terms']; ?></label>
+                <label for="terms" class="inline-block"><?= $tra['terms'][$lang]; ?></label>
                 <div class="error"></div>
             </div>
 

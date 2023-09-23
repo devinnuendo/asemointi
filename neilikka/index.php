@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Puutarhaliike Neilikka';
 include "sivuosat/header.php"; ?>
 

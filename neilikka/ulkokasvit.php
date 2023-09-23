@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Ulkokasvit';
 include "sivuosat/header.php"; ?>
 

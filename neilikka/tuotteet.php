@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Tuotteet';
 $img640 = 'flower-3231099_640.jpg';
 $img1280 = 'flower-3231099_1280.jpg';

@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Kirjautuminen';
 // $img640 = 'flower-3231083_640.jpg';
 // $img1280 = 'flower-3231083_1280.jpg';
