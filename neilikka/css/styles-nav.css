@@ -98,7 +98,9 @@ div.li-submenu .submenu {
 #menu-toggle:checked ~ .open {
   display: none;
 }
-
+.mainmenu a {
+  white-space: nowrap;
+}
 .mainmenu ul a {
   display: block;
   position: relative;
@@ -113,7 +115,8 @@ div.li-submenu .submenu {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
-.mainmenu ul .active a {
+.mainmenu ul .active > a,
+.li-submenu .full ~ ul .active a {
   background-color: hsl(var(--hue), var(--sat), 35%);
 }
 .mainmenu ul a:hover,
@@ -365,7 +368,7 @@ form.language-switcher {
 .secondary a:hover {
   text-decoration: underline;
 }
-.secondary li.active a {
+.secondary li.active > a {
   color: hsl(var(--hue), var(--sat), 10%);
 }
 
@@ -486,7 +489,7 @@ form.language-switcher {
   }
   #menu-toggle ~ ul a:hover::after,
   .submenu-toggle:hover ~ label::after,
-  #menu-toggle ~ ul .active a::after,
+  #menu-toggle ~ ul .active > a::after,
   a.full:hover::after {
     background-color: hsla(var(--hue), var(--sat), 50%, 1);
     box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 1);

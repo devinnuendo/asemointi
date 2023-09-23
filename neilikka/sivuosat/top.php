@@ -15,6 +15,7 @@ if (isset($_POST["toggle_language"])) {
 }
 
 include "../config/translations/translations.php";
+include "translations/translations.php";
 
 // if ($lang === "en") {
 //     $translationFile = file_get_contents("../config/translations/translations_en.json");

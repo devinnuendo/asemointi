@@ -1,5 +1,5 @@
 <?php
-$tra = array(
+$traCommon = array(
     'address' =>
     array(
         'fi' => 'Katuosoite',
@@ -54,11 +54,23 @@ $tra = array(
         'en' => 'Country',
         'sv' => 'Land',
     ),
-    'email' =>
+    'email_address' =>
     array(
         'fi' => 'Sähköpostiosoite',
         'en' => 'Email address',
         'sv' => 'E-postadress',
+    ),
+    'email' =>
+    array(
+        'fi' => 'Sähköposti',
+        'en' => 'Email',
+        'sv' => 'E-post',
+    ),
+    'Espoo' =>
+    array(
+        'fi' => 'Espoo',
+        'en' => 'Espoo',
+        'sv' => 'Esbo',
     ),
     'expiration_date' =>
     array(
@@ -72,7 +84,13 @@ $tra = array(
         'en' => 'MM/YY',
         'sv' => 'MM/ÅÅ',
     ),
-    'first_name' =>
+    'Helsinki' =>
+    array(
+        'fi' => 'Helsinki',
+        'en' => 'Helsinki',
+        'sv' => 'Helsingfors',
+    ),
+    'name_first' =>
     array(
         'fi' => 'Etunimi',
         'en' => 'First name',
@@ -96,7 +114,7 @@ $tra = array(
         'en' => 'Change language',
         'sv' => 'Byt språk',
     ),
-    'last_name' =>
+    'name_last' =>
     array(
         'fi' => 'Sukunimi',
         'en' => 'Last name',
@@ -144,11 +162,24 @@ $tra = array(
         'en' => 'No',
         'sv' => 'Nej',
     ),
+
+    'newsletter_order' =>
+    array(
+        'fi' => 'Haluan tilata Neilikan uutiskirjeen',
+        'en' => 'I want to subscribe to Neilikka\'s newsletter',
+        'sv' => 'Jag vill prenumerera på Neilikas nyhetsbrev',
+    ),
     'open' =>
     array(
-        'fi' => 'Auki',
+        'fi' => 'Avoinna',
         'en' => 'Open',
         'sv' => 'Öppet',
+    ),
+    'open_hours' =>
+    array(
+        'fi' => 'Avoinna',
+        'en' => 'Open hours',
+        'sv' => 'Öppettider',
     ),
     'open_to' =>
     array(
@@ -210,35 +241,11 @@ $tra = array(
         'en' => 'Phone number',
         'sv' => 'Telefonnummer',
     ),
-    'plants' =>
+    'phone_abbr' =>
     array(
-        'fi' => 'Kasvit',
-        'en' => 'Plants',
-        'sv' => 'Växter',
-    ),
-    'plants_all' =>
-    array(
-        'fi' => 'Kaikki kasvit',
-        'en' => 'All Plants',
-        'sv' => 'Alla växter',
-    ),
-    'plants_inside' =>
-    array(
-        'fi' => 'Sisäkasvit',
-        'en' => 'Indoor Plants',
-        'sv' => 'Inomhusväxter',
-    ),
-    'plants_outside' =>
-    array(
-        'fi' => 'Ulkokasvit',
-        'en' => 'Outdoor Plants',
-        'sv' => 'Utomhusväxter',
-    ),
-    'plant_care' =>
-    array(
-        'fi' => 'Kasvien hoito',
-        'en' => 'Plant Care',
-        'sv' => 'Vård av växter',
+        'fi' => 'Puh.',
+        'en' => 'Phone',
+        'sv' => 'Tel.',
     ),
     'postal_code' =>
     array(
@@ -317,6 +324,12 @@ $tra = array(
         'fi' => 'Työkalut',
         'en' => 'Tools',
         'sv' => 'Verktyg',
+    ),
+    'news' =>
+    array(
+        'fi' => 'Uutisia',
+        'en' => 'News',
+        'sv' => 'Nyheter',
     ),
     'yes' =>
     array(

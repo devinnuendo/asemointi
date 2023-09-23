@@ -5,10 +5,10 @@ include "sivuosat/header.php"; ?>
 
 <main class="etusivu">
     <section>
-        Tervetuloa Puutarhaliike Neilikan kotisivuille! Meiltä löydät sekä sisä- että ulkokasvit ja kaiken tarvitsemasi kasvien hoitoon.
+        <?= $traLocal['home_intro'][$lang]; ?>
     </section>
     <section>
-        <h2>Uutisia</h2>
+        <h2><?= $traCommon['news'][$lang];  ?></h2>
         <a href="#" class="wrap">
             <article>
                 <figure>

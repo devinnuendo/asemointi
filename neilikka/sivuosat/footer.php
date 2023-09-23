@@ -1,28 +1,26 @@
 <footer>
     <address>
         <div>
-            Puutarhaliike Neilikka, Helsinki <br />
+            Puutarhaliike Neilikka, <?= $traCommon['Helsinki'][$lang]; ?> <br />
             Fabianinkatu 42 <br />
-            00100 Helsinki <br />
-            Puh. <a href="tel:xx-xxxxxxx">xx-xxxxxxx</a> <br />
-            Sähköposti: <a href="mailto:helsinki@puutarhaliikeneilikka.fi">helsinki@puutarhaliikeneilikka.fi</a>
+            00100 <?= $traCommon['Helsinki'][$lang]; ?> <br />
+            <?= $traCommon['phone_abbr'][$lang]; ?> <a href="tel:xx-xxxxxxx">xx-xxxxxxx</a> <br />
+            <?= $traCommon['email'][$lang]; ?>: <a href="mailto:helsinki@puutarhaliikeneilikka.fi">helsinki@puutarhaliikeneilikka.fi</a>
 
             <p>
-                Avoinna<br />
-                ma-ke 9-17<br />
-                la 12-18
+                <?= $traCommon['open_hours'][$lang]; ?><br />
+                <?= $traLocal['open_hours_hki'][$lang]; ?>
             </p>
         </div>
         <div>
-            Puutarhaliike Neilikka, Espoo <br />
+            Puutarhaliike Neilikka, <?= $traCommon['Espoo'][$lang]; ?> <br />
             Kivenlahdentie 10 <br />
-            01234 Espoo <br />
-            Puh. <a href="tel:xx-xxxxxxx">xx-xxxxxxx</a> <br />
-            Sähköposti: <a href="mailto:espoo@puutarhaliikeneilikka.fi">espoo@puutarhaliikeneilikka.fi</a>
+            01234 <?= $traCommon['Espoo'][$lang]; ?> <br />
+            <?= $traCommon['phone_abbr'][$lang]; ?> <a href="tel:xx-xxxxxxx">xx-xxxxxxx</a> <br />
+            <?= $traCommon['email'][$lang]; ?>: <a href="mailto:espoo@puutarhaliikeneilikka.fi">espoo@puutarhaliikeneilikka.fi</a>
 
-            <p>Avoinna<br />
-                ma-ke 9-17<br />
-                la 12-18
+            <p><?= $traCommon['open_hours'][$lang]; ?><br />
+                <?= $traLocal['open_hours_espoo'][$lang]; ?>
             </p>
         </div>
     </address>
