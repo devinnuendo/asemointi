@@ -78,6 +78,7 @@
     </ul>
 
     <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+
         <a href="profiili.php" class="full">
             <i class="fa fa-user" aria-hidden="true"></i>
             <span class="scr">Profiili</span>
@@ -105,5 +106,43 @@
             </li>
         </ul>
     </div>
+
+    <!-- <form method="post" class="reset language-switcher">
+        <label for="language-main" class="scr">Switch language</label>
+        <select name="toggle_language" id="language-main" onchange="this.form.submit()">
+            <option value="en" <?php echo ($userLanguage === 'en') ? 'selected' : ''; ?> lang="en">English</option>
+            <option value="fi" <?php echo ($userLanguage === 'fi') ? 'selected' : ''; ?> lang="fi">Suomi</option>
+            <option value="sv" <?php echo ($userLanguage === 'sv') ? 'selected' : ''; ?> lang="sv"> Svenska</option>
+        </select>
+    </form> -->
+
+    <form method="post" class="reset language-switcher" id="language-select">
+        <input type="checkbox" id="submenu-toggle4" class="submenu-toggle" aria-expanded="false" aria-controls="options-list" />
+        <label for="submenu-toggle4" class="language-label open">
+            <i><?= $userLanguage ?></i>
+            <span class="scr">open language menu</span>
+        </label>
+        <label for="submenu-toggle4" class="language-label close">
+            <i><?= $userLanguage ?></i>
+            <span class="scr">close language menu</span>
+        </label>
+        <ul class="submenu options-list" id="options-list">
+            <li>
+                <button type="submit" name="toggle_language" value="en" class="<?php echo ($userLanguage === 'en') ? 'selected' : ''; ?>">
+                    <abbr title="English" lang="en"><span class="option">en</span></abbr>
+                </button>
+            </li>
+            <li>
+                <button type="submit" name="toggle_language" value="fi" class="<?php echo ($userLanguage === 'fi') ? 'selected' : ''; ?>">
+                    <abbr title="Suomi" lang="fi"><span class="option">fi</span></abbr>
+                </button>
+            </li>
+            <li>
+                <button type="submit" name="toggle_language" value="sv" class="<?php echo ($userLanguage === 'sv') ? 'selected' : ''; ?>">
+                    <abbr title="Svenska" lang="sv"><span class="option">sv</span></abbr>
+                </button>
+            </li>
+        </ul>
+    </form>
 
 </nav>

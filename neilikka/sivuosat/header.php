@@ -31,7 +31,7 @@ $tra = json_decode($translationFile, true);
 
 ?>
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="<?= $userLanguage ?>">
 
 <head>
     <meta charset="UTF-8" />
