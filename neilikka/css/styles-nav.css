@@ -433,7 +433,7 @@ form.form-logout {
     left: calc(var(--gap) * -2);
   }
   .language-switcher #submenu-toggle4 {
-    width: 100%;
+    width: 3rem;
   }
 }
 

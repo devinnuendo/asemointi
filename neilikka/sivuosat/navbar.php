@@ -130,7 +130,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
 
     <form method="post" class="reset language-switcher" id="language-select">
 
-        <input type="checkbox" id="submenu-toggle4" class="submenu-toggle  tooltip" data-tooltip="language" aria-expanded="false" aria-controls="options-list" />
+        <input type="checkbox" id="submenu-toggle4" class="submenu-toggle  tooltip absolute" data-tooltip="language" aria-expanded="false" aria-controls="options-list" />
         <label for="submenu-toggle4" class="language-label open">
             <i><?= $lang ?></i>
             <span class="scr">open language menu</span>

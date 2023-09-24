@@ -558,6 +558,9 @@ footer > small {
 body .block {
   display: block;
 }
+body .absolute {
+  position: absolute;
+}
 .tooltip {
   position: relative;
 }
