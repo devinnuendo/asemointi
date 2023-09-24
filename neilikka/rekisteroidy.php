@@ -50,7 +50,7 @@ include "db/db-azure.php";
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="rekisteroidy-kasittely.php" id="registration-form">
+        <form autocomplete="on" method="post" action="rekisteroidy-kasittely.php" id="registration-form">
             <legend class="scr"><?= $traCommon['register'][$lang]; ?></legend>
             <label for="first_name"><?= $traCommon['name_first'][$lang]; ?></label>
             <input type="text" name="first_name" id="first_name" placeholder="<?= $traCommon['name_first'][$lang]; ?>" autocomplete="given-name" minlength="2" required />

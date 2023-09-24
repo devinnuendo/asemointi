@@ -31,7 +31,7 @@ include "sivuosat/header.php"; ?>
         </div>
 
         <div class="container mt-5">
-            <form method="POST" class="needs-validation" novalidate>
+            <form autocomplete="on" method="POST" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="nimi" class="form-label">Nimi:</label>
                     <input type="text" id="nimi" name="nimi" class="form-control" required>

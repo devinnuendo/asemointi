@@ -15,7 +15,7 @@ include "db/db-azure.php";
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="toimitus-kasittely.php" id="delivery-address-form">
+        <form autocomplete="on" method="post" action="toimitus-kasittely.php" id="delivery-address-form">
             <legend class="scr"><?= $traCommon['address'][$lang]; ?></legend>
             <label for="recipient_name"><?= $traCommon['name_recipient'][$lang]; ?></label>
             <input type="text" name="recipient_name" id="recipient_name" placeholder="<?= $traCommon['name_recipient'][$lang]; ?>" autocomplete="name" minlength="2" required />

@@ -13,7 +13,7 @@ include "sivuosat/header.php"; ?>
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="kirjaudu-kasittely.php">
+        <form autocomplete="on" method="post" action="kirjaudu-kasittely.php">
             <legend class="scr"><?= $traCommon['login'][$lang]; ?></legend>
 
             <label for="email"><?= $traCommon['email_address'][$lang]; ?></label>

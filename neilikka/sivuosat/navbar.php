@@ -107,7 +107,7 @@
         </ul>
     </div>
 
-    <!-- <form method="post" class="reset language-switcher">
+    <!-- <form autocomplete="on" method="post" class="reset language-switcher">
         <label for="language-main" class="scr">Switch language</label>
         <select name="toggle_language" id="language-main" onchange="this.form.submit()">
             <option value="en" <?php echo ($lang === 'en') ? 'selected' : ''; ?> lang="en">English</option>
@@ -116,7 +116,7 @@
         </select>
     </form> -->
 
-    <form method="post" class="reset language-switcher" id="language-select">
+    <form autocomplete="on" method="post" class="reset language-switcher" id="language-select">
         <input type="checkbox" id="submenu-toggle4" class="submenu-toggle" aria-expanded="false" aria-controls="options-list" />
         <label for="submenu-toggle4" class="language-label open">
             <i><?= $lang ?></i>
