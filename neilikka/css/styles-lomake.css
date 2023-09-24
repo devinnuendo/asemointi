@@ -39,9 +39,7 @@ button[type='submit'].language {
   font-style: italic;
   font-weight: bold;
 }
-body.fi button[type='submit'].fi,
-body.en button[type='submit'].en,
-body.sv button[type='submit'].sv {
+button[type='submit'].active {
   pointer-events: none;
   outline: 1px solid hsl(var(--hue), var(--sat), 80%);
 }
