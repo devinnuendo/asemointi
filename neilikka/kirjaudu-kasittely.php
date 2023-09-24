@@ -1,55 +1,67 @@
 <?php
 include "sivuosat/top.php";
-$title = 'Kirjautuminen';
-// $img640 = 'flower-3231083_640.jpg';
-// $img1280 = 'flower-3231083_1280.jpg';
-// $img1920 = 'flower-3231083_1920.jpg';
-include "sivuosat/header.php";
-include "db/db-azure.php";
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if ($yhteys->connect_error) {
+        debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+        die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+    }
+    $yhteys->set_charset("utf8");
+
+
+    // Tiedot lomakkeesta 
+    $email = $yhteys->real_escape_string($_POST['email']);
+    $password = $yhteys->real_escape_string($_POST['password']);
+    if (isset($_POST['remember_me']))
+        $rememberme =  $yhteys->real_escape_string($_POST['remember_me']);
+    else $rememberme = "";
+
+    $query = "SELECT customer_id, email, password, verified FROM neil_user WHERE email = '$email'";
+    $result = $yhteys->query($query);
+
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $hash = $row['password'];
+        $customer_id = $row['customer_id'];
+        $verified = $row['verified'];
+
+        $verifyPassword = password_verify($password, $hash);
+
+        if ($verifyPassword && $verified == 1) {
+            if (!session_id()) session_start();
+            $_SESSION["loggedIn"] = true;
+            $loggedIn = loggedIn();
+            if ($rememberme) rememberme($customer_id);
+            header("Location: index.php");
+        } else if ($verifyPassword && $verified == 0) {
+
+            $title = 'Kirjautuminen';
+            include "sivuosat/header.php";
 ?>
 
-<main class="kirjaudu">
-    <section>
-        <?php
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            if ($yhteys->connect_error) {
-                debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-                die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-            }
-            $yhteys->set_charset("utf8");
-
-
-            // Tiedot lomakkeesta 
-            $email = $yhteys->real_escape_string($_POST['email']);
-            $password = $yhteys->real_escape_string($_POST['password']);
-
-            $query = "SELECT password FROM neil_user WHERE email = '$email'";
-            $result = $yhteys->query($query);
-
-            if ($result) {
-                $row = $result->fetch_assoc();
-                $hash = $row['password'];
-
-                $verify = password_verify($password, $hash);
-
-                if ($verify) {
-                    echo "<p>Kirjautuminen onnistui!</p>
+            <main class="kirjaudu">
+                <section>
+                    <?php
+                    echo "<p>Tilisi ei ole vielä aktivoitu. Tarkista sähköpostisi ja aktivoi tili.</p>
                     <p><a href='index.php'>Etusivulle</a></p>
                     ";
-                } else {
-                    header('Location: kirjaudu.php?message=' . urlencode("Väärä tunnus tai salasana"));
-                }
-            } else {
-                echo "Virhe kirjautumisessa: $yhteys->error";
-            }
+                    ?>
 
-            $yhteys->close();
-        };
-        ?>
+                </section>
+            </main>
 
-    </section>
-</main>
+<?php include "sivuosat/footer.php";
+        } else {
+            header('Location: kirjaudu.php?message=' . urlencode("Väärä tunnus tai salasana"));
+        }
+    } else {
+        debugger("Virhe kirjautumisessa: $yhteys->error");
+        header('Location: kirjaudu.php?message=' . urlencode("Virhe kirjautumisessa: $yhteys->error"));
+    }
 
-<?php include "sivuosat/footer.php"; ?>
+    $yhteys->close();
+};
+?>

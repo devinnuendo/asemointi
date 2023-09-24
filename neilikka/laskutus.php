@@ -7,7 +7,7 @@ $css = 'styles-lomake.css';
 // $img1280 = 'flower-3231083_1280.jpg';
 // $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php";
-include "db/db-azure.php";
+
 ?>
 
 <main class="laskutus">
@@ -60,7 +60,7 @@ include "db/db-azure.php";
 
             <div>
                 <input type="checkbox" name="terms" id="terms" value="ok" required />
-                <label for="terms" class="inline-block"><?= $traCommon['terms'][$lang]; ?></label>
+                <label for="terms" class="inline-block"><?= $traCommon['terms_accept'][$lang]; ?></label>
                 <div class="error"></div>
             </div>
 

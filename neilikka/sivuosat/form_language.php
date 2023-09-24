@@ -1,5 +1,5 @@
 <form autocomplete="on" method="post" class="reset">
-    <legend><?= $traCommon['language_change'][$lang]; ?></legend>
+    <legend class="scr"><?= $traCommon['language_change'][$lang]; ?></legend>
     <button type="submit" id="toggle_language_en" name="toggle_language" value="en" class="language en">
         English
     </button>
