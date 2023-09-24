@@ -1,12 +1,12 @@
 <?php
 include "sivuosat/top.php";
-$title = 'Kasvien hoito';
+$title = $traLocal['plants_care'][$lang];
 include "sivuosat/header.php"; ?>
 
 <main>
     <?php include "sivuosat/inner-nav.php"; ?>
     <section class="kauppa">
-        <p>Tuotteita tulossa!</p>
+        <p><?= $traCommon['products_soon'][$lang] ?></p>
     </section>
 </main>
 

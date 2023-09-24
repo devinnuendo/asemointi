@@ -1,6 +1,6 @@
 <?php
 include "sivuosat/top.php";
-$title = 'Ulkokasvit';
+$title = $traLocal['plants_outdoor'][$lang];
 include "sivuosat/header.php"; ?>
 
 <main>
@@ -12,7 +12,7 @@ include "sivuosat/header.php"; ?>
                     <figure>
                         <img src="img/orange-tree-2485387_640.jpg" alt="appelsiinipuu" />
                         <figcaption>
-                            <em>Appelsiinipuu</em>
+                            <em><?= $traLocal['tree_orange'][$lang] ?></em>
                             <strong>20 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -23,7 +23,7 @@ include "sivuosat/header.php"; ?>
                     <figure>
                         <img src="img/sunflowers-2437482_640.jpg" alt="auringonkukkia" />
                         <figcaption>
-                            <em>Auringonkukka</em>
+                            <em><?= $traLocal['flower_sunflower'][$lang] ?></em>
                             <strong>5 &euro;</strong>
                         </figcaption>
                     </figure>
