@@ -12,10 +12,10 @@
 
     <ul id="mainmenu-ul">
         <li class="<?= ($active == 'index') ? 'active' : ''; ?>">
-            <a href="index.php"><span>Etusivu</span></a>
+            <a href="index.php"><span><?= $traCommon['frontpage'][$lang]; ?></span></a>
         </li>
         <li class="li-submenu <?= ($active == 'tuotteet') ? 'active' : ''; ?>">
-            <a href="tuotteet.php">Tuotteet</a>
+            <a href="tuotteet.php"><?= $traCommon['products'][$lang]; ?></a>
             <input type="checkbox" id="submenu-toggle" class="submenu-toggle" aria-expanded="false" aria-controls="submenu" />
             <label for="submenu-toggle" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
                 <span class="scr">open submenu</span>
@@ -23,22 +23,22 @@
             <label for="submenu-toggle" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
             <ul class="submenu" id="submenu">
                 <li class="<?= ($active == 'sisakasvit') ? 'active' : ''; ?>">
-                    <a href="sisakasvit.php"><span>Sisäkasvit</span></a>
+                    <a href="sisakasvit.php"><span><?= $traLocal['plants_indoor'][$lang]; ?></span></a>
                 </li>
                 <li class="<?= ($active == 'ulkokasvit') ? 'active' : ''; ?>">
-                    <a href="ulkokasvit.php"><span>Ulkokasvit</span></a>
+                    <a href="ulkokasvit.php"><span><?= $traLocal['plants_outdoor'][$lang]; ?></span></a>
                 </li>
                 <li class="<?= ($active == 'tyokaluja') ? 'active' : ''; ?>">
-                    <a href="tyokaluja.php"><span>Työkalut</span></a>
+                    <a href="tyokaluja.php"><span><?= $traCommon['tools'][$lang]; ?></span></a>
                 </li>
                 <li class="<?= ($active == 'kasvien-hoito') ? 'active' : ''; ?>">
-                    <a href="kasvien-hoito.php"><span>Kasvien hoito</span></a>
+                    <a href="kasvien-hoito.php"><span><?= $traLocal['plants_care'][$lang]; ?></span></a>
                 </li>
             </ul>
         </li>
 
         <li class="li-submenu <?= ($active == 'tietoa') ? 'active' : ''; ?>">
-            <a href="tietoa.php"><span>Tietoa meistä</span></a>
+            <a href="tietoa.php"><span><?= $traCommon['about_us'][$lang]; ?></span></a>
             <input type="checkbox" id="submenu-toggle2" class="submenu-toggle" aria-expanded="false" aria-controls="submenu2" />
             <label for="submenu-toggle2" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
                 <span class="scr">open submenu</span>
@@ -46,12 +46,12 @@
             <label for="submenu-toggle2" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
             <ul class="submenu" id="submenu2">
                 <li class="<?= ($active == 'myymalat') ? 'active' : ''; ?>">
-                    <a href="myymalat.php"><span>Myymälät</span></a>
+                    <a href="myymalat.php"><span><?= $traCommon['stores'][$lang]; ?></span></a>
                 </li>
             </ul>
         </li>
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
-            <a href="yhteydenotto.php"><span>Ota yhteyttä</span></a>
+            <a href="yhteydenotto.php"><span><?= $traCommon['contact_us'][$lang]; ?></span></a>
         </li>
         <!-- <li class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
             <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
@@ -78,9 +78,10 @@
     </ul>
 
     <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+
         <a href="profiili.php" class="full">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <span class="scr">Profiili</span>
+            <span class="scr"><?= $traCommon['profile'][$lang]; ?></span>
         </a>
         <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
         <label for="submenu-toggle3" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
@@ -89,21 +90,59 @@
         <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
         <ul class="submenu" id="submenu3">
             <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
-                <a href="profiili.php"><span>Profiili</span></a>
+                <a href="profiili.php"><span><?= $traCommon['profile'][$lang]; ?></span></a>
             </li>
             <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-                <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
+                <a href="rekisteroidy.php"><span><?= $traCommon['register'][$lang]; ?></span></a>
             </li>
             <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-                <a href="kirjaudu.php"><span>Kirjaudu</span></a>
+                <a href="kirjaudu.php"><span><?= $traCommon['login'][$lang]; ?></span></a>
             </li>
             <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
-                <a href="toimitus.php"><span>Toimitusosoite</span></a>
+                <a href="toimitus.php"><span><?= $traCommon['address_delivery'][$lang]; ?></span></a>
             </li>
             <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
-                <a href="laskutus.php"><span>Laskutusosoite</span></a>
+                <a href="laskutus.php"><span><?= $traCommon['address_billing'][$lang]; ?></span></a>
             </li>
         </ul>
     </div>
+
+    <!-- <form method="post" class="reset language-switcher">
+        <label for="language-main" class="scr">Switch language</label>
+        <select name="toggle_language" id="language-main" onchange="this.form.submit()">
+            <option value="en" <?php echo ($lang === 'en') ? 'selected' : ''; ?> lang="en">English</option>
+            <option value="fi" <?php echo ($lang === 'fi') ? 'selected' : ''; ?> lang="fi">Suomi</option>
+            <option value="sv" <?php echo ($lang === 'sv') ? 'selected' : ''; ?> lang="sv"> Svenska</option>
+        </select>
+    </form> -->
+
+    <form method="post" class="reset language-switcher" id="language-select">
+        <input type="checkbox" id="submenu-toggle4" class="submenu-toggle" aria-expanded="false" aria-controls="options-list" />
+        <label for="submenu-toggle4" class="language-label open">
+            <i><?= $lang ?></i>
+            <span class="scr">open language menu</span>
+        </label>
+        <label for="submenu-toggle4" class="language-label close">
+            <i><?= $lang ?></i>
+            <span class="scr">close language menu</span>
+        </label>
+        <ul class="submenu options-list" id="options-list">
+            <li>
+                <button type="submit" name="toggle_language" value="en" class="<?php echo ($lang === 'en') ? 'selected' : ''; ?>">
+                    <abbr title="English" lang="en"><span class="option">en</span></abbr>
+                </button>
+            </li>
+            <li>
+                <button type="submit" name="toggle_language" value="fi" class="<?php echo ($lang === 'fi') ? 'selected' : ''; ?>">
+                    <abbr title="Suomi" lang="fi"><span class="option">fi</span></abbr>
+                </button>
+            </li>
+            <li>
+                <button type="submit" name="toggle_language" value="sv" class="<?php echo ($lang === 'sv') ? 'selected' : ''; ?>">
+                    <abbr title="Svenska" lang="sv"><span class="option">sv</span></abbr>
+                </button>
+            </li>
+        </ul>
+    </form>
 
 </nav>

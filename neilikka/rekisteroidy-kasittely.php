@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Rekisteröidy';
 // $img640 = 'flower-3231083_640.jpg';
 // $img1280 = 'flower-3231083_1280.jpg';
@@ -15,6 +16,7 @@ include "../config/posti.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($yhteys->connect_error) {
+                debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
                 die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
@@ -95,6 +97,7 @@ include "../config/posti.php";
                                 }
                             }
                         } else {
+                            debugger("Virhe rekisteröitymisessä: " . $yhteys->error);
                             echo "Virhe rekisteröitymisessä: $yhteys->error";
                         }
                     }

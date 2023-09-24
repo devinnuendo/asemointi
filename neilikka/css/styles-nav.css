@@ -1,5 +1,5 @@
 .mainmenu {
-  --margin-right: 2.5rem;
+  --margin-right: 2.2rem;
   position: relative;
   font-size: var(--font-size-small);
   display: flex;
@@ -98,7 +98,9 @@ div.li-submenu .submenu {
 #menu-toggle:checked ~ .open {
   display: none;
 }
-
+.mainmenu a {
+  white-space: nowrap;
+}
 .mainmenu ul a {
   display: block;
   position: relative;
@@ -113,7 +115,8 @@ div.li-submenu .submenu {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
-.mainmenu ul .active a {
+.mainmenu ul .active > a,
+.li-submenu .full ~ ul .active a {
   background-color: hsl(var(--hue), var(--sat), 35%);
 }
 .mainmenu ul a:hover,
@@ -167,6 +170,9 @@ div.li-submenu .submenu {
 }
 .li-submenu i {
   padding: var(--gap) 1em;
+}
+.li-submenu i.fa-user {
+  padding: var(--gap);
 }
 .submenu {
   position: absolute;
@@ -275,6 +281,69 @@ div.li-submenu .submenu-toggle:hover ~ label {
 .li-submenu .full ~ ul a:focus {
   background-color: hsl(var(--hue), var(--sat), 45%);
 }
+
+form.language-switcher {
+  flex: 0 0 100%;
+  height: 3rem;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+.language-switcher .submenu.options-list {
+  top: calc(2.8rem + var(--gap));
+  left: 0;
+}
+.language-switcher #submenu-toggle4 {
+  height: 3rem;
+}
+.language-switcher .language-label,
+.language-switcher .option {
+  font-style: italic;
+}
+.language-switcher li {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+.language-switcher button[type='submit'] {
+  flex: 1 0 100%;
+  margin: 0;
+  padding: calc(var(--gap) * 2) calc(var(--gap) * 4) calc(var(--gap) * 2)
+    calc(var(--gap) * 4);
+  border-radius: 0;
+}
+.language-switcher button[type='submit']:hover {
+  background-color: hsl(var(--hue), var(--sat), 45%);
+}
+.language-switcher button[type='submit'].selected {
+  background-color: hsl(var(--hue), var(--sat), 35%);
+  pointer-events: none;
+}
+.language-switcher button[type='submit']:focus-visible {
+  outline: dashed 2px currentcolor;
+  outline-offset: -2px;
+}
+.language-switcher abbr {
+  text-decoration: none;
+}
+
 /* TUOTESIVUJEN ALAVALIKKO */
 .secondary {
   width: 100%;
@@ -299,7 +368,7 @@ div.li-submenu .submenu-toggle:hover ~ label {
 .secondary a:hover {
   text-decoration: underline;
 }
-.secondary li.active a {
+.secondary li.active > a {
   color: hsl(var(--hue), var(--sat), 10%);
 }
 
@@ -327,8 +396,27 @@ div.li-submenu .submenu-toggle:hover ~ label {
     width: auto;
     right: 0;
     left: initial;
-    top: calc(2rem + var(--gap) * 2);
-    width: calc(100vw - var(--scrollbar-width));
+    top: calc(2rem + var(--gap));
+    /* width: calc(100vw - var(--scrollbar-width)); */
+  }
+  .mainmenu .submenu a {
+    padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
+    background-color: hsl(var(--hue), var(--sat), 40%);
+  }
+  form.language-switcher {
+    flex: 0 1 max-content;
+  }
+  .language-switcher .language-label {
+    margin-bottom: calc(var(--gap) * -0.2);
+    padding-right: calc(var(--gap) * 2);
+  }
+  .language-switcher .language-label i {
+    padding: calc(var(--gap) * 2.4) calc(var(--gap) * 2) calc(var(--gap) * 1.6);
+  }
+  .language-switcher .submenu.options-list {
+    width: max-content;
+    top: calc(3rem + var(--gap) * 1.8);
+    left: calc(var(--gap) * -2);
   }
 }
 
@@ -353,7 +441,8 @@ div.li-submenu .submenu-toggle:hover ~ label {
 
 @media (min-width: 1200px) {
   .mainmenu {
-    --margin-right: 2.3rem;
+    --margin-right: 1.6rem;
+    gap: var(--gap);
   }
   #menu-toggle,
   .icon {
@@ -362,7 +451,8 @@ div.li-submenu .submenu-toggle:hover ~ label {
   #menu-toggle ~ ul {
     display: flex;
     flex-flow: row nowrap;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    gap: var(--gap);
     justify-content: space-evenly;
     width: auto;
     max-width: 900px;
@@ -399,7 +489,7 @@ div.li-submenu .submenu-toggle:hover ~ label {
   }
   #menu-toggle ~ ul a:hover::after,
   .submenu-toggle:hover ~ label::after,
-  #menu-toggle ~ ul .active a::after,
+  #menu-toggle ~ ul .active > a::after,
   a.full:hover::after {
     background-color: hsla(var(--hue), var(--sat), 50%, 1);
     box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 1);
@@ -435,6 +525,7 @@ div.li-submenu .submenu-toggle:hover ~ label {
     right: 0;
     left: initial;
   }
+
   #menu-toggle ~ ul .li-submenu #submenu3 {
     left: calc(var(--gap) * -2 - var(--margin-right));
     width: auto;
@@ -466,6 +557,12 @@ div.li-submenu .submenu-toggle:hover ~ label {
     bottom: -0.05rem;
     height: 2rem;
     position: absolute;
+  }
+  .language-switcher .language-label {
+    margin-bottom: calc(var(--gap) * -1.2);
+  }
+  .language-switcher .submenu.options-list {
+    top: calc(3rem + var(--gap));
   }
 }
 

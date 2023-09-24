@@ -492,13 +492,14 @@ button[type='submit'] {
   display: block;
   margin: 1em 0 0;
   background-color: hsl(var(--hue), var(--sat), 40%);
+  outline: 1px solid transparent;
   color: #fff;
   border: none;
   border-radius: 3px;
   padding: var(--gap) calc(var(--gap) * 2);
   cursor: pointer;
   transform: scale(1);
-  transition-property: background-color, transform;
+  transition-property: background-color, transform, outline;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }

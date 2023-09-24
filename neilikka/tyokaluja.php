@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Työkalut';
 include "sivuosat/header.php"; ?>
 

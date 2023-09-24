@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Toimitus';
 $script = 'lomake.js';
 $css = 'styles-lomake.css';
@@ -15,6 +16,7 @@ include "db/db-azure.php";
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($yhteys->connect_error) {
+                debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
                 die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
@@ -41,6 +43,7 @@ include "db/db-azure.php";
                 $address_id = $yhteys->insert_id;
                 echo "<p>Laskutusosoite tallennettu onnistuneesti!</p>";
             } else {
+                debugger("Virhe laskutusosoitteen tallentamisessa: " . $yhteys->error);
                 echo "Virhe laskutusosoitteen tallentamisessa: " . $yhteys->error;
             }
 

@@ -1,4 +1,5 @@
 <?php
+include "sivuosat/top.php";
 $title = 'Kasvien hoito';
 include "sivuosat/header.php"; ?>
 

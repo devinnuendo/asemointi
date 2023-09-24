@@ -1,37 +1,3 @@
-<?php error_reporting(E_ALL);
-ini_set('display_errors', '1');
-include "../config/debugger.php";
-include "../config/language.php";
-
-session_start();
-
-$userLanguage = $_SESSION["user_language"] ?? "fi";
-
-if (isset($_POST["toggle_language"])) {
-    $switchToLanguage = $_POST["toggle_language"];
-    $_SESSION["user_language"] = $switchToLanguage; // Switch language
-    $userLanguage = $switchToLanguage;
-}
-
-if ($userLanguage === "en") {
-    $translationFile = file_get_contents("../config/translations/translations_en.json");
-} elseif ($userLanguage === "fi") {
-    $translationFile = file_get_contents("../config/translations/translations_fi.json");
-} elseif ($userLanguage === "sv") {
-    $translationFile = file_get_contents("../config/translations/translations_sv.json");
-} else {
-    $translationFile = file_get_contents("../config/translations/translations_fi.json");
-}
-
-// Parse the JSON translation file into a PHP associative array
-$tra = json_decode($translationFile, true);
-
-
-
-?>
-<!DOCTYPE html>
-<html lang="fi">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,7 +17,7 @@ $tra = json_decode($translationFile, true);
     <title><?= $title ?? 'Puutarhaliike Neilikka'; ?></title>
 </head>
 
-<body class="<?= $userLanguage ?>">
+<body class="<?= $lang ?>">
     <header>
         <?php include "navbar.php"; ?>
         <picture>
