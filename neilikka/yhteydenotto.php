@@ -37,7 +37,7 @@ include "sivuosat/header.php";
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form action="yhteydenotto-kasittely.php" id="form-yhteydenotto" method="POST">
+        <form autocomplete="on" action="yhteydenotto-kasittely.php" id="form-yhteydenotto" method="POST">
             <label for="name"><?= $traCommon['name'][$lang]; ?></label>
             <input type="text" id="name" name="nimi" autocomplete="name" minlength="2" maxlength="255" placeholder="<?= $traCommon['name'][$lang]; ?>" required>
             <div class="error"></div>

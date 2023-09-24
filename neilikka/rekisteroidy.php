@@ -7,7 +7,7 @@ $css = 'styles-lomake.css';
 // $img1280 = 'flower-3231083_1280.jpg';
 // $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php";
-include "db/db-azure.php";
+
 
 // $errors = [
 //     'first_name' => [
@@ -50,7 +50,7 @@ include "db/db-azure.php";
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="rekisteroidy-kasittely.php" id="registration-form">
+        <form autocomplete="on" method="post" action="rekisteroidy-kasittely.php" id="registration-form">
             <legend class="scr"><?= $traCommon['register'][$lang]; ?></legend>
             <label for="first_name"><?= $traCommon['name_first'][$lang]; ?></label>
             <input type="text" name="first_name" id="first_name" placeholder="<?= $traCommon['name_first'][$lang]; ?>" autocomplete="given-name" minlength="2" required />
@@ -70,7 +70,7 @@ include "db/db-azure.php";
             <?php
             if (isset($_GET['message'])) {
                 $message = urldecode($_GET['message']);
-                echo "<div class='error' aria-role='alert'>$message</div>";
+                echo "<div class='error block' aria-role='alert'>$message</div>";
             } ?>
 
             <label for="password"><?= $traCommon['password_wanted'][$lang]; ?></label>
@@ -92,7 +92,7 @@ include "db/db-azure.php";
 
             <div>
                 <input type="checkbox" name="terms" id="terms" value="ok" required />
-                <label for="terms" class="inline-block"><?= $traCommon['terms'][$lang]; ?></label>
+                <label for="terms" class="inline-block"><?= $traCommon['terms_accept'][$lang]; ?></label>
                 <div class="error"></div>
             </div>
 

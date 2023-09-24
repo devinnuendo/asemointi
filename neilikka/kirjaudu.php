@@ -13,7 +13,7 @@ include "sivuosat/header.php"; ?>
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="kirjaudu-kasittely.php">
+        <form autocomplete="on" method="post" action="kirjaudu-kasittely.php">
             <legend class="scr"><?= $traCommon['login'][$lang]; ?></legend>
 
             <label for="email"><?= $traCommon['email_address'][$lang]; ?></label>
@@ -26,8 +26,14 @@ include "sivuosat/header.php"; ?>
             <?php
             if (isset($_GET['message'])) {
                 $message = urldecode($_GET['message']);
-                echo "<div class='error' aria-role='alert'>$message</div>";
+                echo "<div class='error block' aria-role='alert'>$message</div>";
             } ?>
+            <div>
+                <input type="checkbox" name="remember_me" id="remember_me" />
+                <label for="remember_me" class="inline-block"><?= $traCommon['remember_me'][$lang]; ?></label>
+                <div class="error"></div>
+            </div>
+
             <button type="submit"><?= $traCommon['submit'][$lang]; ?></button>
         </form>
     </section>

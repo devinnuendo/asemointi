@@ -95,7 +95,7 @@ main {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  flex: 1 0 100%;
+  flex: 1 0 auto;
   padding: var(--gap) var(--gap) 3rem var(--gap);
 }
 section,
@@ -114,8 +114,8 @@ header h1.site-heading {
   background: hsla(var(--hue), var(--sat), 98%, 0.4);
   background: linear-gradient(
     0deg,
-    hsla(var(--hue), var(--sat), 98%, 1) 0%,
-    hsla(var(--hue), var(--sat), 98%, 0) 100%
+    hsla(var(--hue), var(--sat), 100%, 1) 10%,
+    hsla(var(--hue), var(--sat), 100%, 0) 100%
   );
   width: calc(100vw - var(--scrollbar-width));
   line-height: 0.8;
@@ -554,6 +554,9 @@ footer > small {
   gap: var(--gap);
   text-align: center;
   background-color: hsl(var(--hue), var(--sat), 89%);
+}
+body .block {
+  display: block;
 }
 
 @media (min-width: 380px) {

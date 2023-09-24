@@ -20,7 +20,8 @@ document.querySelectorAll('.submenu-toggle').forEach((s) => {
 })
 
 // close main menu when user menu is opened
-document.querySelector('.user .submenu-toggle').addEventListener('click', function () {
+const userToggle = document.querySelector('.user .submenu-toggle')
+userToggle?.addEventListener('click', function () {
   document.getElementById('menu-toggle').checked = false
 })
 

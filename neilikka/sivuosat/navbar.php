@@ -1,4 +1,7 @@
-<?php $active = basename($_SERVER['PHP_SELF'], ".php"); ?>
+<?php
+$active = basename($_SERVER['PHP_SELF'], ".php");
+
+?>
 <nav id="mainmenu" class="mainmenu">
     <a class="logo" href="../index.php">
         <img src="img/carnation.png" height="48px" title="Puutarhaliike Neilikka brand logo" />
@@ -53,61 +56,70 @@
         <li class="<?= ($active == 'yhteydenotto') ? 'active' : ''; ?>">
             <a href="yhteydenotto.php"><span><?= $traCommon['contact_us'][$lang]; ?></span></a>
         </li>
-        <!-- <li class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
-            <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
-            <label for="submenu-toggle3" class="full">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span class="scr">open submenu</span>
-                <span class="scr">close submenu</span>
-            </label>
-            <ul class="submenu" id="submenu3">
-                <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-                    <a href="rekisteroidy.php"><span>Rekisteröidy</span></a>
-                </li>
-                <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-                    <a href="kirjaudu.php"><span>Kirjaudu</span></a>
-                </li>
-                <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
-                    <a href="toimitus.php"><span>Toimitusosoite</span></a>
-                </li>
-                <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
-                    <a href="laskutus.php"><span>Laskutusosoite</span></a>
-                </li>
-            </ul>
-        </li> -->
     </ul>
 
-    <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+    <?php
+    if ($loggedIn) {
+    ?>
+        <div class="li-submenu user <?= ($active == 'profiili' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
 
-        <a href="profiili.php" class="full">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span class="scr"><?= $traCommon['profile'][$lang]; ?></span>
-        </a>
-        <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
-        <label for="submenu-toggle3" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
-            <span class="scr">open submenu</span>
-        </label>
-        <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
-        <ul class="submenu" id="submenu3">
-            <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
-                <a href="profiili.php"><span><?= $traCommon['profile'][$lang]; ?></span></a>
-            </li>
-            <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
-                <a href="rekisteroidy.php"><span><?= $traCommon['register'][$lang]; ?></span></a>
-            </li>
-            <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
-                <a href="kirjaudu.php"><span><?= $traCommon['login'][$lang]; ?></span></a>
-            </li>
-            <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
-                <a href="toimitus.php"><span><?= $traCommon['address_delivery'][$lang]; ?></span></a>
-            </li>
-            <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
-                <a href="laskutus.php"><span><?= $traCommon['address_billing'][$lang]; ?></span></a>
-            </li>
-        </ul>
-    </div>
+            <a href="profiili.php" class="full">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="scr"><?= $traCommon['profile'][$lang]; ?></span>
+            </a>
+            <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
+            <label for="submenu-toggle3" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
+                <span class="scr">open submenu</span>
+            </label>
+            <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
+            <ul class="submenu" id="submenu3">
+                <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
+                    <a href="profiili.php"><span><?= $traCommon['profile'][$lang]; ?></span></a>
+                </li>
+                <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
+                    <a href="toimitus.php"><span><?= $traCommon['address_delivery'][$lang]; ?></span></a>
+                </li>
+                <li class="<?= ($active == 'laskutus') ? 'active' : ''; ?>">
+                    <a href="laskutus.php"><span><?= $traCommon['address_billing'][$lang]; ?></span></a>
+                </li>
+                <li>
+                    <form method="post" action="kirjaudu-ulos-kasittely.php" class="reset form-logout" id="form-logout">
+                        <input type="hidden" name="logout" checked />
+                        <button type="submit">
+                            <span><?= $traCommon['logout'][$lang]; ?></span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
 
-    <!-- <form method="post" class="reset language-switcher">
+        </div>
+    <?php
+    } else { ?>
+        <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu') ? 'active' : ''; ?>">
+
+            <a href="kirjaudu.php" class="full">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="scr"><?= $traCommon['login'][$lang]; ?></span>
+            </a>
+            <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
+            <label for="submenu-toggle3" class="plusicon open"><i class="fa fa-plus" aria-hidden="true"></i>
+                <span class="scr">open submenu</span>
+            </label>
+            <label for="submenu-toggle3" class="minusicon close"><i class="fa fa-minus" aria-hidden="true"></i><span class="scr">close submenu</span></label>
+            <ul class="submenu" id="submenu3">
+                <li class="<?= ($active == 'kirjaudu') ? 'active' : ''; ?>">
+                    <a href="kirjaudu.php"><span><?= $traCommon['login'][$lang]; ?></span></a>
+                </li>
+                <li class="<?= ($active == 'rekisteroidy') ? 'active' : ''; ?>">
+                    <a href="rekisteroidy.php"><span><?= $traCommon['register'][$lang]; ?></span></a>
+                </li>
+            </ul>
+
+        </div>
+    <?php
+    }; ?>
+
+    <!-- <form autocomplete="on" method="post" class="reset language-switcher">
         <label for="language-main" class="scr">Switch language</label>
         <select name="toggle_language" id="language-main" onchange="this.form.submit()">
             <option value="en" <?php echo ($lang === 'en') ? 'selected' : ''; ?> lang="en">English</option>
@@ -119,11 +131,11 @@
     <form method="post" class="reset language-switcher" id="language-select">
         <input type="checkbox" id="submenu-toggle4" class="submenu-toggle" aria-expanded="false" aria-controls="options-list" />
         <label for="submenu-toggle4" class="language-label open">
-            <i><?= $lang ?></i>
+            <i><abbr title="<?= $traCommon['language'][$lang]; ?>"><?= $lang ?></abbr></i>
             <span class="scr">open language menu</span>
         </label>
         <label for="submenu-toggle4" class="language-label close">
-            <i><?= $lang ?></i>
+            <i><abbr title="<?= $traCommon['language'][$lang]; ?>"><?= $lang ?></abbr></i>
             <span class="scr">close language menu</span>
         </label>
         <ul class="submenu options-list" id="options-list">

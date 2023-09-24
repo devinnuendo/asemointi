@@ -29,7 +29,7 @@ include "sivuosat/header.php"; ?>
             </ul>
         </div>
 
-        <form action="tallenna_tiedot.php" method="POST">
+        <form autocomplete="on" action="tallenna_tiedot.php" method="POST">
             <label for="nimi">Nimi:</label>
             <input type="text" id="nimi" name="nimi" required>
 

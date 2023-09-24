@@ -271,6 +271,12 @@ $traCommon = array(
         'en' => 'Register',
         'sv' => 'Registrera dig',
     ),
+    'remember_me' =>
+    array(
+        'fi' => 'Muista minut',
+        'en' => 'Remember me',
+        'sv' => 'Kom ihåg mig',
+    ),
     'stores' =>
     array(
         'fi' => 'Myymälät',
@@ -313,7 +319,7 @@ $traCommon = array(
         'en' => 'Submit',
         'sv' => 'Skicka',
     ),
-    'terms' =>
+    'terms_accept' =>
     array(
         'fi' => 'Olen lukeut ja hyväksyn sivuston käyttösäännöt',
         'en' => 'I have read and accept the terms and conditions of the site',

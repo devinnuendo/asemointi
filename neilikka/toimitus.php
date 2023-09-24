@@ -7,7 +7,7 @@ $css = 'styles-lomake.css';
 // $img1280 = 'flower-3231083_1280.jpg';
 // $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php";
-include "db/db-azure.php";
+
 ?>
 
 <main class="toimitus">
@@ -15,7 +15,7 @@ include "db/db-azure.php";
 
         <?php include "sivuosat/form_language.php" ?>
 
-        <form method="post" action="toimitus-kasittely.php" id="delivery-address-form">
+        <form autocomplete="on" method="post" action="toimitus-kasittely.php" id="delivery-address-form">
             <legend class="scr"><?= $traCommon['address'][$lang]; ?></legend>
             <label for="recipient_name"><?= $traCommon['name_recipient'][$lang]; ?></label>
             <input type="text" name="recipient_name" id="recipient_name" placeholder="<?= $traCommon['name_recipient'][$lang]; ?>" autocomplete="name" minlength="2" required />
@@ -42,7 +42,7 @@ include "db/db-azure.php";
             <div class="error"></div>
             <div>
                 <input type="checkbox" name="terms" id="terms" value="ok" required />
-                <label for="terms" class="inline-block"><?= $traCommon['terms'][$lang]; ?></label>
+                <label for="terms" class="inline-block"><?= $traCommon['terms_accept'][$lang]; ?></label>
                 <div class="error"></div>
             </div>
             <button type="submit"><?= $traCommon['submit'][$lang]; ?></button>

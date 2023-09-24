@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+define('REMEMBERME_ACCESS', TRUE);
 include "../config/debugger.php";
 include "../config/language.php";
 
@@ -13,6 +14,7 @@ if (isset($_POST["toggle_language"])) {
     $_SESSION["user_language"] = $switchToLanguage; // Switch language
     $lang = $switchToLanguage;
 }
+
 
 include "../config/translations/translations.php";
 include "translations/translations.php";
@@ -30,6 +32,12 @@ include "translations/translations.php";
 // // Parse the JSON translation file into a PHP associative array
 // $tra = json_decode($translationFile, true);
 
+include "db/db-azure.php";
+include "../config/rememberme.php";
+
+$loggedIn = loggedIn();
+
+// echo "customer_id: " . $_SESSION['customer_id'] . "<br>";
 ?>
 
 <!DOCTYPE html>
