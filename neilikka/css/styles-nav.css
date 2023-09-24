@@ -350,7 +350,8 @@ form.form-logout {
   pointer-events: none;
 }
 .language-switcher button[type='submit']:focus-visible,
-.form-logout button[type='submit']:focus-visible {
+.form-logout button[type='submit']:focus-visible,
+.reset button[type='submit'].language:focus-visible {
   outline: dashed 2px currentcolor;
   outline-offset: -2px;
 }
@@ -395,7 +396,8 @@ form.form-logout {
     flex: 1 0 4rem;
   }
   #menu-toggle {
-    width: 4rem;
+    width: 3rem;
+    right: 8rem;
   }
   .li-submenu.user {
     flex: 0 1 max-content;
@@ -403,14 +405,11 @@ form.form-logout {
   .mainmenu > ul {
     top: calc(48px + var(--gap) * 2);
   }
-  #menu-toggle {
-    right: 6.5rem;
-  }
   #submenu-toggle3 ~ ul {
     width: auto;
     right: 0;
     left: initial;
-    top: calc(2rem + var(--gap));
+    top: calc(48px + var(--gap) * 1.3);
   }
   .mainmenu .submenu a,
   .form-logout button[type='submit'] {
@@ -429,8 +428,11 @@ form.form-logout {
   }
   .language-switcher .submenu.options-list {
     width: max-content;
-    top: calc(3rem + var(--gap) * 1.8);
+    top: calc(3rem + var(--gap) * 1.1);
     left: calc(var(--gap) * -2);
+  }
+  .language-switcher #submenu-toggle4 {
+    width: 100%;
   }
 }
 

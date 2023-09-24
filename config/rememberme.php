@@ -119,7 +119,6 @@ function secure_page()
                 //}
             }
         }
-        $_SESSION['next_page'] = $_SERVER['PHP_SELF'];
         header("location: kirjaudu.php");
         exit;
     }
