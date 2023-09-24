@@ -140,13 +140,13 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
         </label>
         <ul class="submenu options-list" id="options-list">
             <li>
-                <button type="submit" name="toggle_language" value="en" class="<?php echo ($lang === 'en') ? 'selected' : ''; ?>">
-                    <abbr title="English" lang="en"><span class="option">en</span></abbr>
+                <button type="submit" name="toggle_language" value="fi" class="<?php echo ($lang === 'fi') ? 'selected' : ''; ?>">
+                    <abbr title="Suomi" lang="fi"><span class="option">fi</span></abbr>
                 </button>
             </li>
             <li>
-                <button type="submit" name="toggle_language" value="fi" class="<?php echo ($lang === 'fi') ? 'selected' : ''; ?>">
-                    <abbr title="Suomi" lang="fi"><span class="option">fi</span></abbr>
+                <button type="submit" name="toggle_language" value="en" class="<?php echo ($lang === 'en') ? 'selected' : ''; ?>">
+                    <abbr title="English" lang="en"><span class="option">en</span></abbr>
                 </button>
             </li>
             <li>
