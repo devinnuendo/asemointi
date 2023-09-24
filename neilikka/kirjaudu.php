@@ -17,7 +17,7 @@ include "sivuosat/header.php"; ?>
             <legend class="scr"><?= $traCommon['login'][$lang]; ?></legend>
 
             <label for="email"><?= $traCommon['email_address'][$lang]; ?></label>
-            <input type="email" name="email" id="email" placeholder="<?= $traCommon['email_address'][$lang]; ?>" autocomplete="email" required />
+            <input type="email" name="email" id="email" placeholder="<?= $traCommon['email_address'][$lang]; ?>" autocomplete="email" required autofocus />
             <div class="error"></div>
 
             <label for="password"><?= $traCommon['password'][$lang]; ?></label>
