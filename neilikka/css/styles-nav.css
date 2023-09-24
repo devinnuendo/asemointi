@@ -319,6 +319,7 @@ form.form-logout {
 .language-switcher .language-label,
 .language-switcher .option {
   font-style: italic;
+  font-weight: normal;
 }
 .language-switcher li {
   position: relative;
@@ -559,6 +560,9 @@ form.form-logout {
     text-align: left;
     padding-left: calc(var(--gap) * 3);
     background-color: hsl(var(--hue), var(--sat), 40%);
+  }
+  .li-submenu.user {
+    order: 3;
   }
   .li-submenu.user ~ label {
     height: 1rem;
