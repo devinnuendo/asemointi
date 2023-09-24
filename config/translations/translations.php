@@ -42,6 +42,30 @@ $traCommon = array(
         'en' => 'City',
         'sv' => 'Stad',
     ),
+    'color_pink' =>
+    array(
+        'fi' => 'Vaaleanpunainen',
+        'en' => 'Pink',
+        'sv' => 'Ljusrosa',
+    ),
+    'color_red' =>
+    array(
+        'fi' => 'Punainen',
+        'en' => 'Red',
+        'sv' => 'Röd',
+    ),
+    'color_yellow' =>
+    array(
+        'fi' => 'Keltainen',
+        'en' => 'Yellow',
+        'sv' => 'Gul',
+    ),
+    'color_white' =>
+    array(
+        'fi' => 'Valkoinen',
+        'en' => 'White',
+        'sv' => 'Vit',
+    ),
     'contact_us' =>
     array(
         'fi' => 'Ota yhteyttä',
@@ -258,6 +282,12 @@ $traCommon = array(
         'fi' => 'Tuotteet',
         'en' => 'Products',
         'sv' => 'Produkter',
+    ),
+    'products_soon' =>
+    array(
+        'fi' => 'Tuotteet tulossa pian',
+        'en' => 'Products coming soon',
+        'sv' => 'Produkter kommer snart',
     ),
     'profile' =>
     array(

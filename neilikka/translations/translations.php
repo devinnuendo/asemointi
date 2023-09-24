@@ -40,11 +40,77 @@ $traLocal = array(
         'en' => 'by phone to individual stores',
         'sv' => 'per telefon till enskilda butiker',
     ),
+    'flower_bunch_of' =>
+    array(
+        'fi' => 'Kukkakimppu',
+        'en' => 'Flower bunch',
+        'sv' => 'Blombukett',
+    ),
+    'flower_bunch' =>
+    array(
+        'fi' => 'Kimppu',
+        'en' => 'Bunch',
+        'sv' => 'Bukett',
+    ),
+    'flower_carnation' =>
+    array(
+        'fi' => 'Neilikka',
+        'en' => 'Carnation',
+        'sv' => 'Nejlika',
+    ),
+    'flower_cut' =>
+    array(
+        'fi' => 'Leikko',
+        'en' => 'Cut',
+        'sv' => 'Skär',
+    ),
+    'flower_hyasinth' =>
+    array(
+        'fi' => 'Hyasintti',
+        'en' => 'Hyacinth',
+        'sv' => 'Hyacint',
+    ),
+    'flower_poinsettia' =>
+    array(
+        'fi' => 'Joulutähti',
+        'en' => 'Poinsettia',
+        'sv' => 'Julstjärna',
+    ),
+    'flower_pot' =>
+    array(
+        'fi' => 'Ruukku',
+        'en' => 'Pot',
+        'sv' => 'Kruka',
+    ),
+    'flower_rose' =>
+    array(
+        'fi' => 'Ruusu',
+        'en' => 'Rose',
+        'sv' => 'Ros',
+    ),
+    'flower_sunflower' =>
+    array(
+        'fi' => 'Auringonkukka',
+        'en' => 'Sunflower',
+        'sv' => 'Solros',
+    ),
     'home_intro' =>
     array(
         'fi' => 'Tervetuloa Puutarhaliike Neilikan kotisivuille! Meiltä löydät sekä sisä- että ulkokasvit ja kaiken tarvitsemasi kasvien hoitoon.',
         'en' => 'Welcome to the website of Puutarhaliike Neilikka! We have both indoor and outdoor plants and everything you need to take care of your plants.',
         'sv' => 'Välkommen till Puutarhaliike Neilikas webbplats! Vi har både inomhus- och utomhusväxter och allt du behöver för att ta hand om dina växter.',
+    ),
+    'like_elegant' =>
+    array(
+        'fi' => 'Juhlava',
+        'en' => 'Elegant',
+        'sv' => 'Elegant',
+    ),
+    'like_summer' =>
+    array(
+        'fi' => 'Kesäinen',
+        'en' => 'Summer',
+        'sv' => 'Sommar',
     ),
     'open_hours_hki' =>
     array(
@@ -57,6 +123,12 @@ $traLocal = array(
         'fi' => 'ma-ke 9-17, <br />la 12-18',
         'en' => 'Mon-Wed 9-17, <br />Sat 12-18',
         'sv' => 'mån-ons 9-17, <br />lör 12-18',
+    ),
+    'tree_orange' =>
+    array(
+        'fi' => 'Appelsiinipuu',
+        'en' => 'Orange Tree',
+        'sv' => 'Apelsinträd',
     ),
     'plants' =>
     array(
