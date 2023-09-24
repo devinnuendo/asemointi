@@ -22,7 +22,6 @@ function insert_rememberme_token(int $customer_id, string $selector, string $has
     $stmt = $GLOBALS['yhteys']->prepare($query);
     $stmt->bind_param('isss', $customer_id, $selector, $hashed_validator, $expiry);
     $result = $stmt->execute();
-    debugger("Lisättiin: $stmt->affected_rows rememberme_token.");
     $_SESSION['customer_id'] = $customer_id;
     return $result;
 }
@@ -52,7 +51,6 @@ function delete_rememberme_token(int $customer_id)
     $stmt = $GLOBALS['yhteys']->prepare($query);
     $stmt->bind_param('i', $customer_id);
     $result = $stmt->execute();
-    debugger("Poistettiin: $stmt->affected_rows rememberme_token.");
     $_SESSION['customer_id'] = null;
     return $result;
 }
