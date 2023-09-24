@@ -558,6 +558,30 @@ footer > small {
 body .block {
   display: block;
 }
+.tooltip {
+  position: relative;
+}
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 70%;
+  left: 0;
+  font-size: 0.8em;
+  padding: 1px 5px;
+  color: white;
+  background: hsl(var(--hue), var(--sat), 40%);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  z-index: 999;
+  text-align: left;
+}
+.tooltip:hover::before {
+  opacity: 1;
+}
+.tooltip.above::before {
+  top: -10%;
+}
 
 @media (min-width: 380px) {
   h1,
