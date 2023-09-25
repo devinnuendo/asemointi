@@ -22,6 +22,7 @@ include "sivuosat/header.php";
             <div class="error"></div>
 
             <fieldset>
+                <legend><?= $traCommon['name'][$lang]; ?> (<?= $traLocal['plant'][$lang]; ?>)</legend>
                 <label for="plant"><?= $traCommon['Finnish'][$lang]; ?>: <?= $traLocal['name_plant']['fi']; ?></label>
                 <input type="text" name="plant" id="plant" placeholder="<?= $traLocal['name_plant']['fi']; ?>" required />
                 <div class="error"></div>
@@ -36,6 +37,7 @@ include "sivuosat/header.php";
             </fieldset>
 
             <fieldset>
+                <legend><?= $traCommon['color'][$lang]; ?></legend>
                 <label for="color"><?= $traCommon['Finnish'][$lang]; ?>: <?= $traCommon['color']['fi']; ?></label>
                 <input type="text" name="color" id="color" placeholder="<?= $traCommon['color']['fi']; ?>" required />
                 <div class="error"></div>
@@ -49,16 +51,17 @@ include "sivuosat/header.php";
                 <div class="error"></div>
             </fieldset>
             <fieldset>
+                <legend><?= $traCommon['description'][$lang]; ?></legend>
                 <label for="description"><?= $traCommon['Finnish'][$lang]; ?>: <?= $traCommon['description']['fi']; ?></label>
-                <input type="text" name="description" id="description" placeholder="<?= $traCommon['description']['fi']; ?>" required />
+                <textarea name="description" id="description" placeholder="<?= $traCommon['description']['fi']; ?>" rows="6" required></textarea>>
                 <div class="error"></div>
 
                 <label for="description_sv"><?= $traCommon['Swedish'][$lang]; ?>: <?= $traCommon['description']['sv']; ?></label>
-                <input type="text" name="description_sv" id="description_sv" placeholder="<?= $traCommon['description']['sv']; ?>" required />
+                <textarea name="description_sv" id="description_sv" placeholder="<?= $traCommon['description']['sv']; ?>" rows="6" required></textarea>
                 <div class="error"></div>
 
                 <label for="description_en"><?= $traCommon['English'][$lang]; ?>: <?= $traCommon['description']['en']; ?></label>
-                <input type="text" name="description_en" id="description_en" placeholder="<?= $traCommon['description']['en']; ?>" required />
+                <textarea name="description_en" id="description_en" placeholder="<?= $traCommon['description']['en']; ?>" rows="6" required></textarea>
                 <div class="error"></div>
             </fieldset>
 
