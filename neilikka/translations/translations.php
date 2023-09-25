@@ -106,6 +106,12 @@ $traLocal = array(
         'en' => 'Summer',
         'sv' => 'Sommar',
     ),
+    'name_plant' =>
+    array(
+        'fi' => 'Kasvin nimi',
+        'en' => 'Plant name',
+        'sv' => 'Växtnamn',
+    ),
     'open_hours_hki' =>
     array(
         'fi' => 'ma-ke 9-17, <br />la 12-18',
@@ -183,5 +189,11 @@ $traLocal = array(
         'fi' => 'Tuotevalikoimaamme kuuluu sisäkasveja, ulkokasveja sekä työkaluja ja muita tarvikkeita kasvien hoitoon.',
         'en' => 'Our product range includes indoor plants, outdoor plants, as well as tools and other supplies for plant care.',
         'sv' => 'Vårt produktsortiment omfattar inomhusväxter, utomhusväxter samt verktyg och andra förnödenheter för växtvård.',
+    ),
+    'sci' =>
+    array(
+        'fi' => 'Tieteellinen nimi',
+        'en' => 'Scientific name',
+        'sv' => 'Vetenskapligt namn',
     ),
 );
