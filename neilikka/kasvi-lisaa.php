@@ -92,11 +92,11 @@ include "sivuosat/header.php";
             <div class="error"></div>
 
             <label for="image_small"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['small'][$lang]; ?></label>
-            <input type="text" name="image_small" id="image_small" placeholder="<?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['small'][$lang]; ?> <?= $traCommon['image'][$lang]; ?>" />
+            <input type="text" name="image_small" id="image_small" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
             <div class="error"></div>
 
             <label for="image_big"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['big'][$lang]; ?></label>
-            <input type="text" name="image_big" id="image_big" placeholder="<?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['big'][$lang]; ?> <?= $traCommon['image'][$lang]; ?>" />
+            <input type="text" name="image_big" id="image_big" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
             <div class="error"></div>
 
             <button type="submit"><?= $traCommon['submit'][$lang]; ?></button>
