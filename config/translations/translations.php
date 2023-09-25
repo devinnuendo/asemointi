@@ -144,6 +144,12 @@ $traCommon = array(
         'en' => 'Last name',
         'sv' => 'Efternamn',
     ),
+    'pieces' =>
+    array(
+        'fi' => 'kpl',
+        'en' => 'pcs',
+        'sv' => 'st',
+    ),
     'login' =>
     array(
         'fi' => 'Kirjaudu sisään',

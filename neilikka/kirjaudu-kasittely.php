@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rememberme =  $yhteys->real_escape_string($_POST['remember_me']);
     else $rememberme = "";
 
-    $query = "SELECT customer_id, email, password, verified FROM neil_user WHERE email = '$email'";
+    $query = "SELECT customer_id, email, password, verified, admin FROM neil_user WHERE email = '$email'";
     $result = $yhteys->query($query);
 
     if ($result) {
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hash = $row['password'];
         $customer_id = $row['customer_id'];
         $verified = $row['verified'];
+        $admin = $row['admin'];
 
         $verifyPassword = password_verify($password, $hash);
 
@@ -34,11 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!session_id()) session_start();
             $_SESSION["loggedIn"] = true;
             $loggedIn = loggedIn();
+            $_SESSION['customer_id'] = $customer_id;
             if ($rememberme) rememberme($customer_id);
-            header("Location: index.php");
+            if ($admin == 1) {
+                $_SESSION['admin'] = true;
+                header("Location: admin.php");
+            } else {
+                $_SESSION['admin'] = false;
+                header("Location: index.php");
+            }
         } else if ($verifyPassword && $verified == 0) {
 
-            $title = 'Kirjautuminen';
+            $title = 'Tilin aktivointi';
             include "sivuosat/header.php";
 ?>
 
