@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const error = (field, property, language = 'fi') => {
-    return errors[field][language][property]
-  }
-
   const language = document.documentElement.lang
+
+  const error = (field, property, language = 'fi') => {
+    if (
+      errors[field] &&
+      errors[field][language] &&
+      errors[field][language][property] !== undefined
+    ) {
+      return errors[field][language][property]
+    } else {
+      return errors['general'][language]['puuttuu']
+    }
+  }
 
   const eventList = ['blur', 'change']
 
@@ -12,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   input.forEach((x) => {
     for (ev of eventList) {
       x.addEventListener(ev, (e) => {
+        if (!e.target.hasAttribute('required')) {
+          return
+        }
+
         const isValid = e.target.checkValidity()
         // Ks. css-tiedosto styles-lomake.css .invalid -asetukset
         !isValid
@@ -20,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         !isValid
           ? e.target.setAttribute('aria-invalid', !isValid)
           : e.target.removeAttribute('aria-invalid')
+
+        if (!errors[e.target.id]) {
+          e.target.nextElementSibling.innerText = error('general', 'puuttuu', language)
+          return
+        }
 
         if (e.target.validity.tooShort) {
           e.target.nextElementSibling.innerText = error(e.target.id, 'lyhyt', language)
@@ -374,6 +391,17 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       sv: {
         puuttuu: 'Godkänn användningsreglerna',
+      },
+    },
+    general: {
+      fi: {
+        puuttuu: 'Kenttä on pakollinen',
+      },
+      en: {
+        puuttuu: 'Field is required',
+      },
+      sv: {
+        puuttuu: 'Fältet är obligatoriskt',
       },
     },
   }

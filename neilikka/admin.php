@@ -9,7 +9,7 @@ include "sivuosat/header.php"; ?>
 
 <main>
     <section>
-
+        <p><a href="kasvi-lisaa.php">Lisää kasvi</a></p>
     </section>
 </main>
 
