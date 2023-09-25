@@ -12,11 +12,23 @@ $traCommon = array(
         'en' => 'Billing address',
         'sv' => 'Fakturaadress',
     ),
+    'address_delivery' =>
+    array(
+        'fi' => 'Toimitusosoite',
+        'en' => 'Delivery Address',
+        'sv' => 'Leveransadress',
+    ),
     'about_us' =>
     array(
         'fi' => 'Tietoa meistä',
         'en' => 'About us',
         'sv' => 'Om oss',
+    ),
+    'amount' =>
+    array(
+        'fi' => 'Määrä',
+        'en' => 'Amount',
+        'sv' => 'Antal',
     ),
     'card_number' =>
     array(
@@ -41,6 +53,12 @@ $traCommon = array(
         'fi' => 'Kaupunki',
         'en' => 'City',
         'sv' => 'Stad',
+    ),
+    'color' =>
+    array(
+        'fi' => 'Väri',
+        'en' => 'Color',
+        'sv' => 'Färg',
     ),
     'color_pink' =>
     array(
@@ -150,6 +168,12 @@ $traCommon = array(
         'en' => 'pcs',
         'sv' => 'st',
     ),
+    'length' =>
+    array(
+        'fi' => 'Pituus',
+        'en' => 'Length',
+        'sv' => 'Längd',
+    ),
     'login' =>
     array(
         'fi' => 'Kirjaudu sisään',
@@ -185,6 +209,12 @@ $traCommon = array(
         'fi' => 'Vastaanottajan nimi',
         'en' => 'Recipient name',
         'sv' => 'Mottagarens namn',
+    ),
+    'news' =>
+    array(
+        'fi' => 'Uutisia',
+        'en' => 'News',
+        'sv' => 'Nyheter',
     ),
     'no' =>
     array(
@@ -283,6 +313,12 @@ $traCommon = array(
         'en' => 'Postal code',
         'sv' => 'Postnummer',
     ),
+    'price' =>
+    array(
+        'fi' => 'Hinta',
+        'en' => 'Price',
+        'sv' => 'Pris',
+    ),
     'products' =>
     array(
         'fi' => 'Tuotteet',
@@ -367,22 +403,16 @@ $traCommon = array(
         'en' => 'Tools',
         'sv' => 'Verktyg',
     ),
-    'news' =>
+    'type' =>
     array(
-        'fi' => 'Uutisia',
-        'en' => 'News',
-        'sv' => 'Nyheter',
+        'fi' => 'Tyyppi',
+        'en' => 'Type',
+        'sv' => 'Typ',
     ),
     'yes' =>
     array(
         'fi' => 'Kyllä',
         'en' => 'Yes',
         'sv' => 'Ja',
-    ),
-    'address_delivery' =>
-    array(
-        'fi' => 'Toimitusosoite',
-        'en' => 'Delivery Address',
-        'sv' => 'Leveransadress',
     ),
 );
