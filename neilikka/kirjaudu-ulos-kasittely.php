@@ -12,4 +12,5 @@ if (isset($_POST["logout"])) {
     $loggedIn = loggedIn();
     unset($_COOKIE['rememberme']);
     header("Location: index.php");
+    exit;
 }
