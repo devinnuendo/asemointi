@@ -53,7 +53,7 @@ include "sivuosat/header.php";
             <fieldset>
                 <legend><?= $traCommon['description'][$lang]; ?></legend>
                 <label for="description"><?= $traCommon['Finnish'][$lang]; ?>: <?= $traCommon['description']['fi']; ?></label>
-                <textarea name="description" id="description" placeholder="<?= $traCommon['description']['fi']; ?>" rows="6" required></textarea>>
+                <textarea name="description" id="description" placeholder="<?= $traCommon['description']['fi']; ?>" rows="6" required></textarea>
                 <div class="error"></div>
 
                 <label for="description_sv"><?= $traCommon['Swedish'][$lang]; ?>: <?= $traCommon['description']['sv']; ?></label>

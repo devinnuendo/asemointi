@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   input.forEach((x) => {
     for (ev of eventList) {
       x.addEventListener(ev, (e) => {
+        // ignore if not required:
         if (!e.target.hasAttribute('required')) {
           return
         }
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ? e.target.setAttribute('aria-invalid', !isValid)
           : e.target.removeAttribute('aria-invalid')
 
+        // if id is not found in errors object, use general error message
         if (!errors[e.target.id]) {
           e.target.nextElementSibling.innerText = error('general', 'puuttuu', language)
           return
