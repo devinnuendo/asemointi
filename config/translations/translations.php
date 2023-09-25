@@ -1,5 +1,11 @@
 <?php
 $traCommon = array(
+    'about_us' =>
+    array(
+        'fi' => 'Tietoa meistä',
+        'en' => 'About us',
+        'sv' => 'Om oss',
+    ),
     'address' =>
     array(
         'fi' => 'Katuosoite',
@@ -12,11 +18,23 @@ $traCommon = array(
         'en' => 'Billing address',
         'sv' => 'Fakturaadress',
     ),
-    'about_us' =>
+    'address_delivery' =>
     array(
-        'fi' => 'Tietoa meistä',
-        'en' => 'About us',
-        'sv' => 'Om oss',
+        'fi' => 'Toimitusosoite',
+        'en' => 'Delivery Address',
+        'sv' => 'Leveransadress',
+    ),
+    'amount' =>
+    array(
+        'fi' => 'Määrä',
+        'en' => 'Amount',
+        'sv' => 'Antal',
+    ),
+    'big' =>
+    array(
+        'fi' => 'Iso',
+        'en' => 'Big',
+        'sv' => 'Stor',
     ),
     'card_number' =>
     array(
@@ -41,6 +59,12 @@ $traCommon = array(
         'fi' => 'Kaupunki',
         'en' => 'City',
         'sv' => 'Stad',
+    ),
+    'color' =>
+    array(
+        'fi' => 'Väri',
+        'en' => 'Color',
+        'sv' => 'Färg',
     ),
     'color_pink' =>
     array(
@@ -78,6 +102,12 @@ $traCommon = array(
         'en' => 'Country',
         'sv' => 'Land',
     ),
+    'description' =>
+    array(
+        'fi' => 'Kuvaus',
+        'en' => 'Description',
+        'sv' => 'Beskrivning',
+    ),
     'email_address' =>
     array(
         'fi' => 'Sähköpostiosoite',
@@ -89,6 +119,12 @@ $traCommon = array(
         'fi' => 'Sähköposti',
         'en' => 'Email',
         'sv' => 'E-post',
+    ),
+    'English' =>
+    array(
+        'fi' => 'Englanti',
+        'en' => 'English',
+        'sv' => 'Engelska',
     ),
     'Espoo' =>
     array(
@@ -108,11 +144,29 @@ $traCommon = array(
         'en' => 'MM/YY',
         'sv' => 'MM/ÅÅ',
     ),
+    'filename' =>
+    array(
+        'fi' => 'Tiedostonimi',
+        'en' => 'Filename',
+        'sv' => 'Filnamn',
+    ),
+    'Finnish' =>
+    array(
+        'fi' => 'Suomi',
+        'en' => 'Finnish',
+        'sv' => 'Finska',
+    ),
     'Helsinki' =>
     array(
         'fi' => 'Helsinki',
         'en' => 'Helsinki',
         'sv' => 'Helsingfors',
+    ),
+    'image' =>
+    array(
+        'fi' => 'Kuva',
+        'en' => 'Image',
+        'sv' => 'Bild',
     ),
     'name_first' =>
     array(
@@ -143,6 +197,18 @@ $traCommon = array(
         'fi' => 'Sukunimi',
         'en' => 'Last name',
         'sv' => 'Efternamn',
+    ),
+    'pieces' =>
+    array(
+        'fi' => 'kpl',
+        'en' => 'pcs',
+        'sv' => 'st',
+    ),
+    'length' =>
+    array(
+        'fi' => 'Pituus',
+        'en' => 'Length',
+        'sv' => 'Längd',
     ),
     'login' =>
     array(
@@ -180,13 +246,18 @@ $traCommon = array(
         'en' => 'Recipient name',
         'sv' => 'Mottagarens namn',
     ),
+    'news' =>
+    array(
+        'fi' => 'Uutisia',
+        'en' => 'News',
+        'sv' => 'Nyheter',
+    ),
     'no' =>
     array(
         'fi' => 'Ei',
         'en' => 'No',
         'sv' => 'Nej',
     ),
-
     'newsletter_order' =>
     array(
         'fi' => 'Haluan tilata Neilikan uutiskirjeen',
@@ -277,6 +348,12 @@ $traCommon = array(
         'en' => 'Postal code',
         'sv' => 'Postnummer',
     ),
+    'price' =>
+    array(
+        'fi' => 'Hinta',
+        'en' => 'Price',
+        'sv' => 'Pris',
+    ),
     'products' =>
     array(
         'fi' => 'Tuotteet',
@@ -306,6 +383,12 @@ $traCommon = array(
         'fi' => 'Muista minut',
         'en' => 'Remember me',
         'sv' => 'Kom ihåg mig',
+    ),
+    'small' =>
+    array(
+        'fi' => 'Pieni',
+        'en' => 'Small',
+        'sv' => 'Liten',
     ),
     'stores' =>
     array(
@@ -349,6 +432,12 @@ $traCommon = array(
         'en' => 'Submit',
         'sv' => 'Skicka',
     ),
+    'Swedish' =>
+    array(
+        'fi' => 'Ruotsi',
+        'en' => 'Swedish',
+        'sv' => 'Svenska',
+    ),
     'terms_accept' =>
     array(
         'fi' => 'Olen lukeut ja hyväksyn sivuston käyttösäännöt',
@@ -361,22 +450,16 @@ $traCommon = array(
         'en' => 'Tools',
         'sv' => 'Verktyg',
     ),
-    'news' =>
+    'type' =>
     array(
-        'fi' => 'Uutisia',
-        'en' => 'News',
-        'sv' => 'Nyheter',
+        'fi' => 'Tyyppi',
+        'en' => 'Type',
+        'sv' => 'Typ',
     ),
     'yes' =>
     array(
         'fi' => 'Kyllä',
         'en' => 'Yes',
         'sv' => 'Ja',
-    ),
-    'address_delivery' =>
-    array(
-        'fi' => 'Toimitusosoite',
-        'en' => 'Delivery Address',
-        'sv' => 'Leveransadress',
     ),
 );

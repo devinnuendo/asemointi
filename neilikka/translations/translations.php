@@ -58,12 +58,6 @@ $traLocal = array(
         'en' => 'Carnation',
         'sv' => 'Nejlika',
     ),
-    'flower_cut' =>
-    array(
-        'fi' => 'Leikko',
-        'en' => 'Cut',
-        'sv' => 'Skär',
-    ),
     'flower_hyasinth' =>
     array(
         'fi' => 'Hyasintti',
@@ -76,12 +70,6 @@ $traLocal = array(
         'en' => 'Poinsettia',
         'sv' => 'Julstjärna',
     ),
-    'flower_pot' =>
-    array(
-        'fi' => 'Ruukku',
-        'en' => 'Pot',
-        'sv' => 'Kruka',
-    ),
     'flower_rose' =>
     array(
         'fi' => 'Ruusu',
@@ -93,6 +81,12 @@ $traLocal = array(
         'fi' => 'Auringonkukka',
         'en' => 'Sunflower',
         'sv' => 'Solros',
+    ),
+    'habitat' =>
+    array(
+        'fi' => 'Kasvupaikka',
+        'en' => 'Habitat',
+        'sv' => 'Habitat',
     ),
     'home_intro' =>
     array(
@@ -112,6 +106,12 @@ $traLocal = array(
         'en' => 'Summer',
         'sv' => 'Sommar',
     ),
+    'name_plant' =>
+    array(
+        'fi' => 'Kasvin nimi',
+        'en' => 'Plant name',
+        'sv' => 'Växtnamn',
+    ),
     'open_hours_hki' =>
     array(
         'fi' => 'ma-ke 9-17, <br />la 12-18',
@@ -130,17 +130,35 @@ $traLocal = array(
         'en' => 'Orange Tree',
         'sv' => 'Apelsinträd',
     ),
+    'plant' =>
+    array(
+        'fi' => 'Kasvi',
+        'en' => 'Plant',
+        'sv' => 'Växt',
+    ),
     'plants' =>
     array(
         'fi' => 'Kasvit',
         'en' => 'Plants',
         'sv' => 'Växter',
     ),
+    'plants_add' =>
+    array(
+        'fi' => 'Lisää kasvi',
+        'en' => 'Add Plant',
+        'sv' => 'Lägg till växt',
+    ),
     'plants_all' =>
     array(
         'fi' => 'Kaikki kasvit',
         'en' => 'All Plants',
         'sv' => 'Alla växter',
+    ),
+    'plants_cut' =>
+    array(
+        'fi' => 'Leikko',
+        'en' => 'Cut',
+        'sv' => 'Skär',
     ),
     'plants_indoor' =>
     array(
@@ -160,10 +178,22 @@ $traLocal = array(
         'en' => 'Plant Care',
         'sv' => 'Vård av växter',
     ),
+    'plants_pot' =>
+    array(
+        'fi' => 'Ruukku',
+        'en' => 'Pot',
+        'sv' => 'Kruka',
+    ),
     'products_intro' =>
     array(
         'fi' => 'Tuotevalikoimaamme kuuluu sisäkasveja, ulkokasveja sekä työkaluja ja muita tarvikkeita kasvien hoitoon.',
         'en' => 'Our product range includes indoor plants, outdoor plants, as well as tools and other supplies for plant care.',
         'sv' => 'Vårt produktsortiment omfattar inomhusväxter, utomhusväxter samt verktyg och andra förnödenheter för växtvård.',
+    ),
+    'sci' =>
+    array(
+        'fi' => 'Tieteellinen nimi',
+        'en' => 'Scientific name',
+        'sv' => 'Vetenskapligt namn',
     ),
 );

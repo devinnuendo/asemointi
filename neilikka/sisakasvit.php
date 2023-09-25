@@ -13,7 +13,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/roses-6887974_640.jpg" alt="punaisia ruusuja" />
                         <figcaption>
                             <em><?= $traLocal['flower_rose'][$lang] ?>, <?= strtolower($traCommon['color_red'][$lang]) ?></em>
-                            <small><?= $traLocal['flower_cut'][$lang] ?>, 70-80 cm, 1kpl</small>
+                            <small><?= $traLocal['plants_cut'][$lang] ?>, 70-80 cm, 1 <?= $traCommon['pieces'][$lang] ?></small>
                             <strong>10 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -25,7 +25,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/rose-3337091_640.jpg" alt="valkoisia ruusuja" />
                         <figcaption>
                             <em><?= $traLocal['flower_rose'][$lang] ?>, <?= strtolower($traCommon['color_white'][$lang]) ?></em>
-                            <small><?= $traLocal['flower_cut'][$lang] ?>, 70-80 cm, 1kpl</small>
+                            <small><?= $traLocal['plants_cut'][$lang] ?>, 70-80 cm, 1 <?= $traCommon['pieces'][$lang] ?></small>
                             <strong>10 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -37,7 +37,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/carnation-1325012_640.jpg" alt="neilikka" />
                         <figcaption>
                             <em><?= $traLocal['flower_carnation'][$lang] ?>, <?= strtolower($traCommon['color_pink'][$lang]) ?></em>
-                            <small><?= $traLocal['flower_cut'][$lang] ?>, 64 cm, 3kpl</small>
+                            <small><?= $traLocal['plants_cut'][$lang] ?>, 64 cm, 3 <?= $traCommon['pieces'][$lang] ?></small>
                             <strong>8,90 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -73,7 +73,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/hyacinth-1230667_640.jpg" alt="hyasintti" />
                         <figcaption>
                             <em><?= $traLocal['flower_hyasinth'][$lang] ?></em>
-                            <small><?= $traLocal['flower_pot'][$lang] ?></small>
+                            <small><?= $traLocal['plants_pot'][$lang] ?></small>
                             <strong>5,90 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -85,7 +85,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/gerbera-955803_640.jpg" alt="gerbera" />
                         <figcaption>
                             <em>Gerbera</em>
-                            <small><?= $traLocal['flower_pot'][$lang] ?></small>
+                            <small><?= $traLocal['plants_pot'][$lang] ?></small>
                             <strong>6.90 &euro;</strong>
                         </figcaption>
                     </figure>
@@ -97,7 +97,7 @@ include "sivuosat/header.php"; ?>
                         <img src="img/flower-1829711_640.png" alt="joulutähti" />
                         <figcaption>
                             <em><?= $traLocal['flower_poinsettia'][$lang] ?></em>
-                            <small><?= $traLocal['flower_pot'][$lang] ?></small>
+                            <small><?= $traLocal['plants_pot'][$lang] ?></small>
                             <strong>10 &euro;</strong>
                         </figcaption>
                     </figure>

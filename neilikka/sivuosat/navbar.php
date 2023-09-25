@@ -76,6 +76,15 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
                 <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
                     <a href="profiili.php"><span><?= $traCommon['profile'][$lang]; ?></span></a>
                 </li>
+                <?php
+                if ($admin) {
+                ?>
+                    <li class="<?= ($active == 'admin') ? 'active' : ''; ?>">
+                        <a href="admin.php"><span>Admin</span></a>
+                    </li>
+                <?php
+                };
+                ?>
                 <li class="<?= ($active == 'toimitus') ? 'active' : ''; ?>">
                     <a href="toimitus.php"><span><?= $traCommon['address_delivery'][$lang]; ?></span></a>
                 </li>

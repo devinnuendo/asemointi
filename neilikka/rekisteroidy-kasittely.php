@@ -34,7 +34,6 @@ include "../config/posti.php";
             $password = $_POST['password'];
             $password = password_hash($password, PASSWORD_BCRYPT);
             $newsletter = $yhteys->real_escape_string($_POST['newsletter']) === "Kylla" ? 1 : 0;
-            // $terms = $yhteys->real_escape_string(strip_tags(trim($_POST['terms'])));
 
             // Validate e-mail
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

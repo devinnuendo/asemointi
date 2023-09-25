@@ -123,9 +123,32 @@ function secure_page()
     return true;
 }
 
+function secure_page_admin()
+{
+    isset($_SESSION['customer_id']) ? $customer_id = $_SESSION['customer_id'] : $customer_id = 0;
+    isset($_SESSION['admin']) ? $admin = $_SESSION['admin'] : $admin = 0;
+    if (isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] === true) {
+        $query = "SELECT customer_id, admin FROM neil_user WHERE customer_id = ? AND admin = ?";
+        $stmt = $GLOBALS['yhteys']->prepare($query);
+        $stmt->bind_param('ii', $customer_id, $admin);
+        $stmt->execute();
+        $result = compact('customer_id', 'admin');
+        if ($result['admin'] == 1) {
+            return true;
+        } else {
+            header("location: index.php");
+            exit;
+        }
+    } else {
+        header("location: kirjaudu.php");
+        exit;
+    }
+}
+
 function loggedIn()
 {
-    if (isset($_SESSION['loggedIn']) && $_SESSION["loggedIn"] === true) return true;
+    if (isset($_SESSION['loggedIn']) && $_SESSION["loggedIn"] === true)
+        return true;
     if ($token = $_COOKIE['rememberme'] ?? '') {
         $token = htmlspecialchars($token);
         if ($customer_id = token_is_valid($token)) {
@@ -136,4 +159,12 @@ function loggedIn()
         }
     }
     return false;
+}
+
+function admin()
+{
+    if (isset($_SESSION['admin']) && $_SESSION["admin"] === true)
+        return true;
+    else
+        return false;
 }

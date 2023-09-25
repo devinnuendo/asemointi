@@ -33,11 +33,12 @@ include "translations/translations.php";
 // $tra = json_decode($translationFile, true);
 
 include "db/db-azure.php";
-include "../config/rememberme.php";
+include "rememberme.php";
 
 $loggedIn = loggedIn();
+$admin = admin();
 
-// echo "customer_id: " . $_SESSION['customer_id'] . "<br>";
+// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . ", admin: " . $_SESSION['admin'] . "<br>";
 ?>
 
 <!DOCTYPE html>
