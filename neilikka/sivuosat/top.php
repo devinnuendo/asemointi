@@ -33,7 +33,7 @@ include "translations/translations.php";
 // $tra = json_decode($translationFile, true);
 
 include "db/db-azure.php";
-include "../config/rememberme.php";
+include "rememberme.php";
 
 $loggedIn = loggedIn();
 
