@@ -66,15 +66,15 @@ include "sivuosat/header.php";
             </fieldset>
 
             <label for="amount"><?= $traCommon['amount'][$lang]; ?></label>
-            <input type="number" name="amount" id="amount" placeholder="<?= $traCommon['amount'][$lang]; ?>" required />
+            <input type="number" name="amount" id="amount" placeholder="<?= $traCommon['amount'][$lang]; ?>" min=0 required />
             <div class="error"></div>
 
             <label for="price"><?= $traCommon['price'][$lang]; ?></label>
-            <input type="number" name="price" id="price" placeholder="<?= $traCommon['price'][$lang]; ?>" required />
+            <input type="number" name="price" id="price" placeholder="<?= $traCommon['price'][$lang]; ?>" min=0 step="0.05" required />
             <div class="error"></div>
 
             <label for="length"><?= $traCommon['length'][$lang]; ?></label>
-            <input type="number" name="length" id="length" placeholder="<?= $traCommon['length'][$lang]; ?>" required />
+            <input type="number" name="length" id="length" placeholder="<?= $traCommon['length'][$lang]; ?>" min=0 required />
             <div class="error"></div>
 
             <label for="habitat"><?= $traLocal['habitat'][$lang]; ?></label>
@@ -87,16 +87,17 @@ include "sivuosat/header.php";
             <label for="type"><?= $traCommon['type'][$lang]; ?></label>
             <select name="type" id="type" required>
                 <option value="cut"><?= $traLocal['plants_cut'][$lang]; ?></option>
+                <option value="bunch"><?= $traLocal['flower_bunch'][$lang]; ?></option>
                 <option value="pot"><?= $traLocal['plants_pot'][$lang]; ?></option>
             </select>
             <div class="error"></div>
 
-            <label for="image_small"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['small'][$lang]; ?></label>
-            <input type="text" name="image_small" id="image_small" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
+            <label for="img_small"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['small'][$lang]; ?></label>
+            <input type="text" name="img_small" id="img_small" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
             <div class="error"></div>
 
-            <label for="image_big"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['big'][$lang]; ?></label>
-            <input type="text" name="image_big" id="image_big" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
+            <label for="img_large"><?= $traCommon['filename'][$lang]; ?>: <?= $traCommon['image'][$lang]; ?>, <?= $traCommon['big'][$lang]; ?></label>
+            <input type="text" name="img_large" id="img_large" placeholder="<?= $traCommon['filename'][$lang]; ?>.jpg" />
             <div class="error"></div>
 
             <button type="submit"><?= $traCommon['submit'][$lang]; ?></button>

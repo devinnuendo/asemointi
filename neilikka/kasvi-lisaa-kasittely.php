@@ -19,33 +19,36 @@ include "sivuosat/header.php";
             $yhteys->set_charset("utf8");
 
             // Data from the form
-            $plant = $yhteys->real_escape_string(strip_tags(trim($_POST['plant'])));
-            $sci = $yhteys->real_escape_string(strip_tags(trim($_POST['sci'])));
+            $plant = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['plant']))));
+            $sci = $yhteys->real_escape_string(strip_tags(ucwords(trim($_POST['sci']))));
             $amount = intval($_POST['amount']);
-            $color = $yhteys->real_escape_string(strip_tags(trim($_POST['color'])));
-            $description = $yhteys->real_escape_string(strip_tags(trim($_POST['description'])));
+            $color = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['color']))));
+            $description = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['description']))));
             $price = intval($_POST['price']);
             $length = intval($_POST['length']);
-            $habitat = $yhteys->real_escape_string($_POST['habitat']);
-            $type = $yhteys->real_escape_string($_POST['type']);
+            $habitat = $yhteys->real_escape_string(strip_tags(trim($_POST['habitat'])));
+            $type = $yhteys->real_escape_string(strip_tags(trim($_POST['type'])));
+            $img_small = $yhteys->real_escape_string(strip_tags(trim($_POST['img_small'])));
+            $img_big = $yhteys->real_escape_string(strip_tags(trim($_POST['img_large'])));
 
-            $plant_sv = $yhteys->real_escape_string(strip_tags(trim($_POST['plant_sv'])));
-            $color_sv = $yhteys->real_escape_string(strip_tags(trim($_POST['color_sv'])));
-            $description_sv = intval($_POST['description_sv']);
 
-            $plant_en = $yhteys->real_escape_string(strip_tags(trim($_POST['plant_en'])));
-            $color_en = $yhteys->real_escape_string(strip_tags(trim($_POST['color_en'])));
-            $description_en = intval($_POST['description_en']);
+            $plant_sv = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['plant_sv']))));
+            $color_sv = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['color_sv']))));
+            $description_sv = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['description_sv']))));
+
+            $plant_en = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['plant_en']))));
+            $color_en = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['color_en']))));
+            $description_en = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['description_en']))));
 
             // Validation and data processing here...
 
             try {
                 // Insert data into the 'plants' table
-                $query1 = "INSERT INTO neil_plants_fi (sci, plant, amount, color, description, price, length, habitat, type)
-    VALUES (?, ?,?,?,?,?,?,?,?)";
+                $query1 = "INSERT INTO neil_plants_fi (sci, plant, amount, color, description, price, length, habitat, type, img_small, img_large)
+    VALUES (?, ?,?,?,?,?,?,?,?,?,?)";
 
                 $stmt1 = $yhteys->prepare($query1);
-                $stmt1->bind_param('ssissiiss', $sci, $plant, $amount, $color, $description, $price, $length, $habitat, $type);
+                $stmt1->bind_param('ssissiissss', $sci, $plant, $amount, $color, $description, $price, $length, $habitat, $type, $img_small, $img_big);
 
                 if (!$stmt1->execute()) {
                     throw new Exception("Error in the first table insertion: " . $stmt1->error);
