@@ -666,9 +666,9 @@ body form.flex {
 
   section.kauppa li.active {
     /* flex: 0 0 100%; */
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
     position: absolute;
     z-index: 999;
     background-color: white;
