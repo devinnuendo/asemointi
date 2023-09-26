@@ -103,7 +103,7 @@ $result_main = $yhteys->query($query_main);
 <main>
     <?php include "sivuosat/inner-nav.php"; ?>
     <section class="kauppa">
-        <?php pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
         <ul id="lista">
             <?php
             if ($result_main === false) {
@@ -118,7 +118,7 @@ $result_main = $yhteys->query($query_main);
                         if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
                         ?>
                             <div class="absolute right top close-btn">
-                                <a href="sisakasvit.php#lista" class="tooltip left below" data-tooltip="<?= $traCommon['close'][$lang]; ?>">
+                                <a href="sisakasvit.php?random=0&page=<?= $page; ?>#lista" class="tooltip left below" data-tooltip="<?= $traCommon['close'][$lang]; ?>">
                                     <span aria-hidden="true">&times;</span>
                                     <span class="scr"><?= $traCommon['close'][$lang] ?></span>
                                 </a>
@@ -126,7 +126,7 @@ $result_main = $yhteys->query($query_main);
                         <?php
                         };
                         if (!isset($_GET['id'])) {
-                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>#<?= $row['name'] ?>-<?= $row['color'] ?>"> <?php } ?>
+                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>#<?= $row['name'] ?>-<?= $row['color'] ?>"> <?php } ?>
                             <figure>
                                 <?php
                                 if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
@@ -170,7 +170,7 @@ $result_main = $yhteys->query($query_main);
             <?php }; ?>
 
         </ul>
-        <?php pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
     </section>
 </main>
 
