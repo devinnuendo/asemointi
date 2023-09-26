@@ -169,21 +169,22 @@ function admin()
         return false;
 }
 
-function pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $class = "")
+function pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $page, $class = "")
 {
 ?>
     <nav aria-label="pagination" class="pagination <?= $class ?>">
 
-        <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters; ?>&page=1" aria-label="first" data-tooltip="1">
+        <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters; ?>&page=1#lista" aria-label="first" data-tooltip="1">
             <span aria-hidden="true">&laquo;</span>
         </a>
-        <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters . '&page=' . $prev; ?>" aria-label="previous" data-tooltip="<?= $prev ?>">
+        <a class="page-left tooltip <?= $left_disabled; ?>" href="?<?= $search_parameters . '&page=' . $prev; ?>#lista" aria-label="previous" data-tooltip="<?= $prev ?>">
             <span aria-hidden="true">&#8592;</span>
         </a>
-        <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $next; ?>" aria-label="next" data-tooltip="<?= $next ?>">
+        <span class="page-number" aria-label="current page"><?= $page ?></span>
+        <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $next; ?>#lista" aria-label="next" data-tooltip="<?= $next ?>">
             <span aria-hidden="true">&#8594;</span>
         </a>
-        <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $last; ?>" aria-label="last" data-tooltip="<?= $last ?>">
+        <a class="page-right tooltip <?= $right_disabled; ?>" href="?<?= $search_parameters . '&page=' . $last; ?>#lista" aria-label="last" data-tooltip="<?= $last ?>">
             <span aria-hidden="true">&raquo;</span>
         </a>
 
