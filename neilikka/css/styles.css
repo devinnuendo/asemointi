@@ -67,6 +67,7 @@
 }
 * {
   box-sizing: border-box;
+  scroll-margin-top: 3rem;
 }
 body {
   margin: 0;
@@ -75,6 +76,7 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 *:focus-visible,
 section.kauppa li:focus-within {
@@ -259,7 +261,7 @@ section.kauppa li:hover {
   transform: scale(1.05);
 }
 
-section.kauppa a figcaption {
+section.kauppa li figcaption {
   padding: var(--gap) calc(var(--gap) * 2) calc(var(--gap) * 2) calc(var(--gap) * 2);
 }
 section.kauppa em,
@@ -517,6 +519,10 @@ fieldset {
 fieldset label {
   display: inline-block;
 }
+body .flex {
+  display: flex;
+  flex-flow: row wrap;
+}
 
 footer {
   background-color: hsl(var(--hue), var(--sat), 92%);
@@ -570,7 +576,7 @@ body .absolute {
   position: absolute;
   top: 70%;
   left: 0;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   padding: 1px 5px;
   color: white;
   background: hsl(var(--hue), var(--sat), 40%);
@@ -586,6 +592,56 @@ body .absolute {
 .tooltip.above::before {
   top: -10%;
 }
+.tooltip.below::before {
+  top: 110%;
+}
+.tooltip.left::before {
+  left: unset;
+  right: 0;
+}
+body .narrow {
+  max-width: 3rem;
+  display: inline-block;
+}
+body .narrow + button {
+  display: inline-block;
+}
+body .no-padding {
+  padding: 0;
+}
+body .flex > * {
+  margin: 0;
+}
+body form.flex {
+  gap: var(--gap);
+}
+.item-general {
+  flex: 1 0 auto;
+}
+.item-description {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--gap);
+}
+
+.absolute.right.top.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  z-index: 9999;
+  background-color: hsl(var(--hue), var(--sat), 98%);
+  color: hsl(var(--hue), var(--sat), 10%);
+  font-weight: bold;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
 
 @media (min-width: 380px) {
   h1,
@@ -597,12 +653,46 @@ body .absolute {
     word-break: normal;
     text-wrap: balance;
   }
+  section.kauppa ul {
+    position: relative;
+  }
   section.kauppa li {
     flex: 0 0 48%;
   }
   form {
     margin: 0;
     padding: calc(var(--gap) * 2);
+  }
+
+  section.kauppa li.active {
+    /* flex: 0 0 100%; */
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+  }
+  section.kauppa li.active img {
+    height: 20rem;
+  }
+  section.kauppa li.active figcaption {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0 1em;
+  }
+  section.kauppa li.active figcaption .item-general {
+    width: 22%;
+  }
+  section.kauppa li.active figcaption .item-description {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    flex: 1 1 auto;
+    width: 75%;
+  }
+  .item-description p {
+    margin-top: 0;
   }
 }
 @media (min-width: 576px) {
@@ -628,6 +718,55 @@ body .absolute {
   section.tuotteet nav img {
     padding-top: calc(var(--gap) * 1.5);
   }
+  section.kauppa li {
+    --height: 10rem;
+  }
+  section.kauppa li.active {
+    height: calc(100vh - 6rem);
+  }
+  section.kauppa li.active figcaption {
+    height: auto;
+    max-height: var(--height);
+  }
+  .active .item-general {
+    height: var(--height);
+  }
+  .active .item-description {
+    background-color: hsl(var(--hue), var(--sat), 100%);
+    padding: var(--gap);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .pagination a {
+    position: relative;
+    text-decoration: none;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+  }
+  .pagination a.page-left {
+    transform-origin: right;
+  }
+  .pagination a.page-right {
+    transform-origin: left;
+  }
+  .pagination a:hover {
+    transform: scale(1.4);
+  }
+  .pagination a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .pagination a.tooltip::before {
+    transform: scale(0.7);
+  }
+
   footer address {
     margin: 0 auto;
     max-width: var(--max-width);
@@ -658,6 +797,7 @@ body .absolute {
   section.kauppa li {
     flex: 0 0 23.5%;
   }
+
   section.kauppa img {
     height: 10rem;
   }

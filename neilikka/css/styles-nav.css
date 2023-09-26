@@ -257,6 +257,10 @@ div.li-submenu .submenu {
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
+.li-submenu .full:hover {
+  opacity: 1;
+}
+
 div.li-submenu .submenu-toggle:hover ~ label {
   background-color: transparent;
   font-size: var(--font-size-small);
@@ -284,14 +288,14 @@ div.li-submenu .submenu-toggle:hover ~ label {
 }
 
 form.language-switcher {
-  flex: 0 0 100%;
+  flex: 0 0 max-content;
   height: 3rem;
   align-self: stretch;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
   margin: 0;
-  padding: 0;
+  padding: 0 0.5em;
   border: none;
   box-shadow: none;
   background-color: transparent;
@@ -359,6 +363,23 @@ form.form-logout {
 .language-switcher abbr {
   text-decoration: none;
 }
+.mainmenu .flex {
+  flex: 1 0 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+.mainmenu .cart a {
+  flex: 0 0 max-content;
+  padding: 0 0.5em;
+  color: hsl(var(--hue), var(--sat), 98%);
+}
 
 /* TUOTESIVUJEN ALAVALIKKO */
 .secondary {
@@ -398,7 +419,7 @@ form.form-logout {
   }
   #menu-toggle {
     width: 3rem;
-    right: 8rem;
+    right: 13rem;
   }
   .li-submenu.user {
     flex: 0 1 max-content;
@@ -416,6 +437,9 @@ form.form-logout {
   .form-logout button[type='submit'] {
     padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
     background-color: hsl(var(--hue), var(--sat), 40%);
+  }
+  .mainmenu .flex {
+    flex: 0 0 max-content;
   }
   form.language-switcher {
     flex: 0 1 max-content;
@@ -441,6 +465,9 @@ form.form-logout {
   .mainmenu {
     justify-content: flex-start;
   }
+}
+
+@media (min-width: 768px) {
   .mainmenu .logotext {
     display: block;
     line-height: 1;
@@ -448,9 +475,6 @@ form.form-logout {
   .mainmenu .logotext::first-letter {
     letter-spacing: -0.07em;
   }
-}
-
-@media (min-width: 768px) {
 }
 
 @media (min-width: 992px) {
@@ -484,9 +508,18 @@ form.form-logout {
     box-shadow: inset 0 -0.4rem 0.1rem -0.5rem hsl(var(--hue), var(--sat), 50%);
     position: relative;
   }
+  .mainmenu .cart {
+    margin: 0.5rem 0 -0.5rem;
+  }
+  .mainmenu .cart a {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
   #menu-toggle ~ ul a::after,
   .submenu-toggle ~ label::after,
-  a.full::after {
+  a.full::after,
+  .mainmenu .cart a::after {
     --height: 0.2rem;
     content: '';
     position: absolute;
@@ -507,7 +540,8 @@ form.form-logout {
   #menu-toggle ~ ul a:hover::after,
   .submenu-toggle:hover ~ label::after,
   #menu-toggle ~ ul .active > a::after,
-  a.full:hover::after {
+  a.full:hover::after,
+  .mainmenu .cart a:hover::after {
     background-color: hsla(var(--hue), var(--sat), 50%, 1);
     box-shadow: 0 0 var(--height) 0 hsla(var(--hue), var(--sat), 50%, 1);
   }
@@ -580,6 +614,7 @@ form.form-logout {
   }
   .language-switcher .language-label {
     margin-bottom: calc(var(--gap) * -1.5);
+    padding-right: var(--gap);
   }
   .language-switcher .language-label::after {
     bottom: calc(var(--height) * -0.4);
