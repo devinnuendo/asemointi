@@ -723,6 +723,7 @@ body form.flex {
   }
   section.kauppa li.active {
     height: calc(100vh - 6rem);
+    max-height: 700px;
   }
   section.kauppa li.active figcaption {
     height: auto;
