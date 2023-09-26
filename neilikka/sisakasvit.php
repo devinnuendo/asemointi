@@ -103,7 +103,7 @@ $result_main = $yhteys->query($query_main);
 <main>
     <?php include "sivuosat/inner-nav.php"; ?>
     <section class="kauppa">
-        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $page); ?>
         <ul id="lista">
             <?php
             if ($result_main === false) {
@@ -170,7 +170,7 @@ $result_main = $yhteys->query($query_main);
             <?php }; ?>
 
         </ul>
-        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last); ?>
+        <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $page); ?>
     </section>
 </main>
 
