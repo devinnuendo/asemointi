@@ -40,9 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($admin == 1) {
                 $_SESSION['admin'] = true;
                 header("Location: admin.php");
+                exit;
             } else {
                 $_SESSION['admin'] = false;
                 header("Location: index.php");
+                exit;
             }
         } else if ($verifyPassword && $verified == 0) {
 
@@ -64,10 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include "sivuosat/footer.php";
         } else {
             header('Location: kirjaudu.php?message=' . urlencode("Väärä tunnus tai salasana"));
+            exit;
         }
     } else {
         debugger("Virhe kirjautumisessa: $yhteys->error");
         header('Location: kirjaudu.php?message=' . urlencode("Virhe kirjautumisessa: $yhteys->error"));
+        exit;
     }
 
     $yhteys->close();

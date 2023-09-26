@@ -34,6 +34,7 @@ include "sivuosat/header.php";
             // Validate e-mail
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 header('Location: yhteydenotto.php?message=' . urlencode("$email ei ole kelvollinen sähköpostiosoite."));
+                exit;
             } else {
 
                 $insertQuery = "INSERT INTO neil_contact (name, email, phone, subject, message, newsletter)

@@ -1,5 +1,11 @@
 <?php
 $traCommon = array(
+    'about' =>
+    array(
+        'fi' => 'n.',
+        'en' => 'about',
+        'sv' => 'om',
+    ),
     'about_us' =>
     array(
         'fi' => 'Tietoa meistä',
@@ -42,6 +48,36 @@ $traCommon = array(
         'en' => 'Card number',
         'sv' => 'Kortnummer',
     ),
+    'cart' =>
+    array(
+        'fi' => 'Ostoskori',
+        'en' => 'Cart',
+        'sv' => 'Kundvagn',
+    ),
+    'cart_add_to' =>
+    array(
+        'fi' => 'Lisää ostoskoriin',
+        'en' => 'Add to cart',
+        'sv' => 'Lägg till i kundvagnen',
+    ),
+    'cart_empty' =>
+    array(
+        'fi' => 'Ostoskorisi on tyhjä',
+        'en' => 'Your cart is empty',
+        'sv' => 'Din kundvagn är tom',
+    ),
+    'cart_remove' =>
+    array(
+        'fi' => 'Poista ostoskorista',
+        'en' => 'Remove from cart',
+        'sv' => 'Ta bort från kundvagnen',
+    ),
+    'cart_shopping' =>
+    array(
+        'fi' => 'Ostoskori',
+        'en' => 'Shopping cart',
+        'sv' => 'Kundvagn',
+    ),
     'choose' =>
     array(
         'fi' => 'Valitse',
@@ -59,6 +95,12 @@ $traCommon = array(
         'fi' => 'Kaupunki',
         'en' => 'City',
         'sv' => 'Stad',
+    ),
+    'close' =>
+    array(
+        'fi' => 'Sulje',
+        'en' => 'Close',
+        'sv' => 'Stäng',
     ),
     'color' =>
     array(
@@ -167,6 +209,12 @@ $traCommon = array(
         'fi' => 'Kuva',
         'en' => 'Image',
         'sv' => 'Bild',
+    ),
+    'menu' =>
+    array(
+        'fi' => 'Valikko',
+        'en' => 'Menu',
+        'sv' => 'Meny',
     ),
     'name_first' =>
     array(
@@ -455,6 +503,24 @@ $traCommon = array(
         'fi' => 'Tyyppi',
         'en' => 'Type',
         'sv' => 'Typ',
+    ),
+    'user' =>
+    array(
+        'fi' => 'Käyttäjä',
+        'en' => 'User',
+        'sv' => 'Användare',
+    ),
+    'user_account' =>
+    array(
+        'fi' => 'Käyttäjätili',
+        'en' => 'User account',
+        'sv' => 'Användarkonto',
+    ),
+    'username' =>
+    array(
+        'fi' => 'Käyttäjätunnus',
+        'en' => 'Username',
+        'sv' => 'Användarnamn',
     ),
     'yes' =>
     array(

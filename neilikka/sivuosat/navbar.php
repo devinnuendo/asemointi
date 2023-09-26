@@ -9,7 +9,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
     <a href="https://www.flaticon.com/free-icons/flower" class="displaynone">Flower icons created by Freepik - Flaticon</a>
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mainmenu-ul" />
+    <input type="checkbox" id="menu-toggle" class="menu-toggle tooltip below" data-tooltip="<?= $traCommon['menu'][$lang]; ?>" aria-expanded="false" aria-controls="mainmenu-ul" />
     <label for="menu-toggle" class="icon open"><i class="fa fa-bars" aria-hidden="true"></i><span class="scr">open menu</span></label>
     <label for="menu-toggle" class="icon close"><i class="fa fa-times" aria-hidden="true"></i><span class="scr">close menu</span></label>
 
@@ -61,7 +61,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
     <?php
     if ($loggedIn) {
     ?>
-        <div class="li-submenu user <?= ($active == 'profiili' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?>">
+        <div class="li-submenu user <?= ($active == 'profiili' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?> tooltip below" data-tooltip="<?= $traCommon['user'][$lang]; ?>">
 
             <a href="profiili.php" class="full">
                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -136,35 +136,43 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
             <option value="sv" <?php echo ($lang === 'sv') ? 'selected' : ''; ?> lang="sv"> Svenska</option>
         </select>
     </form> -->
+    <div class="flex">
+        <div class="cart tooltip below" data-tooltip="<?= $traCommon['cart'][$lang]; ?>">
+            <a href="ostoskori.php">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="scr"><?= $traCommon['cart'][$lang]; ?></span>
+            </a>
+        </div>
 
-    <form method="post" class="reset language-switcher" id="language-select">
+        <form method="post" class="reset language-switcher" id="language-select">
 
-        <input type="checkbox" id="submenu-toggle4" class="submenu-toggle  tooltip absolute" data-tooltip="language" aria-expanded="false" aria-controls="options-list" />
-        <label for="submenu-toggle4" class="language-label open">
-            <i><?= $lang ?></i>
-            <span class="scr">open language menu</span>
-        </label>
-        <label for="submenu-toggle4" class="language-label close">
-            <i><?= $lang ?></i>
-            <span class="scr">close language menu</span>
-        </label>
-        <ul class="submenu options-list" id="options-list">
-            <li>
-                <button type="submit" name="toggle_language" value="fi" class="<?php echo ($lang === 'fi') ? 'selected' : ''; ?> tooltip above" data-tooltip="Suomi" aria-label="<?= $traCommon['language'][$lang]; ?> Suomi" lang="fi">
-                    <span class="option">fi</span>
-                </button>
-            </li>
-            <li>
-                <button type="submit" name="toggle_language" value="en" class="<?php echo ($lang === 'en') ? 'selected' : ''; ?> tooltip above" data-tooltip="English" aria-label="<?= $traCommon['language'][$lang]; ?> English" lang="en">
-                    <span class="option">en</span>
-                </button>
-            </li>
-            <li>
-                <button type="submit" name="toggle_language" value="sv" class="<?php echo ($lang === 'sv') ? 'selected' : ''; ?> tooltip above" data-tooltip="Svenska" aria-label="<?= $traCommon['language'][$lang]; ?> Svenska" lang="sv">
-                    <span class="option">sv</span>
-                </button>
-            </li>
-        </ul>
-    </form>
+            <input type="checkbox" id="submenu-toggle4" class="submenu-toggle  tooltip below left absolute" data-tooltip="<?= $traCommon['language'][$lang]; ?>" aria-expanded="false" aria-controls="options-list" />
+            <label for="submenu-toggle4" class="language-label open">
+                <i><?= $lang ?></i>
+                <span class="scr">open language menu</span>
+            </label>
+            <label for="submenu-toggle4" class="language-label close">
+                <i><?= $lang ?></i>
+                <span class="scr">close language menu</span>
+            </label>
+            <ul class="submenu options-list" id="options-list">
+                <li>
+                    <button type="submit" name="toggle_language" value="fi" class="<?php echo ($lang === 'fi') ? 'selected' : ''; ?> tooltip above" data-tooltip="Suomi" aria-label="<?= $traCommon['language'][$lang]; ?> Suomi" lang="fi">
+                        <span class="option">fi</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" name="toggle_language" value="en" class="<?php echo ($lang === 'en') ? 'selected' : ''; ?> tooltip above" data-tooltip="English" aria-label="<?= $traCommon['language'][$lang]; ?> English" lang="en">
+                        <span class="option">en</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" name="toggle_language" value="sv" class="<?php echo ($lang === 'sv') ? 'selected' : ''; ?> tooltip above" data-tooltip="Svenska" aria-label="<?= $traCommon['language'][$lang]; ?> Svenska" lang="sv">
+                        <span class="option">sv</span>
+                    </button>
+                </li>
+            </ul>
+        </form>
+    </div>
 
 </nav>

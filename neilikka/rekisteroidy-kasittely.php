@@ -38,6 +38,7 @@ include "../config/posti.php";
             // Validate e-mail
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 header('Location: rekisteroidy.php?message=' . urlencode("$email ei ole kelvollinen sähköpostiosoite."));
+                exit;
             } else {
 
                 $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 
