@@ -348,6 +348,8 @@ form.form-logout {
     calc(var(--gap) * 4);
   border: none;
   border-radius: 0;
+  background-color: hsl(var(--hue), var(--sat), 40%);
+  color: hsl(var(--hue), var(--sat), 100%);
 }
 .language-switcher button[type='submit']:hover,
 .form-logout button[type='submit']:hover {
