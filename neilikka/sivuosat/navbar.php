@@ -95,7 +95,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
                     <form method="post" action="kirjaudu-ulos-kasittely.php" class="reset form-logout" id="form-logout">
                         <input type="hidden" name="logout" checked />
                         <button type="submit">
-                            <span><?= $traCommon['logout'][$lang]; ?></span>
+                            <?= $traCommon['logout'][$lang]; ?>
                         </button>
                     </form>
                 </li>

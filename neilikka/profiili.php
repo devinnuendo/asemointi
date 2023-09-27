@@ -10,7 +10,7 @@ include "sivuosat/header.php";
 
 <main>
     <section>
-
+        <p><a href="salasana-uusi.php">Uusi salasana</a></p>
     </section>
 </main>
 

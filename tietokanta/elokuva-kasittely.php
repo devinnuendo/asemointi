@@ -15,7 +15,7 @@ include 'db-sakila.php';
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($yhteys->connect_error) {
-                die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+                die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
 

@@ -12,6 +12,12 @@ $traCommon = array(
         'en' => 'About us',
         'sv' => 'Om oss',
     ),
+    'add' =>
+    array(
+        'fi' => 'Lisää',
+        'en' => 'Add',
+        'sv' => 'Lägg till',
+    ),
     'address' =>
     array(
         'fi' => 'Katuosoite',
@@ -35,6 +41,12 @@ $traCommon = array(
         'fi' => 'Määrä',
         'en' => 'Amount',
         'sv' => 'Antal',
+    ),
+    'back' =>
+    array(
+        'fi' => 'Takaisin',
+        'en' => 'Back',
+        'sv' => 'Tillbaka',
     ),
     'big' =>
     array(
@@ -77,6 +89,12 @@ $traCommon = array(
         'fi' => 'Ostoskori',
         'en' => 'Shopping cart',
         'sv' => 'Kundvagn',
+    ),
+    'change' =>
+    array(
+        'fi' => 'Vaihda',
+        'en' => 'Change',
+        'sv' => 'Ändra',
     ),
     'choose' =>
     array(
@@ -132,11 +150,29 @@ $traCommon = array(
         'en' => 'White',
         'sv' => 'Vit',
     ),
+    'connection_failed' =>
+    array(
+        'fi' => 'Yhteyden muodostaminen epäonnistui',
+        'en' => 'Connection failed',
+        'sv' => 'Anslutningen misslyckades',
+    ),
     'contact_us' =>
     array(
         'fi' => 'Ota yhteyttä',
         'en' => 'Contact us',
         'sv' => 'Kontakta oss',
+    ),
+    'credentials_wrong' =>
+    array(
+        'fi' => 'Väärä tunnus tai salasana',
+        'en' => 'Wrong username or password',
+        'sv' => 'Fel användarnamn eller lösenord',
+    ),
+    'contact_thanks' =>
+    array(
+        'fi' => 'Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.',
+        'en' => 'Thank you for contacting us! We will get back to you as soon as possible.',
+        'sv' => 'Tack för att du kontaktar oss! Vi återkommer så snart som möjligt.',
     ),
     'country' =>
     array(
@@ -150,17 +186,95 @@ $traCommon = array(
         'en' => 'Description',
         'sv' => 'Beskrivning',
     ),
+    'email' =>
+    array(
+        'fi' => 'Sähköposti',
+        'en' => 'Email',
+        'sv' => 'E-post',
+    ),
     'email_address' =>
     array(
         'fi' => 'Sähköpostiosoite',
         'en' => 'Email address',
         'sv' => 'E-postadress',
     ),
-    'email' =>
+    'email_confirm' =>
     array(
-        'fi' => 'Sähköposti',
-        'en' => 'Email',
-        'sv' => 'E-post',
+        'fi' => 'Vahvista sähköpostiosoitteesi',
+        'en' => 'Confirm your email address',
+        'sv' => 'Bekräfta din e-postadress',
+    ),
+    'email_confirm_click_email_link' =>
+    array(
+        'fi' => 'Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi',
+        'en' => 'Click the link in your email to confirm your email address',
+        'sv' => 'Klicka på länken i ditt e-postmeddelande för att bekräfta din e-postadress',
+    ),
+    'email_confirm_from_link_below' =>
+    array(
+        'fi' => 'Vahvista sähköpostiosoitteesi alla olevasta linkistä',
+        'en' => 'Confirm your email address from the link below',
+        'sv' => 'Bekräfta din e-postadress från länken nedan',
+    ),
+    'email_fail' =>
+    array(
+        'fi' => 'Sähköpostiosoite ei ole kelvollinen',
+        'en' => 'Email address is not valid',
+        'sv' => 'E-postadressen är inte giltig',
+    ),
+    'email_sent_fail' =>
+    array(
+        'fi' => 'Sähköpostin lähetys epäonnistui',
+        'en' => 'Email sending failed',
+        'sv' => 'E-postmeddelandet misslyckades',
+    ),
+    'email_sent_if_exists' =>
+    array(
+        'fi' => 'Sähköposti on lähetetty, jos tili on olemassa',
+        'en' => 'Email sent, if account exists',
+        'sv' => 'E-postmeddelande skickat, om konto finns',
+    ),
+    'error' =>
+    array(
+        'fi' => 'Tapahtui virhe',
+        'en' => 'An error occurred',
+        'sv' => 'Ett fel inträffade',
+    ),
+    'error_billing_address' =>
+    array(
+        'fi' => 'Virhe laskutusosoitteen tallentamisessa',
+        'en' => 'Error saving billing address',
+        'sv' => 'Fel vid sparande av fakturaadress',
+    ),
+    'error_saving' =>
+    array(
+        'fi' => 'Virhe tallentamisessa',
+        'en' => 'Error saving',
+        'sv' => 'Fel vid sparande',
+    ),
+    'error_login' =>
+    array(
+        'fi' => 'Virhe kirjautumisessa',
+        'en' => 'Error logging in',
+        'sv' => 'Fel vid inloggning',
+    ),
+    'error_not_activated' =>
+    array(
+        'fi' => 'Tilisi ei ole vielä aktivoitu. Tarkista sähköpostisi ja aktivoi tili.',
+        'en' => 'Your account has not yet been activated. Check your email and activate your account.',
+        'sv' => 'Ditt konto har ännu inte aktiverats. Kontrollera din e-post och aktivera ditt konto.',
+    ),
+    'error_register' =>
+    array(
+        'fi' => 'Virhe rekisteröitymisessä',
+        'en' => 'Error registering',
+        'sv' => 'Fel vid registrering',
+    ),
+    'email_to' =>
+    array(
+        'fi' => 'osoitteeseen',
+        'en' => 'to address',
+        'sv' => 'till adress',
     ),
     'English' =>
     array(
@@ -198,6 +312,12 @@ $traCommon = array(
         'en' => 'Finnish',
         'sv' => 'Finska',
     ),
+    'hello' =>
+    array(
+        'fi' => 'Hei',
+        'en' => 'Hello',
+        'sv' => 'Hej',
+    ),
     'Helsinki' =>
     array(
         'fi' => 'Helsinki',
@@ -209,6 +329,18 @@ $traCommon = array(
         'fi' => 'Kuva',
         'en' => 'Image',
         'sv' => 'Bild',
+    ),
+    'language' =>
+    array(
+        'fi' => 'Kieli',
+        'en' => 'Language',
+        'sv' => 'Språk',
+    ),
+    'language_change' =>
+    array(
+        'fi' => 'Vaihda kieltä',
+        'en' => 'Change language',
+        'sv' => 'Byt språk',
     ),
     'menu' =>
     array(
@@ -228,23 +360,17 @@ $traCommon = array(
         'en' => 'Home',
         'sv' => 'Hem',
     ),
-    'language' =>
-    array(
-        'fi' => 'Kieli',
-        'en' => 'Language',
-        'sv' => 'Språk',
-    ),
-    'language_change' =>
-    array(
-        'fi' => 'Vaihda kieltä',
-        'en' => 'Change language',
-        'sv' => 'Byt språk',
-    ),
     'name_last' =>
     array(
         'fi' => 'Sukunimi',
         'en' => 'Last name',
         'sv' => 'Efternamn',
+    ),
+    'new' =>
+    array(
+        'fi' => 'Uusi',
+        'en' => 'New',
+        'sv' => 'Ny',
     ),
     'pieces' =>
     array(
@@ -257,6 +383,12 @@ $traCommon = array(
         'fi' => 'Pituus',
         'en' => 'Length',
         'sv' => 'Längd',
+    ),
+    'link_expired' =>
+    array(
+        'fi' => 'Linkki vanhentunut',
+        'en' => 'Link expired',
+        'sv' => 'Länken har gått ut',
     ),
     'login' =>
     array(
@@ -348,11 +480,59 @@ $traCommon = array(
         'en' => 'Password again',
         'sv' => 'Lösenord igen',
     ),
+    'password_changed' =>
+    array(
+        'fi' => 'Salasana vaihdettu',
+        'en' => 'Password changed',
+        'sv' => 'Lösenord ändrat',
+    ),
+    'password_change_failed' =>
+    array(
+        'fi' => 'Salasanan vaihto epäonnistui',
+        'en' => 'Password change failed',
+        'sv' => 'Lösenordsändring misslyckades',
+    ),
+    'password_change_link' =>
+    array(
+        'fi' => 'Vaihda salasanasi alla olevasta linkistä',
+        'en' => 'Change your password from the link below',
+        'sv' => 'Ändra ditt lösenord från länken nedan',
+    ),
+    'password_change_email' =>
+    array(
+        'fi' => 'Vaihda salasanasi sähköpostiisi tulleesta linkistä',
+        'en' => 'Change your password from the link in your email',
+        'sv' => 'Ändra ditt lösenord från länken i ditt e-postmeddelande',
+    ),
+    'password_forgot_question' =>
+    array(
+        'fi' => 'Unohditko salasanasi?',
+        'en' => 'Forgot your password?',
+        'sv' => 'Glömt ditt lösenord?',
+    ),
+    'password_new' =>
+    array(
+        'fi' => 'Uusi salasana',
+        'en' => 'New password',
+        'sv' => 'Nytt lösenord',
+    ),
+    'password_old' =>
+    array(
+        'fi' => 'Vanha salasana',
+        'en' => 'Old password',
+        'sv' => 'Gammalt lösenord',
+    ),
     'password_wanted' =>
     array(
         'fi' => 'Haluamasi salasana',
         'en' => 'Set a Password',
         'sv' => 'Ange ett lösenord',
+    ),
+    'passwords_dont_match'  =>
+    array(
+        'fi' => 'Salasanat eivät täsmää',
+        'en' => 'Passwords don\'t match',
+        'sv' => 'Lösenorden matchar inte',
     ),
     'payment_method' =>
     array(
@@ -419,6 +599,12 @@ $traCommon = array(
         'fi' => 'Profiili',
         'en' => 'Profile',
         'sv' => 'Profil',
+    ),
+    'regards' =>
+    array(
+        'fi' => 'Ystävällisin terveisin',
+        'en' => 'Best regards',
+        'sv' => 'Vänliga hälsningar',
     ),
     'register' =>
     array(
@@ -522,10 +708,22 @@ $traCommon = array(
         'en' => 'Username',
         'sv' => 'Användarnamn',
     ),
+    'username_is' =>
+    array(
+        'fi' => 'Käyttäjätunnuksesi on',
+        'en' => 'Your username is',
+        'sv' => 'Ditt användarnamn är',
+    ),
     'yes' =>
     array(
         'fi' => 'Kyllä',
         'en' => 'Yes',
         'sv' => 'Ja',
+    ),
+    'wrong' =>
+    array(
+        'fi' => 'väärä',
+        'en' => 'wrong',
+        'sv' => 'fel',
     ),
 );

@@ -196,4 +196,28 @@ $traLocal = array(
         'en' => 'Scientific name',
         'sv' => 'Vetenskapligt namn',
     ),
+    'staff_neilikka' =>
+    array(
+        'fi' => 'Neilikan henkilökunta',
+        'en' => 'Neilikka staff',
+        'sv' => 'Neilikka personal',
+    ),
+    'success_plant' =>
+    array(
+        'fi' => 'Kasvi lisätty onnistuneesti',
+        'en' => 'Plant added successfully',
+        'sv' => 'Växt tillagd framgångsrikt',
+    ),
+    'thanks_register_neilikka' =>
+    array(
+        'fi' => 'Kiitos rekisteröitymisestä Neilikan verkkokauppaan!',
+        'en' => 'Thank you for registering to Neilikka\'s webshop!',
+        'sv' => 'Tack för att du registrerar dig för Neilikas webbutik!',
+    ),
+    'welcome_neilikka' =>
+    array(
+        'fi' => 'Tervetuloa Neilikkaan',
+        'en' => 'Welcome to Neilikka',
+        'sv' => 'Välkommen till Neilikka',
+    ),
 );

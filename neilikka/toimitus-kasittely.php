@@ -17,7 +17,7 @@ include "sivuosat/header.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($yhteys->connect_error) {
                 debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-                die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+                die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
 
@@ -44,7 +44,7 @@ include "sivuosat/header.php";
                 echo "<p>Toimitusosoite tallennettu onnistuneesti!</p>";
             } else {
                 debugger("Virhe toimitusosoitteen tallentamisessa: " . $yhteys->error);
-                echo "Virhe toimitusosoitteen tallentamisessa: " . $yhteys->error;
+                echo "{$traCommon['error_saving'][$lang]}";
             }
 
             $yhteys->close();

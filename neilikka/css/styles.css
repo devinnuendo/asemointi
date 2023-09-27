@@ -8,6 +8,8 @@
   color: hsl(var(--hue), var(--sat), 10%);
   font-style: italic;
   --max-width: 1000px;
+  --max-width-smaller: 700px;
+  --form-shadow: 0.2rem 0.4rem 1rem -0.4rem hsla(var(--hue), var(--sat), 80%, 0.8);
   --hue: 325;
   --sat: 80%;
   --font-size-normal: 20px;
@@ -414,111 +416,6 @@ h6 {
   font-size: var(--title-S);
 }
 
-form {
-  max-width: 700px;
-  margin: 0 calc(var(--gap) * -1.8);
-  padding: 5px;
-  border: 1px solid hsla(var(--hue), var(--sat), 80%, 0.8);
-  border-width: 1px 0.1rem 0.2rem 1px;
-  border-radius: 0.3rem;
-  box-shadow: 0.2rem 0.4rem 1rem -0.4rem hsla(var(--hue), var(--sat), 80%, 0.8);
-}
-form.reset {
-  margin: 0;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-}
-form.reset legend {
-  padding-bottom: 1rem;
-}
-form * {
-  line-height: 1;
-}
-legend {
-  font-size: 100%;
-  width: auto;
-}
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-label.normal {
-  font-weight: normal;
-}
-label.inline-block {
-  display: inline-block;
-}
-
-input[type='text'],
-input[type='number'],
-input[type='email'],
-input[type='password'],
-input[type='tel'],
-select,
-textarea {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-  border: 1px solid hsl(var(--hue), var(--sat), 80%);
-  border-radius: 3px;
-  font-size: inherit;
-  line-height: 1;
-  font-style: italic;
-  font-family: inherit;
-  letter-spacing: 0.04em;
-}
-
-select {
-  height: 40px; /* Match the height of other input fields */
-}
-option {
-  line-height: 1;
-}
-
-textarea {
-  resize: vertical;
-}
-
-input[type='radio'] {
-  margin-right: 5px;
-  display: inline-block;
-}
-
-input[type='radio'] + label {
-  padding: 0.1em 0.8em 0.2em 0;
-}
-
-input[type='submit'],
-button[type='submit'] {
-  display: block;
-  margin: 1em 0 0;
-  background-color: hsl(var(--hue), var(--sat), 40%);
-  outline: 1px solid transparent;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: var(--gap) calc(var(--gap) * 2);
-  cursor: pointer;
-  transform: scale(1);
-  transition-property: background-color, transform, outline;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-}
-input[type='submit']:hover {
-  background-color: hsl(var(--hue), var(--sat), 45%);
-  transform: scale(1.06);
-}
-fieldset {
-  border: solid 1px hsl(var(--hue), var(--sat), 80%);
-  border-radius: 0.3rem;
-  padding: 1em;
-  margin: 0.8em 0;
-}
-fieldset label {
-  display: inline-block;
-}
 body .flex {
   display: flex;
   flex-flow: row wrap;
@@ -658,10 +555,6 @@ body form.flex {
   }
   section.kauppa li {
     flex: 0 0 48%;
-  }
-  form {
-    margin: 0;
-    padding: calc(var(--gap) * 2);
   }
 
   section.kauppa li.active {

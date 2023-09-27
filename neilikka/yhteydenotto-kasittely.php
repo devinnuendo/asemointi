@@ -18,7 +18,7 @@ include "sivuosat/header.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($yhteys->connect_error) {
                 debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-                die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+                die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
 
@@ -41,10 +41,10 @@ include "sivuosat/header.php";
                 VALUES ('$name', '$email', '$phone', '$subject', '$message', '$newsletter')";
 
                 if ($yhteys->query($insertQuery) === TRUE) {
-                    echo "<p>Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.</p>";
+                    echo "<p>{$traCommon['contact_thanks'][$lang]}</p>";
                 } else {
                     debugger("Virhe yhteydenoton tallentamisessa: " . $yhteys->error);
-                    echo "Virhe yhteydenoton tallentamisessa: " . $yhteys->error;
+                    echo "{$traCommon['error_saving'][$lang]}";
                 }
 
                 $yhteys->close();

@@ -102,7 +102,9 @@ div.li-submenu .submenu {
 .mainmenu a {
   white-space: nowrap;
 }
-.mainmenu ul a {
+.mainmenu ul a,
+.form-logout button[type='submit'] {
+  font-style: italic;
   display: block;
   position: relative;
   text-decoration: none;

@@ -140,7 +140,7 @@ $result_main = $yhteys->query($query_main);
                                 <figcaption>
                                     <div class="item-general">
                                         <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
-                                        <small><?= $row['type'] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm</small>
+                                        <small><?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm</small>
                                         <strong><?= $row['price'] ?> &euro;</strong>
                                     </div>
                                     <?php

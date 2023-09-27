@@ -31,6 +31,7 @@ include "sivuosat/header.php"; ?>
             <div>
                 <input type="checkbox" name="remember_me" id="remember_me" />
                 <label for="remember_me" class="inline-block"><?= $traCommon['remember_me'][$lang]; ?></label>
+                <a href="salasana-uusi.php"><?= $traCommon['password_forgot_question'][$lang]; ?></a>
                 <div class="error"></div>
             </div>
 
