@@ -12,6 +12,12 @@ $traCommon = array(
         'en' => 'About us',
         'sv' => 'Om oss',
     ),
+    'account_activation' =>
+    array(
+        'fi' => 'Tilin aktivointi',
+        'en' => 'Account activation',
+        'sv' => 'Kontoaktivering',
+    ),
     'add' =>
     array(
         'fi' => 'Lisää',

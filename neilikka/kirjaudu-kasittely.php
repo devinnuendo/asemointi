@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else if ($verifyPassword && $verified == 0) {
 
-            $title = 'Tilin aktivointi';
+            $title = $traCommon['account_activation'][$lang];
             include "sivuosat/header.php";
 ?>
 
