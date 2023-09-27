@@ -17,7 +17,7 @@ include "../config/posti.php";
 
             if ($yhteys->connect_error) {
                 debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-                die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+                die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
             }
             $yhteys->set_charset("utf8");
 
@@ -51,9 +51,9 @@ include "../config/posti.php";
 
                     if ($duplicateCount > 0) {
                         // Duplicate found, display an error message
-                        echo "<p>Tili tällä sähköpostilla on jo olemassa</p> 
-                    <p><a href='javascript:history.go(-1)'>Takaisin</a></p>
-                    <p><a href='kirjaudu.php'>Kirjaudu sisään</a></p>";
+                        echo "{$traCommon['error_register'][$lang]}</p> 
+                    <p><a href='javascript:history.go(-1)'>{$traCommon['back'][$lang]}</a></p>
+                    <p><a href='kirjaudu.php'>{$traCommon['login'][$lang]}</a></p>";
                     } else {
                         // Lisää asiakas taulukkoon 'neil_user'
                         $lisayskysely = "INSERT INTO neil_user (first_name, last_name, phone, email, password, newsletter, registration, updated)
@@ -73,32 +73,33 @@ include "../config/posti.php";
                             if ($lisattiin_token) {
 
                                 $email_sender_name = "Puutarhaliike Neilikka";
-                                $email_sender_email = "jenniina@jenniina.fi";
+                                $email_sender_email = "$email_admin";
                                 $email_recipient_name = "$first_name $last_name";
                                 $email_recipient_email = $email;
-                                $email_title = "Tervetuloa Neilikkaan, $first_name!";
-                                $email_body = "<html><body><h1>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</h1><p>Hei $email_recipient_name,<br /><br />Kiitos rekisteröitymisestä Neilikan verkkokauppaan! <br /><br />Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\".<br /><br />Vahvista sähköpostiosoitteesi alla olevasta linkistä:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>Vahvista sähköpostiosoitteesi tästä</a><br /><br />Ystävällisin terveisin,<br />Neilikan henkilökunta</p></body></html>";
+                                $email_title = "{$traLocal['welcome_neilikka'][$lang]}, $first_name!";
+                                $email_body = "<html><body><h1>{$traLocal['thanks_register_neilikka'][$lang]}</h1><p>{$traCommon['hello'][$lang]} $email_recipient_name, <br /><br />{$traCommon['username_is'][$lang]} \"$email\".<br /><br />{$traCommon['email_confirm_from_link_below'][$lang]}:<br><br> <a href='$verkkosivu/$kansio/vahvistus.php?token=$token'>{$traCommon['email_confirm'][$lang]}</a><br /><br />{$traCommon['regards'][$lang]},<br />{$traLocal['staff_neilikka'][$lang]}</p></body></html>";
 
                                 try {
                                     $lahetetty = posti($email_recipient_name, $email_recipient_email, $email_sender_name, $email_sender_email,  $email_title, $email_body);
 
                                     if ($lahetetty) {
-                                        echo "<p>Kiitos rekisteröitymisestä Neilikan verkkokauppaan!</p>
-                                <p>Käyttäjätunnuksesi on \"$email\" ja asiakasnumerosi on \"$customer_id\". </p>
-                                <p>Klikkaa vielä sähköpostiisi saapunutta linkkiä vahvistaaksesi sähköpostisi.</p>
-                                ";
+                                        echo   "<p>{$traLocal['thanks_register_neilikka'][$lang]}!</p>
+                                                <p>{$traCommon['username_is'][$lang]} \"$email\". </p>
+                                                <p>{$traCommon['email_confirm_click_email_link'][$lang]}.</p>
+                                                ";
                                     } else {
-                                        echo "Virhe rekisteröitymisessä: $yhteys->error";
+                                        echo $traCommon['error_register'][$lang];
                                     }
 
                                     $yhteys->close();
                                 } catch (Exception $e) {
-                                    echo 'Virhe lähetyksessä: ', $e->getMessage(), PHP_EOL;
+                                    echo $traCommon['error_register'][$lang];
+                                    debugger('Virhe rekisteröinnissä: ', $e->getMessage(), PHP_EOL);
                                 }
                             }
                         } else {
                             debugger("Virhe rekisteröitymisessä: " . $yhteys->error);
-                            echo "Virhe rekisteröitymisessä: $yhteys->error";
+                            echo "{$traCommon['error_register'][$lang]}";
                         }
                     }
                 }

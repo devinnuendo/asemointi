@@ -15,7 +15,7 @@ if (file_exists($pins)) {
 $yhteys = new mysqli($sakila_palvelin, $sakila_kayttaja, $sakila_salasana, $sakila_tietokanta);
 
 if ($yhteys->connect_error) {
-    die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+    die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
 }
 
 $yhteys->set_charset("utf8");

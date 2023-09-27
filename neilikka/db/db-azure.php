@@ -11,13 +11,14 @@ if (file_exists($pins)) {
 
     $verkkosivu = getenv('VERKKOSIVU');
     $kansio = getenv('KANSIO');
+    $email_admin = getenv('EMAIL_ADMIN');
 }
 
 $yhteys = new mysqli($azure_palvelin, $azure_kayttaja, $azure_salasana, $azure_tietokanta);
 
 if ($yhteys->connect_error) {
     debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-    die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+    die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
 }
 
 $yhteys->set_charset("utf8");

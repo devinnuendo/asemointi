@@ -96,7 +96,7 @@ include "sivuosat/header.php";
                 <div class="error"></div>
             </div>
 
-            <input type="submit" value="Lähetä">
+            <button type="submit"><?= $traCommon['submit'][$lang]; ?></button>
         </form>
 
     </section>

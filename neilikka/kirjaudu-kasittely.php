@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($yhteys->connect_error) {
         debugger("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
-        die("Yhteyden muodostaminen epäonnistui: " . $yhteys->connect_error);
+        die($traCommon['connection_failed'][$lang] . ": " . $yhteys->connect_error);
     }
     $yhteys->set_charset("utf8");
 
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <main class="kirjaudu">
                 <section>
                     <?php
-                    echo "<p>Tilisi ei ole vielä aktivoitu. Tarkista sähköpostisi ja aktivoi tili.</p>
-                    <p><a href='index.php'>Etusivulle</a></p>
+                    echo "<p>{$traCommon['error_not_activated'][$lang]}</p>
+                    <p><a href='index.php'>{$traCommon['frontpage'][$lang]}</a></p>
                     ";
                     ?>
 
@@ -65,12 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include "sivuosat/footer.php";
         } else {
-            header('Location: kirjaudu.php?message=' . urlencode("Väärä tunnus tai salasana"));
+            header('Location: kirjaudu.php?message=' . urlencode($traCommon['credentials_wrong'][$lang]));
             exit;
         }
     } else {
         debugger("Virhe kirjautumisessa: $yhteys->error");
-        header('Location: kirjaudu.php?message=' . urlencode("Virhe kirjautumisessa: $yhteys->error"));
+        header('Location: kirjaudu.php?message=' . urlencode($traCommon['error_login'][$lang]));
         exit;
     }
 
