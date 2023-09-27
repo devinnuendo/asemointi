@@ -346,6 +346,7 @@ form.form-logout {
   margin: 0;
   padding: calc(var(--gap) * 2) calc(var(--gap) * 4) calc(var(--gap) * 2)
     calc(var(--gap) * 4);
+  border: none;
   border-radius: 0;
 }
 .language-switcher button[type='submit']:hover,

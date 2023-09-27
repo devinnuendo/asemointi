@@ -38,7 +38,7 @@ include "config/settings.php";
 $loggedIn = loggedIn();
 $admin = admin();
 
-// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . ", admin: " . $_SESSION['admin'] . "<br>";
+// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . ", type: " . $_SESSION['type'] . "<br>";
 ?>
 
 <!DOCTYPE html>
