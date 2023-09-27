@@ -8,6 +8,8 @@ include "sivuosat/header.php"; ?>
 
 <main>
     <section>
-
+        <p><?= $traCommon['cart_empty'][$lang] ?></p>
     </section>
 </main>
+
+<?php include "sivuosat/footer.php"; ?>

@@ -126,14 +126,14 @@ function secure_page()
 function secure_page_admin()
 {
     isset($_SESSION['customer_id']) ? $customer_id = $_SESSION['customer_id'] : $customer_id = 0;
-    isset($_SESSION['admin']) ? $admin = $_SESSION['admin'] : $admin = 0;
+    isset($_SESSION['type']) ? $type = $_SESSION['type'] : $type = 'customer';
     if (isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] === true) {
-        $query = "SELECT customer_id, admin FROM neil_user WHERE customer_id = ? AND admin = ?";
+        $query = "SELECT customer_id, type FROM neil_user WHERE customer_id = ? AND type = ?";
         $stmt = $GLOBALS['yhteys']->prepare($query);
-        $stmt->bind_param('ii', $customer_id, $admin);
+        $stmt->bind_param('ii', $customer_id, $type);
         $stmt->execute();
-        $result = compact('customer_id', 'admin');
-        if ($result['admin'] == 1) {
+        $result = compact('customer_id', 'type');
+        if ($result['type'] == 'admin') {
             return true;
         } else {
             header("location: index.php");
@@ -163,7 +163,7 @@ function loggedIn()
 
 function admin()
 {
-    if (isset($_SESSION['admin']) && $_SESSION["admin"] === true)
+    if (isset($_SESSION['type']) && $_SESSION['type'] == 'admin')
         return true;
     else
         return false;
