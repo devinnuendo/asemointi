@@ -4,6 +4,7 @@ $title = 'Rekisteröidy';
 // $img640 = 'flower-3231083_640.jpg';
 // $img1280 = 'flower-3231083_1280.jpg';
 // $img1920 = 'flower-3231083_1920.jpg';
+$loggedIn ? header("Location: index.php") : NULL;
 include "sivuosat/header.php";
 
 include "../config/posti.php";
@@ -42,7 +43,7 @@ include "../config/posti.php";
             } else {
 
                 $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 
-            WHERE TRIM(email) = TRIM('$email')";
+                                        WHERE TRIM(email) = TRIM('$email')";
                 $result = $yhteys->query($duplicateCheckQuery);
 
                 if ($result) {

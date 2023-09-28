@@ -55,46 +55,46 @@ $query_main =
     )
     : ($lang == 'sv'
         ? ("SELECT 
-                p.id AS id,
-                sv.plant AS name,
-                p.sci,
-                sv.description AS description,
-                p.amount,
-                sv.color AS color,
-                p.price,
-                p.length,
-                p.habitat,
-                p.type,
-                p.img_small,
-                p.img_large
-                FROM 
-                neil_plants_fi AS p
-                LEFT JOIN
-                neil_plants_sv AS sv ON p.id = sv.original_id
-                WHERE habitat = 'indoor'
-                LIMIT $offset, $row_count;
-                "
+            p.id AS id,
+            sv.plant AS name,
+            p.sci,
+            sv.description AS description,
+            p.amount,
+            sv.color AS color,
+            p.price,
+            p.length,
+            p.habitat,
+            p.type,
+            p.img_small,
+            p.img_large
+            FROM 
+            neil_plants_fi AS p
+            LEFT JOIN
+            neil_plants_sv AS sv ON p.id = sv.original_id
+            WHERE habitat = 'indoor'
+            LIMIT $offset, $row_count;
+            "
         )
         : ("SELECT
-                p.id AS id,
-                en.plant AS name,
-                p.sci,
-                en.description AS description,
-                p.amount,
-                en.color AS color,
-                p.price,
-                p.length,
-                p.habitat,
-                p.type,
-                p.img_small,
-                p.img_large
-                FROM
-                neil_plants_fi AS p 
-                LEFT JOIN
-                neil_plants_en AS en ON p.id = en.original_id
-                WHERE habitat = 'indoor'
-                LIMIT $offset, $row_count;
-                "
+            p.id AS id,
+            en.plant AS name,
+            p.sci,
+            en.description AS description,
+            p.amount,
+            en.color AS color,
+            p.price,
+            p.length,
+            p.habitat,
+            p.type,
+            p.img_small,
+            p.img_large
+            FROM
+            neil_plants_fi AS p 
+            LEFT JOIN
+            neil_plants_en AS en ON p.id = en.original_id
+            WHERE habitat = 'indoor'
+            LIMIT $offset, $row_count;
+            "
         )
     );
 $result_main = $yhteys->query($query_main);
@@ -119,8 +119,12 @@ $result_main = $yhteys->query($query_main);
                         ?>
                             <div class="absolute right top close-btn">
                                 <a href="sisakasvit.php?random=0&page=<?= $page; ?>#lista" class="tooltip left below" data-tooltip="<?= $traCommon['close'][$lang]; ?>">
-                                    <span aria-hidden="true">&times;</span>
-                                    <span class="scr"><?= $traCommon['close'][$lang] ?></span>
+                                    <span aria-hidden="true">
+                                        &times;
+                                    </span>
+                                    <span class="scr">
+                                        <?= $traCommon['close'][$lang] ?>
+                                    </span>
                                 </a>
                             </div>
                         <?php
@@ -140,7 +144,9 @@ $result_main = $yhteys->query($query_main);
                                 <figcaption>
                                     <div class="item-general">
                                         <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
-                                        <small><?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm</small>
+                                        <small>
+                                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm
+                                        </small>
                                         <strong><?= $row['price'] ?> &euro;</strong>
                                     </div>
                                     <?php

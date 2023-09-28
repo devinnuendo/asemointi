@@ -19,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rememberme =  $yhteys->real_escape_string($_POST['remember_me']);
     else $rememberme = "";
 
-    $query = "SELECT customer_id, email, password, verified, type FROM neil_user WHERE email = '$email'";
+    $query = "SELECT customer_id, email, password, verified, role, value FROM neil_user 
+    LEFT JOIN neil_roles r ON role = r.id
+    WHERE email = '$email'";
     $result = $yhteys->query($query);
 
     if ($result) {
@@ -27,32 +29,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hash = $row['password'];
         $customer_id = $row['customer_id'];
         $verified = $row['verified'];
-        $type = $row['type'];
+        $role = $row['value'];
 
         $verifyPassword = password_verify($password, $hash);
 
         if ($verifyPassword && $verified == 1) {
             if (!session_id()) session_start();
-            $_SESSION["loggedIn"] = true;
+            $_SESSION['loggedIn'] = $role;
             $loggedIn = loggedIn();
             $_SESSION['customer_id'] = $customer_id;
             if ($rememberme) rememberme($customer_id);
-            if ($type == 'admin') {
-                $_SESSION['type'] = 'admin';
-                header("Location: admin.php");
-                exit;
-            } else if ($type == 'employee') {
-                $_SESSION['type'] = 'employee';
-                header("Location: profiili.php");
-                exit;
-            } else {
-                $_SESSION['type'] = 'customer';
-                header("Location: index.php;");
-                exit;
-            }
         } else if ($verifyPassword && $verified == 0) {
 
-            $title = 'Tilin aktivointi';
+            $title = $traCommon['account_activation'][$lang];
             include "sivuosat/header.php";
 ?>
 
