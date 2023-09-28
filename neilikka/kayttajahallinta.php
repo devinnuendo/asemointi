@@ -76,10 +76,12 @@ function asc()
                         <div class="flex">
                             <label for="first_name"><?= $traCommon['name_first'][$lang] ?></label>
                             <input type="text" name="first_name" id="first_name" value="<?= $first_name; ?>" required>
+                            <div class="error"></div>
                         </div>
                         <div class="flex">
                             <label for="last_name"><?= $traCommon['name_last'][$lang] ?></label>
                             <input type="text" name="last_name" id="last_name" value="<?= $last_name; ?>" required>
+                            <div class="error"></div>
                         </div>
                         <div class="flex">
                             <label for="phone"><?= $traCommon['phone'][$lang] ?></label>
@@ -88,10 +90,12 @@ function asc()
                         <div class="flex">
                             <label for="email"><?= $traCommon['email'][$lang] ?></label>
                             <input type="text" name="email" id="email" value="<?= $email; ?>" required>
+                            <div class="error"></div>
                         </div>
                         <div class="flex">
                             <label for="newsletter"><?= $traCommon['newsletter'][$lang] ?></label>
                             <input type="checkbox" name="newsletter" id="newsletter" value="1" <?= $newsletter == 1 ? 'checked' : ''; ?>>
+                            <div class="error"></div>
                         </div>
                         <div class="flex">
                             <label for="verified"><?= $traCommon['verified'][$lang] ?></label>
