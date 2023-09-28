@@ -39,27 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $loggedIn = loggedIn();
             $_SESSION['customer_id'] = $customer_id;
             if ($rememberme) rememberme($customer_id);
-            if ($role == 16) { //admin
-                $_SESSION['loggedIn'] = 16;
-                header("Location: admin.php");
-                exit;
-            } else if ($role == 8) { //supervisor
-                $_SESSION['loggedIn'] = 8;
-                header("Location: profiili.php");
-                exit;
-            } else if ($role == 4) { //employee
-                $_SESSION['loggedIn'] = 4;
-                header("Location: profiili.php");
-                exit;
-            } else if ($role == 2) { //bonus customer
-                $_SESSION['loggedIn'] = 2;
-                header("Location: profiili.php");
-                exit;
-            } else {
-                $_SESSION['loggedIn'] = 1; //customer
-                header("Location: index.php");
-                exit;
-            }
         } else if ($verifyPassword && $verified == 0) {
 
             $title = $traCommon['account_activation'][$lang];
