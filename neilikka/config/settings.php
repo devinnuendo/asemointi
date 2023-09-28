@@ -125,7 +125,7 @@ function secure_page($level)
                     $_SESSION['loggedIn'] = $role;
                     $_SESSION['customer_id'] = $customer_id;
                     if ($loggedIn >= 4) {
-                        return $level;
+                        return $loggedIn;
                     } else {
                         header("location: index.php");
                         exit;
@@ -135,12 +135,12 @@ function secure_page($level)
         }
     }
     if ($level > 0 && $loggedIn >= $level) {
-        return $level;
+        return $loggedIn;
     } else {
         header("location: index.php");
         exit;
     }
-    return $level;
+    return $loggedIn;
 }
 
 function loggedIn()

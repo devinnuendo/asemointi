@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         WHERE customer_id = $id";
         $result = $yhteys->query($query);
         if ($result) {
-            header('Location: kayttajahallinta.php?type=ok&message=' . urlencode($traCommon['saved'][$lang]));
+            header('Location: kayttajat.php?type=ok&message=' . urlencode($traCommon['saved'][$lang]));
             exit;
         } else {
             debugger($traCommon['save_failed'][$lang] . ": " . $yhteys->error);
-            header('Location: kayttajahallinta.php?type=error&message=' . urlencode($traCommon['save_failed'][$lang]));
+            header('Location: kayttajat.php?type=error&message=' . urlencode($traCommon['save_failed'][$lang]));
             exit;
         }
     }
