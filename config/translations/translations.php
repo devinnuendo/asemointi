@@ -720,6 +720,12 @@ $traCommon = array(
         'en' => 'Your username is',
         'sv' => 'Ditt användarnamn är',
     ),
+    'users' =>
+    array(
+        'fi' => 'Käyttäjät',
+        'en' => 'Users',
+        'sv' => 'Användare',
+    ),
     'yes' =>
     array(
         'fi' => 'Kyllä',
