@@ -59,15 +59,15 @@ include 'db-sakila.php';
                         if (!empty($_POST['original_language_id']) && !empty($_POST['special_features'])) {
                             // Lisää elokuva taulukkoon 'film'
                             $lisayskysely = "INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
-            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
+                            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
                         } else if (!empty($_POST['original_language_id']) && empty($_POST['special_features'])) {
                             // Lisää elokuva taulukkoon 'film' ilman special_features
                             $lisayskysely = "INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating)
-            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating')";
+                            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating')";
                         } else if ((empty($_POST['original_language_id']) || $_POST['original_language_id'] == "") && !empty($_POST['special_features'])) {
                             // Lisää elokuva taulukkoon 'film' ilman original_language_id
                             $lisayskysely = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
-            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
+                            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
                         } else if ((empty($_POST['original_language_id']) || $_POST['original_language_id'] == "") && empty($_POST['special_features'])) {
                             // Lisää elokuva taulukkoon 'film' ilman original_language_id ja special_features
                             $lisayskysely = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating)"
@@ -75,7 +75,7 @@ include 'db-sakila.php';
                         } else {
                             // Lisää elokuva taulukkoon 'film'
                             $lisayskysely = "INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
-            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
+                            VALUES ('$titleMovie', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features')";
                         }
 
 
@@ -112,19 +112,22 @@ include 'db-sakila.php';
                                     $actor_id = $rivi['actor_id'];
 
                                     // Lisää näyttelijä elokuvan ja näyttelijätaulukon kautta
-                                    $lisayskysely = "INSERT INTO film_actor (film_id, actor_id) VALUES ('$elokuva_id', '$actor_id')";
+                                    $lisayskysely = "INSERT INTO film_actor (film_id, actor_id) 
+                                    VALUES ('$elokuva_id', '$actor_id')";
                                     if (!$yhteys->query($lisayskysely)) {
                                         echo "Virhe näyttelijän lisäämisessä elokuvalle: " . $yhteys->error;
                                     }
                                 } else {
 
                                     // Lisää näyttelijä näyttelijätaulukkoon
-                                    $lisayskysely = "INSERT INTO actor (first_name, last_name) VALUES ('$first_name', '$last_name')";
+                                    $lisayskysely = "INSERT INTO actor (first_name, last_name) 
+                                    VALUES ('$first_name', '$last_name')";
                                     if ($yhteys->query($lisayskysely) === TRUE) {
                                         $actor_id = $yhteys->insert_id;
 
                                         // Lisää näyttelijä elokuvan ja näyttelijätaulukon kautta
-                                        $lisayskysely = "INSERT INTO film_actor (film_id, actor_id) VALUES ('$elokuva_id', '$actor_id')";
+                                        $lisayskysely = "INSERT INTO film_actor (film_id, actor_id) 
+                                        VALUES ('$elokuva_id', '$actor_id')";
                                         if (!$yhteys->query($lisayskysely)) {
                                             echo "Virhe näyttelijän lisäämisessä elokuvalle: " . $yhteys->error;
                                             exit;

@@ -37,7 +37,7 @@ include "sivuosat/header.php";
 
 
             $insertQuery = "INSERT INTO neil_delivery_address (recipient_name, street_address, postal_code, city, country, phone, payment_method, card_number, expiration_date)
-        VALUES ('$recipient_name', '$street_address', '$postal_code', '$city', '$country', '$phone', '$payment_method', '$card_number', '$expiration_date')";
+            VALUES ('$recipient_name', '$street_address', '$postal_code', '$city', '$country', '$phone', '$payment_method', '$card_number', '$expiration_date')";
 
             if ($yhteys->query($insertQuery) === TRUE) {
                 $address_id = $yhteys->insert_id;
