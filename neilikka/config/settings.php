@@ -104,66 +104,147 @@ function rememberme(int $customer_id, int $day = 30)
 function secure_page()
 {
     if (!session_id()) session_start();
-    if (!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
+    if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] > 0) {
         $token = $_COOKIE['rememberme'] ?? '';
         if ($token) {
-            $user = [];
             $token = htmlspecialchars($token);
             if ($customer_id = token_is_valid($token)) {
-                //if (session_regenerate_id()) {
-                $_SESSION['loggedIn'] = true;
-                $_SESSION['customer_id'] = $customer_id;
-                return true;
-                //}
+                $query = "SELECT customer_id, role, value FROM neil_user 
+                LEFT JOIN neil_roles r ON role = r.id
+                WHERE customer_id = '$customer_id'";
+                $result = $GLOBALS['yhteys']->query($query);
+
+                if ($result) {
+                    $row = $result->fetch_assoc();
+                    $customer_id = $row['customer_id'];
+                    $role = $row['value'];
+
+                    $_SESSION['loggedIn'] = $role;
+                    $_SESSION['customer_id'] = $customer_id;
+                    return true;
+                }
             }
         }
-        header("location: kirjaudu.php");
-        exit;
     }
     return true;
 }
 
+function secure_page_employee()
+{
+    if (!session_id()) session_start();
+    isset($_SESSION['loggedIn']) ? $role = $_SESSION['loggedIn'] : $role = 0;
+    $token_rememberme = $_COOKIE['rememberme'] ?? '';
+    if ($token_rememberme) {
+        $token_rememberme = htmlspecialchars($token_rememberme);
+        if ($customer_id = token_is_valid($token_rememberme)) {
+            $query =   "SELECT customer_id, role, value FROM neil_user 
+                        LEFT JOIN neil_roles r ON role = r.id
+                        WHERE customer_id = '$customer_id'";
+            $result = $GLOBALS['yhteys']->query($query);
+
+            if ($result) {
+                $row = $result->fetch_assoc();
+                $customer_id = $row['customer_id'];
+                $role = $row['value'];
+
+                $_SESSION['loggedIn'] = $role;
+                $_SESSION['customer_id'] = $customer_id;
+                if ($role >= 4) {
+                    return true;
+                    exit;
+                } else {
+                    header("location: index.php");
+                    exit;
+                }
+            }
+        }
+    }
+    if ($GLOBALS['loggedIn'] >= 4) {
+        return true;
+    } else {
+        header("location: index.php");
+        exit;
+    }
+}
+
 function secure_page_admin()
 {
-    isset($_SESSION['customer_id']) ? $customer_id = $_SESSION['customer_id'] : $customer_id = 0;
-    isset($_SESSION['type']) ? $type = $_SESSION['type'] : $type = 'customer';
-    if (isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] === true) {
-        $query = "SELECT customer_id, type FROM neil_user WHERE customer_id = ? AND type = ?";
-        $stmt = $GLOBALS['yhteys']->prepare($query);
-        $stmt->bind_param('ii', $customer_id, $type);
-        $stmt->execute();
-        $result = compact('customer_id', 'type');
-        if ($result['type'] == 'admin') {
-            return true;
-        } else {
-            header("location: index.php");
-            exit;
+    if (!session_id()) session_start();
+    isset($_SESSION['loggedIn']) ? $role = $_SESSION['loggedIn'] : $role = 0;
+    $token_rememberme = $_COOKIE['rememberme'] ?? '';
+    if ($token_rememberme) {
+        $token_rememberme = htmlspecialchars($token_rememberme);
+        if ($customer_id = token_is_valid($token_rememberme)) {
+            $query =   "SELECT customer_id, role, value FROM neil_user 
+                        LEFT JOIN neil_roles r ON role = r.id
+                        WHERE customer_id = '$customer_id'";
+            $result = $GLOBALS['yhteys']->query($query);
+
+            if ($result) {
+                $row = $result->fetch_assoc();
+                $customer_id = $row['customer_id'];
+                $role = $row['value'];
+
+                $_SESSION['loggedIn'] = $role;
+                $_SESSION['customer_id'] = $customer_id;
+                if ($role == 16) {
+                    return true;
+                } else {
+                    header("location: index.php");
+                    exit;
+                }
+            }
         }
+    }
+    if ($GLOBALS['loggedIn'] >= 16) {
+        return true;
     } else {
-        header("location: kirjaudu.php");
+        header("location: index.php");
         exit;
     }
 }
 
 function loggedIn()
 {
-    if (isset($_SESSION['loggedIn']) && $_SESSION["loggedIn"] === true)
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] > 0)
         return true;
     if ($token = $_COOKIE['rememberme'] ?? '') {
         $token = htmlspecialchars($token);
         if ($customer_id = token_is_valid($token)) {
-            $_SESSION['loggedIn'] = true;
             $_SESSION['customer_id'] = $customer_id;
-            //return $customer_id;
             return true;
         }
     }
     return false;
 }
 
+function bonus()
+{
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] >= 2)
+        return true;
+    else
+        return false;
+}
+
+function employee()
+{
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] >= 4)
+        return true;
+    else
+        return false;
+}
+
+function supervisor()
+{
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] >= 8)
+        return true;
+    else
+        return false;
+}
+
 function admin()
 {
-    if (isset($_SESSION['type']) && $_SESSION['type'] == 'admin')
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 16)
         return true;
     else
         return false;

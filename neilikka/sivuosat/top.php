@@ -36,9 +36,13 @@ include "db/db-azure.php";
 include "config/settings.php";
 
 $loggedIn = loggedIn();
+$bonus = bonus();
+$employee = employee();
+$supervisor = supervisor();
 $admin = admin();
 
-// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . ", type: " . $_SESSION['type'] . "<br>";
+// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . "<br>" .
+"bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
 ?>
 
 <!DOCTYPE html>

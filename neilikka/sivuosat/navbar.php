@@ -137,7 +137,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
                 ?>
                     <li class="<?= ($active == 'admin') ? 'active' : ''; ?>">
                         <a href="admin.php">
-                            <i>Admin</i>
+                            <span>Admin</span>
                         </a>
                     </li>
                 <?php
