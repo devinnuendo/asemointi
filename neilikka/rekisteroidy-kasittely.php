@@ -65,7 +65,8 @@ include "../config/posti.php";
 
                             $id = $yhteys->insert_id;
                             $token = md5(rand() . time());
-                            $query = "INSERT INTO neil_signup_tokens (customer_id, token) VALUES ($id,'$token')";
+                            $query =   "INSERT INTO neil_signup_tokens (customer_id, token) 
+                                        VALUES ($id,'$token')";
                             $result = $yhteys->query($query);
                             $lisattiin_token = $yhteys->affected_rows;
 

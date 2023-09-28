@@ -45,8 +45,7 @@ function posti($email_to_name, $email_to, $email_from_name, $email_from,  $email
             //$tulos = false;
             debugger("Viestiä ei lähetetty: " . $mail->ErrorInfo);
         } else {
-            //$tulos = true;
-            debugger("Viesti lähetetty: $email_to!");
+            //$tulos = true; 
         }
         // set_time_limit($max_execution_time); 
     } catch (Exception $e) {
