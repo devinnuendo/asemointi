@@ -103,10 +103,11 @@ function rememberme(int $customer_id, int $day = 30)
 }
 
 
-function secure_page()
+function secure_page($level)
 {
     if (!session_id()) session_start();
-    if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] > 0) {
+    $loggedIn = loggedIn();
+    if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false) {
         $token = $_COOKIE['rememberme'] ?? '';
         if ($token) {
             $token = htmlspecialchars($token);
@@ -123,88 +124,25 @@ function secure_page()
 
                     $_SESSION['loggedIn'] = $role;
                     $_SESSION['customer_id'] = $customer_id;
-                    return true;
+                    if ($loggedIn >= 4) {
+                        return true;
+                    } else {
+                        header("location: index.php");
+                        exit;
+                    }
                 }
             }
         }
+    }
+    if ($loggedIn >= $level) {
+        return true;
+    } else {
+        header("location: index.php");
+        exit;
     }
     return true;
 }
 
-function secure_page_employee()
-{
-    if (!session_id()) session_start();
-    isset($_SESSION['loggedIn']) ? $role = $_SESSION['loggedIn'] : $role = 0;
-    $token_rememberme = $_COOKIE['rememberme'] ?? '';
-    if ($token_rememberme) {
-        $token_rememberme = htmlspecialchars($token_rememberme);
-        if ($customer_id = token_is_valid($token_rememberme)) {
-            $query =   "SELECT customer_id, role, value FROM neil_user 
-                        LEFT JOIN neil_roles r ON role = r.id
-                        WHERE customer_id = '$customer_id'";
-            $result = $GLOBALS['yhteys']->query($query);
-
-            if ($result) {
-                $row = $result->fetch_assoc();
-                $customer_id = $row['customer_id'];
-                $role = $row['value'];
-
-                $_SESSION['loggedIn'] = $role;
-                $_SESSION['customer_id'] = $customer_id;
-                if ($role >= 4) {
-                    return true;
-                    exit;
-                } else {
-                    header("location: index.php");
-                    exit;
-                }
-            }
-        }
-    }
-    if ($GLOBALS['loggedIn'] >= 4) {
-        return true;
-    } else {
-        header("location: index.php");
-        exit;
-    }
-}
-
-function secure_page_admin()
-{
-    if (!session_id()) session_start();
-    isset($_SESSION['loggedIn']) ? $role = $_SESSION['loggedIn'] : $role = 0;
-    $token_rememberme = $_COOKIE['rememberme'] ?? '';
-    if ($token_rememberme) {
-        $token_rememberme = htmlspecialchars($token_rememberme);
-        if ($customer_id = token_is_valid($token_rememberme)) {
-            $query =   "SELECT customer_id, role, value FROM neil_user 
-                        LEFT JOIN neil_roles r ON role = r.id
-                        WHERE customer_id = '$customer_id'";
-            $result = $GLOBALS['yhteys']->query($query);
-
-            if ($result) {
-                $row = $result->fetch_assoc();
-                $customer_id = $row['customer_id'];
-                $role = $row['value'];
-
-                $_SESSION['loggedIn'] = $role;
-                $_SESSION['customer_id'] = $customer_id;
-                if ($role == 16) {
-                    return true;
-                } else {
-                    header("location: index.php");
-                    exit;
-                }
-            }
-        }
-    }
-    if ($GLOBALS['loggedIn'] >= 16) {
-        return true;
-    } else {
-        header("location: index.php");
-        exit;
-    }
-}
 
 function loggedIn()
 {
