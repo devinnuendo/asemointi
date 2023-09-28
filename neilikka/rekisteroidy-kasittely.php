@@ -43,7 +43,7 @@ include "../config/posti.php";
             } else {
 
                 $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM neil_user 
-            WHERE TRIM(email) = TRIM('$email')";
+                                        WHERE TRIM(email) = TRIM('$email')";
                 $result = $yhteys->query($duplicateCheckQuery);
 
                 if ($result) {

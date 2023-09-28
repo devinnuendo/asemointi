@@ -55,46 +55,46 @@ $query_main =
     )
     : ($lang == 'sv'
         ? ("SELECT 
-                p.id AS id,
-                sv.plant AS name,
-                p.sci,
-                sv.description AS description,
-                p.amount,
-                sv.color AS color,
-                p.price,
-                p.length,
-                p.habitat,
-                p.type,
-                p.img_small,
-                p.img_large
-                FROM 
-                neil_plants_fi AS p
-                LEFT JOIN
-                neil_plants_sv AS sv ON p.id = sv.original_id
-                WHERE habitat = 'indoor'
-                LIMIT $offset, $row_count;
-                "
+            p.id AS id,
+            sv.plant AS name,
+            p.sci,
+            sv.description AS description,
+            p.amount,
+            sv.color AS color,
+            p.price,
+            p.length,
+            p.habitat,
+            p.type,
+            p.img_small,
+            p.img_large
+            FROM 
+            neil_plants_fi AS p
+            LEFT JOIN
+            neil_plants_sv AS sv ON p.id = sv.original_id
+            WHERE habitat = 'indoor'
+            LIMIT $offset, $row_count;
+            "
         )
         : ("SELECT
-                p.id AS id,
-                en.plant AS name,
-                p.sci,
-                en.description AS description,
-                p.amount,
-                en.color AS color,
-                p.price,
-                p.length,
-                p.habitat,
-                p.type,
-                p.img_small,
-                p.img_large
-                FROM
-                neil_plants_fi AS p 
-                LEFT JOIN
-                neil_plants_en AS en ON p.id = en.original_id
-                WHERE habitat = 'indoor'
-                LIMIT $offset, $row_count;
-                "
+            p.id AS id,
+            en.plant AS name,
+            p.sci,
+            en.description AS description,
+            p.amount,
+            en.color AS color,
+            p.price,
+            p.length,
+            p.habitat,
+            p.type,
+            p.img_small,
+            p.img_large
+            FROM
+            neil_plants_fi AS p 
+            LEFT JOIN
+            neil_plants_en AS en ON p.id = en.original_id
+            WHERE habitat = 'indoor'
+            LIMIT $offset, $row_count;
+            "
         )
     );
 $result_main = $yhteys->query($query_main);

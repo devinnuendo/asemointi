@@ -28,7 +28,9 @@ include "sivuosat/header.php";
                 $sent_message = $traCommon['passwords_dont_match'][$lang];
             } else {
 
-                $query_hash = "SELECT customer_id, token, valid_until FROM neil_reset_password_tokens r WHERE r.token = '$token'";
+                $query_hash =  "SELECT customer_id, token, valid_until 
+                                FROM neil_reset_password_tokens r 
+                                WHERE r.token = '$token'";
                 $result_hash = $yhteys->query($query_hash);
 
                 if ($result_hash->num_rows) {
@@ -41,7 +43,8 @@ include "sivuosat/header.php";
                         $message_type = "error";
                         $sent_message = $traCommon['link_expired'][$lang];
                     } else {
-                        $query = "SELECT password, verified FROM neil_user WHERE customer_id = '$customer_id'";
+                        $query =   "SELECT password, verified FROM neil_user 
+                                    WHERE customer_id = '$customer_id'";
                         $result = $yhteys->query($query);
 
                         if ($result) {

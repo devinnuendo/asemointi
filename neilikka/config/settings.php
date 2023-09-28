@@ -35,8 +35,9 @@ function find_rememberme_token(string $selector)
     $customer_id = "";
     $expiry = "";
 
-    $query = "SELECT id, selector, hashed_validator, customer_id, expiry FROM neil_rememberme_tokens
-    WHERE selector = ? AND expiry >= now() LIMIT 1";
+    $query =   "SELECT id, selector, hashed_validator, customer_id, expiry 
+                FROM neil_rememberme_tokens
+                WHERE selector = ? AND expiry >= now() LIMIT 1";
     $stmt = $GLOBALS['yhteys']->prepare($query);
     $stmt->bind_param('s', $selector);
     $stmt->execute();
@@ -63,8 +64,9 @@ function find_user_by_token(string $token)
 
     $tokens = parse_token($token);
     if (!$tokens) return null;
-    $query = "SELECT customer_id, email FROM neil_user u INNER JOIN neil_rememberme_tokens ON customer_id = u.customer_id
-          WHERE selector = ? AND expiry > now() LIMIT 1";
+    $query =   "SELECT customer_id, email FROM neil_user u 
+                INNER JOIN neil_rememberme_tokens ON customer_id = u.customer_id
+                WHERE selector = ? AND expiry > now() LIMIT 1";
     $stmt = $GLOBALS['yhteys']->prepare($query);
     $stmt->bind_param('s', $tokens[0]);
     $stmt->execute();
@@ -109,9 +111,9 @@ function secure_page()
         if ($token) {
             $token = htmlspecialchars($token);
             if ($customer_id = token_is_valid($token)) {
-                $query = "SELECT customer_id, role, value FROM neil_user 
-                LEFT JOIN neil_roles r ON role = r.id
-                WHERE customer_id = '$customer_id'";
+                $query =   "SELECT customer_id, role, value FROM neil_user 
+                            LEFT JOIN neil_roles r ON role = r.id
+                            WHERE customer_id = '$customer_id'";
                 $result = $GLOBALS['yhteys']->query($query);
 
                 if ($result) {

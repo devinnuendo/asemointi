@@ -44,7 +44,8 @@ include 'db-sakila.php';
                 $actorArray = explode(',', $actors);
 
                 $duplicateCheckQuery = "SELECT COUNT(*) AS duplicate_count FROM film 
-            WHERE TRIM(title) = TRIM('$titleMovie') AND language_id = '$language_id'";
+                                        WHERE TRIM(title) = TRIM('$titleMovie') 
+                                        AND language_id = '$language_id'";
                 $result = $yhteys->query($duplicateCheckQuery);
 
                 if ($result) {
@@ -85,7 +86,9 @@ include 'db-sakila.php';
                             if (isset($_POST['genre']) && is_array($_POST['genre'])) {
                                 foreach ($_POST['genre'] as $selectedGenre) {
                                     $selectedGenre = $yhteys->real_escape_string($selectedGenre);
-                                    $insertGenreSql = "INSERT INTO film_category (film_id, category_id) SELECT $elokuva_id, category_id FROM category WHERE name = '$selectedGenre'";
+                                    $insertGenreSql =  "INSERT INTO film_category (film_id, category_id)        SELECT $elokuva_id, category_id 
+                                                        FROM category
+                                                        WHERE name = '$selectedGenre'";
                                     $yhteys->query($insertGenreSql);
                                 }
                             }
@@ -99,7 +102,9 @@ include 'db-sakila.php';
                                 array_pop($actorParts);
                                 // Join the remaining parts as the first name
                                 $first_name = implode(' ', $actorParts);
-                                $hakukysely = "SELECT actor_id FROM actor WHERE first_name = '$first_name' AND last_name = '$last_name'";
+                                $hakukysely =  "SELECT actor_id FROM actor 
+                                                WHERE first_name = '$first_name' 
+                                                AND last_name = '$last_name'";
                                 $tulos = $yhteys->query($hakukysely);
 
                                 if ($tulos->num_rows > 0) {
