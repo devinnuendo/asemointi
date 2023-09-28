@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-define('REMEMBERME_ACCESS', TRUE);
 include "../config/debugger.php";
 include "../config/language.php";
 
@@ -32,17 +31,16 @@ include "translations/translations.php";
 // // Parse the JSON translation file into a PHP associative array
 // $tra = json_decode($translationFile, true);
 
-include "db/db-azure.php";
-include "config/settings.php";
+include_once "db/db-azure.php";
 
 $loggedIn = loggedIn();
+
 $bonus = bonus();
 $employee = employee();
 $supervisor = supervisor();
 $admin = admin();
 
-// echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . "<br>" .
-"bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
+echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $_SESSION['loggedIn'] . ", bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
 ?>
 
 <!DOCTYPE html>

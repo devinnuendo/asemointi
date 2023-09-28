@@ -1,7 +1,7 @@
 <?php
 include "sivuosat/top.php";
 $title = $traLocal['plants_add'][$lang];
-$loggedIn = secure_page_employee();
+$loggedIn = secure_page($loggedIn);
 $script = 'lomake.js';
 $css = 'styles-lomake.css';
 include "sivuosat/header.php";

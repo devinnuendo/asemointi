@@ -39,6 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $loggedIn = loggedIn();
             $_SESSION['customer_id'] = $customer_id;
             if ($rememberme) rememberme($customer_id);
+            switch ($loggedIn) {
+                case 4:
+                case 8:
+                    header("location: kayttajat.php");
+                    break;
+                case 16:
+                    header("location: admin.php");
+                    break;
+                default:
+                    header("location: profiili.php");
+            }
         } else if ($verifyPassword && $verified == 0) {
 
             $title = $traCommon['account_activation'][$lang];
