@@ -33,7 +33,7 @@ function direction()
             $direction = isset($_GET['direction']) && $_GET['direction'] == 'ASC' ? $_GET['direction'] : 'DESC';
             $_SESSION['orderBy'] = $orderBy;
         }
-        if (isset($_GET['id'])) {
+        if (isset($_GET['id']) && $loggedIn > 4) {
             $id = $_GET['id'];
             $query = "SELECT 
             customer_id, 

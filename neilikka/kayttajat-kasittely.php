@@ -9,7 +9,7 @@ $title = $traCommon['user_management'][$lang];
 $script = 'lomake.js';
 $css = 'styles-lomake.css';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $loggedIn > 4) {
     if (isset($_POST["toggle_verified"])) {
     } else if (isset($_POST['submit'])) {
         $id = $_POST['id'];
