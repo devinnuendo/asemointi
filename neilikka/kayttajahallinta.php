@@ -12,17 +12,11 @@ $verifiedSession = $_SESSION['verified'] ?? 1;
 $newsletterSession = $_SESSION['newsletter'] ?? 1;
 $orderBy = $_SESSION['orderBy'] ?? 'last_name';
 $direction = asc();
-$message = '';
 
 function asc()
 {
     global $direction;
     return $direction == 'ASC' ? 'DESC' : 'ASC';
-}
-
-function message($m = '')
-{
-    echo $m;
 }
 
 ?>
@@ -163,7 +157,13 @@ function message($m = '')
                 $message = urldecode($_GET['message']);
                 $type = urldecode($_GET['type']);
             ?>
-                <div class='<?= $type ?> block center' aria-role='alert' onclick="return message('')"><?= $message ?></div>
+                <div class='<?= $type ?> block center max-content margin-auto alert ' aria-role='alert'>
+                    <?= $message ?>
+                    <a href="kayttajahallinta.php" class="reset">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="scr"><?= $traCommon['close'][$lang]; ?></span>
+                    </a>
+                </div>
             <?php } ?>
             <div class="flex">
                 <form method="post" class="reset flex toggle">
@@ -264,31 +264,6 @@ function message($m = '')
                 $newsletterSession = $_SESSION['newsletter'];
                 //refresh page:
                 echo "<script>window.location.href = 'kayttajahallinta.php';</script>";
-            } else if (isset($_POST['submit'])) {
-                $id = $_POST['id'];
-                $first_name = $_POST['first_name'];
-                $last_name = $_POST['last_name'];
-                $phone = $_POST['phone'];
-                $email = $_POST['email'];
-                $newsletter = isset($_POST['newsletter']) ? 1 : 0;
-                $verified = isset($_POST['verified']) ? 1 : 0;
-                $role = $_POST['role'];
-                $query = "UPDATE neil_user SET 
-                first_name = '$first_name', 
-                last_name = '$last_name', 
-                phone = '$phone', 
-                email = '$email', 
-                newsletter = '$newsletter', 
-                verified = '$verified', 
-                role = '$role' 
-                WHERE customer_id = $id";
-                $result = $yhteys->query($query);
-                if ($result) {
-                    echo "<script>window.location.href = 'kayttajahallinta.php';</script>";
-                    message($traCommon['saved'][$lang]);
-                } else {
-                    echo $traCommon['save_failed'][$lang];
-                }
             }
         }
     } else {

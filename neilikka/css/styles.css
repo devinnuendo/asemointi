@@ -347,6 +347,9 @@ a.wrap:hover article,
 a.wrap:focus article {
   transform: scale(1.04);
 }
+a.reset {
+  text-decoration: none;
+}
 .scr {
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -471,6 +474,20 @@ body .center {
 }
 body .absolute {
   position: absolute;
+}
+body .relative {
+  position: relative;
+}
+body .max-content {
+  max-width: max-content;
+}
+body .margin-auto {
+  margin: 0 auto;
+}
+body .alert {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  outline: 3px solid hsl(var(--hue), var(--sat), 80%);
 }
 .tooltip {
   position: relative;
