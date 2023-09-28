@@ -12,12 +12,19 @@ $verifiedSession = $_SESSION['verified'] ?? 1;
 $newsletterSession = $_SESSION['newsletter'] ?? 1;
 $orderBy = $_SESSION['orderBy'] ?? 'last_name';
 $direction = asc();
+$message = '';
 
 function asc()
 {
     global $direction;
     return $direction == 'ASC' ? 'DESC' : 'ASC';
 }
+
+function message($m = '')
+{
+    echo $m;
+}
+
 ?>
 
 <main class="wide">
@@ -70,7 +77,7 @@ function asc()
     ?>
 
                 <section>
-                    <form method="post" class="gap">
+                    <form action="kayttajahallinta-kasittely.php" method="post" class="gap">
                         <legend><?= $traCommon['edit'][$lang] ?> <?= strtolower($traCommon['user'][$lang]); ?></legend>
                         <input type="hidden" name="id" value="<?= $id; ?>">
                         <div class="flex">
@@ -85,7 +92,7 @@ function asc()
                         </div>
                         <div class="flex">
                             <label for="phone"><?= $traCommon['phone'][$lang] ?></label>
-                            <input type="text" name="phone" id="phone" value="<?= $phone; ?>" required>
+                            <input type="text" name="phone" id="phone" value="<?= $phone; ?>">
                         </div>
                         <div class="flex">
                             <label for="email"><?= $traCommon['email'][$lang] ?></label>
@@ -117,6 +124,7 @@ function asc()
                             </select>
                         </div>
                         <input type="submit" name="submit" value="<?= $traCommon['save'][$lang] ?>">
+                    </form>
                 </section>
         <?php
             }
@@ -148,6 +156,15 @@ function asc()
         ?>
 
         <section class="tablewrap">
+            <?php
+            ?>
+            <?php
+            if (isset($_GET['message']) && isset($_GET['type'])) {
+                $message = urldecode($_GET['message']);
+                $type = urldecode($_GET['type']);
+            ?>
+                <div class='<?= $type ?> block center' aria-role='alert' onclick="return message('')"><?= $message ?></div>
+            <?php } ?>
             <div class="flex">
                 <form method="post" class="reset flex toggle">
                     <legend><?= $traCommon['verified'][$lang]; ?></legend>
@@ -267,7 +284,8 @@ function asc()
                 WHERE customer_id = $id";
                 $result = $yhteys->query($query);
                 if ($result) {
-                    echo $traCommon['saved'][$lang];
+                    echo "<script>window.location.href = 'kayttajahallinta.php';</script>";
+                    message($traCommon['saved'][$lang]);
                 } else {
                     echo $traCommon['save_failed'][$lang];
                 }

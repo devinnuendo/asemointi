@@ -466,6 +466,9 @@ footer > small {
 body .block {
   display: block;
 }
+body .center {
+  text-align: center;
+}
 body .absolute {
   position: absolute;
 }

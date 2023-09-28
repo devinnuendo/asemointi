@@ -660,6 +660,30 @@ $traCommon = array(
         'en' => 'Save',
         'sv' => 'Spara',
     ),
+    'saved' =>
+    array(
+        'fi' => 'Tallennettu',
+        'en' => 'Saved',
+        'sv' => 'Sparad',
+    ),
+    'search' =>
+    array(
+        'fi' => 'Hae',
+        'en' => 'Search',
+        'sv' => 'Sök',
+    ),
+    'search_results' =>
+    array(
+        'fi' => 'Hakutulokset',
+        'en' => 'Search results',
+        'sv' => 'Sökresultat',
+    ),
+    'send' =>
+    array(
+        'fi' => 'Lähetä',
+        'en' => 'Send',
+        'sv' => 'Skicka',
+    ),
     'small' =>
     array(
         'fi' => 'Pieni',
