@@ -1,5 +1,5 @@
 <?php
-defined('REMEMBERME_ACCESS') || die('Direct access not permitted');
+defined('SETTINGS_ACCESS') || die('Direct access not permitted');
 
 function generate_tokens()
 {
@@ -125,7 +125,7 @@ function secure_page($level)
                     $_SESSION['loggedIn'] = $role;
                     $_SESSION['customer_id'] = $customer_id;
                     if ($loggedIn >= 4) {
-                        return true;
+                        return $level;
                     } else {
                         header("location: index.php");
                         exit;
@@ -134,20 +134,19 @@ function secure_page($level)
             }
         }
     }
-    if ($loggedIn >= $level) {
-        return true;
+    if ($level > 0 && $loggedIn >= $level) {
+        return $level;
     } else {
         header("location: index.php");
         exit;
     }
-    return true;
+    return $level;
 }
-
 
 function loggedIn()
 {
     if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] > 0)
-        return true;
+        return $_SESSION['loggedIn'];
     if ($token = $_COOKIE['rememberme'] ?? '') {
         $token = htmlspecialchars($token);
         if ($customer_id = token_is_valid($token)) {

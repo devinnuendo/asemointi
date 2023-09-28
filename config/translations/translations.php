@@ -708,6 +708,24 @@ $traCommon = array(
         'en' => 'User account',
         'sv' => 'Användarkonto',
     ),
+    'user_management' =>
+    array(
+        'fi' => 'Käyttäjähallinta',
+        'en' => 'User management',
+        'sv' => 'Användarhantering',
+    ),
+    'user_not_found' =>
+    array(
+        'fi' => 'Käyttäjää ei löytynyt',
+        'en' => 'User not found',
+        'sv' => 'Användaren hittades inte',
+    ),
+    'user_not_activated' =>
+    array(
+        'fi' => 'Käyttäjätiliä ei ole aktivoitu',
+        'en' => 'User account not activated',
+        'sv' => 'Användarkonto inte aktiverat',
+    ),
     'username' =>
     array(
         'fi' => 'Käyttäjätunnus',

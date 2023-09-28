@@ -1,5 +1,8 @@
 <?php
 define('PINS_ACCESS', TRUE);
+define('SETTINGS_ACCESS', TRUE);
+include "config/settings.php";
+
 $pins = "pins.php";
 if (file_exists($pins)) {
     include_once($pins);
