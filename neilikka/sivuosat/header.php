@@ -31,5 +31,5 @@
             <img src=<?php if (isset($img1920)) echo 'img/' . $img1920;
                         else echo "carnation-1325012_1920.jpg" ?> alt="Kukkia" />
         </picture>
-        <h1 class="site-heading"><span><?= $title ?? 'Puutarhaliike Neilikka'; ?></span></h1>
+        <h1 class="site-heading <?= isset($titleClass) ? $titleClass : '' ?>"><span><?= $title ?? 'Puutarhaliike Neilikka'; ?></span></h1>
     </header>

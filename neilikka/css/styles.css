@@ -137,8 +137,10 @@ section {
   flex-flow: row wrap;
   gap: calc(var(--gap) * 4);
 }
+header h1.site-heading.wide span,
 main.wide section,
 form.wide {
+  width: 100%;
   max-width: calc(var(--max-width) * 1.5);
 }
 section > * {
