@@ -235,15 +235,35 @@ function direction()
                     <?php while ($row = $result->fetch_assoc()) { ?>
                         <tr class="<?= $row['verified'] == 0 ? 'verified-not' : '';; ?>">
                             <?php if ($loggedIn > 4) { /* higher than regular employee: supervisor or admin */ ?>
-                                <td><a href="kayttajat.php?id=<?= $row['customer_id']; ?>"><?= $traCommon['edit'][$lang] ?></a></td>
+                                <td>
+                                    <a href="kayttajat.php?id=<?= $row['customer_id']; ?>">
+                                        <?= $traCommon['edit'][$lang] ?>
+                                    </a>
+                                </td>
                             <?php } ?>
-                            <td><?= $row['first_name']; ?></td>
-                            <td><?= $row['last_name']; ?></td>
-                            <td><?= $row['phone']; ?></td>
-                            <td><?= $row['email']; ?></td>
-                            <td><?= $row['name']; ?></td>
-                            <td><small><?= $row['registration']; ?></small></td>
-                            <td><small><?= $row['updated']; ?></small></td>
+                            <td>
+                                <?= $row['first_name']; ?>
+                            </td>
+                            <td>
+                                <?= $row['last_name']; ?>
+                            </td>
+                            <td>
+                                <?= $row['phone']; ?>
+                            </td>
+                            <td>
+                                <?= $row['email']; ?>
+                            </td>
+                            <td>
+                                <?= $row['name']; ?>
+                            </td>
+                            <td>
+                                <small><?= $row['registration']; ?>
+                                </small>
+                            </td>
+                            <td>
+                                <small><?= $row['updated']; ?>
+                                </small>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
