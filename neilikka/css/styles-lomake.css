@@ -30,6 +30,7 @@ form > legend {
 }
 form.toggle.flex {
   gap: var(--gap);
+  padding-left: 0;
 }
 form.toggle.flex > legend {
   margin-bottom: 0;

@@ -148,6 +148,7 @@ function asc()
     $result = $yhteys->query($query);
 
     if ($result) {
+        $rowCount = $result->num_rows;
         ?>
 
         <section class="tablewrap">
@@ -176,7 +177,7 @@ function asc()
                         <?= $traCommon['no'][$lang]; ?>
                     </button>
                 </form>
-                <form method="post" class="reset flex  toggle">
+                <form method="post" class="reset flex toggle">
                     <legend><?= $traCommon['newsletter'][$lang]; ?></legend>
                     <button type="submit" id="toggle_newsletter_yes" name="toggle_newsletter" value=1 class="toggle_newsletter yes <?= $newsletterSession == 1 ? 'active' : '' ?>">
                         <?= $traCommon['yes'][$lang]; ?>
@@ -186,6 +187,7 @@ function asc()
                     </button>
                 </form>
             </div>
+            <p><?= $rowCount > 1 ? $rowCount . ' riviä' : $rowCount . ' rivi' ?></p>
             <table>
                 <tbody>
                     <tr>
@@ -216,12 +218,6 @@ function asc()
                             </a>
                         </th>
                         <th>
-                            <?= $traCommon['newsletter'][$lang] ?>
-                        </th>
-                        <th>
-                            <?= $traCommon['verified'][$lang] ?>
-                        </th>
-                        <th>
                             <a href="kayttajahallinta.php?orderby=registration&asc=<?= asc() ?>">
                                 <?= $traCommon['registered'][$lang] ?>
                             </a>
@@ -240,8 +236,6 @@ function asc()
                             <td><?= $row['phone']; ?></td>
                             <td><?= $row['email']; ?></td>
                             <td><?= $row['name']; ?></td>
-                            <td><?= $row['newsletter'] == 1 ? 'ok' : 'ei'; ?></td>
-                            <td><?= $row['verified'] == 1 ? 'ok' : 'ei'; ?></td>
                             <td><small><?= $row['registration']; ?></small></td>
                             <td><small><?= $row['updated']; ?></small></td>
                         </tr>
