@@ -1,8 +1,6 @@
 <?php
 include "sivuosat/top.php";
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($yhteys->connect_error) {

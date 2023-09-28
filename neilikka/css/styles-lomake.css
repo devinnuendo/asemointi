@@ -7,6 +7,9 @@ form {
   border-radius: 0.3rem;
   box-shadow: var(--form-shadow);
 }
+.wide form {
+  margin: 0 auto;
+}
 form.reset {
   margin: 0;
   border: none;
@@ -15,6 +18,22 @@ form.reset {
 }
 form.reset legend {
   padding-bottom: 1rem;
+}
+body form .flex {
+  gap: var(--gap);
+}
+form > legend {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+form.toggle.flex {
+  gap: var(--gap);
+}
+form.toggle.flex > legend {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 form * {
   line-height: 1;
@@ -72,6 +91,10 @@ input[type='radio'] {
 
 input[type='radio'] + label {
   padding: 0.1em 0.8em 0.2em 0;
+}
+
+input[type='checkbox'] {
+  margin-bottom: var(--gap);
 }
 
 input[type='submit'],
@@ -156,7 +179,9 @@ input[type='checkbox'].invalid + label + .error {
   box-sizing: border-box;
   max-width: calc(var(--max-width-smaller) - var(--gap) * 2);
 }
-button[type='submit'].language {
+button[type='submit'].language,
+button[type='submit'].toggle_verified,
+button[type='submit'].toggle_newsletter {
   display: inline-block;
   background-color: transparent;
   margin: 0;
@@ -168,7 +193,9 @@ button[type='submit'].active {
   pointer-events: none;
   outline: 1px solid hsl(var(--hue), var(--sat), 80%);
 }
-button[type='submit'].language:hover {
+button[type='submit'].language:hover,
+button[type='submit'].toggle_verified:hover,
+button[type='submit'].toggle_newsletter:hover {
   outline: 1px solid hsl(var(--hue), var(--sat), 80%);
 }
 @media (min-width: 380px) {

@@ -137,6 +137,10 @@ section {
   flex-flow: row wrap;
   gap: calc(var(--gap) * 4);
 }
+main.wide section,
+form.wide {
+  max-width: calc(var(--max-width) * 1.5);
+}
 section > * {
   flex: 1 0 100%;
 }
@@ -509,9 +513,7 @@ body .no-padding {
 body .flex > * {
   margin: 0;
 }
-body form.flex {
-  gap: var(--gap);
-}
+
 .item-general {
   flex: 1 0 auto;
 }
@@ -539,7 +541,41 @@ body form.flex {
   align-items: center;
   font-size: 2rem;
 }
-
+.tablewrap {
+  max-width: calc(100vw - var(--scrollbar-width) - calc(var(--gap) * 2));
+  overflow-x: scroll;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border: none;
+}
+table tr {
+  border-bottom: 1px solid hsl(var(--hue), var(--sat), 80%);
+}
+table th,
+table td {
+  padding: 0.5em 0.6em 0.5em 0.4em;
+}
+table th {
+  text-align: left;
+  font-weight: bold;
+  white-space: nowrap;
+}
+tr.verified-not td {
+  background-color: hsl(var(--hue), 10%, 90%);
+}
+tr a {
+  text-decoration: none;
+}
+.gap {
+  display: flex;
+  gap: var(--gap);
+  flex-flow: column nowrap;
+}
 @media (min-width: 380px) {
   h1,
   h2,
@@ -659,6 +695,19 @@ body form.flex {
   }
   .pagination a.tooltip::before {
     transform: scale(0.7);
+  }
+
+  body .flex {
+    justify-content: flex-start;
+  }
+  body .flex > label {
+    flex: 0 0 24%;
+  }
+  body .flex > input:not([type='checkbox']),
+  body .flex > textarea,
+  body .flex > select {
+    flex: 0 0 74%;
+    width: 74%;
   }
 
   footer address {

@@ -34,7 +34,7 @@ include "sivuosat/header.php";
             <label for="phone">
                 <?= $traCommon['phone'][$lang]; ?>
             </label>
-            <input type="tel" name="phone" id="phone" placeholder="<?= $traCommon['phone'][$lang]; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" required />
+            <input type="tel" name="phone" id="phone" placeholder="<?= $traCommon['phone'][$lang]; ?>" autocomplete="tel" minlength="7" maxlength="15" pattern="^[0-9 ]{7,15}$" />
             <div class="error"></div>
 
             <label for="email">

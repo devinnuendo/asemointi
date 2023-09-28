@@ -192,6 +192,12 @@ $traCommon = array(
         'en' => 'Description',
         'sv' => 'Beskrivning',
     ),
+    'edit' =>
+    array(
+        'fi' => 'Muokkaa',
+        'en' => 'Edit',
+        'sv' => 'Redigera',
+    ),
     'email' =>
     array(
         'fi' => 'Sähköposti',
@@ -444,6 +450,12 @@ $traCommon = array(
         'en' => 'No',
         'sv' => 'Nej',
     ),
+    'newsletter' =>
+    array(
+        'fi' => 'Uutiskirje',
+        'en' => 'Newsletter',
+        'sv' => 'Nyhetsbrev',
+    ),
     'newsletter_order' =>
     array(
         'fi' => 'Haluan tilata Neilikan uutiskirjeen',
@@ -618,11 +630,35 @@ $traCommon = array(
         'en' => 'Register',
         'sv' => 'Registrera dig',
     ),
+    'registered' =>
+    array(
+        'fi' => 'Rekisteröity',
+        'en' => 'Registered',
+        'sv' => 'Registrerad',
+    ),
     'remember_me' =>
     array(
         'fi' => 'Muista minut',
         'en' => 'Remember me',
         'sv' => 'Kom ihåg mig',
+    ),
+    'remove' =>
+    array(
+        'fi' => 'Poista',
+        'en' => 'Remove',
+        'sv' => 'Ta bort',
+    ),
+    'role' =>
+    array(
+        'fi' => 'Rooli',
+        'en' => 'Role',
+        'sv' => 'Roll',
+    ),
+    'save' =>
+    array(
+        'fi' => 'Tallenna',
+        'en' => 'Save',
+        'sv' => 'Spara',
     ),
     'small' =>
     array(
@@ -696,6 +732,18 @@ $traCommon = array(
         'en' => 'Type',
         'sv' => 'Typ',
     ),
+    'update' =>
+    array(
+        'fi' => 'Päivitä',
+        'en' => 'Update',
+        'sv' => 'Uppdatera',
+    ),
+    'updated' =>
+    array(
+        'fi' => 'Päivitetty',
+        'en' => 'Updated',
+        'sv' => 'Uppdaterad',
+    ),
     'user' =>
     array(
         'fi' => 'Käyttäjä',
@@ -743,6 +791,18 @@ $traCommon = array(
         'fi' => 'Käyttäjät',
         'en' => 'Users',
         'sv' => 'Användare',
+    ),
+    'verified' =>
+    array(
+        'fi' => 'Vahvistettu',
+        'en' => 'Verified',
+        'sv' => 'Verifierad',
+    ),
+    'verify' =>
+    array(
+        'fi' => 'Vahvista',
+        'en' => 'Verify',
+        'sv' => 'Verifiera',
     ),
     'yes' =>
     array(
