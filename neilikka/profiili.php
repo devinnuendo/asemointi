@@ -12,13 +12,8 @@ include "sivuosat/header.php";
     <section>
         <p><a href="salasana-uusi.php">Uusi salasana</a></p>
         <?php
-        if ($loggedIn > 2) {
-        ?>
+        if ($loggedIn > 2) { ?>
             <p><a href="kayttajat.php">Käyttäjät</a></p>
-        <?php }
-        if ($loggedIn > 4) {
-        ?>
-            <p><a href="kayttajahallinta.php">Käyttäjähallinta</a></p>
         <?php } ?>
     </section>
 </main>
