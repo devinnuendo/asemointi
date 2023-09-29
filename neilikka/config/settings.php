@@ -189,6 +189,33 @@ function admin()
         return false;
 }
 
+$patterns['password'] = "/^.{10,}$/";
+$patterns['password2'] = $patterns['password'];
+$patterns['first_name'] = "/^[a-zåäöA-ZÅÄÖæÆøØß\pL'\-]+$/iu";
+$patterns['last_name'] = $patterns['first_name'];
+$patterns['name'] = "/^[a-zåäöA-ZÅÄÖæÆøØß\pL '\-]+$/iu";
+$patterns['phone'] = "/^[0-9 ]{7,15}$/";
+$patterns['email'] = "/^[\w]+[\w.+-]*@[\w-]+(\.[\w-]{2,})?\.[a-zA-Z]{2,}$/";
+$patterns['image'] = "/^[^\s]+\.(jpe?g|png|gif)$/";
+$patterns['remember_me'] = "/^remember_me$/";
+$patterns['newsletter'] = "/^(Kyllä|Ei)$/";
+$patterns['rolenumber'] = "/^(1|2|4|8|16)$/"; // 1 = customer, 2 = bonus, 4 = employee, 8 = supervisor, 16 = admin
+$patterns['verified'] = "/^(0|1)$/";
+$patterns['id'] = "/^[0-9]+$/";
+$patterns['page'] = "/^[0-9]+$/";
+$patterns['limit'] = "/^[0-9]+$/";
+$patterns['search'] = "/^[a-zåäöA-ZÅÄÖæÆøØ0-9 '\-]+$/";
+$patterns['sort'] = "/^[a-zåäöA-ZÅÄÖæÆøØ0-9 '\-]+$/";
+$patterns['order'] = "/^(ASC|DESC)$/";
+$patterns['date'] = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
+$patterns['time'] = "/^[0-9]{2}:[0-9]{2}$/";
+$patterns['datetime'] = "/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/";
+
+function pattern($field)
+{
+    return "pattern=\"" . trim($GLOBALS['patterns'][$field], "/") . "\"";
+}
+
 function pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $page, $class = "")
 {
 ?>

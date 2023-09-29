@@ -342,6 +342,18 @@ $traCommon = array(
         'en' => 'Image',
         'sv' => 'Bild',
     ),
+    'image_add' =>
+    array(
+        'fi' => 'Lisää kuva',
+        'en' => 'Add image',
+        'sv' => 'Lägg till bild',
+    ),
+    'image_remove' =>
+    array(
+        'fi' => 'Poista kuva',
+        'en' => 'Remove image',
+        'sv' => 'Ta bort bild',
+    ),
     'language' =>
     array(
         'fi' => 'Kieli',
