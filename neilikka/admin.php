@@ -11,7 +11,7 @@ include "sivuosat/header.php"; ?>
     <section>
         <p><a href="kasvi-lisaa.php">Lisää kasvi</a></p>
         <p><a href="kayttajat.php">Käyttäjät</a></p>
-        <p><a href="kayttajahallinta.php">Käyttäjähallinta</a></p>
+        <p><a href="kayttajat.php">Käyttäjähallinta</a></p>
     </section>
 </main>
 
