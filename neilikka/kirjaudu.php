@@ -35,7 +35,7 @@ include "sivuosat/header.php"; ?>
                 echo "<div class='error block' aria-role='alert'>$message</div>";
             } ?>
             <div>
-                <input type="checkbox" name="remember_me" id="remember_me" />
+                <input type="checkbox" name="remember_me" id="remember_me" value="remember_me" />
                 <label for="remember_me" class="inline-block">
                     <?= $traCommon['remember_me'][$lang]; ?>
                 </label>
