@@ -31,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $loggedIn > 4) {
         WHERE customer_id = $id";
         $result = $yhteys->query($query);
         if ($result) {
+            $query_delete = "DELETE FROM neil_reset_password_tokens WHERE customer_id = $id";
+            $result_delete = $yhteys->query($query_delete);
             header('Location: kayttajat.php?type=ok&message=' . urlencode($traCommon['saved'][$lang]));
             exit;
         } else {
