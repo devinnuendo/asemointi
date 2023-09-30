@@ -27,9 +27,9 @@ include "sivuosat/header.php"; ?>
                         $thumbnail = $imageFiles[$j];
                         $fullSize = str_replace('_640', '_1280', $thumbnail);
                 ?>
-                        <div class="image-wrap">
+                        <figure class="image-wrap">
                             <img src="<?= $thumbnail ?>" data-full="<?= $fullSize ?>" alt="<?= $traLocal['flowers'][$lang]; ?>">
-                        </div>
+                        </figure>
                 <?php }
                     echo '</div>';
                 } ?>
