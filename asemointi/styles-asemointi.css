@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background: url('img/leaves.jpg');
+  background: url('img/photos/leaves.jpg');
   background-attachment: fixed;
   background-size: cover;
   padding-top: 2rem;

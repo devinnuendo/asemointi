@@ -10,7 +10,7 @@ include "sivuosat/header.php"; ?>
             <li>
                 <a href="#">
                     <figure>
-                        <img src="img/orange-tree-2485387_640.jpg" alt="appelsiinipuu" />
+                        <img src="img/photos/orange-tree-2485387_640.jpg" alt="appelsiinipuu" />
                         <figcaption>
                             <em><?= $traLocal['tree_orange'][$lang] ?></em>
                             <strong>20 &euro;</strong>
@@ -21,7 +21,7 @@ include "sivuosat/header.php"; ?>
             <li>
                 <a href="#">
                     <figure>
-                        <img src="img/sunflowers-2437482_640.jpg" alt="auringonkukkia" />
+                        <img src="img/photos/sunflowers-2437482_640.jpg" alt="auringonkukkia" />
                         <figcaption>
                             <em><?= $traLocal['flower_sunflower'][$lang] ?></em>
                             <strong>5 &euro;</strong>

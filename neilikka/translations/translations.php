@@ -40,6 +40,18 @@ $traLocal = array(
         'en' => 'by phone to individual stores',
         'sv' => 'per telefon till enskilda butiker',
     ),
+    'email_change_neilikka' =>
+    array(
+        'fi' => 'Neilikan sähköpostin muutos',
+        'en' => 'Neilikka email change',
+        'sv' => 'Neilikka e-poständring',
+    ),
+    'flowers' =>
+    array(
+        'fi' => 'Kukkia',
+        'en' => 'Flowers',
+        'sv' => 'Blommor',
+    ),
     'flower_bunch_of' =>
     array(
         'fi' => 'Kukkakimppu',
@@ -213,6 +225,12 @@ $traLocal = array(
         'fi' => 'Kiitos rekisteröitymisestä Neilikan verkkokauppaan!',
         'en' => 'Thank you for registering to Neilikka\'s webshop!',
         'sv' => 'Tack för att du registrerar dig för Neilikas webbutik!',
+    ),
+    'thanks_shopping_neilikka' =>
+    array(
+        'fi' => 'Kiitos ostoksistasi Neilikassa!',
+        'en' => 'Thank you for shopping at Neilikka!',
+        'sv' => 'Tack för att du handlar på Neilikka!',
     ),
     'welcome_neilikka' =>
     array(

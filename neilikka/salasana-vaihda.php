@@ -3,7 +3,6 @@ include "sivuosat/top.php";
 $title = $traCommon['change'][$lang] . " " . strtolower($traCommon['password'][$lang]);
 // $img640 = 'flower-3231083_640.jpg';
 // $img1280 = 'flower-3231083_1280.jpg';
-// $img1920 = 'flower-3231083_1920.jpg';
 $script = 'lomake.js';
 $css = 'styles-lomake.css';
 include "sivuosat/header.php";
@@ -13,6 +12,29 @@ include "sivuosat/header.php";
     <section>
 
         <?php
+        function formPassword()
+        {
+            global $traCommon, $lang;
+        ?>
+            <form method="post">
+
+                <label for="password_old"><?= $traCommon['password_old'][$lang]; ?></label>
+                <input type="password" name="password_old" id="password_old" placeholder="<?= $traCommon['password_old'][$lang]; ?>" minlength="10" required />
+                <div class="error"></div>
+
+                <label for="password"><?= $traCommon['password_wanted'][$lang]; ?></label>
+                <input type="password" name="password" id="password" placeholder="<?= $traCommon['password_wanted'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
+                <div class="error"></div>
+
+                <label for="password2"><?= $traCommon['password_again'][$lang]; ?></label>
+                <input type="password" name="password2" id="password2" placeholder="<?= $traCommon['password_again'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
+                <div class="error"></div>
+                <div class="error password-match" aria-role="alert"></div>
+
+                <button type="submit"> <?= $traCommon['submit'][$lang] ?> </button>
+            </form>
+        <?php
+        }
         $token = $_GET['token'] ?? "";
         $success = false;
 
@@ -96,25 +118,7 @@ include "sivuosat/header.php";
             $query = "SELECT customer_id, token, valid_until FROM neil_reset_password_tokens WHERE token = '$token'";
             $result = $yhteys->query($query);
             if ($result->num_rows) {
-        ?>
-                <form method="post">
-
-                    <label for="password_old"><?= $traCommon['password_old'][$lang]; ?></label>
-                    <input type="password" name="password_old" id="password_old" placeholder="<?= $traCommon['password_old'][$lang]; ?>" minlength="10" required />
-                    <div class="error"></div>
-
-                    <label for="password"><?= $traCommon['password_wanted'][$lang]; ?></label>
-                    <input type="password" name="password" id="password" placeholder="<?= $traCommon['password_wanted'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
-                    <div class="error"></div>
-
-                    <label for="password2"><?= $traCommon['password_again'][$lang]; ?></label>
-                    <input type="password" name="password2" id="password2" placeholder="<?= $traCommon['password_again'][$lang]; ?>" autocomplete="new-password" minlength="10" required />
-                    <div class="error"></div>
-                    <div class="error password-match" aria-role="alert"></div>
-
-                    <button type="submit"> <?= $traCommon['submit'][$lang] ?> </button>
-                </form>
-        <?php
+                formPassword();
             } else if ($token && $success) {
                 $message_type = "ok";
                 $sent_message = $traCommon['password_changed'][$lang];
@@ -122,7 +126,13 @@ include "sivuosat/header.php";
                 $message_type = "error";
                 $sent_message = $traCommon['link_expired'][$lang];
             }
-        } ?>
+        } else if ($loggedIn > 0) {
+            formPassword();
+        } else {
+            $message_type = "error";
+            $sent_message = $traCommon['link_expired'][$lang];
+        }
+        ?>
         <div class="notification <?= isset($message_type) ? $message_type : '' ?>" aria-role="alert">
             <div>
                 <?php

@@ -3,14 +3,13 @@ include "sivuosat/top.php";
 $title = $traCommon['stores'][$lang];
 $img640 = 'market-1178251_640.jpg';
 $img1280 = 'market-1178251_1280.jpg';
-$img1920 = 'market-1178251_1920.jpg';
 include "sivuosat/header.php"; ?>
 
 <main>
     <section>
         <article>
             <figure>
-                <img src="img/market-1178251_640.jpg" alt="ruusuja" />
+                <img src="img/photos/market-1178251_640.jpg" alt="ruusuja" />
                 <figcaption class="scr"></figcaption>
             </figure>
             <div>
@@ -30,7 +29,7 @@ include "sivuosat/header.php"; ?>
     <section>
         <article>
             <figure>
-                <img src="img/flower-1696533_640.jpg" alt="ruusuja" />
+                <img src="img/photos/flower-1696533_640.jpg" alt="ruusuja" />
                 <figcaption class="scr"></figcaption>
             </figure>
             <div>

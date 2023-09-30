@@ -38,7 +38,7 @@ $css = 'styles-profiili.css';
       </tr>
     </table>
     <h2>Oma kuvaus</h2>
-    <a href="img/375px-World_of_Warcraft.jpg"><img class="right" src="img/375px-World_of_Warcraft.jpg" /></a>
+    <a href="img/photos/375px-World_of_Warcraft.jpg"><img class="right" src="img/photos/375px-World_of_Warcraft.jpg" /></a>
     <p>
       Olen puuhaillut tietokoneiden parissa ihan pienestä pitäen. Tällä hetkellä
       työskentelen pelifirmassa koodarina.

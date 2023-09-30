@@ -12,7 +12,7 @@ include "sivuosat/header.php"; ?>
         <a href="#" class="wrap">
             <article>
                 <figure>
-                    <img src="img/rose-4191686_640.jpg" alt="ruusuja" />
+                    <img src="img/photos/rose-4191686_640.jpg" alt="ruusuja" />
                     <figcaption class="scr"></figcaption>
                 </figure>
                 <div>
@@ -25,7 +25,7 @@ include "sivuosat/header.php"; ?>
         <a href="#" class="wrap">
             <article>
                 <figure>
-                    <img src="img/flower-1829711_640.png" alt="joulukukkia" />
+                    <img src="img/photos/flower-1829711_640.png" alt="joulukukkia" />
                     <figcaption class="scr"></figcaption>
                 </figure>
                 <div>
@@ -38,7 +38,7 @@ include "sivuosat/header.php"; ?>
         <a href="#" class="wrap">
             <article>
                 <figure>
-                    <img src="img/woman-4792038_640.jpg" alt="nainen kukkien kanssa" />
+                    <img src="img/photos/woman-4792038_640.jpg" alt="nainen kukkien kanssa" />
                     <figcaption class="scr"></figcaption>
                 </figure>
                 <div>

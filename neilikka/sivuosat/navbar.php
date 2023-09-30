@@ -4,7 +4,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <nav id="mainmenu" class="mainmenu">
     <a class="logo" href="../index.php">
-        <img src="img/carnation.png" height="48px" title="Puutarhaliike Neilikka brand logo" />
+        <img src="img/icons/carnation.png" height="48px" title="Puutarhaliike Neilikka brand logo" />
     </a>
     <a href="https://www.flaticon.com/free-icons/flower" class="displaynone">Flower icons created by Freepik - Flaticon</a>
     <a class="logotext" href="index.php"><span>Puutarhaliike Neilikka</span></a>

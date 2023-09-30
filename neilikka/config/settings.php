@@ -1,6 +1,17 @@
 <?php
 defined('SETTINGS_ACCESS') || die('Direct access not permitted');
 
+define("PROFILE_IMAGE_FOLDER", "img/photos/profiili");
+define("PROFILE_IMAGE_SIZE", 2242880);
+
+$allowed_images = ['gif', 'png', 'jpg', 'jpeg'];
+$allowed_images_imploded = implode(", ", $allowed_images);
+
+function randomString($length = 5)
+{
+    return "_" . bin2hex(random_bytes($length));
+}
+
 function generate_tokens()
 {
     $selector = bin2hex(random_bytes(16));

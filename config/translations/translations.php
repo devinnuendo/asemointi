@@ -174,17 +174,17 @@ $traCommon = array(
         'en' => 'Wrong username or password',
         'sv' => 'Fel användarnamn eller lösenord',
     ),
-    'contact_thanks' =>
-    array(
-        'fi' => 'Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.',
-        'en' => 'Thank you for contacting us! We will get back to you as soon as possible.',
-        'sv' => 'Tack för att du kontaktar oss! Vi återkommer så snart som möjligt.',
-    ),
     'country' =>
     array(
         'fi' => 'Maa',
         'en' => 'Country',
         'sv' => 'Land',
+    ),
+    'current' =>
+    array(
+        'fi' => 'Nykyinen',
+        'en' => 'Current',
+        'sv' => 'Nuvarande',
     ),
     'description' =>
     array(
@@ -209,6 +209,12 @@ $traCommon = array(
         'fi' => 'Sähköpostiosoite',
         'en' => 'Email address',
         'sv' => 'E-postadress',
+    ),
+    'email_change' =>
+    array(
+        'fi' => 'Sähköpostin muutos',
+        'en' => 'Change email',
+        'sv' => 'Ändra e-post',
     ),
     'email_confirm' =>
     array(
@@ -312,11 +318,23 @@ $traCommon = array(
         'en' => 'MM/YY',
         'sv' => 'MM/ÅÅ',
     ),
+    'gallery' =>
+    array(
+        'fi' => 'Galleria',
+        'en' => 'Gallery',
+        'sv' => 'Galleri',
+    ),
     'filename' =>
     array(
         'fi' => 'Tiedostonimi',
         'en' => 'Filename',
         'sv' => 'Filnamn',
+    ),
+    'filetype_wrong' =>
+    array(
+        'fi' => 'Väärä tiedostotyyppi',
+        'en' => 'Wrong filetype',
+        'sv' => 'Fel filtyp',
     ),
     'Finnish' =>
     array(
@@ -348,11 +366,47 @@ $traCommon = array(
         'en' => 'Add image',
         'sv' => 'Lägg till bild',
     ),
+    'image_exists' =>
+    array(
+        'fi' => 'Kuvatiedosto on jo olemassa',
+        'en' => 'Image file already exists',
+        'sv' => 'Bildfilen finns redan',
+    ),
+    'image_not_valid' =>
+    array(
+        'fi' => 'Kuva ei kelpaa',
+        'en' => 'Image is not valid',
+        'sv' => 'Bilden är inte giltig',
+    ),
     'image_remove' =>
     array(
         'fi' => 'Poista kuva',
         'en' => 'Remove image',
         'sv' => 'Ta bort bild',
+    ),
+    'image_saved' =>
+    array(
+        'fi' => 'Kuva tallennettu',
+        'en' => 'Image saved',
+        'sv' => 'Bild sparad',
+    ),
+    'image_save_fail' =>
+    array(
+        'fi' => 'Kuvan tallennus ei onnistunut',
+        'en' => 'Image saving failed',
+        'sv' => 'Bildsparande misslyckades',
+    ),
+    'image_max_size' =>
+    array(
+        'fi' => 'Kuvan maksimikoko on 2 Mt',
+        'en' => 'Maximum image size is 2 MB',
+        'sv' => 'Maximal bildstorlek är 2 MB',
+    ),
+    'image_filetypes_allowed' =>
+    array(
+        'fi' => "Sallitut tiedostotyypit ovat $allowed_images_imploded",
+        'en' => "Allowed filetypes are $allowed_images_imploded",
+        'sv' => "Tillåtna filtyper är $allowed_images_imploded",
     ),
     'language' =>
     array(
@@ -648,6 +702,12 @@ $traCommon = array(
         'en' => 'Registered',
         'sv' => 'Registrerad',
     ),
+    'registration' =>
+    array(
+        'fi' => 'Rekisteröityminen',
+        'en' => 'Registration',
+        'sv' => 'Registrering',
+    ),
     'remember_me' =>
     array(
         'fi' => 'Muista minut',
@@ -756,6 +816,36 @@ $traCommon = array(
         'en' => 'I have read and accept the terms and conditions of the site',
         'sv' => 'Jag har läst och accepterar webbplatsens användarvillkor',
     ),
+    'thanks_contact' =>
+    array(
+        'fi' => 'Kiitos yhteydenotosta! Otamme yhteyttä mahdollisimman pian.',
+        'en' => 'Thank you for contacting us! We will get back to you as soon as possible.',
+        'sv' => 'Tack för att du kontaktar oss! Vi återkommer så snart som möjligt.',
+    ),
+    'thanks_feedback' =>
+    array(
+        'fi' => 'Kiitos palautteesta!',
+        'en' => 'Thank you for your feedback!',
+        'sv' => 'Tack för din feedback!',
+    ),
+    'thanks_order' =>
+    array(
+        'fi' => 'Kiitos tilauksesta!',
+        'en' => 'Thank you for your order!',
+        'sv' => 'Tack för din beställning!',
+    ),
+    'thanks_order_newsletter' =>
+    array(
+        'fi' => 'Kiitos uutiskirjeen tilauksesta!',
+        'en' => 'Thank you for subscribing to our newsletter!',
+        'sv' => 'Tack för att du prenumererar på vårt nyhetsbrev!',
+    ),
+    'title' =>
+    array(
+        'fi' => 'Otsikko',
+        'en' => 'Title',
+        'sv' => 'Titel',
+    ),
     'tools' =>
     array(
         'fi' => 'Työkalut',
@@ -821,6 +911,12 @@ $traCommon = array(
         'fi' => 'Käyttäjätunnuksesi on',
         'en' => 'Your username is',
         'sv' => 'Ditt användarnamn är',
+    ),
+    'username_new_is' =>
+    array(
+        'fi' => 'Uusi käyttäjätunnuksesi on',
+        'en' => 'Your new username is',
+        'sv' => 'Ditt nya användarnamn är',
     ),
     'users' =>
     array(

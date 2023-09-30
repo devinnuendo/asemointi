@@ -103,6 +103,7 @@ main {
   padding: var(--gap) var(--gap) 3rem var(--gap);
 }
 section,
+aside,
 footer > * {
   padding: var(--gap);
   margin: 0 auto;
@@ -129,7 +130,8 @@ header h1.site-heading span {
   max-width: var(--max-width);
   margin: 0 auto;
 }
-section {
+section,
+aside {
   margin-top: 3rem;
   width: 100%;
   max-width: var(--max-width);
@@ -139,15 +141,22 @@ section {
 }
 header h1.site-heading.wide span,
 main.wide section,
+main.wide aside,
 form.wide {
   width: 100%;
   max-width: calc(var(--max-width) * 1.5);
 }
-section > * {
+section > *,
+aside > * {
   flex: 1 0 100%;
 }
-section > p {
+section > p,
+aside > p {
   margin: 0;
+}
+section .full,
+aside .full {
+  flex: 1 0 100%;
 }
 .lista-wrap ul {
   padding-left: calc(var(--gap) * 2);
@@ -224,8 +233,19 @@ section.tuotteet nav figcaption a:hover,
 section.tuotteet nav figcaption a:focus {
   text-decoration: underline;
 }
-section .full {
-  flex: 1 0 100%;
+.profile-wrap,
+img.profile {
+  width: clamp(50px, 40vw, 300px);
+  /* height: clamp(50px, 40vw, 300px); */
+  object-fit: cover;
+}
+table.profile-table {
+  flex-grow: 1;
+  flex-basis: clamp(50px, 55vw, 300px);
+  width: clamp(50px, 55vw, 300px);
+}
+table.profile-table th {
+  max-width: 6em;
 }
 section.kauppa {
   --size: 160px;
@@ -424,10 +444,58 @@ h5 {
 h6 {
   font-size: var(--title-S);
 }
-
 body .flex {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+}
+body .flex > input {
+  margin-bottom: 0;
+}
+body .flex.space-between {
+  justify-content: space-between;
+}
+body .space-between > * {
+  display: block;
+}
+
+.gallery .row {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--gap);
+}
+.gallery .column {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--gap);
+}
+.gallery .image-wrap {
+  cursor: pointer;
+}
+.gallery .image-wrap img {
+  max-width: 100%;
+  height: auto;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(var(--hue), var(--sat), 100%, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  margin: auto;
 }
 
 footer {
@@ -471,9 +539,7 @@ footer > small {
 body .block {
   display: block;
 }
-body .center {
-  text-align: center;
-}
+
 body .absolute {
   position: absolute;
 }
@@ -486,10 +552,17 @@ body .max-content {
 body .margin-auto {
   margin: 0 auto;
 }
+body .half {
+  flex-basis: 48%;
+  max-width: 48%;
+}
 body .alert {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   outline: 3px solid hsl(var(--hue), var(--sat), 80%);
+}
+.alert.margin-auto {
+  margin: 2px auto 0;
 }
 .tooltip {
   position: relative;
@@ -506,7 +579,7 @@ body .alert {
   border-radius: 4px;
   opacity: 0;
   transition: opacity 0.2s ease-out;
-  z-index: 999;
+  z-index: 9;
   text-align: left;
 }
 .tooltip:hover::before {
@@ -545,13 +618,14 @@ body .flex > * {
   gap: var(--gap);
 }
 
-.absolute.right.top.close-btn {
+.absolute.right.top.close-btn,
+.modal-close {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
   padding: 0.8rem;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 999;
   background-color: hsl(var(--hue), var(--sat), 98%);
   color: hsl(var(--hue), var(--sat), 10%);
   font-weight: bold;
@@ -594,9 +668,7 @@ tr a {
   text-decoration: none;
 }
 .gap {
-  display: flex;
   gap: var(--gap);
-  flex-flow: column nowrap;
 }
 @media (min-width: 380px) {
   h1,
@@ -621,7 +693,7 @@ tr a {
     left: 0;
     right: 0;
     position: absolute;
-    z-index: 999;
+    z-index: 9;
     background-color: white;
   }
   section.kauppa li.active img {
@@ -644,6 +716,12 @@ tr a {
   }
   .item-description p {
     margin-top: 0;
+  }
+  .gallery .row {
+    flex-flow: row wrap;
+  }
+  .gallery .column {
+    flex: calc(50% - var(--gap) * 2);
   }
 }
 @media (min-width: 576px) {
@@ -725,11 +803,18 @@ tr a {
   body .flex > label {
     flex: 0 0 24%;
   }
+  form .label-padding-left {
+    padding-left: calc(24% + var(--gap));
+  }
   body .flex > input:not([type='checkbox']),
   body .flex > textarea,
   body .flex > select {
     flex: 0 0 74%;
     width: 74%;
+  }
+  body .center {
+    text-align: center;
+    justify-content: center;
   }
 
   footer address {
@@ -768,6 +853,9 @@ tr a {
   }
   section.kauppa em {
     font-size: 100%;
+  }
+  .gallery .column {
+    flex: calc(25% - var(--gap) * 2);
   }
 }
 

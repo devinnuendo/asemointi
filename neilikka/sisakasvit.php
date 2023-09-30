@@ -135,11 +135,11 @@ $result_main = $yhteys->query($query_main);
                                 <?php
                                 if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
                                 ?>
-                                    <img src="img/<?= $row['img_large'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
+                                    <img src="img/photos/<?= $row['img_large'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
                                 <?php
                                 } else {
                                 ?>
-                                    <img src="img/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
+                                    <img src="img/photos/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
                                 <?php }; ?>
                                 <figcaption>
                                     <div class="item-general">

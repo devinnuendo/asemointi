@@ -3,7 +3,6 @@ include "sivuosat/top.php";
 $title = $traCommon['products'][$lang];;
 $img640 = 'flower-3231099_640.jpg';
 $img1280 = 'flower-3231099_1280.jpg';
-$img1920 = 'flower-3231099_1920.jpg';
 include "sivuosat/header.php"; ?>
 
 <main>
@@ -11,7 +10,7 @@ include "sivuosat/header.php"; ?>
         <p class="full"><?= $traLocal['products_intro'][$lang]; ?></p>
         <nav>
             <figure>
-                <a href="sisakasvit.php" class="iconset"><img src="img/potted_plant.png" alt="kasvi ruukussa -kuvake" /> </a>
+                <a href="sisakasvit.php" class="iconset"><img src="img/icons/potted_plant.png" alt="kasvi ruukussa -kuvake" /> </a>
                 <figcaption>
                     <a href="sisakasvit.php">
                         <?= $traLocal['plants_indoor'][$lang]; ?>
@@ -21,7 +20,7 @@ include "sivuosat/header.php"; ?>
             </figure>
 
             <figure>
-                <a href="ulkokasvit.php" class="iconset"><img src="img/plant.png" alt="kasvi maassa -kuvake" /></a>
+                <a href="ulkokasvit.php" class="iconset"><img src="img/icons/plant.png" alt="kasvi maassa -kuvake" /></a>
                 <figcaption>
                     <a href="ulkokasvit.php">
                         <?= $traLocal['plants_outdoor'][$lang]; ?>
@@ -31,7 +30,7 @@ include "sivuosat/header.php"; ?>
             </figure>
 
             <figure>
-                <a href="tyokaluja.php" class="iconset"><img src="img/shovel-and-rake.png" alt="työkaluja -kuvake" /> </a>
+                <a href="tyokaluja.php" class="iconset"><img src="img/icons/shovel-and-rake.png" alt="työkaluja -kuvake" /> </a>
                 <figcaption>
                     <a href="tyokaluja.php">
                         <?= $traCommon['tools'][$lang]; ?>
@@ -40,7 +39,7 @@ include "sivuosat/header.php"; ?>
             </figure>
 
             <figure>
-                <a href="kasvien-hoito.php" class="iconset"><img src="img/holding-hand.png" alt="kasvia pidellään kädessä -kuvake" /></a>
+                <a href="kasvien-hoito.php" class="iconset"><img src="img/icons/holding-hand.png" alt="kasvia pidellään kädessä -kuvake" /></a>
                 <figcaption>
                     <a href="kasvien-hoito.php">
                         <?= $traLocal['plants_care'][$lang]; ?>

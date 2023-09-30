@@ -5,7 +5,6 @@ $script = 'lomake.js';
 $css = 'styles-lomake.css';
 // $img640 = 'flower-3231083_640.jpg';
 // $img1280 = 'flower-3231083_1280.jpg';
-// $img1920 = 'flower-3231083_1920.jpg';
 include "sivuosat/header.php";
 
 ?>
@@ -41,7 +40,7 @@ include "sivuosat/header.php";
                 VALUES ('$name', '$email', '$phone', '$subject', '$message', '$newsletter')";
 
                 if ($yhteys->query($insertQuery) === TRUE) {
-                    echo "<p>{$traCommon['contact_thanks'][$lang]}</p>";
+                    echo "<p>{$traCommon['thanks_contact'][$lang]}</p>";
                 } else {
                     debugger("Virhe yhteydenoton tallentamisessa: " . $yhteys->error);
                     echo "{$traCommon['error_saving'][$lang]}";

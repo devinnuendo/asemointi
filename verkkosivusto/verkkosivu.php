@@ -10,7 +10,7 @@ $css = 'styles-verkkosivu.css';
   <section>
     <h2>Yleistä tietoa</h2>
     <figure>
-      <a href="img/siili.jpg"><img src="img/siili.jpg" alt="Eurooppalainen Siili" /></a>
+      <a href="img/photos/siili.jpg"><img src="img/photos/siili.jpg" alt="Eurooppalainen Siili" /></a>
       <figcaption>Siili kukkien keskellä</figcaption>
     </figure>
 

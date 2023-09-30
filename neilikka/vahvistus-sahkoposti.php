@@ -13,7 +13,7 @@ include "sivuosat/header.php";
         if ($token) {
             $token = $yhteys->real_escape_string(trim(strip_tags($token)));
             $query =   "SELECT s.customer_id, s.verified, s.created 
-                        FROM neil_signup_tokens s
+                        FROM neil_email_change_tokens s
                         LEFT JOIN neil_user u ON u.customer_id = s.customer_id 
                         WHERE s.token = '$token'";
             $result = $yhteys->query($query);
@@ -36,7 +36,7 @@ include "sivuosat/header.php";
                     <p><a href="kirjaudu.php">Kirjaudu sisään</a></p>
                     ';
                 }
-                $query = "DELETE FROM neil_signup_tokens WHERE token = '$token'";
+                $query = "DELETE FROM neil_email_change_tokens WHERE token = '$token'";
                 $result = $yhteys->query($query);
                 $poistettiin = $yhteys->affected_rows;
             } else {

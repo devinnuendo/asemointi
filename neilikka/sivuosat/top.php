@@ -14,8 +14,9 @@ if (isset($_POST["toggle_language"])) {
     $lang = $switchToLanguage;
 }
 
+include_once "db/db-azure.php";
 
-include "../config/translations/translations.php";
+include "../config/translations/translations.php"; // must be before asetukset.php (in db) for $allowed_images_imploded
 include "translations/translations.php";
 
 // if ($lang === "en") {
@@ -31,8 +32,6 @@ include "translations/translations.php";
 // // Parse the JSON translation file into a PHP associative array
 // $tra = json_decode($translationFile, true);
 
-include_once "db/db-azure.php";
-
 $loggedIn = loggedIn();
 
 $bonus = bonus();
@@ -40,7 +39,7 @@ $employee = employee();
 $supervisor = supervisor();
 $admin = admin();
 
-echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $loggedIn . ", bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
+//echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $loggedIn . ", bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
 ?>
 
 <!DOCTYPE html>

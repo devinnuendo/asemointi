@@ -82,6 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const registrationForm = document.getElementById('registration-form')
   if (registrationForm) registrationForm.onsubmit = checkPasswords
 
+  const imageRemove = document.querySelector('#image-remove')
+  if (imageRemove)
+    imageRemove.addEventListener('click', () => {
+      removeImage('image')
+    })
+  const removeImage = (element) => {
+    document.querySelector('#' + element).value = ''
+    document.querySelector('#' + element + '~ .image-preview-wrap .image-preview').src =
+      ''
+    document
+      .querySelector('#' + element + '~ .image-preview-wrap')
+      .classList.add('displaynone')
+  }
+
+  const previewImage = document.querySelector('#image-preview')
+  if (previewImage) {
+    const fileInput = document.querySelector('#image')
+    const previewDiv = document.querySelector('#image-preview-wrap')
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0]
+      //console.log(file);
+      const reader = new FileReader()
+      reader.addEventListener('load', () => {
+        previewImage.src = reader.result
+      })
+
+      if (file) {
+        previewDiv.classList.remove('displaynone')
+        reader.readAsDataURL(file)
+      }
+    })
+  }
+
   const errors = {
     first_name: {
       fi: {
