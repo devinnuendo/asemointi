@@ -100,8 +100,6 @@ $query_main =
         )
     );
 $result_main = $yhteys->query($query_main);
-
-
 ?>
 
 <main>
@@ -134,7 +132,7 @@ $result_main = $yhteys->query($query_main);
                         <?php
                         };
                         if (!isset($_GET['id'])) {
-                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>"> <?php } ?>
+                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>#<?= $row['name'] ?>-<?= $row['color'] ?>"> <?php } ?>
                             <figure>
                                 <?php
                                 if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
