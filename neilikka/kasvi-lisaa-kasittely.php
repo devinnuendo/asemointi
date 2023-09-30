@@ -24,7 +24,7 @@ include "sivuosat/header.php";
             $amount = intval($_POST['amount']);
             $color = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['color']))));
             $description = $yhteys->real_escape_string(strip_tags(ucfirst(trim($_POST['description']))));
-            $price = intval($_POST['price']);
+            $price = floatval($_POST['price']);
             $length = intval($_POST['length']);
             $habitat = $yhteys->real_escape_string(strip_tags(trim($_POST['habitat'])));
             $type = $yhteys->real_escape_string(strip_tags(trim($_POST['type'])));
