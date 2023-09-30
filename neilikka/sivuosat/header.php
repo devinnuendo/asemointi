@@ -22,14 +22,12 @@
         <?php include "navbar.php"; ?>
         <picture>
             <source media="(max-width: 640px)" srcset=<?php
-                                                        if (isset($img640)) echo 'img/' . $img640;
-                                                        else echo "img/carnation-1325012_640.jpg"; ?> />
-            <source media="(min-width: 641px)" srcset=<?php if (isset($img1280)) echo 'img/' . $img1280;
-                                                        else echo "img/carnation-1325012_1280.jpg"; ?> />
-            <source media="(min-width: 1920px)" srcset=<?php if (isset($img1920)) echo 'img/' . $img1920;
-                                                        else echo "img/carnation-1325012_1920.jpg" ?> />
-            <img src=<?php if (isset($img1920)) echo 'img/' . $img1920;
-                        else echo "carnation-1325012_1920.jpg" ?> alt="Kukkia" />
+                                                        if (isset($img640)) echo 'img/photos/' . $img640;
+                                                        else echo "img/photos/carnation-1325012_640.jpg"; ?> />
+            <source media="(min-width: 641px)" srcset=<?php if (isset($img1280)) echo 'img/photos/' . $img1280;
+                                                        else echo "img/photos/carnation-1325012_1280.jpg"; ?> />
+            <img src=<?php if (isset($img1280)) echo 'img/photos/' . $img1920;
+                        else echo "carnation-1325012_1280.jpg" ?> alt="Kukkia" />
         </picture>
         <h1 class="site-heading <?= isset($titleClass) ? $titleClass : '' ?>"><span><?= $title ?? 'Puutarhaliike Neilikka'; ?></span></h1>
     </header>
