@@ -116,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  let cart = JSON.parse(localStorage.getItem('shoppingCart')) || {}
+
   const errors = {
     first_name: {
       fi: {

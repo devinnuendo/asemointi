@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 include "../config/debugger.php";
 include "../config/language.php";
 
-session_start();
+if (!session_id()) session_start();
 
 $lang = $_SESSION["user_language"] ?? "fi";
 
@@ -40,6 +40,8 @@ $supervisor = supervisor();
 $admin = admin();
 
 //echo "customer_id: " . $_SESSION['customer_id'] . ", loggedIn: " . $loggedIn . ", bonus: " . $bonus . ", employee: " . $employee . ", supervisor: " . $supervisor . ", admin: " . $admin . "<br>";
+
+header("Cache-Control: no-cache, must-revalidate");
 ?>
 
 <!DOCTYPE html>

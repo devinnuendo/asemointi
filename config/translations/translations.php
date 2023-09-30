@@ -86,6 +86,12 @@ $traCommon = array(
     ),
     'cart_empty' =>
     array(
+        'fi' => 'Tyhjennä ostoskori',
+        'en' => 'Empty cart',
+        'sv' => 'Töm kundvagnen',
+    ),
+    'cart_is_empty' =>
+    array(
         'fi' => 'Ostoskorisi on tyhjä',
         'en' => 'Your cart is empty',
         'sv' => 'Din kundvagn är tom',
@@ -672,6 +678,12 @@ $traCommon = array(
         'en' => 'Price',
         'sv' => 'Pris',
     ),
+    'product' =>
+    array(
+        'fi' => 'Tuote',
+        'en' => 'Product',
+        'sv' => 'Produkt',
+    ),
     'products' =>
     array(
         'fi' => 'Tuotteet',
@@ -689,6 +701,12 @@ $traCommon = array(
         'fi' => 'Profiili',
         'en' => 'Profile',
         'sv' => 'Profil',
+    ),
+    'quantity' =>
+    array(
+        'fi' => 'Määrä',
+        'en' => 'Quantity',
+        'sv' => 'Antal',
     ),
     'regards' =>
     array(
@@ -851,6 +869,12 @@ $traCommon = array(
         'fi' => 'Otsikko',
         'en' => 'Title',
         'sv' => 'Titel',
+    ),
+    'total' =>
+    array(
+        'fi' => 'Yhteensä',
+        'en' => 'Total',
+        'sv' => 'Totalt',
     ),
     'tools' =>
     array(

@@ -675,6 +675,9 @@ tr.verified-not td {
 tr a {
   text-decoration: none;
 }
+tfoot {
+  border-top: 4px double hsl(var(--hue), var(--sat), 80%);
+}
 .gap {
   gap: var(--gap);
 }

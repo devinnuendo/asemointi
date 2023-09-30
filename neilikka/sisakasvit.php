@@ -134,7 +134,7 @@ $result_main = $yhteys->query($query_main);
                         <?php
                         };
                         if (!isset($_GET['id'])) {
-                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>#<?= $row['name'] ?>-<?= $row['color'] ?>"> <?php } ?>
+                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>"> <?php } ?>
                             <figure>
                                 <?php
                                 if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
@@ -167,10 +167,8 @@ $result_main = $yhteys->query($query_main);
                                             </form>
                                             <?php
                                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                                if (!session_id()) session_start();
                                                 $item_id = intval($_POST['item']);
                                                 $amount = intval($_POST['amount']);
-                                                $customer_id = $_SESSION['customer_id'];
 
                                                 if (!isset($_SESSION['Neilikka_cart'])) {
                                                     $_SESSION['Neilikka_cart'] = [];
@@ -186,11 +184,8 @@ $result_main = $yhteys->query($query_main);
                                                         $cart[$item_id] = $amount;
                                                     }
                                                 }
-                                                echo var_dump($cart);
-
                                                 $_SESSION['Neilikka_cart'] = $cart;
                                                 echo $traCommon['cart_added'][$lang];
-                                                echo "Item ID: $item_id, Amount: $amount";
                                             };
                                             ?>
                                             <a href="ostoskori.php"><?= $traCommon['cart_shopping'][$lang] ?> &raquo;</a>
