@@ -488,8 +488,11 @@ body .space-between > * {
   right: 0;
   z-index: 998;
   height: 100%;
-  background-color: hsla(var(--hue), var(--sat), 100%, 0.8);
+  max-width: calc(100vw - var(--scrollbar-width));
+  margin: 0;
+  background-color: hsla(var(--hue), var(--sat), 100%, 1);
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   opacity: 1;
@@ -501,6 +504,17 @@ body .space-between > * {
   width: auto;
   pointer-events: none;
   margin: auto;
+}
+.modal-image-wrap .item {
+  max-height: 70vh;
+}
+.item .modal-image {
+  max-height: 70vh;
+}
+.item figcaption {
+  width: max-content;
+  max-width: calc(100vw - var(--scrollbar-width) - calc(var(--gap) * 2));
+  margin: 0 auto;
 }
 
 footer {
@@ -617,6 +631,15 @@ body .flex > * {
 .item-general {
   flex: 1 0 auto;
 }
+.item .item-general {
+  font-weight: bold;
+}
+.item .item-general > * {
+  display: block;
+}
+.item .item-general > em {
+  font-size: 120%;
+}
 .item-description {
   display: flex;
   flex-flow: column nowrap;
@@ -644,6 +667,7 @@ body .flex > * {
 }
 .modal-close {
   position: fixed;
+  text-decoration: none;
 }
 .tablewrap {
   max-width: calc(100vw - var(--scrollbar-width) - calc(var(--gap) * 2));
@@ -698,8 +722,7 @@ tfoot {
     flex: 0 0 48%;
   }
 
-  section.kauppa li.active {
-    /* flex: 0 0 100%; */
+  /* section.kauppa li.active {
     top: 0;
     left: 0;
     right: 0;
@@ -723,7 +746,7 @@ tfoot {
     margin: 0;
     flex: 1 1 auto;
     width: 75%;
-  }
+  } */
   .item-description p {
     margin-top: 0;
   }
@@ -760,7 +783,7 @@ tfoot {
   section.kauppa li {
     --height: 10rem;
   }
-  section.kauppa li.active {
+  /* section.kauppa li.active {
     height: calc(100vh - 6rem);
     max-height: 700px;
   }
@@ -774,8 +797,13 @@ tfoot {
   .active .item-description {
     background-color: hsl(var(--hue), var(--sat), 100%);
     padding: var(--gap);
+  } */
+  .modal {
+    overflow-x: hidden;
   }
-
+  .item figcaption {
+    max-width: clamp(200px, 90vw, 600px);
+  }
   .pagination {
     display: flex;
     justify-content: center;
@@ -864,7 +892,6 @@ tfoot {
   section.kauppa li {
     flex: 0 0 23.5%;
   }
-
   section.kauppa img {
     height: 10rem;
   }
@@ -873,6 +900,31 @@ tfoot {
   }
   .gallery .column {
     flex: calc(25% - var(--gap) * 2);
+  }
+  .modal {
+    overflow-x: hidden;
+  }
+  .image-wrap.item {
+    max-height: 98vh;
+    flex-flow: row nowrap;
+  }
+  .item .modal-image {
+    max-height: 98vh;
+    max-width: calc(50vw - var(--scrollbar-width) - var(--gap) * 2);
+    object-fit: contain;
+    pointer-events: none;
+    margin: auto;
+  }
+  .item figcaption {
+    max-width: calc(50vw - var(--scrollbar-width) - var(--gap) * 2);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap);
+  }
+  .item .item-general {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap);
   }
 }
 

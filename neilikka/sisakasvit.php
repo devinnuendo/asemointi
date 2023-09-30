@@ -117,87 +117,23 @@ $result_main = $yhteys->query($query_main);
                 <?php while ($row = $result_main->fetch_assoc()) { ?>
                     <li class="<?= isset($_GET['id']) && $_GET['id'] == $row['id'] ? 'active' : '' ?>" id="<?= $row['name'] ?>-<?= $row['color'] ?>">
                         <?php
-                        if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
-                        ?>
-                            <div class="absolute right top close-btn">
-                                <a href="sisakasvit.php?random=0&page=<?= $page; ?>#lista" class="tooltip left below" data-tooltip="<?= $traCommon['close'][$lang]; ?>">
-                                    <span aria-hidden="true">
-                                        &times;
-                                    </span>
-                                    <span class="scr">
-                                        <?= $traCommon['close'][$lang] ?>
-                                    </span>
-                                </a>
-                            </div>
-                        <?php
-                        };
-                        if (!isset($_GET['id'])) {
-                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>#<?= $row['name'] ?>-<?= $row['color'] ?>"> <?php } ?>
+                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>">
                             <figure>
-                                <?php
-                                if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
-                                ?>
-                                    <img src="img/photos/<?= $row['img_large'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
-                                <?php
-                                } else {
-                                ?>
-                                    <img src="img/photos/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
-                                <?php }; ?>
+                                <img src="img/photos/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
                                 <figcaption>
                                     <div class="item-general">
                                         <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
                                         <small>
-                                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm
+                                            <?php
+                                            // plants_cut tai plants_pot riippuen typestä:
+                                            ?>
+                                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm, <?= $row['amount'] . " " . $traCommon['pieces'][$lang] ?>
                                         </small>
                                         <strong><?= $row['price'] ?> &euro;</strong>
                                     </div>
-                                    <?php
-                                    if (isset($_GET['id']) && $_GET['id'] == $row['id']) {
-                                    ?>
-                                        <div class="item-description">
-                                            <p><?= $row['description'] ?></p>
-                                            <form method="post" class="reset no-padding flex gap">
-                                                <input type="hidden" name="item" value="<?= $row['id'] ?>" />
-                                                <input type="number" name="amount" class="narrow" value=1 min="1" />
-                                                <button type="submit" class="add-to-cart">
-                                                    <?= $traCommon['cart_add'][$lang] ?>
-                                                </button>
-                                            </form>
-                                            <?php
-                                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                                $item_id = intval($_POST['item']);
-                                                $amount = intval($_POST['amount']);
-
-                                                if (!isset($_SESSION['Neilikka_cart'])) {
-                                                    $_SESSION['Neilikka_cart'] = [];
-                                                }
-
-                                                $cart = $_SESSION['Neilikka_cart'];
-                                                if (empty($cart)) {
-                                                    $cart[$item_id] = $amount;
-                                                } else {
-                                                    if (isset($cart[$item_id])) {
-                                                        $cart[$item_id] += $amount;
-                                                    } else {
-                                                        $cart[$item_id] = $amount;
-                                                    }
-                                                }
-                                                $_SESSION['Neilikka_cart'] = $cart;
-                                                echo $traCommon['cart_added'][$lang];
-                                            };
-                                            ?>
-                                            <a href="ostoskori.php"><?= $traCommon['cart_shopping'][$lang] ?> &raquo;</a>
-
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
                                 </figcaption>
                             </figure>
-                            <?php
-                            if (!isset($_GET['id'])) {
-                            ?>
-                            </a> <?php }; ?>
+                        </a>
                     </li>
                 <?php }; ?>
             <?php }; ?>
@@ -205,6 +141,134 @@ $result_main = $yhteys->query($query_main);
         </ul>
         <?php if (!isset($_GET['id'])) pagination($search_parameters, $left_disabled, $right_disabled, $prev, $next, $last, $page); ?>
     </section>
+    <?php
+    if (isset($_GET['id'])) {
+        $id = intval($_GET['id']);
+        $query =
+            $lang == 'fi'
+            ? ("SELECT 
+            id,
+            plant AS name,
+            sci,
+            description,
+            amount,
+            color,
+            price,
+            length,
+            habitat,
+            type,
+            img_small,
+            img_large
+            FROM neil_plants_fi
+            WHERE id = $id
+            "
+            )
+            : ($lang == 'sv'
+                ? ("SELECT 
+                p.id AS id,
+                sv.plant AS name,
+                p.sci,
+                sv.description AS description,
+                p.amount,
+                sv.color AS color,
+                p.price,
+                p.length,
+                p.habitat,
+                p.type,
+                p.img_small,
+                p.img_large
+                FROM 
+                neil_plants_fi AS p
+                LEFT JOIN
+                neil_plants_sv AS sv ON p.id = sv.original_id
+                WHERE id = $id
+                "
+                )
+                : ("SELECT
+                p.id AS id,
+                en.plant AS name,
+                p.sci,
+                en.description AS description,
+                p.amount,
+                en.color AS color,
+                p.price,
+                p.length,
+                p.habitat,
+                p.type,
+                p.img_small,
+                p.img_large
+                FROM
+                neil_plants_fi AS p 
+                LEFT JOIN
+                neil_plants_en AS en ON p.id = en.original_id
+                WHERE id = $id
+                "
+                )
+            );
+        $result = $yhteys->query($query);
+        $row = $result->fetch_assoc();
+    ?>
+        <section id="modal" class="modal">
+            <figure class="image-wrap item">
+                <div class="close-btn">
+                    <a href="sisakasvit.php?random=0&page=<?= $page; ?>#lista" class="tooltip left below modal-close" data-tooltip="<?= $traCommon['close'][$lang]; ?>" id="modal-close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                        <span class="scr">
+                            <?= $traCommon['close'][$lang] ?>
+                        </span>
+                    </a>
+                </div>
+                <img src="img/photos/<?= $row['img_large'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" id="modal-image" class="modal-image" />
+                <figcaption>
+                    <div class="item-general">
+                        <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
+                        <small>
+                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm, <?= $row['amount'] . " " . $traCommon['pieces'][$lang] ?>
+                        </small>
+                        <strong><?= $row['price'] ?> &euro;</strong>
+                    </div>
+                    <div class="item-description">
+                        <p><?= $row['description'] ?></p>
+                        <form method="post" class="reset no-padding flex gap">
+                            <input type="hidden" name="item" value="<?= $row['id'] ?>" />
+                            <input type="number" name="amount" class="narrow" value=1 min="1" />
+                            <button type="submit" class="add-to-cart">
+                                <?= $traCommon['cart_add'][$lang] ?>
+                            </button>
+                        </form>
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            $item_id = intval($_POST['item']);
+                            $amount = intval($_POST['amount']);
+
+                            if (!isset($_SESSION['Neilikka_cart'])) {
+                                $_SESSION['Neilikka_cart'] = [];
+                            }
+
+                            $cart = $_SESSION['Neilikka_cart'];
+                            if (empty($cart)) {
+                                $cart[$item_id] = $amount;
+                            } else {
+                                if (isset($cart[$item_id])) {
+                                    $cart[$item_id] += $amount;
+                                } else {
+                                    $cart[$item_id] = $amount;
+                                }
+                            }
+                            $_SESSION['Neilikka_cart'] = $cart;
+                            echo $traCommon['cart_added'][$lang];
+                        };
+                        ?>
+                        <a href="ostoskori.php"><?= $traCommon['cart_shopping'][$lang] ?> &raquo;</a>
+
+                    </div>
+                </figcaption>
+            </figure>
+
+        </section>
+    <?php  } ?>
 </main>
 
 <?php include "sivuosat/footer.php"; ?>
