@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $email_body =  "<html>
                                     <body>
                                         <h1>{$traLocal['email_change_neilikka'][$lang]}</h1>
-                                        <p>{$traCommon['hello'][$lang]} $email_recipient_name, <br /><br />{$traCommon['username_new_is'][$lang]} \"$email\".<br /><br />{$traCommon['email_confirm_from_link_below'][$lang]}:<br><br> <a href='$verkkosivu/$kansio/vahvistus-sahkoposti.php?token=$token'>{$traCommon['email_confirm'][$lang]}</a><br /><br />{$traCommon['regards'][$lang]},<br />{$traLocal['staff_neilikka'][$lang]}</p>
+                                        <p>{$traCommon['hello'][$lang]} $email_recipient_name, <br /><br />{$traCommon['username_new_is'][$lang]} \"$email\". <br /><br />{$traCommon['email_confirm_from_link_below'][$lang]}: <br><br> <a href='$verkkosivu/$kansio/vahvistus-sahkoposti.php?token=$token'>{$traCommon['email_confirm'][$lang]}</a> <br /><br />{$traCommon['regards'][$lang]}, <br />{$traLocal['staff_neilikka'][$lang]}</p>
                                     </body>
                                     </html>";
 
