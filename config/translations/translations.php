@@ -72,11 +72,17 @@ $traCommon = array(
         'en' => 'Cart',
         'sv' => 'Kundvagn',
     ),
-    'cart_add_to' =>
+    'cart_add' =>
     array(
         'fi' => 'Lisää ostoskoriin',
         'en' => 'Add to cart',
         'sv' => 'Lägg till i kundvagnen',
+    ),
+    'cart_added' =>
+    array(
+        'fi' => 'Lisätty ostoskoriin',
+        'en' => 'Added to cart',
+        'sv' => 'Tillagd i kundvagnen',
     ),
     'cart_empty' =>
     array(

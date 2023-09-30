@@ -126,7 +126,12 @@ input[type='file']::file-selector-button:hover {
 input[type='file']::file-selector-button {
   margin-bottom: 0.4rem;
 }
-
+.flex > input[type='submit'],
+.flex > button[type='submit'],
+.flex > button[type='button'],
+.flex > input[type='file']::file-selector-button {
+  margin: 0;
+}
 fieldset {
   border: solid 1px hsl(var(--hue), var(--sat), 80%);
   border-radius: 0.3rem;

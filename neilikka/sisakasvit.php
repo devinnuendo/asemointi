@@ -1,6 +1,8 @@
 <?php
 include "sivuosat/top.php";
 $title = $traLocal['plants_indoor'][$lang];
+$css = 'styles-lomake.css';
+$script = 'lomake.js';
 include "sivuosat/header.php";
 
 $QUERY_STRING = $_SERVER['QUERY_STRING'];
@@ -98,6 +100,8 @@ $query_main =
         )
     );
 $result_main = $yhteys->query($query_main);
+
+
 ?>
 
 <main>
@@ -154,13 +158,43 @@ $result_main = $yhteys->query($query_main);
                                     ?>
                                         <div class="item-description">
                                             <p><?= $row['description'] ?></p>
-                                            <form action="ostoskori.php?id=<?= $row['id'] ?>&amp;action=add" class="reset no-padding flex">
-                                                <!-- <a href="ostoskori.php?id=<?= $row['id'] ?>&amp;action=add"> </a>-->
-                                                <input type="number" name="item-amount" class="narrow" />
-                                                <button type="submit" name="add" class="add-to-cart" value="<?= $row['id'] ?>">
-                                                    <?= $traCommon['cart_add_to'][$lang] ?>
+                                            <form method="post" class="reset no-padding flex gap">
+                                                <input type="hidden" name="item" value="<?= $row['id'] ?>" />
+                                                <input type="number" name="amount" class="narrow" value=1 min="1" />
+                                                <button type="submit" class="add-to-cart">
+                                                    <?= $traCommon['cart_add'][$lang] ?>
                                                 </button>
                                             </form>
+                                            <?php
+                                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                if (!session_id()) session_start();
+                                                $item_id = intval($_POST['item']);
+                                                $amount = intval($_POST['amount']);
+                                                $customer_id = $_SESSION['customer_id'];
+
+                                                if (!isset($_SESSION['Neilikka_cart'])) {
+                                                    $_SESSION['Neilikka_cart'] = [];
+                                                }
+
+                                                $cart = $_SESSION['Neilikka_cart'];
+                                                if (empty($cart)) {
+                                                    $cart[$item_id] = $amount;
+                                                } else {
+                                                    if (isset($cart[$item_id])) {
+                                                        $cart[$item_id] += $amount;
+                                                    } else {
+                                                        $cart[$item_id] = $amount;
+                                                    }
+                                                }
+                                                echo var_dump($cart);
+
+                                                $_SESSION['Neilikka_cart'] = $cart;
+                                                echo $traCommon['cart_added'][$lang];
+                                                echo "Item ID: $item_id, Amount: $amount";
+                                            };
+                                            ?>
+                                            <a href="ostoskori.php"><?= $traCommon['cart_shopping'][$lang] ?> &raquo;</a>
+
                                         </div>
                                     <?php
                                     }

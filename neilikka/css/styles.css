@@ -269,6 +269,7 @@ section.kauppa li {
 }
 section.kauppa figure {
   margin: 0;
+  background-color: hsl(var(--hue), var(--sat), 100%);
 }
 section.kauppa img {
   width: 100%;
@@ -285,7 +286,7 @@ section.kauppa a:hover,
 section.kauppa a:focus {
   color: hsl(var(--hue), var(--sat), 45%);
 }
-section.kauppa li:hover {
+section.kauppa li:not(.active):hover {
   transform: scale(1.05);
 }
 
@@ -715,7 +716,6 @@ tr a {
     width: 22%;
   }
   section.kauppa li.active figcaption .item-description {
-    display: inline-block;
     width: auto;
     margin: 0;
     flex: 1 1 auto;
