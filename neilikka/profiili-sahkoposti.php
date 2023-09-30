@@ -81,14 +81,6 @@ include "sivuosat/header.php";
 <main class="image">
     <section>
 
-        <?php
-
-
-
-        ?>
-
-
-
         <?php include "sivuosat/form_language.php" ?>
 
         <form autocomplete="off" method="post" id="form-email" class="form-email">
