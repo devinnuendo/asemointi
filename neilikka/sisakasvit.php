@@ -114,28 +114,9 @@ $result_main = $yhteys->query($query_main);
 
             if ($result_main->num_rows > 0) {
             ?>
-                <?php while ($row = $result_main->fetch_assoc()) { ?>
-                    <li class="<?= isset($_GET['id']) && $_GET['id'] == $row['id'] ? 'active' : '' ?>" id="<?= $row['name'] ?>-<?= $row['color'] ?>">
-                        <?php
-                        ?> <a href="sisakasvit.php?id=<?= $row['id'] ?>&page=<?= $page; ?>">
-                            <figure>
-                                <img src="img/photos/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
-                                <figcaption>
-                                    <div class="item-general">
-                                        <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
-                                        <small>
-                                            <?php
-                                            // plants_cut tai plants_pot riippuen typestä:
-                                            ?>
-                                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm, <?= $row['amount'] . " " . $traCommon['pieces'][$lang] ?>
-                                        </small>
-                                        <strong><?= $row['price'] ?> &euro;</strong>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                <?php }; ?>
+                <?php while ($row = $result_main->fetch_assoc()) {
+                    product_li('sisakasvit', $row, $page);
+                }; ?>
             <?php }; ?>
 
         </ul>

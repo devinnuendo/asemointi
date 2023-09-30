@@ -249,3 +249,29 @@ function pagination($search_parameters, $left_disabled, $right_disabled, $prev, 
     </nav>
 <?php
 }
+
+function product_li($filename, $row, $page)
+{
+    global $traLocal, $traCommon, $lang;
+?>
+    <li id="<?= $row['name'] ?>-<?= $row['color'] ?>">
+        <?php
+        ?> <a href="<?= $filename ?>.php?id=<?= $row['id'] ?>&page=<?= $page; ?>">
+            <figure>
+                <img src="img/photos/<?= $row['img_small'] ?>" alt="<?= $row['name'] ?>, <?= $row['color'] ?>" />
+                <figcaption>
+                    <div class="item-general">
+                        <em><?= $row['name'] ?>, <?= $row['color'] ?></em>
+                        <small>
+                            <?php
+                            // plants_cut tai plants_pot riippuen typestä:
+                            ?>
+                            <?= $traLocal['plants_' . $row['type']][$lang] ?>, <?= $traCommon['about'][$lang] ?> <?= $row['length'] ?> cm, <?= $row['amount'] . " " . $traCommon['pieces'][$lang] ?>
+                        </small>
+                        <strong><?= $row['price'] ?> &euro;</strong>
+                    </div>
+                </figcaption>
+            </figure>
+        </a>
+    </li>
+<?php }

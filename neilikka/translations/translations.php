@@ -136,7 +136,13 @@ $traLocal = array(
         'en' => 'Mon-Wed 9-17, <br />Sat 12-18',
         'sv' => 'mån-ons 9-17, <br />lör 12-18',
     ),
-    'tree_orange' =>
+    'orange' =>
+    array(
+        'fi' => 'Appelsiini',
+        'en' => 'Orange',
+        'sv' => 'Apelsin',
+    ),
+    'orange_tree' =>
     array(
         'fi' => 'Appelsiinipuu',
         'en' => 'Orange Tree',
