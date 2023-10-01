@@ -250,7 +250,7 @@ function pagination($search_parameters, $left_disabled, $right_disabled, $prev, 
 <?php
 }
 
-function product_li($filename, $row, $page)
+function product_li($filename, $row, $page = 1)
 {
     global $traLocal, $traCommon, $lang;
 ?>
@@ -276,7 +276,7 @@ function product_li($filename, $row, $page)
     </li>
 <?php }
 
-function product_modal($filename, $row, $page)
+function product_modal($filename, $row, $page = 1)
 {
     global $traCommon, $traLocal, $lang;
 ?>

@@ -488,7 +488,7 @@ body .space-between > * {
   right: 0;
   bottom: 0;
   z-index: 998;
-  /* max-width: calc(100vw - var(--scrollbar-width)); */
+  max-width: calc(100vw - var(--scrollbar-width));
   margin: 0;
   background-color: hsla(var(--hue), var(--sat), 100%, 1);
   display: flex;

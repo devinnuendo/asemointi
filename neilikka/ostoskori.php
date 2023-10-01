@@ -41,7 +41,7 @@ include "sivuosat/header.php";
                                 $cartTotal += $total_price;
                         ?>
                                 <tr>
-                                    <td><a href="sisakasvit.php?id=<?= $_SESSION['Neilikka_cart'][$item_id] ?>"><?= $product_name . ", " . $product_color ?> (<?= $product_amount . " " . $traCommon['pieces'][$lang] ?>)</a></td>
+                                    <td><a href="sisakasvit.php?id=<?= $item_id ?>"><?= $product_name . ", " . $product_color ?> (<?= $product_amount . " " . $traCommon['pieces'][$lang] ?>)</a></td>
                                     <td><?= number_format($product_price, 2) ?> &euro;</td>
                                     <td><?= $quantity ?> <?= $product_amount > 1 ? "(" . $product_amount * $quantity . " " . $traCommon['pieces'][$lang] . ")" : ''  ?> </td>
                                     <td><?= number_format($total_price, 2) ?> &euro;</td>
