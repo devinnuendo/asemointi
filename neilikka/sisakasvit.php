@@ -47,7 +47,7 @@ $query_main =
         length,
         habitat,
         type,
-        img_small, 
+        img_small
         FROM
         neil_plants_fi WHERE habitat = 'indoor'
         LIMIT $offset, $row_count;
@@ -64,7 +64,7 @@ $query_main =
             p.length,
             p.habitat,
             p.type,
-            p.img_small, 
+            p.img_small
             FROM 
             neil_plants_fi AS p
             LEFT JOIN
@@ -83,7 +83,7 @@ $query_main =
             p.length,
             p.habitat,
             p.type,
-            p.img_small, 
+            p.img_small
             FROM
             neil_plants_fi AS p 
             LEFT JOIN
@@ -132,7 +132,6 @@ $result_main = $yhteys->query($query_main);
             length,
             habitat,
             type,
-            img_small,
             img_large
             FROM neil_plants_fi
             WHERE id = $id
@@ -150,7 +149,6 @@ $result_main = $yhteys->query($query_main);
                 p.length,
                 p.habitat,
                 p.type,
-                p.img_small,
                 p.img_large
                 FROM 
                 neil_plants_fi AS p
@@ -170,7 +168,6 @@ $result_main = $yhteys->query($query_main);
                 p.length,
                 p.habitat,
                 p.type,
-                p.img_small,
                 p.img_large
                 FROM
                 neil_plants_fi AS p 

@@ -486,9 +486,9 @@ body .space-between > * {
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: 998;
-  height: 100%;
-  max-width: calc(100vw - var(--scrollbar-width));
+  /* max-width: calc(100vw - var(--scrollbar-width)); */
   margin: 0;
   background-color: hsla(var(--hue), var(--sat), 100%, 1);
   display: flex;
@@ -496,7 +496,6 @@ body .space-between > * {
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: opacity 0.2s ease-out;
   overflow-x: scroll;
 }
 .modal-image {
@@ -629,7 +628,7 @@ body .flex > * {
 }
 
 .item-general {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
 }
 .item .item-general {
   font-weight: bold;
@@ -901,15 +900,14 @@ tfoot {
   .gallery .column {
     flex: calc(25% - var(--gap) * 2);
   }
-  .modal {
-    overflow-x: hidden;
-  }
   .image-wrap.item {
-    max-height: 98vh;
+    max-height: 98%;
+    display: flex;
     flex-flow: row nowrap;
+    gap: var(--gap);
   }
   .item .modal-image {
-    max-height: 98vh;
+    max-height: 98%;
     max-width: calc(50vw - var(--scrollbar-width) - var(--gap) * 2);
     object-fit: contain;
     pointer-events: none;
@@ -919,6 +917,7 @@ tfoot {
     max-width: calc(50vw - var(--scrollbar-width) - var(--gap) * 2);
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
     gap: var(--gap);
   }
   .item .item-general {
@@ -944,4 +943,10 @@ tfoot {
 }
 
 @media (min-width: 1400px) {
+}
+
+@media (min-height: 500px) {
+  .modal {
+    overflow-y: hidden;
+  }
 }
