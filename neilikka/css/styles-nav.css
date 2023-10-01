@@ -291,7 +291,6 @@ nav button[type='submit']:hover,
 nav button[type='button']:hover {
   transform: scale(1);
 }
-.li-submenu.user > a,
 .li-submenu.user > label {
   flex: 0 0 max-content;
   position: relative;
@@ -459,7 +458,7 @@ form.form-logout {
     width: auto;
     right: 0;
     left: initial;
-    top: calc(48px + var(--gap) * 1.3);
+    top: calc(48px + var(--gap));
   }
   .mainmenu .submenu a,
   .form-logout button[type='submit'] {
@@ -626,10 +625,11 @@ form.form-logout {
   }
   .li-submenu.user {
     order: 3;
+    height: 100%;
   }
-  .li-submenu.user ~ label {
-    height: 1rem;
-    margin: 0.5rem 0 -0.5rem;
+  .li-submenu.user label {
+    height: 2rem;
+    margin: 0.6rem 0 -0.6rem;
   }
   .li-submenu label {
     bottom: 0.2rem;
