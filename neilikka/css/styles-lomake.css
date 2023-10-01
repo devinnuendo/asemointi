@@ -19,6 +19,9 @@ form.reset {
 form.reset legend {
   padding-bottom: 1rem;
 }
+form.wide {
+  max-width: var(--max-width);
+}
 body form .flex {
   gap: var(--gap);
 }
@@ -130,6 +133,33 @@ input[type='file']::file-selector-button {
 .flex > button[type='submit'],
 .flex > button[type='button'],
 .flex > input[type='file']::file-selector-button {
+  margin: 0;
+}
+button.remove-item,
+button.update-item {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.4rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+button.update-item span:not(.scr) {
+  display: inline-flex;
+  margin-top: -0.2rem;
+  margin-bottom: 0.2rem;
+}
+.update {
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--gap);
+}
+.update input {
   margin: 0;
 }
 fieldset {

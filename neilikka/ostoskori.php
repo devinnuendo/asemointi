@@ -24,12 +24,27 @@ include "sivuosat/header.php";
                             <th><?= $traCommon['price'][$lang] ?></th>
                             <th><?= $traCommon['quantity'][$lang] ?></th>
                             <th><?= $traCommon['total'][$lang] ?></th>
+                            <th><span class="scr"><?= $traCommon['remove'][$lang] ?></span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         foreach ($cart as $item_id => $quantity) {
-                            $query = "SELECT plant, color, price, amount FROM neil_plants_fi WHERE id = $item_id";
+                            $query = $lang == 'fi'
+                                ? ("SELECT plant, color, price, amount 
+                            FROM neil_plants_fi 
+                            WHERE id = $item_id")
+                                : ($lang == 'sv'
+                                    ? ("SELECT sv.plant, sv.color, p.price, p.amount 
+                                        FROM neil_plants_fi AS p 
+                                        LEFT JOIN neil_plants_sv AS sv 
+                                        ON p.id = sv.original_id 
+                                        WHERE id = $item_id")
+                                    : ("SELECT en.plant, en.color, p.price, p.amount 
+                                        FROM neil_plants_fi AS p 
+                                        LEFT JOIN neil_plants_en AS en 
+                                        ON p.id = en.original_id 
+                                        WHERE id = $item_id"));
                             $result = $yhteys->query($query);
 
                             if ($result && $row = $result->fetch_assoc()) {
@@ -41,10 +56,36 @@ include "sivuosat/header.php";
                                 $cartTotal += $total_price;
                         ?>
                                 <tr>
-                                    <td><a href="sisakasvit.php?id=<?= $item_id ?>"><?= $product_name . ", " . $product_color ?> (<?= $product_amount . " " . $traCommon['pieces'][$lang] ?>)</a></td>
-                                    <td><?= number_format($product_price, 2) ?> &euro;</td>
-                                    <td><?= $quantity ?> <?= $product_amount > 1 ? "(" . $product_amount * $quantity . " " . $traCommon['pieces'][$lang] . ")" : ''  ?> </td>
-                                    <td><?= number_format($total_price, 2) ?> &euro;</td>
+                                    <td>
+                                        <a href="sisakasvit.php?id=<?= $item_id ?>">
+                                            <?= $product_name . ", " . $product_color ?> (<?= $product_amount . " " . $traCommon['pieces'][$lang] ?>)
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <?= number_format($product_price, 2) ?> &euro;
+                                    </td>
+                                    <td>
+                                        <form action="ostoskori-paivita.php" method="post" class="reset no-padding update">
+                                            <input type="number" name="quantity[<?= $item_id ?>]" value="<?= $quantity ?>" min="1" class="narrow" />
+                                            <button type="submit" class="update-item tooltip below" data-tooltip="<?= $traCommon['cart_update'][$lang]; ?>">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="scr"><?= $traCommon['update'][$lang] ?></span>
+                                            </button>
+                                            <?= $product_amount > 1 ? "(" . $product_amount * $quantity . " " . $traCommon['pieces'][$lang] . ")" : ''  ?>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <?= number_format($total_price, 2) ?> &euro;
+                                    </td>
+                                    <td>
+                                        <!-- <form action="ostoskori-poista.php" method="post" class="reset no-padding"> -->
+                                        <input type="hidden" name="item_id" value="<?= $item_id ?>">
+                                        <button type="submit" class="remove-item tooltip below left" data-tooltip="<?= $traCommon['remove'][$lang]; ?>" data-item-id="<?= $item_id ?>" data-item-name="<?= $product_name . ", " . $product_color; ?>" data-item-confirmation1="<?= $traCommon['confirm_remove_partial'][$lang] ?>" data-item-confirmation2="<?= $traCommon['cart_from'][$lang] ?>">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="scr"><?= $traCommon['remove'][$lang] . " " . $product_name . ", " . $product_color; ?></span>
+                                        </button>
+                                        <!-- </form> -->
+                                    </td>
                                 </tr>
                         <?php
                             }
@@ -55,6 +96,7 @@ include "sivuosat/header.php";
                         <tr>
                             <td colspan="3"><?= $traCommon['total'][$lang] ?>:</td>
                             <td><?= number_format($cartTotal, 2) ?> &euro;</td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -72,5 +114,36 @@ include "sivuosat/header.php";
 
     </section>
 </main>
+
+<script>
+    const removeItemButtons = document.querySelectorAll('.remove-item');
+    removeItemButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the item ID from the button's data attribute
+            const itemID = this.getAttribute('data-item-id');
+            // Get the item name from the button's data attribute
+            const itemName = this.getAttribute('data-item-name');
+            //
+            const itemConfirm1 = this.getAttribute('data-item-confirmation1');
+            const itemConfirm2 = this.getAttribute('data-item-confirmation2');
+            // Display a confirmation dialog
+            const confirmation = confirm(`${itemConfirm1} "${itemName}" ${itemConfirm2}?`);
+
+            // If the user confirms, submit the form to remove the item
+            if (confirmation) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = 'ostoskori-poista.php';
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'item_id';
+                input.value = itemID;
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+</script>
 
 <?php include "sivuosat/footer.php"; ?>

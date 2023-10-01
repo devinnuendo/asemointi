@@ -588,7 +588,7 @@ body .alert {
 .tooltip::before {
   content: attr(data-tooltip);
   position: absolute;
-  top: 70%;
+  top: 100%;
   left: 0;
   font-size: 0.8rem;
   padding: 1px 5px;
@@ -607,7 +607,7 @@ body .alert {
   top: -10%;
 }
 .tooltip.below::before {
-  top: 110%;
+  top: 130%;
 }
 .tooltip.left::before {
   left: unset;

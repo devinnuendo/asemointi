@@ -90,6 +90,12 @@ $traCommon = array(
         'en' => 'Empty cart',
         'sv' => 'Töm kundvagnen',
     ),
+    'cart_from' =>
+    array(
+        'fi' => 'ostoskorista',
+        'en' => 'from the cart',
+        'sv' => 'från kundvagnen',
+    ),
     'cart_is_empty' =>
     array(
         'fi' => 'Ostoskorisi on tyhjä',
@@ -107,6 +113,12 @@ $traCommon = array(
         'fi' => 'Ostoskori',
         'en' => 'Shopping cart',
         'sv' => 'Kundvagn',
+    ),
+    'cart_update' =>
+    array(
+        'fi' => 'Päivitä ostoskori',
+        'en' => 'Update cart',
+        'sv' => 'Uppdatera kundvagn',
     ),
     'change' =>
     array(
@@ -167,6 +179,12 @@ $traCommon = array(
         'fi' => 'Valkoinen',
         'en' => 'White',
         'sv' => 'Vit',
+    ),
+    'confirm_remove_partial' =>
+    array(
+        'fi' => 'Haluatko varmasti poistaa',
+        'en' => 'Are you sure you want to remove',
+        'sv' => 'Är du säker på att du vill ta bort',
     ),
     'connection_failed' =>
     array(
