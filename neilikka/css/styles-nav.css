@@ -171,6 +171,9 @@ div.li-submenu .submenu {
   background-color: hsl(var(--hue), var(--sat), 35%);
   color: hsl(var(--hue), var(--sat), 96%);
 }
+.li-submenu.user label {
+  background-color: transparent;
+}
 .li-submenu i {
   padding: var(--gap) 1em;
 }
@@ -211,7 +214,7 @@ div.li-submenu .submenu {
   cursor: pointer;
 }
 #submenu-toggle3 {
-  width: calc(50%);
+  width: 100%;
 }
 .submenu-toggle ~ label {
   outline: 2px solid transparent;
@@ -274,6 +277,19 @@ div.li-submenu .submenu-toggle:hover ~ label {
   flex: 1 0 calc(100vw - var(--scrollbar-width));
   justify-content: center;
   align-items: center;
+}
+nav .tooltip::before,
+nav .tooltip:hover::before {
+  position: fixed;
+  top: 0;
+  left: 40%;
+  width: max-content;
+  height: auto;
+  font-style: italic;
+}
+nav button[type='submit']:hover,
+nav button[type='button']:hover {
+  transform: scale(1);
 }
 .li-submenu.user > a,
 .li-submenu.user > label {
@@ -350,6 +366,9 @@ form.form-logout {
   border-radius: 0;
   background-color: hsl(var(--hue), var(--sat), 40%);
   color: hsl(var(--hue), var(--sat), 100%);
+}
+.form-logout button[type='submit'] {
+  text-align: center;
 }
 .language-switcher button[type='submit']:hover,
 .form-logout button[type='submit']:hover {
@@ -429,8 +448,12 @@ form.form-logout {
   .li-submenu.user {
     flex: 0 1 max-content;
   }
+
   .mainmenu > ul {
     top: calc(48px + var(--gap) * 2);
+  }
+  #submenu-toggle3 {
+    width: 3rem;
   }
   #submenu-toggle3 ~ ul {
     width: auto;
@@ -440,6 +463,7 @@ form.form-logout {
   }
   .mainmenu .submenu a,
   .form-logout button[type='submit'] {
+    text-align: left;
     padding: calc(var(--gap) * 2) calc(var(--gap) * 3);
     background-color: hsl(var(--hue), var(--sat), 40%);
   }

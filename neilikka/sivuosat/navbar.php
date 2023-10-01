@@ -109,20 +109,14 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
     if ($loggedIn) {
     ?>
         <div class="li-submenu user <?= ($active == 'profiili' || $active == 'toimitus' || $active == 'laskutus') ? 'active' : ''; ?> tooltip below" data-tooltip="<?= $traCommon['user'][$lang]; ?>">
-            <a href="profiili.php" class="full">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span class="scr">
-                    <?= $traCommon['profile'][$lang]; ?>
-                </span>
-            </a>
             <input type="checkbox" id="submenu-toggle3" class="submenu-toggle" aria-expanded="false" aria-controls="submenu3" />
-            <label for="submenu-toggle3" class="plusicon open">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                <span class="scr">open submenu</span>
+            <label for="submenu-toggle3" class="open">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="scr">open user menu</span>
             </label>
-            <label for="submenu-toggle3" class="minusicon close">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-                <span class="scr">close submenu</span>
+            <label for="submenu-toggle3" class="close">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="scr">close user menu</span>
             </label>
             <ul class="submenu" id="submenu3">
                 <li class="<?= ($active == 'profiili') ? 'active' : ''; ?>">
@@ -168,6 +162,7 @@ $active = basename($_SERVER['PHP_SELF'], ".php");
             </ul>
 
         </div>
+
     <?php
     } else { ?>
         <div class="li-submenu user <?= ($active == 'rekisteroidy' || $active == 'kirjaudu') ? 'active' : ''; ?>">

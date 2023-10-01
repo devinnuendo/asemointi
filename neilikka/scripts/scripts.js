@@ -19,15 +19,21 @@ document.querySelectorAll('.submenu-toggle').forEach((s) => {
   })
 })
 
-// close main menu when user menu is opened
+// close other menus when menu opened
 const userToggle = document.querySelector('.user .submenu-toggle')
+const languageToggle = document.querySelector('#language-select .submenu-toggle')
+const menuToggle = document.querySelector('#menu-toggle')
 userToggle?.addEventListener('click', function () {
-  document.getElementById('menu-toggle').checked = false
+  menuToggle.checked = false
+  languageToggle.checked = false
 })
-
-// close user menu when main menu is opened
-document.querySelector('#menu-toggle').addEventListener('click', function () {
-  document.querySelector('.user .submenu-toggle').checked = false
+languageToggle?.addEventListener('click', function () {
+  menuToggle.checked = false
+  userToggle.checked = false
+})
+menuToggle?.addEventListener('click', function () {
+  userToggle.checked = false
+  languageToggle.checked = false
 })
 
 const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth
