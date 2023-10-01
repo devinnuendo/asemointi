@@ -39,7 +39,6 @@ $query_main =
     ? ("SELECT 
         id,
         plant AS name,
-        sci,
         description,
         amount,
         color,
@@ -47,8 +46,7 @@ $query_main =
         length,
         habitat,
         type,
-        img_small,
-        img_large
+        img_small
         FROM
         neil_plants_fi WHERE habitat = 'outdoor'
         LIMIT $offset, $row_count;
@@ -58,7 +56,6 @@ $query_main =
         ? ("SELECT 
             p.id AS id,
             sv.plant AS name,
-            p.sci,
             sv.description AS description,
             p.amount,
             sv.color AS color,
@@ -66,8 +63,7 @@ $query_main =
             p.length,
             p.habitat,
             p.type,
-            p.img_small,
-            p.img_large
+            p.img_small
             FROM 
             neil_plants_fi AS p
             LEFT JOIN
@@ -79,7 +75,6 @@ $query_main =
         : ("SELECT
             p.id AS id,
             en.plant AS name,
-            p.sci,
             en.description AS description,
             p.amount,
             en.color AS color,
@@ -87,8 +82,7 @@ $query_main =
             p.length,
             p.habitat,
             p.type,
-            p.img_small,
-            p.img_large
+            p.img_small
             FROM
             neil_plants_fi AS p 
             LEFT JOIN
@@ -137,7 +131,6 @@ $result_main = $yhteys->query($query_main);
             length,
             habitat,
             type,
-            img_small,
             img_large
             FROM neil_plants_fi
             WHERE id = $id
@@ -155,7 +148,6 @@ $result_main = $yhteys->query($query_main);
                 p.length,
                 p.habitat,
                 p.type,
-                p.img_small,
                 p.img_large
                 FROM 
                 neil_plants_fi AS p
@@ -175,7 +167,6 @@ $result_main = $yhteys->query($query_main);
                 p.length,
                 p.habitat,
                 p.type,
-                p.img_small,
                 p.img_large
                 FROM
                 neil_plants_fi AS p 
