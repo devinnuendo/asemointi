@@ -150,7 +150,7 @@ function direction()
         $rowCount = $result->num_rows;
         ?>
 
-        <section class="tablewrap">
+        <section class="table-wrap">
             <?php
             ?>
             <?php

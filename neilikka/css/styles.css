@@ -15,7 +15,7 @@
   --font-size-normal: 20px;
   --gap: 0.5rem;
   --typography_ratio: 1.16;
-  --responsive_scale: 0.75;
+  --responsive_scale: 0.7;
   --title-XS: calc(1.4rem * var(--responsive_scale));
   --title-S: calc(calc(var(--typography_ratio) * var(--responsive_scale)) * 1.4rem);
   --title-M: calc(
@@ -668,7 +668,7 @@ body .flex > * {
   position: fixed;
   text-decoration: none;
 }
-.tablewrap {
+.table-wrap {
   max-width: calc(100vw - var(--scrollbar-width) - calc(var(--gap) * 2));
   overflow-x: scroll;
 }
@@ -754,6 +754,9 @@ tfoot {
   }
   .gallery .column {
     flex: calc(50% - var(--gap) * 2);
+  }
+  .table-wrap.small {
+    overflow-x: hidden;
   }
 }
 @media (min-width: 576px) {
@@ -930,6 +933,9 @@ tfoot {
 @media (min-width: 992px) {
   :root {
     --responsive_scale: 0.9;
+  }
+  .table-wrap {
+    overflow-x: hidden;
   }
   section.tuotteet nav {
     --size: 192px;
